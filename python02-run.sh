@@ -1,3 +1,35 @@
+#!/bin/bash
+wpath() {
+    local input_path="$1"
+
+    # Check if no argument is given
+    if [[ -z "$input_path" ]]; then
+        echo "Error: No input path provided." >&2
+        return 1
+    fi
+
+    # Check if the input path is a valid Unix-style or Windows-style path
+    if ! [[ "$input_path" =~ ^(/|[a-zA-Z]:\\) ]]; then
+        echo "Error: Invalid path string provided." >&2
+        return 2
+    fi
+
+    # If the path is already a valid Windows path, return it as is
+    if [[ "$input_path" =~ ^[a-zA-Z]:\\ ]]; then
+        echo "$input_path"
+        return 0
+    fi
+
+    # Remove the leading '/'
+    input_path="${input_path#/}"
+    # Replace '/' with '\'
+    windows_path=$(echo "$input_path" | sed 's/\//\\/g')
+    # Convert the first segment to uppercase with a trailing ':'
+    windows_path=$(echo "$windows_path" | sed 's/^\([a-zA-Z]\)/\U\1:/')
+
+    echo "$windows_path"
+    return 0
+}
 ###############################################################################
 #                                   PYTHON;
 ################################################################################
