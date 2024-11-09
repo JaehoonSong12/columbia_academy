@@ -30,6 +30,28 @@ wpath() {
     echo "$windows_path"
     return 0
 }
+###############################################################################
+#              external resources (external development tools);
+###############################################################################
+EXT_DIR_ABS="$(pwd)/ext"
+function _DESTROY_ENV {
+    rm -rf ${EXT_DIR_ABS} # reset
+}
+function init_ext {
+    local _url="$1"
+    local _target="$2"
+    local _dir="$3"
+    echo -e "Downloading ${_target}..."
+    curl -L "$_url" -o "${_target}"
+    # read -p "Press Enter to continue..."
+    echo -e "Extracting ${_target}..."
+    mkdir -p "$_dir"
+    unzip "${_target}" -d "$_dir"
+    # read -p "Press Enter to continue..."
+    echo -e "Finished initialization of ${_target}..."
+    rm "${_target}"
+}
+
 
 ###############################################################################
 #                                   PYTHON;
