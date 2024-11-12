@@ -109,12 +109,12 @@ cd ca_academy
 
 ## Python (GT CS 1301 / AP CS A)
 After cloning, initialize the repository by running the provided bash scripts (`copy`, then `right-click` in a bash session):
-1. Run the initial setup script:
+1. Run the initial setup script (to download **Python Language System**):
    ```bash
    ./scripts/python01-init.sh
    ```
 
-2. Run the project setup script:
+2. Run the project setup script (to configure **Virtual Environment** in `src` subdirectory):
    ```bash
    ./scripts/python02-run.sh
    ```
