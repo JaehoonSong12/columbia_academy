@@ -19,9 +19,6 @@
 <!-- Anchor Tag (Object) for "back to top" -->
 <a id="readme-top"></a> 
 
-# ca_academy
-This is for students in Columbia Academy to study AP subjects (CS principle), CS1301 (CS A), and CS 1332.
-
 
 
 
@@ -30,7 +27,6 @@ This is for students in Columbia Academy to study AP subjects (CS principle), CS
 Welcome to the CA Academy project repository! This README provides quick access to project documentation and code.
 
 ## Table of Contents
-- [ca\_academy](#ca_academy)
 - [CA Academy Project](#ca-academy-project)
   - [Table of Contents](#table-of-contents)
   - [Project Overview](#project-overview)
@@ -39,8 +35,7 @@ Welcome to the CA Academy project repository! This README provides quick access 
   - [Contributing](#contributing)
 
 ## Project Overview
-
-This project aims to [briefly describe the project purpose, goals, or any background information]. 
+This project is designed to support students at Columbia Academy in studying AP subjects, specifically **AP Computer Science Principles**, as well as Georgia Tech introductory courses **CS 1301: Intro to Computing with Python** (**CS A**) and **CS 1331: Introduction to Object-Oriented Programming with Java**.
 
 ## Documentation
 
