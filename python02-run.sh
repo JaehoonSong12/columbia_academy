@@ -119,6 +119,11 @@ scons --version     # (3) Version Check
 
 
 
+
+PROJECT_DIR="$(pwd)/src"
+mkdir -p "$PROJECT_DIR"
+cd "$PROJECT_DIR"
+
 # Check for Python command (python3 or python)
 if command -v python3 &>/dev/null; then
     PYTHON_CMD=python3
