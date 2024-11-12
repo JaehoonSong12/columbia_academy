@@ -43,7 +43,7 @@ Welcome to the CA Academy project repository! This README provides quick access 
   - [Code Access](#code-access)
   - [Contributing](#contributing)
 - [Instructions](#instructions)
-  - [Python (GT CS1301 / CS A)](#python-gt-cs1301--cs-a)
+  - [Python (GT CS 1301 / AP CS A)](#python-gt-cs-1301--ap-cs-a)
 
 
 
@@ -107,7 +107,7 @@ git clone https://github.com/JaehoonSong12/ca_academy.git
 cd ca_academy
 ```
 
-## Python (GT CS1301 / CS A)
+## Python (GT CS 1301 / AP CS A)
 After cloning, initialize the repository by running the provided bash scripts:
 1. Run the initial setup script:
    ```bash
