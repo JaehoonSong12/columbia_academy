@@ -12,7 +12,16 @@
 
  @usage
  1. End of Proof (Q.E.D.): <div style="text-align: right;">&#11035;</div>
- 2. End of Each Section: <p align="right">(<a href="#readme-top">back to top</a>)</p><br /><br /><br />
+ 2. End of Each Section: 
+
+     <br /><br /><br />
+
+     ---
+
+
+
+     <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
  3. ![image_title_](images/imagefile.png)
  4. [url_title](URL)
  -->
@@ -37,15 +46,19 @@ Welcome to the CA Academy project repository! This README provides quick access 
 
 
 
-<br /><br /><br /><br /><br /><br />
 
+
+
+
+
+
+
+
+
+
+<br /><br /><br />
 
 ---
-
-
-
-
-
 
 # Project Overview
 This project is designed to support students at Columbia Academy in studying AP subjects, specifically 
@@ -77,6 +90,11 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 
 
+
+
+
+
+
 <br /><br /><br />
 
 ---
@@ -98,8 +116,6 @@ After cloning, initialize the repository by running the provided bash scripts:
    ```bash
    ./scripts/python02-run.sh
    ```
-
-
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
