@@ -43,6 +43,7 @@ Welcome to the CA Academy project repository! This README provides quick access 
   - [Code Access](#code-access)
   - [Contributing](#contributing)
 - [Instructions](#instructions)
+  - [Python](#python)
 
 
 
@@ -106,6 +107,7 @@ git clone https://github.com/JaehoonSong12/ca_academy.git
 cd ca_academy
 ```
 
+## Python
 After cloning, initialize the repository by running the provided bash scripts:
 1. Run the initial setup script:
    ```bash
