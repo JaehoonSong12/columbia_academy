@@ -35,7 +35,10 @@ Welcome to the CA Academy project repository! This README provides quick access 
   - [Contributing](#contributing)
 
 ## Project Overview
-This project is designed to support students at Columbia Academy in studying AP subjects, specifically **AP Computer Science Principles**, as well as Georgia Tech introductory courses **CS 1301: Intro to Computing with Python** (**CS A**) and **CS 1331: Introduction to Object-Oriented Programming with Java**.
+This project is designed to support students at Columbia Academy in studying AP subjects, specifically 
+1. AP CS Principles - **JavaScript**
+2. GT CS 1301: Intro to Computing (CS A) - **Python**
+3. GT CS 1331: Introduction to Object-Oriented Programming. - **Java**
 
 ## Documentation
 
