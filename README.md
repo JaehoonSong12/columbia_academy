@@ -30,6 +30,7 @@ Welcome to the CA Academy project repository! This README provides quick access 
 - [CA Academy Project](#ca-academy-project)
   - [Table of Contents](#table-of-contents)
   - [Project Overview](#project-overview)
+  - [Instructions](#instructions)
   - [Documentation](#documentation)
   - [Code Access](#code-access)
   - [Contributing](#contributing)
@@ -39,6 +40,29 @@ This project is designed to support students at Columbia Academy in studying AP 
 1. AP CS Principles - **JavaScript**
 2. GT CS 1301: Intro to Computing (CS A) - **Python**
 3. GT CS 1331: Introduction to Object-Oriented Programming. - **Java**
+
+
+## Instructions
+To start, clone the repository using the following command:
+```bash
+git clone https://github.com/JaehoonSong12/ca_academy.git
+cd ca_academy
+```
+
+After cloning, initialize the repository by running the provided bash scripts:
+1. Run the initial setup script:
+   ```bash
+   bash scripts/python01-init.sh
+   ```
+
+2. Run the project setup script:
+   ```bash
+   bash scripts/python02-run.sh
+   ```
+
+
+
+
 
 ## Documentation
 
