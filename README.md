@@ -52,12 +52,12 @@ cd ca_academy
 After cloning, initialize the repository by running the provided bash scripts:
 1. Run the initial setup script:
    ```bash
-   bash scripts/python01-init.sh
+   ./scripts/python01-init.sh
    ```
 
 2. Run the project setup script:
    ```bash
-   bash scripts/python02-run.sh
+   ./scripts/python02-run.sh
    ```
 
 
