@@ -10,3 +10,22 @@ f = open('myfile.txt', 'r')
 content = f.read()  # Read the entire file
 print(content)
 f.close()  # Close the file after reading
+
+
+
+
+
+#########################################
+
+"""
+Function Name: listen()
+Parameters: N/A
+Returns: None
+"""
+def listen():
+    songs = int(input("How many songs did you listen to? "))
+    podcasts = int(input("How many podcasts did you listen to? "))
+    totalMinutes = songs * 3 + podcasts * 25
+    print("By listening to " + str(songs) + " songs and " + str(podcasts) + " podcasts, you have spent " + str(totalMinutes // 60) + " hours and " + str(totalMinutes % 60) + " minutes on Spotify.")
+
+#########################################
