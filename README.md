@@ -41,7 +41,7 @@ This project is designed to support students at Columbia Academy in studying AP 
 
 For detailed documentation, including project specifications, development guidelines, and usage instructions, please visit our documentation on Google Docs:
 
-[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?tab=t.0)
+[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?usp=sharing)
 
 ## Code Access
 
