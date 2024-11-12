@@ -77,16 +77,7 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 
 
-<br /><br /><br />
-
-
-
-
-
-
-
-
----
+<br /><br /><br />---
 
 # Instructions
 To start, clone the repository using the following command:
