@@ -33,7 +33,6 @@ Welcome to the CA Academy project repository! This README provides quick access 
   - [Documentation](#documentation)
   - [Code Access](#code-access)
   - [Contributing](#contributing)
-  - [(back to top)](#back-to-top)
 - [Instructions](#instructions)
 
 
@@ -78,11 +77,10 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 
 
-
+---
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
----
 <br /><br /><br />
 
 
