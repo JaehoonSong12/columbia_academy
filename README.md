@@ -116,7 +116,7 @@ After cloning, initialize the repository by running the provided bash scripts (`
 
 2. Run the project setup script (to configure **Virtual Environment** in `src` subdirectory):
    ```bash
-   ./scripts/python02-run.sh
+   ./scripts/python02-config.sh
    ```
 
 
