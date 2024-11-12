@@ -29,20 +29,37 @@ Welcome to the CA Academy project repository! This README provides quick access 
 ## Table of Contents
 - [CA Academy Project](#ca-academy-project)
   - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-  - [Instructions](#instructions)
+- [Project Overview](#project-overview)
   - [Documentation](#documentation)
   - [Code Access](#code-access)
   - [Contributing](#contributing)
+- [Instructions](#instructions)
 
-## Project Overview
+# Project Overview
 This project is designed to support students at Columbia Academy in studying AP subjects, specifically 
 1. AP CS Principles - **JavaScript**
 2. GT CS 1301: Intro to Computing (CS A) - **Python**
 3. GT CS 1331: Introduction to Object-Oriented Programming. - **Java**
 
 
-## Instructions
+## Documentation
+
+For detailed documentation, including project specifications, development guidelines, and usage instructions, please visit our documentation on Google Docs:
+
+[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?usp=sharing)
+
+## Code Access
+
+The code for this project is hosted on GitHub in this repository. You can explore the source code, contribute, and access different branches as necessary:
+
+[GitHub Repository - CA Academy Project](https://github.com/JaehoonSong12/ca_academy)
+
+## Contributing
+
+We welcome contributions! If you would like to suggest improvements, please submit a pull request, or open an issue.
+
+
+# Instructions
 To start, clone the repository using the following command:
 ```bash
 git clone https://github.com/JaehoonSong12/ca_academy.git
@@ -63,19 +80,3 @@ After cloning, initialize the repository by running the provided bash scripts:
 
 
 
-
-## Documentation
-
-For detailed documentation, including project specifications, development guidelines, and usage instructions, please visit our documentation on Google Docs:
-
-[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?usp=sharing)
-
-## Code Access
-
-The code for this project is hosted on GitHub in this repository. You can explore the source code, contribute, and access different branches as necessary:
-
-[GitHub Repository - CA Academy Project](https://github.com/JaehoonSong12/ca_academy)
-
-## Contributing
-
-We welcome contributions! If you would like to suggest improvements, please submit a pull request, or open an issue.
