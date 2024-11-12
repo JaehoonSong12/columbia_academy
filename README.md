@@ -74,7 +74,7 @@ We welcome contributions! If you would like to suggest improvements, please subm
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
----
+
 
 
 <br /><br /><br />
@@ -86,7 +86,7 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 
 
-
+---
 
 # Instructions
 To start, clone the repository using the following command:
