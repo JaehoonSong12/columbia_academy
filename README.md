@@ -71,16 +71,12 @@ The code for this project is hosted on GitHub in this repository. You can explor
 We welcome contributions! If you would like to suggest improvements, please submit a pull request, or open an issue.
 
 
-
-
-
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ---
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <br /><br /><br />
 
 
