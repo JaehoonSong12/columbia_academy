@@ -33,7 +33,20 @@ Welcome to the CA Academy project repository! This README provides quick access 
   - [Documentation](#documentation)
   - [Code Access](#code-access)
   - [Contributing](#contributing)
+  - [(back to top)](#back-to-top)
 - [Instructions](#instructions)
+
+
+
+
+
+
+---
+
+
+
+
+
 
 # Project Overview
 This project is designed to support students at Columbia Academy in studying AP subjects, specifically 
@@ -59,6 +72,28 @@ The code for this project is hosted on GitHub in this repository. You can explor
 We welcome contributions! If you would like to suggest improvements, please submit a pull request, or open an issue.
 
 
+
+
+
+
+
+
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+---
+<br /><br /><br />
+
+
+
+
+
+
+
+
+
+
 # Instructions
 To start, clone the repository using the following command:
 ```bash
@@ -76,7 +111,3 @@ After cloning, initialize the repository by running the provided bash scripts:
    ```bash
    ./scripts/python02-run.sh
    ```
-
-
-
-
