@@ -77,7 +77,9 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 
 
-<br /><br /><br />---
+<br /><br /><br />
+
+---
 
 # Instructions
 To start, clone the repository using the following command:
@@ -96,3 +98,8 @@ After cloning, initialize the repository by running the provided bash scripts:
    ```bash
    ./scripts/python02-run.sh
    ```
+
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
