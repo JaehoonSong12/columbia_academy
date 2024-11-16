@@ -81,7 +81,7 @@ myMessage = "Good coding practice!"
 print(myMessage)
 x = 10
 print(x)
-y = 5
+y = 5   
 print(y)
 z = x + y
 print(z)
