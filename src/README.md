@@ -37,6 +37,7 @@ This README provides step-by-step instructions for each homework.
   - [Table of Contents](#table-of-contents)
 - [HW00: Tutorial](#hw00-tutorial)
   - [Set Up Your Virtual Environment](#set-up-your-virtual-environment)
+  - [Open VSCode in this directory](#open-vscode-in-this-directory)
   - [Check Python Version](#check-python-version)
   - [Execution of Application](#execution-of-application)
   - [Do Homework](#do-homework)
@@ -60,6 +61,9 @@ Before running any code, make sure you have your virtual environment set up.
 
 - If you haven't set up a virtual environment yet, follow the setup instructions provided in the root repository.
 - If you don't have `venv` like folder name and VSCode bash session does not show you `(venv)` on top, that means you need to setup a virtual environment
+
+## Open VSCode in this directory
+This `src` (source code) directory is where you are going to actually code. Open your VS Code here to proceed.
 
 ## Check Python Version
 Make sure that Python is virtually executing and the correct version is available in your virtual environment.
