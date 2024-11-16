@@ -101,6 +101,7 @@ $(wpath $(pwd))
 $(wpath $(pwd)/Ydqt)
 $(wpath $(pwd)/phys2211)
 $(wpath $(pwd)/cs4460)
+$(wpath $(pwd)/src)
 ... add more paths of local packages you are working on (customized packages and modules) 
 EOF
 )
