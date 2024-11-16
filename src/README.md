@@ -32,7 +32,7 @@
 
 This README provides step-by-step instructions for each homework.
 1. Lecture notes are available in `lecture_notes` direcotry.
-2. Homeworks will be modularized and will never be modified after release by instructors.
+2. Homeworks will be modularized and will never be modified upon release by instructors.
 
 ## Table of Contents
 - [Homework Instructions](#homework-instructions)
