@@ -3,7 +3,6 @@ import hw00
 
 def cli():
     print("App is running...")
-    hw00.main()  # Test HW00
     # hw01.main()  # Test HW01
     # hw02.main()  # Test HW02
     # hw03.main()  # Test HW03
