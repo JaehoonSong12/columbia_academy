@@ -12,48 +12,140 @@
 
  @usage
  1. End of Proof (Q.E.D.): <div style="text-align: right;">&#11035;</div>
- 2. End of Each Section: <p align="right">(<a href="#readme-top">back to top</a>)</p><br /><br /><br />
+ 2. End of Each Section: 
+
+     <br /><br /><br />
+
+     ---
+
+
+
+     <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
  3. ![image_title_](images/imagefile.png)
  4. [url_title](URL)
  -->
 <!-- Anchor Tag (Object) for "back to top" -->
 <a id="readme-top"></a> 
 
-# ca_academy
-This is for students in Columbia Academy to study AP subjects (CS principle), CS1301 (CS A), and CS 1332.
+# Homework Instructions
 
-
-
-
-# CA Academy Project
-
-Welcome to the CA Academy project repository! This README provides quick access to project documentation and code.
+This README provides step-by-step instructions for each homework.
 
 ## Table of Contents
-- [ca\_academy](#ca_academy)
-- [CA Academy Project](#ca-academy-project)
+- [Homework Instructions](#homework-instructions)
   - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-  - [Documentation](#documentation)
-  - [Code Access](#code-access)
-  - [Contributing](#contributing)
+- [HW00: Tutorial](#hw00-tutorial)
+  - [Set Up Your Virtual Environment](#set-up-your-virtual-environment)
+  - [Check Python Version](#check-python-version)
+  - [Execution of Application](#execution-of-application)
+  - [Do Homework](#do-homework)
+- [HW01:](#hw01)
+- [HW02:](#hw02)
+- [HW03:](#hw03)
+- [HW04:](#hw04)
+- [HW05:](#hw05)
+- [HW06:](#hw06)
+- [HW07:](#hw07)
 
-## Project Overview
+<br /><br /><br />
 
-This project aims to [briefly describe the project purpose, goals, or any background information]. 
+---
 
-## Documentation
+# HW00: Tutorial
+To get started with your homework assignments, follow the steps below.
 
-For detailed documentation, including project specifications, development guidelines, and usage instructions, please visit our documentation on Google Docs:
+## Set Up Your Virtual Environment
+Before running any code, make sure you have your virtual environment set up.
 
-[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?tab=t.0)
+- If you haven't set up a virtual environment yet, follow the setup instructions provided in the root repository.
+- If you don't have `venv` like folder name and VSCode bash session does not show you `(venv)` on top, that means you need to setup a virtual environment
 
-## Code Access
+## Check Python Version
+Make sure that Python is virtually executing and the correct version is available in your virtual environment.
 
-The code for this project is hosted on GitHub in this repository. You can explore the source code, contribute, and access different branches as necessary:
+Run the following command to check your Python virtual environment:
+```bash
+python --version
+```
 
-[GitHub Repository - CA Academy Project](https://github.com/JaehoonSong12/ca_academy)
+## Execution of Application
+Once you check `python --version`, you can now run your application. Simply type in the following command.
+```bash
+./run.sh
+```
 
-## Contributing
+## Do Homework
+You are all set, all the steps for doing the HW is availble in `./hw00.py` file.
 
-We welcome contributions! If you would like to suggest improvements, please submit a pull request, or open an issue.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW01: 
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW02: 
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW03: 
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW04: 
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW05: 
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW06:  
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br /><br /><br />
+
+---
+
+# HW07: 
+To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
