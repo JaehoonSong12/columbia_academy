@@ -85,6 +85,7 @@ function _INIT_PYTHON {                                         # Installation
         init_ext "$url" "python.zip" "${EXT_DIR_ABS}/Python$ver"
         echo -e "python$ver.zip\n.\nimport site" > "$EXT_DIR_ABS/Python$ver/python$ver._pth"
         ${PYTHON_DIR//\{VERSION\}/$ver}/python "get-pip.py"  # Package Installer for Python
+        # ${PYTHON_DIR//\{VERSION\}/$ver}/Scripts/pip install venv       # virtual environment
         ${PYTHON_DIR//\{VERSION\}/$ver}/Scripts/pip install scons       # build automation
         ${PYTHON_DIR//\{VERSION\}/$ver}/Scripts/pip install setuptools    # autobuild, src/built distro
         ${PYTHON_DIR//\{VERSION\}/$ver}/Scripts/pip install --upgrade setuptools wheel

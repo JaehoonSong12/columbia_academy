@@ -125,10 +125,10 @@ mkdir -p "$PROJECT_DIR"
 cd "$PROJECT_DIR"
 
 # Check for Python command (python3 or python)
-if command -v python3 &>/dev/null; then
-    PYTHON_CMD=python3
-elif command -v python &>/dev/null; then
+if command -v python &>/dev/null; then
     PYTHON_CMD=python
+elif command -v python3 &>/dev/null; then
+    PYTHON_CMD=python3
 else
     echo "Python is not installed or not found in PATH"
     exit 1
@@ -137,11 +137,17 @@ fi
 # Get Python version
 PYTHON_VERSION=$($PYTHON_CMD -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 
+# Extract major and minor version numbers
+PYTHON_MAJOR=${PYTHON_VERSION%%.*}        # Major version (before the first dot)
+PYTHON_MINOR=${PYTHON_VERSION#*.}         # Minor version (after the first dot)
+
+
 # Check if Python version is 3.3 or higher
-if (( $(echo "$PYTHON_VERSION >= 3.3" | bc -l) )); then
-   $PYTHON_CMD -m venv venv # use venv module
-else 
-   virtualenv venv # use virtualenv
+if [ "$PYTHON_MAJOR" -gt 3 ] || { [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 3 ]; }; then
+    $PYTHON_CMD -m venv venv # use venv module
+else
+    pip install virtualenv
+    virtualenv venv # use virtualenv
 fi
 
 # Activate virtual environment based on OS type
