@@ -56,8 +56,6 @@ print(calculate_square_root(25))  # Should print 5.0
 
 
 
-
-
 # Part 1: Working with Variables
 """
 Task 1.1: Define a variable `myMessage` with the value 'Good coding practice!' and print it.
