@@ -153,8 +153,3 @@ else
    echo "Unsupported OS type: $OSTYPE"
    exit 1
 fi
-
-# Install requirements
-pip install pipreqs
-pipreqs . --force
-pip install -r requirements.txt
