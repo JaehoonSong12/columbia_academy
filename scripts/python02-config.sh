@@ -134,21 +134,19 @@ else
     exit 1
 fi
 
-# Get Python version
-PYTHON_VERSION=$($PYTHON_CMD -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
-
-# Extract major and minor version numbers
-PYTHON_MAJOR=${PYTHON_VERSION%%.*}        # Major version (before the first dot)
-PYTHON_MINOR=${PYTHON_VERSION#*.}         # Minor version (after the first dot)
-
-
-# Check if Python version is 3.3 or higher
-if [ "$PYTHON_MAJOR" -gt 3 ] || { [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 3 ]; }; then
-    $PYTHON_CMD -m venv venv # use venv module
+# Python Virtual Environment (PVE)
+if $PYTHON_CMD -c "import venv" &>/dev/null; then
+    echo "'venv' module is available. Creating virtual environment using 'venv'..."
+    python -m venv venv
+elif $PYTHON_CMD -c "import virtualenv" &>/dev/null; then
+    echo "'virtualenv' module is available. Creating virtual environment using 'virtualenv'..."
+    $PYTHON_CMD -m virtualenv venv
 else
-    pip install virtualenv
-    virtualenv venv # use virtualenv
+    echo "Error: Neither 'venv' nor 'virtualenv' module is available. Please install one of them."
+    exit 1
 fi
+
+
 
 # Activate virtual environment based on OS type
 if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then # Windows
