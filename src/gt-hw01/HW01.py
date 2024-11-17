@@ -10,11 +10,8 @@ Parameters: N/A
 Returns: None
 """
 def dominosTime():
-    pizzas = int(input("How many pizzas do you want? "))
-    pasta = int(input("How many orders of pasta do you want? "))
-    wings = int(input("How many orders of chicken wings do you want? "))
-    total = pizzas * 12 + pasta * 6 + wings * 8
-    print("By ordering " + str(pizzas) + " pizzas, " + str(pasta) + " orders of pasta, and " + str(wings) + " orders of chicken wings, your order total comes to $" + str(total) + ".")
+    ## fill out your code here!
+    return
 
 #########################################
 
@@ -24,10 +21,8 @@ Parameters: N/A
 Returns: None
 """
 def tipAndSplit():
-    total = int(input("What was the order total? "))
-    percentage = int(input("What percentage would you like to tip? "))
-    people = int(input("How many people are splitting the order? "))
-    print("The driver got a tip of $" + str(round(total * (percentage / 100), 2)) + ". Each person paid $" + str(round(total * ((percentage + 100) / 100) / people, 2)) + ".")
+    ## fill out your code here!
+    return
 
 #########################################
 
@@ -37,10 +32,8 @@ Parameters: N/A
 Returns: None
 """
 def youtuber():
-    videos = int(input("How many videos have you made? "))
-    adsense = float(input("How much do you get paid per view? "))
-    views = int(input("How many views do your videos have? "))
-    print("You have made $" + str(round(videos * adsense * views, 2)) + " by making YouTube videos!")
+    ## fill out your code here!
+    return
 
 #########################################
 
@@ -50,5 +43,5 @@ Parameters: N/A
 Returns: None
 """
 def bathBomb():
-    radius = float(input("What is the radius of the bath bomb? "))
-    print("The volume of a bath bomb with radius " + str(radius) + " is " + str(round(4 / 3 * 3.14 * radius ** 3, 2)) + ".")
+    ## fill out your code here!
+    return
