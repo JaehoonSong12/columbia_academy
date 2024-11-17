@@ -28,8 +28,7 @@
 <!-- Anchor Tag (Object) for "back to top" -->
 <a id="readme-top"></a> 
 
-# Homework Instructions
-
+# Homework Workspace
 
 ## Course Description
 Introduction to computing principles and programming practices with an emphasis on the design, construction and implementation of problem solutions use of software tools. This README provides step-by-step instructions for each homework.
@@ -45,7 +44,7 @@ Introduction to computing principles and programming practices with an emphasis 
 - To understand and employ functions and modularity.
 - Through labs become comfortable with common software packages in use today.
 
-## Table of Contents
+## GT Homework References
 - Homework 01 - [Functions and Expressions]()
 - Homework 02 - [Conditionals]()
 - Homework 03 - [Iteration]()
@@ -58,11 +57,11 @@ Introduction to computing principles and programming practices with an emphasis 
 
 
 ## Table of Contents
-- [Homework Instructions](#homework-instructions)
+- [Homework Workspace](#homework-workspace)
   - [Course Description](#course-description)
   - [Course Objectives](#course-objectives)
+  - [GT Homework References](#gt-homework-references)
   - [Table of Contents](#table-of-contents)
-  - [Table of Contents](#table-of-contents-1)
 - [HW00: Tutorial](#hw00-tutorial)
   - [Set Up Your Virtual Environment](#set-up-your-virtual-environment)
   - [Open VSCode in this directory](#open-vscode-in-this-directory)
