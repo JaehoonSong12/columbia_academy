@@ -17,7 +17,7 @@ def cli():
     # hw11.main()  # Test HW11
     # hw12.main()  # Test HW12
     
-    gt_hw01.HW01.bathBomb()  # Test GT_HW01
+    # gt_hw01.HW01.bathBomb()  # Test GT_HW01
     # hw02.main()  # Test GT_HW02
     # hw03.main()  # Test GT_HW03
     # hw04.main()  # Test GT_HW04
