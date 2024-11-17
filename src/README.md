@@ -30,12 +30,28 @@
 
 # Homework Instructions
 
-This README provides step-by-step instructions for each homework.
+
+## Course Description
+Introduction to computing principles and programming practices with an emphasis on the design, construction and implementation of problem solutions use of software tools. This README provides step-by-step instructions for each homework.
 1. Lecture notes are available in `lecture_notes` direcotry.
 2. Homeworks will be modularized and will never be modified upon release by instructors.
 
+## Course Objectives
+- To understand the basic concepts of computer programming in a high-level language.
+- To be able to use and combine control flow constructs to form useful programs.
+- To understand and become familiar with a number of simple data structures.
+- To understand the process and skills necessary to effectively deal with problem solving in relation to writing programs.
+- To be able to test and debug programs.
+- To understand and employ functions and modularity.
+- Through labs become comfortable with common software packages in use today.
+
+
+
+
 ## Table of Contents
 - [Homework Instructions](#homework-instructions)
+  - [Course Description](#course-description)
+  - [Course Objectives](#course-objectives)
   - [Table of Contents](#table-of-contents)
 - [HW00: Tutorial](#hw00-tutorial)
   - [Set Up Your Virtual Environment](#set-up-your-virtual-environment)
