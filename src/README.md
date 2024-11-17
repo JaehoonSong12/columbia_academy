@@ -45,7 +45,16 @@ Introduction to computing principles and programming practices with an emphasis 
 - To understand and employ functions and modularity.
 - Through labs become comfortable with common software packages in use today.
 
-
+## Table of Contents
+- Homework 01 - [Functions and Expressions]()
+- Homework 02 - [Conditionals]()
+- Homework 03 - [Iteration]()
+- Homework 04 - [Strings, Indexing, & Lists]()
+- Homework 07 - [File I/O & CSV]()
+- Homework 08 - [APIs]()
+- Homework 09 - [Recursion]()
+- Homework 10 - [Object Oriented Programming]()
+- Homework EC - [Extra Credit]()
 
 
 ## Table of Contents
@@ -53,6 +62,7 @@ Introduction to computing principles and programming practices with an emphasis 
   - [Course Description](#course-description)
   - [Course Objectives](#course-objectives)
   - [Table of Contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents-1)
 - [HW00: Tutorial](#hw00-tutorial)
   - [Set Up Your Virtual Environment](#set-up-your-virtual-environment)
   - [Open VSCode in this directory](#open-vscode-in-this-directory)
