@@ -44,7 +44,7 @@ Introduction to computing principles and programming practices with an emphasis 
 - To understand and employ functions and modularity.
 - Through labs become comfortable with common software packages in use today.
 
-## GT Homework References
+## GT CS 1301 Homework References - Intro to Computing (Fall 2020)
 - Homework 01 - [Functions and Expressions]()
 - Homework 02 - [Conditionals]()
 - Homework 03 - [Iteration]()
@@ -60,7 +60,7 @@ Introduction to computing principles and programming practices with an emphasis 
 - [Homework Workspace](#homework-workspace)
   - [Course Description](#course-description)
   - [Course Objectives](#course-objectives)
-  - [GT Homework References](#gt-homework-references)
+  - [GT CS 1301 Homework References - Intro to Computing (Fall 2020)](#gt-cs-1301-homework-references---intro-to-computing-fall-2020)
   - [Table of Contents](#table-of-contents)
 - [HW00: Tutorial](#hw00-tutorial)
   - [Set Up Your Virtual Environment](#set-up-your-virtual-environment)
