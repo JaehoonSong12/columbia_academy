@@ -611,31 +611,29 @@ Answer:
 
 
 
-# Part 2: Output (Monitor)
-def display_cat_message():
-    """
-    [IMPLEMENT_YOUR_ANSWER] Displays the text: The cat said "meow."
+# Part 2: Abstraction of Computer's IO System: Input (Keyboard), Output (Monitor)
+def ...:
 
-    Question:
-        This function prints the phrase 'The cat said "meow."' to the console.
+# Part 3: Data Types
+def ...:
 
-    Answer:
-        
-    """
-
-# Part 3: Input (Keyboard)
-
-# Part 4: Data Types
-
+# Entry Point of Execution
 def main():
     """
-    Runs test cases for the homework functions.
+    Runs test cases (expected output with given input) for the homework functions.
     """
     print("Running Tests...")
+    # Part 2.1: 
+    # Part 2.2: 
+    # Part 2.3: 
+    # Part 2.4: 
+    # ...
+    # Part 3.1: 
+    # Part 3.2: 
+    # Part 3.3: 
+    # Part 3.4: 
+    # ...
 
-    # Part 3: Test cases
-    print("\nDisplay Cat Message Test:")
-    display_cat_message()  # Expected: The cat said "meow."
-
-if __name__ == "__main__":
+# Direct Execution
+if __name__ == "__main__": # __name__: module name, __main__: executed module name
     main()
