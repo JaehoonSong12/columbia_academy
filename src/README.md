@@ -118,8 +118,7 @@ You are all set, all the steps for doing the HW is availble in [`./hw00.py`](./h
 ---
 
 # HW01: Python Data-type and Functions for Input and Output Abstraction
-All the steps for doing the HW is availble in `./hw01.py` file.
-[Functions and Expressions](gt_hw01/HW01.pdf)
+All the steps for doing the HW is availble in [`./hw01.py`](./hw01.py) file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
