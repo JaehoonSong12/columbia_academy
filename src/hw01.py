@@ -13,7 +13,7 @@ Homework01: Python Data-type and Functions for Input and Output Abstraction
 
 
 
-# Part 1: Concetps, MCQ & FRQ
+# Part 1: Concepts, MCQ & FRQ
 """ Q1
 Question:
     Is Python a case-sensitive programming language? 
