@@ -68,7 +68,7 @@ Introduction to computing principles and programming practices with an emphasis 
   - [Check Python Version](#check-python-version)
   - [Execution of Application](#execution-of-application)
   - [Do Homework](#do-homework)
-- [HW01:](#hw01)
+- [HW01: Python Data-type and Functions for Input and Output Abstraction](#hw01-python-data-type-and-functions-for-input-and-output-abstraction)
 - [HW02:](#hw02)
 - [HW03:](#hw03)
 - [HW04:](#hw04)
@@ -118,8 +118,8 @@ You are all set, all the steps for doing the HW is availble in `./hw00.py` file.
 
 ---
 
-# HW01: 
-To get started with your homework assignments, follow the steps below.
+# HW01: Python Data-type and Functions for Input and Output Abstraction
+All the steps for doing the HW is availble in `./hw01.py` file.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
