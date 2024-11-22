@@ -409,6 +409,197 @@ Answer:
 
 
 
+""" Q30
+Question:
+    A ________ is a sequence of characters.
+    a. char sequence
+    b. character collection
+    c. string
+    d. text block
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q31
+Question:
+    A ________ is a name that references a value in the computer's memory.
+    a. variable
+    b. register
+    c. RAM slot
+    d. byte
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q32
+Question:
+    A string literal in Python must be enclosed in ________.
+    a. parentheses
+    b. single-quotes
+    c. double-quotes
+    d. either single-quotes or double-quotes
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q33
+Question:
+    Short notes placed in different parts of a program explaining how those parts of the program work are called ________.
+    a. comments
+    b. reference manuals
+    c. tutorials
+    d. external documentation
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q34
+Question:
+    A(n) ________ makes a variable reference a value in the computer's memory.
+    a. variable declaration
+    b. assignment statement
+    c. math expression
+    d. string literal
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q35
+Question:
+    This symbol marks the beginning of a comment in Python.
+    a. &
+    b. *
+    c. **
+    d. #
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q36
+Question:
+    Which of the following statements will cause an error?
+    a. x = 17
+    b. 17 = x
+    c. x = 99999
+    d. x = '17'
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q37
+Question:
+    In the expression 12 + 7, the values on the right and left of the + symbol are called ________.
+    a. operands
+    b. operators
+    c. arguments
+    d. math expressions
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q38
+Question:
+    This operator performs integer division.
+    a. //
+    b. %
+    c. **
+    d. /
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q39
+Question:
+    This is an operator that raises a number to a power.
+    a. %
+    b. *
+    c. **
+    d. /
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q40
+Question:
+    This operator performs division, but instead of returning the quotient it returns the remainder.
+    a. %
+    b. *
+    c. **
+    d. /
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q41
+Question:
+    Suppose the following statement is in a program: price = 99.0. After this statement executes, the price variable will reference a value of which data type?
+    a. int
+    b. float
+    c. currency
+    d. str
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q42
+Question:
+    Which built-in function can be used to read input that has been typed on the keyboard?
+    a. input()
+    b. get_input()
+    c. read_input()
+    d. keyboard()
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q43
+Question:
+    Which built-in function can be used to convert an int value to a float?
+    a. int_to_float()
+    b. float()
+    c. convert()
+    d. int()
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q44
+Question:
+    A magic number is ________.
+    a. a number that is mathematically undefined
+    b. an unexplained value that appears in a program's code
+    c. a number that cannot be divided by 1
+    d. a number that causes computers to crash
+
+Answer:
+    [YOUR_ANSWER]
+"""
+
+""" Q45
+Question:
+    A ________ is a name that represents a value that does not change during the program's execution.
+    a. named literal
+    b. named constant
+    c. variable signature
+    d. key term
+
+Answer:
+    [YOUR_ANSWER]
+"""
 
 
 
