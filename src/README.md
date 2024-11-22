@@ -75,6 +75,9 @@ Introduction to computing principles and programming practices with an emphasis 
 - [HW05:](#hw05)
 - [HW06:](#hw06)
 - [HW07:](#hw07)
+- [References](#references)
+  - [Documentation](#documentation)
+  - [Code Access](#code-access)
 
 <br /><br /><br />
 
@@ -177,6 +180,32 @@ To get started with your homework assignments, follow the steps below.
 
 # HW07: 
 To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+
+<br /><br /><br />
+
+---
+
+# References
+Project references are listed below.
+
+## Documentation
+
+For detailed documentation, including project specifications, development guidelines, and usage instructions, please visit our documentation on Google Docs:
+
+[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?usp=sharing)
+
+## Code Access
+
+The code for this project is hosted on GitHub in this repository. You can explore the source code, contribute, and access different branches as necessary:
+
+[GitHub Repository - CA Academy Project](https://github.com/JaehoonSong12/ca_academy)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
