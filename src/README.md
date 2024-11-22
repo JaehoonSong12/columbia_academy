@@ -45,15 +45,15 @@ Introduction to computing principles and programming practices with an emphasis 
 - Through labs become comfortable with common software packages in use today.
 
 ## GT CS 1301 Homework References - Intro to Computing (Fall 2020)
-- Homework 01 - [Functions and Expressions]()
-- Homework 02 - [Conditionals]()
-- Homework 03 - [Iteration]()
-- Homework 04 - [Strings, Indexing, & Lists]()
-- Homework 07 - [File I/O & CSV]()
-- Homework 08 - [APIs]()
-- Homework 09 - [Recursion]()
-- Homework 10 - [Object Oriented Programming]()
-- Homework EC - [Extra Credit]()
+- GT Homework 01 - [Functions and Expressions](gt_hw01/HW01.pdf)
+- GT Homework 02 - [Conditionals]()
+- GT Homework 03 - [Iteration]()
+- GT Homework 04 - [Strings, Indexing, & Lists]()
+- GT Homework 07 - [File I/O & CSV]()
+- GT Homework 08 - [APIs]()
+- GT Homework 09 - [Recursion]()
+- GT Homework 10 - [Object Oriented Programming]()
+- GT Homework EC - [Extra Credit]()
 
 
 ## Table of Contents

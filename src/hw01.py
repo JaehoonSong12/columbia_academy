@@ -416,6 +416,12 @@ Answer:
 
 
 
+
+
+
+
+
+
 # Part 2: Output (Monitor)
 def display_cat_message():
     """
