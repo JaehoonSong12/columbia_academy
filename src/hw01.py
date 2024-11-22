@@ -609,13 +609,105 @@ Answer:
 
 
 
-
-
 # Part 2: Abstraction of Computer's IO System: Input (Keyboard), Output (Monitor)
-def ...:
+def input_favorite_color():
+    """
+    Prompts the user to enter their favorite color and returns it.
+    :return: The favorite color entered by the user.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
 
-# Part 3: Data Types
-def ...:
+def display_personal_info():
+    """
+    Prompts the user to enter their personal information and displays it.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+
+
+
+
+
+# Part 3: Data Types and Operations
+def assign_sum():
+    """
+    Assigns the sum of 10 and 14 to a variable named `total` and returns it.
+    :return: The sum of 10 and 14.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+def assign_sum_with_input():
+    """
+    Assigns the sum of two numbers to a variable named `total` and returns it.
+    :return: The sum of two inputted numbers.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+def calculate_due(total, down_payment):
+    """
+    Calculates the amount due by subtracting the down payment from the total.
+    :param total: Total amount (float).
+    :param down_payment: Down payment (float).
+    :return: The due amount after subtraction.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+def calculate_total_with_tax(subtotal):
+    """
+    Multiplies the subtotal by 0.15 (tax) and returns the total.
+    :param subtotal: Subtotal amount (float).
+    :return: Total amount after adding tax.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+
+def convert_celsius_to_fahrenheit(celsius):
+    """
+    Converts a Celsius temperature to Fahrenheit.
+    :param celsius: Temperature in Celsius (float).
+    :return: Temperature in Fahrenheit.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+def calculate_gender_percentages(males, females):
+    """
+    Calculates the percentage of males and females in a class.
+    :param males: Number of males (int).
+    :param females: Number of females (int).
+    :return: A tuple containing percentages of males and females.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+def calculate_grapevines(row_length, end_post_space, vine_space):
+    """
+    Calculates the number of grapevines that fit in a row.
+    :param row_length: Length of the row in feet (float).
+    :param end_post_space: Space used by an end-post assembly in feet (float).
+    :param vine_space: Space between vines in feet (float).
+    :return: Number of grapevines that fit in the row.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
+
+def calculate_compound_interest(principal, annual_rate, times_compounded, years):
+    """
+    Calculates the account balance after a specified number of years with compound interest.
+    :param principal: Principal amount deposited (float).
+    :param annual_rate: Annual interest rate as a decimal (float).
+    :param times_compounded: Times interest is compounded per year (int).
+    :param years: Number of years the interest is earned (float).
+    :return: Total account balance after the specified years.
+    """
+    # [YOUR_IMPLEMENTATION]
+    return
 
 # Entry Point of Execution
 def main():
@@ -623,16 +715,43 @@ def main():
     Runs test cases (expected output with given input) for the homework functions.
     """
     print("Running Tests...")
-    # Part 2.1: 
-    # Part 2.2: 
-    # Part 2.3: 
-    # Part 2.4: 
-    # ...
-    # Part 3.1: 
-    # Part 3.2: 
-    # Part 3.3: 
-    # Part 3.4: 
-    # ...
+
+    ############################################################################
+    ################################## Part 2 ##################################
+    ############################################################################
+    # Part 2.1: Favorite Color Input
+    color = input_favorite_color()
+    print(f"Favorite Color: {color}")
+    # Part 2.2: Display Personal Information
+    display_personal_info()
+
+    ############################################################################
+    ################################## Part 3 ##################################
+    ############################################################################
+    # Part 3.1: Assign Sum
+    total = assign_sum()
+    print(f"Sum of 10 and 14: {total}")
+    # Part 3.2: Assign Sum with User Prompt
+    total = assign_sum_with_input()
+    print(f"Sum of the two numbers you just input: {total}")
+    # Part 3.3: Calculate Due
+    due = calculate_due(total=24, down_payment=10)
+    print(f"Amount Due: {due}")
+    # Part 3.3: Calculate Total with Tax
+    total_with_tax = calculate_total_with_tax(subtotal=100)
+    print(f"Total with Tax: {total_with_tax}")
+    # Part 3.4: Celsius to Fahrenheit
+    fahrenheit = convert_celsius_to_fahrenheit(celsius=25)
+    print(f"25°C in Fahrenheit: {fahrenheit}")
+    # Part 3.5: Male and Female Percentages
+    male_percentage, female_percentage = calculate_gender_percentages(males=8, females=12)
+    print(f"Male Percentage: {male_percentage}%, Female Percentage: {female_percentage}%")
+    # Part 3.6: Calculate Grapevines
+    vines = calculate_grapevines(row_length=50, end_post_space=3, vine_space=2)
+    print(f"Grapevines that fit in the row: {vines}")
+    # Part 3.7: Compound Interest
+    compound_amount = calculate_compound_interest(principal=1000, annual_rate=0.05, times_compounded=4, years=10)
+    print(f"Compound Interest Total: {compound_amount}")
 
 # Direct Execution
 if __name__ == "__main__": # __name__: module name, __main__: executed module name

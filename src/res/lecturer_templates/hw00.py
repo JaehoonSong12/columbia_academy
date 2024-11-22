@@ -1,6 +1,6 @@
 # hw00.py
 """
-Homework: Python Variables, Functions, and Abstraction
+Homework00: Python Variables, Functions, and Abstraction
 - Working with variables
 - Creating functions (APIs)
 - Understanding abstraction
@@ -44,6 +44,12 @@ print(calculate_square_root(16))  # Should print 4.0
 print(calculate_square_root(25))  # Should print 5.0
 
 
+n = 81
+print(n)
+print(calculate_square_root(n))
+
+
+
 
 
 
@@ -71,9 +77,17 @@ Task 1.3: Define two variables `greeting = "Hello, "` and `name = "John"`.
 Concatenate them and print the result: 'Hello, John'.
 """
 
-
-
-
+myMessage = "Good coding practice!"
+print(myMessage)
+x = 10
+print(x)
+y = 5   
+print(y)
+z = x + y
+print(z)
+greeting = "Hello, "
+name = "John"
+print(greeting + name)
 
 
 
@@ -98,7 +112,14 @@ repeat_line()  # Character says the same line once
 repeat_line()  # Character repeats the line again
 repeat_line()  # Character repeats the line one more time
 
+def repeat_lines():
+    print("Hi")
+    h = 36
+    myVar = calculate_square_root(h)
+    print(myVar)
 
+
+repeat_lines()
 
 
 """
