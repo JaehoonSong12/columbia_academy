@@ -140,4 +140,4 @@ def calculate_area(radius):
     The area of the circle.
     """
 
-print(calculate_area(7))  # Print the area with radius 7
+print(calculate_area(7))  # Print the area with radius
