@@ -1,9 +1,12 @@
 # app.py
+im_global_var = 10
 # import hw00
 import gt_hw01.HW01
 import hw01
 
+
 def cli():
+    im_local_var = 10
     print("App is running...")
     # hw01.main()  # Test HW01
     # hw01.main()  # Test HW02
@@ -33,6 +36,7 @@ def cli():
     # hw10.main()  # Test GT_HW10
     # hw11.main()  # Test GT_HW11
     # hw12.main()  # Test GT_HW12
+
 
 if __name__ == "__main__":
     cli()
