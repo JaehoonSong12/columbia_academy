@@ -45,15 +45,15 @@ Introduction to computing principles and programming practices with an emphasis 
 - Through labs become comfortable with common software packages in use today.
 
 ## GT CS 1301 Homework References - Intro to Computing (Fall 2020)
-- Homework 01 - [Functions and Expressions]()
-- Homework 02 - [Conditionals]()
-- Homework 03 - [Iteration]()
-- Homework 04 - [Strings, Indexing, & Lists]()
-- Homework 07 - [File I/O & CSV]()
-- Homework 08 - [APIs]()
-- Homework 09 - [Recursion]()
-- Homework 10 - [Object Oriented Programming]()
-- Homework EC - [Extra Credit]()
+- GT Homework 01 - [Functions and Expressions](gt_hw01/HW01.pdf)
+- GT Homework 02 - [Conditionals]()
+- GT Homework 03 - [Iteration]()
+- GT Homework 04 - [Strings, Indexing, & Lists]()
+- GT Homework 07 - [File I/O & CSV]()
+- GT Homework 08 - [APIs]()
+- GT Homework 09 - [Recursion]()
+- GT Homework 10 - [Object Oriented Programming]()
+- GT Homework EC - [Extra Credit]()
 
 
 ## Table of Contents
@@ -68,13 +68,16 @@ Introduction to computing principles and programming practices with an emphasis 
   - [Check Python Version](#check-python-version)
   - [Execution of Application](#execution-of-application)
   - [Do Homework](#do-homework)
-- [HW01:](#hw01)
+- [HW01: Python Data-type and Functions for Input and Output Abstraction](#hw01-python-data-type-and-functions-for-input-and-output-abstraction)
 - [HW02:](#hw02)
 - [HW03:](#hw03)
 - [HW04:](#hw04)
 - [HW05:](#hw05)
 - [HW06:](#hw06)
 - [HW07:](#hw07)
+- [References](#references)
+  - [Documentation](#documentation)
+  - [Code Access](#code-access)
 
 <br /><br /><br />
 
@@ -107,17 +110,15 @@ Once you check `python --version`, you can now run your application. Simply type
 ```
 
 ## Do Homework
-You are all set, all the steps for doing the HW is availble in `./hw00.py` file.
-
+You are all set, all the steps for doing the HW is availble in [`./hw00.py`](./hw00.py) file.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <br /><br /><br />
 
 ---
 
-# HW01: 
-To get started with your homework assignments, follow the steps below.
-
+# HW01: Python Data-type and Functions for Input and Output Abstraction
+All the steps for doing the HW is availble in [`./hw01.py`](./hw01.py) file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,6 +178,32 @@ To get started with your homework assignments, follow the steps below.
 
 # HW07: 
 To get started with your homework assignments, follow the steps below.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+
+<br /><br /><br />
+
+---
+
+# References
+Project references are listed below.
+
+## Documentation
+
+For detailed documentation, including project specifications, development guidelines, and usage instructions, please visit our documentation on Google Docs:
+
+[CA Academy Documentation](https://docs.google.com/document/d/1i9pj0_u_sC0Z9-4tyLOnjUu3n8dCZWJT_7c9r-XcJHQ/edit?usp=sharing)
+
+## Code Access
+
+The code for this project is hosted on GitHub in this repository. You can explore the source code, contribute, and access different branches as necessary:
+
+[GitHub Repository - CA Academy Project](https://github.com/JaehoonSong12/ca_academy)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

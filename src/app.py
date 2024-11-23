@@ -1,11 +1,12 @@
 # app.py
 # import hw00
-import gt_hw01.HW01
+# import gt_hw01.HW01
+import hw01
 
 def cli():
     print("App is running...")
     # hw01.main()  # Test HW01
-    # hw02.main()  # Test HW02
+    hw01.main()  # Test HW02
     # hw03.main()  # Test HW03
     # hw04.main()  # Test HW04
     # hw05.main()  # Test HW05

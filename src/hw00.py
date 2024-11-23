@@ -1,6 +1,6 @@
 # hw00.py
 """
-Homework: Python Variables, Functions, and Abstraction
+Homework00: Python Variables, Functions, and Abstraction
 - Working with variables
 - Creating functions (APIs)
 - Understanding abstraction
