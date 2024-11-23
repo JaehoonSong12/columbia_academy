@@ -1,12 +1,12 @@
 # app.py
 # import hw00
-# import gt_hw01.HW01
+import gt_hw01.HW01
 import hw01
 
 def cli():
     print("App is running...")
     # hw01.main()  # Test HW01
-    hw01.main()  # Test HW02
+    # hw01.main()  # Test HW02
     # hw03.main()  # Test HW03
     # hw04.main()  # Test HW04
     # hw05.main()  # Test HW05
@@ -18,7 +18,10 @@ def cli():
     # hw11.main()  # Test HW11
     # hw12.main()  # Test HW12
     
-    # gt_hw01.HW01.bathBomb()  # Test GT_HW01
+    gt_hw01.HW01.dominosTime()  # Test GT_HW01
+    gt_hw01.HW01.tipAndSplit()  # Test GT_HW01
+    gt_hw01.HW01.youtuber()  # Test GT_HW01
+    gt_hw01.HW01.bathBomb()  # Test GT_HW01
     # hw02.main()  # Test GT_HW02
     # hw03.main()  # Test GT_HW03
     # hw04.main()  # Test GT_HW04
