@@ -65,7 +65,7 @@ Welcome to the CA Academy project repository! This README provides quick access 
 This project is designed to support students at Columbia Academy in studying AP subjects, specifically 
 1. AP CS Principles - **JavaScript**
 2. GT CS 1301: Intro to Computing (CS A) - **Python**
-3. GT CS 1331: Introduction to Object-Oriented Programming. - **Java**
+3. GT CS 1331: Introduction to Object-Oriented Programming (CS A). - **Java**
 
 
 ## Documentation
