@@ -478,7 +478,7 @@ Question:
     d. #
 
 Answer:
-    d hi
+    [YOUR_ANSWER]
 """
 
 """ Q36
