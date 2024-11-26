@@ -13,7 +13,7 @@ Homework01: Python Data-type and Functions for Input and Output Abstraction
 
 
 
-# Part 1: Concetps, MCQ & FRQ
+# Part 1: Concepts, MCQ & FRQ
 """ Q1
 Question:
     Is Python a case-sensitive programming language? 
@@ -23,7 +23,7 @@ Question:
     (b) No
 
 Answer:
-    a
+    [YOUR_ANSWER]
 """
 
 
@@ -39,7 +39,7 @@ Question:
     - grade_report
 
 Answer:
-    99bottles, r&d
+    [YOUR_ANSWER]
 """
 
 
@@ -49,7 +49,7 @@ Question:
     Is the variable name Sales the same as sales? Why or why not?
 
 Answer:
-    No, Python is a case sensitive language.
+    [YOUR_ANSWER]
 """
 
 
@@ -61,7 +61,7 @@ Question:
     72 = amount
 
 Answer:
-    No, the variable should go before the number
+    [YOUR_ANSWER]
 """
 
 
@@ -75,7 +75,7 @@ Question:
     print('The value is', 'val')
 
 Answer:
-    The value is 99
+    [YOUR_ANSWER]
 """
 
 
@@ -94,7 +94,7 @@ Question:
     After these statements execute, what is the Python data type of the values referenced by each variable?
 
 Answer:
-    int; float; float; int; str
+    [YOUR_ANSWER]
 """
 
 
@@ -108,7 +108,7 @@ Question:
     print(my_value)
 
 Answer:
-    0
+    [YOUR_ANSWER]
 """
 
 
@@ -128,7 +128,7 @@ Question:
     | 9 + 12 * (8 - 3)    | [  ] |
 
 Answer:
-    21, 2.0, 31, 24, 2.0, 69
+    [YOUR_ANSWER]
 """
 
 
@@ -141,7 +141,7 @@ Question:
     result = 9 // 2
 
 Answer:
-    4
+    [YOUR_ANSWER]
 """
 
 
@@ -154,7 +154,7 @@ Question:
     result = 9 % 2
 
 Answer:
-    1
+    [YOUR_ANSWER]
 """
 
 
@@ -165,7 +165,7 @@ Question:
     What is string concatenation?
 
 Answer:
-    String concatenation is the process of joining or combining two or more strings together to form a single string.
+    [YOUR_ANSWER]
 """
 
 
@@ -178,7 +178,7 @@ Question:
     result = '1' + '2'
 
 Answer:
-    12
+    [YOUR_ANSWER]
 """
 
 
@@ -191,7 +191,7 @@ Question:
     result = 'h' 'e' 'l' 'l' 'o'
 
 Answer:
-    hello
+    [YOUR_ANSWER]
 """
 
 
@@ -203,7 +203,7 @@ Question:
     How do you suppress the print function's ending newline?
 
 Answer:
-    Use the end=' ' parameter in the print function
+    [YOUR_ANSWER]
 """
 
 
@@ -214,7 +214,7 @@ Question:
     How can you change the character that is automatically displayed between multiple items that are passed to the print function?
 
 Answer:
-    you can use the sep=' ' parameter
+    [YOUR_ANSWER]
 """
 
 
@@ -225,7 +225,7 @@ Question:
     What is the '\n' escape character?
 
 Answer:
-    It represents a newline
+    [YOUR_ANSWER]
 """
 
 
@@ -236,7 +236,7 @@ Question:
     You need the user of a program to enter a customer's last name. Write a statement that prompts the user to enter this data and assigns the input to a variable.
 
 Answer:
-    last_name = input("Please enter the customer's last name: ")
+    [YOUR_CODE]
 """
 
 
@@ -246,7 +246,7 @@ Question:
     You need the user of a program to enter the amount of sales for the week. Write a statement that prompts the user to enter this data and assigns the input to a variable.
 
 Answer:
-    sales_amount = input("Please enter the amount of sales for the week: ")
+    [YOUR_CODE]
 """
 
 
@@ -259,7 +259,7 @@ Question:
     print('Hello {name}')
 
 Answer:
-    Hello Karlie
+    [YOUR_ANSWER]
 """
 
 
@@ -273,7 +273,7 @@ Question:
     print(f'Hello {name}')
 
 Answer:
-    Hello Karlie
+    [YOUR_ANSWER]
 """
 
 
@@ -288,7 +288,7 @@ Question:
     print(f'The value is {value + 1}')
 
 Answer:
-    The value is 100
+    [YOUR_ANSWER]
 """
 
 
@@ -304,7 +304,7 @@ Question:
     print(f'The value is {value:.2f}')
 
 Answer:
-    The value is 65.43
+    [YOUR_ANSWER]
 """
 
 
@@ -318,7 +318,7 @@ Question:
     print(f'The value is {value:,.2f}')
 
 Answer:
-    The value is 987,654.13
+    [YOUR_ANSWER]
 """
 
 
@@ -333,7 +333,7 @@ Question:
     print(f'The value is {value:,d}')
 
 Answer:
-    The value is 9,876,543,210
+    [YOUR_ANSWER]
 """
 
 
@@ -343,7 +343,7 @@ Question:
     What is the advantage of using named constants?
 
 Answer:
-    If the named constant needs to be changed, it only needs to be changed in one place.
+    [YOUR_ANSWER]
 """
 
 
@@ -355,7 +355,7 @@ Question:
     Write a Python statement that defines a named constant for a 10 percent discount.
 
 Answer:
-    DISCOUNT_RATE = 0.10
+    [YOUR_CODE]
 """
 
 
@@ -372,7 +372,7 @@ Question:
     d. fatal
 
 Answer:
-    c
+    [YOUR_ANSWER]
 """
 
 
@@ -388,7 +388,7 @@ Question:
     d. predicate
 
 Answer:
-    b
+    [YOUR_ANSWER]
 """
 
 
@@ -404,7 +404,7 @@ Question:
     d. algorithm
 
 Answer:
-    d
+    [YOUR_ANSWER]
 """
 
 
@@ -418,7 +418,7 @@ Question:
     d. text block
 
 Answer:
-    c
+    [YOUR_ANSWER]
 """
 
 """ Q31
@@ -430,7 +430,7 @@ Question:
     d. byte
 
 Answer:
-    a
+    [YOUR_ANSWER]
 """
 
 """ Q32
@@ -442,7 +442,7 @@ Question:
     d. either single-quotes or double-quotes
 
 Answer:
-    d
+    [YOUR_ANSWER]
 """
 
 """ Q33
@@ -454,7 +454,7 @@ Question:
     d. external documentation
 
 Answer:
-    a
+    [YOUR_ANSWER]
 """
 
 """ Q34
@@ -466,7 +466,7 @@ Question:
     d. string literal
 
 Answer:
-    b
+    [YOUR_ANSWER]
 """
 
 """ Q35
@@ -478,7 +478,7 @@ Question:
     d. #
 
 Answer:
-    d
+    [YOUR_ANSWER]
 """
 
 """ Q36
