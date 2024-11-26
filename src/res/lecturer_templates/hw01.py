@@ -23,7 +23,7 @@ Question:
     (b) No
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 
@@ -39,7 +39,7 @@ Question:
     - grade_report
 
 Answer:
-    [YOUR_ANSWER]
+    99bottles, r&d
 """
 
 
@@ -49,7 +49,7 @@ Question:
     Is the variable name Sales the same as sales? Why or why not?
 
 Answer:
-    [YOUR_ANSWER]
+    No, Python is a case sensitive language.
 """
 
 
@@ -61,7 +61,7 @@ Question:
     72 = amount
 
 Answer:
-    [YOUR_ANSWER]
+    No, the variable should go before the number
 """
 
 
@@ -75,7 +75,7 @@ Question:
     print('The value is', 'val')
 
 Answer:
-    [YOUR_ANSWER]
+    The value is 99
 """
 
 
@@ -94,7 +94,7 @@ Question:
     After these statements execute, what is the Python data type of the values referenced by each variable?
 
 Answer:
-    [YOUR_ANSWER]
+    int; float; float; int; str
 """
 
 
@@ -108,7 +108,7 @@ Question:
     print(my_value)
 
 Answer:
-    [YOUR_ANSWER]
+    0
 """
 
 
@@ -128,7 +128,7 @@ Question:
     | 9 + 12 * (8 - 3)    | [  ] |
 
 Answer:
-    [YOUR_ANSWER]
+    21, 2.0, 31, 24, 2.0, 69
 """
 
 
@@ -141,7 +141,7 @@ Question:
     result = 9 // 2
 
 Answer:
-    [YOUR_ANSWER]
+    4
 """
 
 
@@ -154,7 +154,7 @@ Question:
     result = 9 % 2
 
 Answer:
-    [YOUR_ANSWER]
+    1
 """
 
 
@@ -165,7 +165,7 @@ Question:
     What is string concatenation?
 
 Answer:
-    [YOUR_ANSWER]
+    String concatenation is the process of joining or combining two or more strings together to form a single string.
 """
 
 
@@ -178,7 +178,7 @@ Question:
     result = '1' + '2'
 
 Answer:
-    [YOUR_ANSWER]
+    12
 """
 
 
@@ -191,7 +191,7 @@ Question:
     result = 'h' 'e' 'l' 'l' 'o'
 
 Answer:
-    [YOUR_ANSWER]
+    hello
 """
 
 
@@ -203,7 +203,7 @@ Question:
     How do you suppress the print function's ending newline?
 
 Answer:
-    [YOUR_ANSWER]
+    Use the end=' ' parameter in the print function
 """
 
 
@@ -214,7 +214,7 @@ Question:
     How can you change the character that is automatically displayed between multiple items that are passed to the print function?
 
 Answer:
-    [YOUR_ANSWER]
+    you can use the sep=' ' parameter
 """
 
 
@@ -225,7 +225,7 @@ Question:
     What is the '\n' escape character?
 
 Answer:
-    [YOUR_ANSWER]
+    It represents a newline
 """
 
 
@@ -236,7 +236,7 @@ Question:
     You need the user of a program to enter a customer's last name. Write a statement that prompts the user to enter this data and assigns the input to a variable.
 
 Answer:
-    [YOUR_CODE]
+    last_name = input("Please enter the customer's last name: ")
 """
 
 
@@ -246,7 +246,7 @@ Question:
     You need the user of a program to enter the amount of sales for the week. Write a statement that prompts the user to enter this data and assigns the input to a variable.
 
 Answer:
-    [YOUR_CODE]
+    sales_amount = input("Please enter the amount of sales for the week: ")
 """
 
 
@@ -259,7 +259,7 @@ Question:
     print('Hello {name}')
 
 Answer:
-    [YOUR_ANSWER]
+    Hello Karlie
 """
 
 
@@ -273,7 +273,7 @@ Question:
     print(f'Hello {name}')
 
 Answer:
-    [YOUR_ANSWER]
+    Hello Karlie
 """
 
 
@@ -288,7 +288,7 @@ Question:
     print(f'The value is {value + 1}')
 
 Answer:
-    [YOUR_ANSWER]
+    The value is 100
 """
 
 
@@ -304,7 +304,7 @@ Question:
     print(f'The value is {value:.2f}')
 
 Answer:
-    [YOUR_ANSWER]
+    The value is 65.43
 """
 
 
@@ -318,7 +318,7 @@ Question:
     print(f'The value is {value:,.2f}')
 
 Answer:
-    [YOUR_ANSWER]
+    The value is 987,654.13
 """
 
 
@@ -333,7 +333,7 @@ Question:
     print(f'The value is {value:,d}')
 
 Answer:
-    [YOUR_ANSWER]
+    The value is 9,876,543,210
 """
 
 
@@ -343,7 +343,7 @@ Question:
     What is the advantage of using named constants?
 
 Answer:
-    [YOUR_ANSWER]
+    If the named constant needs to be changed, it only needs to be changed in one place.
 """
 
 
@@ -355,7 +355,7 @@ Question:
     Write a Python statement that defines a named constant for a 10 percent discount.
 
 Answer:
-    [YOUR_CODE]
+    DISCOUNT_RATE = 0.10
 """
 
 
@@ -372,7 +372,7 @@ Question:
     d. fatal
 
 Answer:
-    [YOUR_ANSWER]
+    c
 """
 
 
@@ -388,7 +388,7 @@ Question:
     d. predicate
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 
@@ -404,7 +404,7 @@ Question:
     d. algorithm
 
 Answer:
-    [YOUR_ANSWER]
+    d
 """
 
 
@@ -418,7 +418,7 @@ Question:
     d. text block
 
 Answer:
-    [YOUR_ANSWER]
+    c
 """
 
 """ Q31
@@ -430,7 +430,7 @@ Question:
     d. byte
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 """ Q32
@@ -442,7 +442,7 @@ Question:
     d. either single-quotes or double-quotes
 
 Answer:
-    [YOUR_ANSWER]
+    d
 """
 
 """ Q33
@@ -454,7 +454,7 @@ Question:
     d. external documentation
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 """ Q34
@@ -466,7 +466,7 @@ Question:
     d. string literal
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 """ Q35
@@ -478,7 +478,7 @@ Question:
     d. #
 
 Answer:
-    [YOUR_ANSWER]
+    d
 """
 
 """ Q36
