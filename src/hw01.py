@@ -75,7 +75,7 @@ Question:
     print('The value is', 'val')
 
 Answer:
-    The value is 99
+    The value is val
 """
 
 
@@ -256,12 +256,12 @@ Question:
     What will the following code display?
 
     name = 'Karlie'
-    print('Hello {name}')
+    print('Hello {name}') 
 
 Answer:
     Hello Karlie
 """
-
+######### string interpolation
 
 
 
@@ -275,6 +275,7 @@ Question:
 Answer:
     Hello Karlie
 """
+######### f-string
 
 
 
@@ -290,6 +291,7 @@ Question:
 Answer:
     The value is 100
 """
+######### f-string
 
 
 
@@ -305,7 +307,7 @@ Question:
 
 Answer:
     The value is 65.43
-"""
+""" ####################################################3 Check point
 
 
 

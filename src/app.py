@@ -7,6 +7,8 @@ import hw01
 
 def cli():
     im_local_var = 10
+    val = 99
+    print(12 / 2 - 4)
     print("App is running...")
     # hw01.main()  # Test HW01
     # hw01.main()  # Test HW02
