@@ -11,7 +11,7 @@ Returns: list of restaurants (list)
 """
 
 def findCuisine(filename, cuisine):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
     
 
@@ -23,7 +23,7 @@ list of restaurants of the same cuisine type (list)
 """
 
 def restaurantFilter(filename):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -33,7 +33,7 @@ Returns: None (NoneType)
 """
 
 def createDirectory(inputfile, outputfile):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -43,7 +43,7 @@ Returns: country and percentage (tuple)
 """
 
 def infectedPercentage(countryList, filename):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 """
 Function Name: countryStatus()
@@ -52,7 +52,7 @@ Returns: risk dictionary (dict)
 """
 
 def countryStatus(countryList, filename):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -62,5 +62,5 @@ Returns: compared countries (list)
 """
 
 def compareRisk(country, countryList, filename):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return

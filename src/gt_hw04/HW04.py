@@ -11,7 +11,7 @@ Parameters: a caption list of numbers (list), start index (int), stop index (int
 Returns: highest number (int)
 """
 def findMax(theNumbersMason, theStart, theEnd):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 #########################################
@@ -22,7 +22,7 @@ Parameters: list of fruits (list), minimum quantity (int)
 Returns: list of fruits (list)
 """
 def fruitPie(theFruit, theMin):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 #########################################
@@ -33,7 +33,7 @@ Parameters: initial sentence (str), replacement word (str)
 Returns: corrected sentence (str)
 """
 def replaceWord(sentence, word):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
     
 
@@ -45,7 +45,7 @@ Parameters: list of strings (strings)
 Returns: index of string with the highest sum (int)
 """
 def highestSum(theStrings):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
     
 
@@ -57,5 +57,5 @@ Parameters: alist (list), blist (list)
 Returns: True or False (`boolean`)
 """
 def sublist(aList, bList):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return

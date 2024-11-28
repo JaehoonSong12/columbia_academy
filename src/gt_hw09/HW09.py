@@ -11,7 +11,7 @@ Returns: number of food items that can be eaten (int)
 """
 
 def pickyEater(food):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 """
 Function Name: inviteFriends()
@@ -20,7 +20,7 @@ Returns: flattened list of all invitees (list)
 """
 
 def inviteFriends(invitees):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
           
 """
@@ -30,7 +30,7 @@ Returns: price of sauce at each store (dict)
 """
 
 def friendsgiving(stores, budget, maxDistance):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -40,5 +40,5 @@ Returns: Whether the string contains a number of palindromes (bool)
 """
 
 def palindrome(text, guess):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return

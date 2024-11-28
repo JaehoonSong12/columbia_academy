@@ -13,7 +13,7 @@ Returns: list of people (list)
 """
 
 def meetNewPeople(house):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -23,7 +23,7 @@ Returns: list of students (list)
 """
 
 def matchingStudents(charName):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -33,7 +33,7 @@ Returns: number of people (int)
 """
 
 def similarCharacters(movieID1, movieID2):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -43,7 +43,7 @@ Returns: list of valid starships (list)
 """
 
 def spaceDrifting(passengers, maxPrice):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 """
@@ -53,5 +53,5 @@ Returns: list of potential matches (list)
 """
 
 def perfectMatch(candidates):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return

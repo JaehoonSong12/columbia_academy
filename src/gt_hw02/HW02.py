@@ -13,7 +13,7 @@ Parameters: passRate (int)
 Returns: "Beginner" or "Moderate" or "Advanced" (str)
 """
 def skillLevel(passRate):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 #########################################
@@ -24,7 +24,7 @@ Parameters: item (str), walletAmount (float), quantity (int)
 Returns: moneyLeftOver (float)
 """
 def bookStore(item, walletAmount, quantity):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 #########################################
@@ -35,7 +35,7 @@ Parameters: distance (int), hungerLevel (str)
 Returns: transportMode (str)
 """
 def dinnerPlans(distance, hungerLevel):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 #########################################
@@ -46,7 +46,7 @@ Parameters: distance (float), speed (float), freeTime (float)
 Returns: transportMode (str)
 """
 def weekendTrip(distance, speed, freeTime):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
 
 #########################################
@@ -57,5 +57,5 @@ Parameters: distance (float), speed (float), freeTime (float), numSnacks (int), 
 Returns: textMsg (str)
 """
 def textFriends(distance, speed, freeTime, numSnacks, numFriends):
-    ## fill out your code here!
+    # [YOUR_IMPLEMENTATION]
     return
