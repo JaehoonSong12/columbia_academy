@@ -31,7 +31,7 @@ def generate_obstacles():
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("Circle vs Obstacles Game")
+    pygame.display.set_caption("Game: December Escapes")
     clock = pygame.time.Clock()
 
     # Game setup
