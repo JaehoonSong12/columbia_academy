@@ -1,14 +1,11 @@
 # app.py
 im_global_var = 10
 # import hw00
-import gt_hw01.HW01
-import hw01
+# import gt_hw01.HW01
+# import hw01
+import december_escapes.app
 
-
-def cli():
-    im_local_var = 10
-    val = 99
-    print(12 / 2 - 4)
+def main():
     print("App is running...")
     # hw01.main()  # Test HW01
     # hw01.main()  # Test HW02
@@ -23,10 +20,20 @@ def cli():
     # hw11.main()  # Test HW11
     # hw12.main()  # Test HW12
     
-    gt_hw01.HW01.dominosTime()  # Test GT_HW01
-    gt_hw01.HW01.tipAndSplit()  # Test GT_HW01
-    gt_hw01.HW01.youtuber()  # Test GT_HW01
-    gt_hw01.HW01.bathBomb()  # Test GT_HW01
+    # ########################################
+    # ############### GT_HW01
+    # ########################################
+    # gt_hw01.HW01.dominosTime()  # Test GT_HW01
+    # gt_hw01.HW01.tipAndSplit()  # Test GT_HW01
+    # gt_hw01.HW01.youtuber()  # Test GT_HW01
+    # gt_hw01.HW01.bathBomb()  # Test GT_HW01
+
+
+    # ########################################
+    # ############### December Escapes
+    # ########################################
+    december_escapes.app.main()
+
     # hw02.main()  # Test GT_HW02
     # hw03.main()  # Test GT_HW03
     # hw04.main()  # Test GT_HW04
@@ -41,7 +48,4 @@ def cli():
 
 
 if __name__ == "__main__":
-    cli()
-
-
-### dsadsafdsjfdsnagfosgnfeslnglfknsgldsfknzgkjg
+    main()

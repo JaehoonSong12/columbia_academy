@@ -1,5 +1,5 @@
 #!/bin/bash
-EXECUTABLE="app"                                #### YOUR DATA HERE
+EXECUTABLE="cli"                                #### YOUR DATA HERE
 ############################################
 ########## Shell Script (Scripts) ##########
 ############################################
