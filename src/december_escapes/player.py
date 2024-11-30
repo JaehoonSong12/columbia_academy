@@ -21,8 +21,6 @@ class Player:
             self.y += self.speed
 
     def update_color(self):
-        print("Time in milliseconds:", pygame.time.get_ticks())
-        print("Time in seconds:", pygame.time.get_ticks() // 1000)
         current_time = pygame.time.get_ticks() // 1000  # Time in seconds
         color_state = current_time % 10  # Ranges from 0 to 9
         # Interpolate between RED and GREEN
