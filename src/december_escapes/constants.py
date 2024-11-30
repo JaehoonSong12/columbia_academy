@@ -1,0 +1,16 @@
+# Constants
+SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
+FPS = 60
+PLAYER_RADIUS = 15
+OBSTACLE_WIDTH, OBSTACLE_HEIGHT = 50, 20
+STAR_SIZE = 30
+LEVEL_TIME = 10  # time in seconds to change player color
+
+# Colors
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+PURPLE = (128, 0, 128)
+YELLOW = (255, 255, 0)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
