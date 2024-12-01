@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "src"
-EXECUTABLE="cli"                                #### YOUR DATA HERE
+EXECUTABLE="vidtogif"                                #### YOUR DATA HERE
 ############################################
 ########## Shell Script (Scripts) ##########
 ############################################
