@@ -1,5 +1,5 @@
 import pygame
-from constants import YELLOW
+from december_escapes.constants import YELLOW
 
 class Star:
     def __init__(self, x, y, size):

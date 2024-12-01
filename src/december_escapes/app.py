@@ -1,22 +1,11 @@
 # app.py
-
-import sys
-import os
-print(sys.path)
-print()
-# Add the directory of the current script to the Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-print(sys.path)
-print()
-
-
 import pygame
 import random
-from player import Player
-from obstacle import Obstacle
-from star import Star
-from utils import detect_collision, detect_goal
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, STAR_SIZE
+from december_escapes.player import Player
+from december_escapes.obstacle import Obstacle
+from december_escapes.star import Star
+from december_escapes.utils import detect_collision, detect_goal
+from december_escapes.constants import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, STAR_SIZE
 
 def generate_obstacles():
     obstacles = []

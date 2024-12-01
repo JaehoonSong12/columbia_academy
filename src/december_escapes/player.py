@@ -1,5 +1,5 @@
 import pygame
-from constants import RED, GREEN, PLAYER_RADIUS, LEVEL_TIME
+from december_escapes.constants import RED, GREEN, PLAYER_RADIUS, LEVEL_TIME
 
 class Player:
     def __init__(self, screen_width, screen_height):
