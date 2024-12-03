@@ -1,21 +1,10 @@
 # cli.py
 
 import sys
-import os
-
-def set_modules(base_dir):
-    """
-    Recursively adds base_dir and all subdirectories of base_dir to the Python path.
-    """
-    sys.path.append(base_dir)
-    for root, dirs, _ in os.walk(base_dir):
-        for directory in dirs:
-            full_path = os.path.join(root, directory)
-            if full_path not in sys.path: sys.path.append(full_path)
 
 
 
-
+# python -c 'import sys; print("\n".join(sys.path))'
 
 
 im_global_var = 10
@@ -25,9 +14,7 @@ im_global_var = 10
 import december_escapes.app
 
 def main():
-    print("Updated Python path:")
-    print("\n".join(sys.path))
-    set_modules(os.path.dirname(os.path.abspath(__file__)))
+    # set_modules(os.path.dirname(os.path.abspath(__file__)))
     print("Updated Python path:")
     print("\n".join(sys.path))
     print("App is running...")
@@ -56,7 +43,7 @@ def main():
     # ########################################
     # ############### December Escapes
     # ########################################
-    # december_escapes.app.main()
+    december_escapes.app.main()
 
 
     # hw02.main()  # Test GT_HW02

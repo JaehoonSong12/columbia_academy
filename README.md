@@ -31,9 +31,9 @@
 
 
 
-# Columbia Academy
+# CA Academy Project
 
-Welcome to the Columbia Academy project repository! This README provides quick access to project documentation and code.
+Welcome to the CA Academy project repository! This README provides quick access to project documentation and code.
 
 ## Table of Contents
 - [CA Academy Project](#ca-academy-project)

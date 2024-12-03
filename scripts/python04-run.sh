@@ -1,6 +1,7 @@
 #!/bin/bash
 cd "src"
 EXECUTABLE="cli"                                #### YOUR DATA HERE
+EXECUTABLE="st/test"
 ############################################
 ########## Shell Script (Scripts) ##########
 ############################################
