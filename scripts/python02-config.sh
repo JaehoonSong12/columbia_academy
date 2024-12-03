@@ -120,7 +120,7 @@ scons --version     # (3) Version Check
 
 
 
-PROJECT_DIR="$(pwd)/src"
+PROJECT_DIR="$(pwd)"
 mkdir -p "$PROJECT_DIR"
 cd "$PROJECT_DIR"
 
