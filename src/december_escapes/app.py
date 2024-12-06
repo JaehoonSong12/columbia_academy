@@ -1,11 +1,29 @@
-# app.py
+# december_escapes.app.py
+# 
+# Python vocab      vs      OS vocab                                    e.g.
+# execution point           pwd (current working directory)             /c/ca_workplace/ca_project01/src
+# package                   directory or subdirectory (namespace)       /c/ca_workplace/ca_project01/src/december_escapes
+# module                    file with .py extension                     /c/ca_workplace/ca_project01/src/december_escapes/app.py
+# 
+# a module named `app` is in a package or packages named `december_escapes` 
+# syntax: from <package>.<package>...<module>.py import <functions/classes>
+
+# sytax rule for identifying classes and normal functions and variables
+#
+# [procedural programming, Abstraction (API)] 
+#   - functions and variables:      snake_case
+#   - constants:                    UPPER_SNAKE_CASE
+# [Objected-Oriented Programming, Encapsulation (Data Type)] 
+#   - classes:                      PascalCase
 import pygame
 import random
+# 
+from december_escapes.utils import detect_collision, detect_goal
+from december_escapes.constants import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, STAR_SIZE
+# OOP components
 from december_escapes.player import Player
 from december_escapes.obstacle import Obstacle
 from december_escapes.star import Star
-from december_escapes.utils import detect_collision, detect_goal
-from december_escapes.constants import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, STAR_SIZE
 
 def generate_obstacles():
     obstacles = []

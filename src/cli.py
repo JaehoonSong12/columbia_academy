@@ -1,4 +1,4 @@
-# cli.py
+# cli.py: this is an execution point, where Python (PVM) recognize all the python codes.
 
 import sys
 
@@ -13,11 +13,34 @@ im_global_var = 10
 # import hw01
 import december_escapes.app
 
+# import oop_explained.sample
+
+
+def encapsulation():
+    print("dsadsadsad")
+
 def main():
     # set_modules(os.path.dirname(os.path.abspath(__file__)))
     print("Updated Python path:")
     print("\n".join(sys.path))
     print("App is running...")
+
+
+
+
+
+    # # importing syntax #1            <- is more common, but can cause naming conflict
+    # from oop_explained.sample import encapsulation
+    # encapsulation()
+    # encapsulation()
+
+    
+    # # importing syntax style #2         <- is more wordy, but resolves any issues with vague naming
+    # import oop_explained.sample
+    # oop_explained.sample.encapsulation()
+    # encapsulation()
+
+
     # hw01.main()  # Test HW01
     # hw01.main()  # Test HW02
     # hw03.main()  # Test HW03
@@ -43,7 +66,7 @@ def main():
     # ########################################
     # ############### December Escapes
     # ########################################
-    december_escapes.app.main()
+    # december_escapes.app.main()
 
 
     # hw02.main()  # Test GT_HW02
