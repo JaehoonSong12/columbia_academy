@@ -11,9 +11,20 @@ im_global_var = 10
 # import hw00
 # import gt_hw01.HW01
 # import hw01
-import december_escapes.app
 
-# import oop_explained.sample
+## Pygame project
+# import december_escapes.app
+# from december_escapes.app import main
+
+
+
+
+
+
+
+import oop_explained.sample
+
+
 
 
 def encapsulation():
@@ -24,9 +35,6 @@ def main():
     print("Updated Python path:")
     print("\n".join(sys.path))
     print("App is running...")
-
-
-
 
 
     # # importing syntax #1            <- is more common, but can cause naming conflict
@@ -63,10 +71,11 @@ def main():
     # gt_hw01.HW01.bathBomb()  # Test GT_HW01
 
 
-    # ########################################
-    # ############### December Escapes
-    # ########################################
+    ########################################
+    ############### December Escapes
+    ########################################
     # december_escapes.app.main()
+    # main()
 
 
     # hw02.main()  # Test GT_HW02
@@ -81,6 +90,10 @@ def main():
     # hw11.main()  # Test GT_HW11
     # hw12.main()  # Test GT_HW12
 
+
+    #########################
+    # Programming Paradignms!
+    oop_explained.sample.oo_paradigm()
 
 if __name__ == "__main__":
     main()
