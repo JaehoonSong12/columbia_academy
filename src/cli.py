@@ -13,7 +13,7 @@ im_global_var = 10
 # import hw01
 
 ## Pygame project
-# import december_escapes.app
+import december_escapes.app
 # from december_escapes.app import main
 
 
@@ -22,7 +22,7 @@ im_global_var = 10
 
 
 
-import oop_explained.sample
+# import oop_explained.sample
 
 
 
@@ -74,8 +74,7 @@ def main():
     ########################################
     ############### December Escapes
     ########################################
-    # december_escapes.app.main()
-    # main()
+    december_escapes.app.main()
 
 
     # hw02.main()  # Test GT_HW02
@@ -93,7 +92,7 @@ def main():
 
     #########################
     # Programming Paradignms!
-    oop_explained.sample.oo_paradigm()
+    # oop_explained.sample.oo_paradigm()
 
 if __name__ == "__main__":
     main()
