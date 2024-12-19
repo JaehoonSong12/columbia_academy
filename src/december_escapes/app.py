@@ -16,109 +16,76 @@
 # [Objected-Oriented Programming, Encapsulation (Data Type)] 
 #   - classes:                      PascalCase
 
-# import pygame # framework! You must learn how to use their abstraction!
-# import random
-# # 
-# from december_escapes.utils import detect_collision, detect_goal
-# from december_escapes.constants import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, STAR_SIZE
-# # OOP components
-# from december_escapes.player import Player
-# from december_escapes.obstacle import Obstacle
-# from december_escapes.star import Star
-
-# def generate_obstacles():
-#     obstacles = []
-#     for _ in range(random.randint(3, 6)):  # Generate random number of obstacles
-#         x = random.randint(0, SCREEN_WIDTH - 50)
-#         y = random.randint(0, SCREEN_HEIGHT - 20)
-#         color = random.choice([(0, 0, 255), (128, 0, 128)])  # BLUE or PURPLE
-#         speed = random.randint(1, 3) if color == (0, 0, 255) else 0
-#         obstacles.append(Obstacle(x, y, 50, 20, color, speed))
-#     return obstacles
-
-
-
-
-
-
-
-
-
-
 import pygame # framework! You must learn how to use their abstraction!
+import random
+# 
+from december_escapes.utils import detect_collision, detect_goal
+from december_escapes.constants import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, STAR_SIZE
+# OOP components
+from december_escapes.player import Player
+from december_escapes.obstacle import Obstacle
+from december_escapes.star import Star
 
+def generate_obstacles():
+    obstacles = []
+    for _ in range(random.randint(3, 6)):  # Generate random number of obstacles
+        x = random.randint(0, SCREEN_WIDTH - 50)
+        y = random.randint(0, SCREEN_HEIGHT - 20)
+        color = random.choice([(0, 0, 255), (128, 0, 128)])  # BLUE or PURPLE
+        speed = random.randint(1, 3) if color == (0, 0, 255) else 0
+        obstacles.append(Obstacle(x, y, 50, 20, color, speed))
+    return obstacles
 
-# Initialize constants
-SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
-BALL_RADIUS = 20
-BALL_SPEED = 5
-
-# Initialize Pygame
-pygame.init()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Ball Movement Example")
-CLOCK = pygame.time.Clock()
-FPS=120 # Higher FPS ensures smoother motion in video and gameplay
 
 def main():
-    # Ball setup
-    ball_x = SCREEN_WIDTH // 2
-    ball_y = SCREEN_HEIGHT // 2
+    pygame.quit()
+    pygame.init()
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("Game: December Escapes")
+    clock = pygame.time.Clock()
 
-    # Velocity variables for the ball
-    velocity_x = 0
-    velocity_y = 0
+    # Game setup
+    level = 1
+    player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
+    star = Star(random.randint(0, SCREEN_WIDTH - STAR_SIZE), random.randint(0, SCREEN_HEIGHT - STAR_SIZE), STAR_SIZE)
+    obstacles = generate_obstacles()
 
     running = True
-
     while running:
-        # Get all currently pressed keys
-        keys = pygame.key.get_pressed()
-        # Logic for movements in general
-        velocity_x = 0
-        velocity_y = 0
-        if keys[pygame.K_LEFT]: velocity_x = -BALL_SPEED
-        if keys[pygame.K_RIGHT]: velocity_x = BALL_SPEED
-        if keys[pygame.K_UP]: velocity_y = -BALL_SPEED
-        if keys[pygame.K_DOWN]: velocity_y = BALL_SPEED
-        if keys[pygame.K_LEFT] and keys[pygame.K_RIGHT]: velocity_x = 0
-        if keys[pygame.K_UP] and keys[pygame.K_DOWN]: velocity_y = 0
-        # Event handling
+        screen.fill(WHITE)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        
-        # Update ball position
-        ball_x += velocity_x
-        ball_y += velocity_y
 
-        # Boundary collision check
-        if ball_x - BALL_RADIUS < 0:
-            ball_x = BALL_RADIUS
-        elif ball_x + BALL_RADIUS > SCREEN_WIDTH:
-            ball_x = SCREEN_WIDTH - BALL_RADIUS
+        keys = pygame.key.get_pressed()
+        player.move(keys)
+        player.update_color()
 
-        if ball_y - BALL_RADIUS < 0:
-            ball_y = BALL_RADIUS
-        elif ball_y + BALL_RADIUS > SCREEN_HEIGHT:
-            ball_y = SCREEN_HEIGHT - BALL_RADIUS
+        for obstacle in obstacles:
+            obstacle.move(SCREEN_WIDTH)
+            obstacle.draw(screen)
 
-        # Fill the screen with a color
-        screen.fill("purple")
+        player.draw(screen)
+        star.draw(screen)
 
-        # Draw the ball
-        pygame.draw.circle(screen, "white", (ball_x, ball_y), BALL_RADIUS)
+        if detect_collision(player, obstacles):
+            print("Game Over")
+            print("Your score: ", level)
+            level=1
+            player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
+            obstacles = generate_obstacles()
 
-        # Flip the display to update the screen
+        if detect_goal(player, star):
+            level += 1
+            print("Your level now: ", level)
+            star = Star(random.randint(0, SCREEN_WIDTH - STAR_SIZE), random.randint(0, SCREEN_HEIGHT - STAR_SIZE), STAR_SIZE)
+            obstacles = generate_obstacles()
+
         pygame.display.flip()
-
-        # Limit the frame rate
-        CLOCK.tick(FPS)
+        clock.tick(FPS)
 
     pygame.quit()
 
-if __name__ == "__main__":
-    main()
 
 
 
@@ -126,77 +93,86 @@ if __name__ == "__main__":
 
 
 
+
+
+
+
+
+# import pygame # framework! You must learn how to use their abstraction!
+
+
+# # Initialize constants
+# SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
+# BALL_RADIUS = 20
+# BALL_SPEED = 5
+
+# # Initialize Pygame
+# pygame.init()
+# screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+# pygame.display.set_caption("Ball Movement Example")
+# CLOCK = pygame.time.Clock()
+# FPS=120 # Higher FPS ensures smoother motion in video and gameplay
 
 # def main():
-#     # pygame setup
-#     pygame.init()
-#     screen = pygame.display.set_mode((800, 600))
-    
+#     # Ball setup
+#     ball_x = SCREEN_WIDTH // 2
+#     ball_y = SCREEN_HEIGHT // 2
+
+#     # Velocity variables for the ball
+#     velocity_x = 0
+#     velocity_y = 0
+
 #     running = True
 
-#     while running: # continuous update on our monitor (output)
-#         # print(CLOCK.get_time())
-#         # poll for events
-#         # pygame.QUIT event means the user clicked X to close your window
-#         for event in pygame.event.get(): # Event Handler: [pressing 's', pressing 'k', moving mouse, pygame.QUIT == clicking close button]
-#             print(event)
+#     while running:
+#         # Get all currently pressed keys
+#         keys = pygame.key.get_pressed()
+#         # Logic for movements in general
+#         velocity_x = 0
+#         velocity_y = 0
+#         if keys[pygame.K_LEFT]: velocity_x = -BALL_SPEED
+#         if keys[pygame.K_RIGHT]: velocity_x = BALL_SPEED
+#         if keys[pygame.K_UP]: velocity_y = -BALL_SPEED
+#         if keys[pygame.K_DOWN]: velocity_y = BALL_SPEED
+#         if keys[pygame.K_LEFT] and keys[pygame.K_RIGHT]: velocity_x = 0
+#         if keys[pygame.K_UP] and keys[pygame.K_DOWN]: velocity_y = 0
+#         # Event handling
+#         for event in pygame.event.get():
 #             if event.type == pygame.QUIT:
 #                 running = False
+        
+#         # Update ball position
+#         ball_x += velocity_x
+#         ball_y += velocity_y
 
-#         # fill the screen with a color to wipe away anything from last frame
+#         # Boundary collision check
+#         if ball_x - BALL_RADIUS < 0:
+#             ball_x = BALL_RADIUS
+#         elif ball_x + BALL_RADIUS > SCREEN_WIDTH:
+#             ball_x = SCREEN_WIDTH - BALL_RADIUS
+
+#         if ball_y - BALL_RADIUS < 0:
+#             ball_y = BALL_RADIUS
+#         elif ball_y + BALL_RADIUS > SCREEN_HEIGHT:
+#             ball_y = SCREEN_HEIGHT - BALL_RADIUS
+
+#         # Fill the screen with a color
 #         screen.fill("purple")
 
-#         # RENDER YOUR GAME HERE
+#         # Draw the ball
+#         pygame.draw.circle(screen, "white", (ball_x, ball_y), BALL_RADIUS)
 
-#         # flip() the display to put your work on screen
+#         # Flip the display to update the screen
 #         pygame.display.flip()
 
-#         CLOCK.tick(FPS)  # limits FPS to 60
+#         # Limit the frame rate
+#         CLOCK.tick(FPS)
 
 #     pygame.quit()
-    # pygame.init()
-    # screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    # pygame.display.set_caption("Game: December Escapes")
-    # clock = pygame.time.Clock()
 
-    # # Game setup
-    # level = 1
-    # player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
-    # star = Star(random.randint(0, SCREEN_WIDTH - STAR_SIZE), random.randint(0, SCREEN_HEIGHT - STAR_SIZE), STAR_SIZE)
-    # obstacles = generate_obstacles()
 
-    # running = True
-    # while running:
-    #     screen.fill(WHITE)
-    #     for event in pygame.event.get():
-    #         if event.type == pygame.QUIT:
-    #             running = False
 
-    #     keys = pygame.key.get_pressed()
-    #     player.move(keys)
-    #     player.update_color()
 
-    #     for obstacle in obstacles:
-    #         obstacle.move(SCREEN_WIDTH)
-    #         obstacle.draw(screen)
-
-    #     player.draw(screen)
-    #     star.draw(screen)
-
-    #     if detect_collision(player, obstacles):
-    #         print("Game Over")
-    #         player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
-    #         obstacles = generate_obstacles()
-
-    #     if detect_goal(player, star):
-    #         level += 1
-    #         star = Star(random.randint(0, SCREEN_WIDTH - STAR_SIZE), random.randint(0, SCREEN_HEIGHT - STAR_SIZE), STAR_SIZE)
-    #         obstacles = generate_obstacles()
-
-    #     pygame.display.flip()
-    #     clock.tick(FPS)
-
-    # pygame.quit()
 
 if __name__ == "__main__":
     main()
