@@ -238,7 +238,7 @@ build
 ######################################################################################################
 
 # automation scripts
-scripts/
+# scripts/
 
 # external resources by OS
 ext/
