@@ -148,8 +148,12 @@ def main():
         if keys[pygame.K_RIGHT]: velocity_x = BALL_SPEED
         if keys[pygame.K_UP]: velocity_y = -BALL_SPEED
         if keys[pygame.K_DOWN]: velocity_y = BALL_SPEED
-        if keys[pygame.K_LEFT] and keys[pygame.K_RIGHT]: velocity_x = 0
-        if keys[pygame.K_UP] and keys[pygame.K_DOWN]: velocity_y = 0
+        if keys[pygame.K_LEFT] and keys[pygame.K_RIGHT]: 
+            velocity_x = 0
+            velocity_y = 0
+        if keys[pygame.K_UP] and keys[pygame.K_DOWN]: 
+            velocity_x = 0
+            velocity_y = 0
         # Event handling
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
