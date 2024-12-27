@@ -492,7 +492,7 @@ Question:
     d. x = '17'
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 """ Q37
@@ -504,7 +504,7 @@ Question:
     d. math expressions
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 """ Q38
@@ -516,7 +516,7 @@ Question:
     d. /
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 """ Q39
@@ -528,7 +528,7 @@ Question:
     d. /
 
 Answer:
-    [YOUR_ANSWER]
+    c
 """
 
 """ Q40
@@ -540,7 +540,7 @@ Question:
     d. /
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 """ Q41
@@ -552,7 +552,7 @@ Question:
     d. str
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 """ Q42
@@ -564,7 +564,7 @@ Question:
     d. keyboard()
 
 Answer:
-    [YOUR_ANSWER]
+    a
 """
 
 """ Q43
@@ -576,7 +576,7 @@ Question:
     d. int()
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 """ Q44
@@ -588,7 +588,7 @@ Question:
     d. a number that causes computers to crash
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 """ Q45
@@ -600,7 +600,7 @@ Question:
     d. key term
 
 Answer:
-    [YOUR_ANSWER]
+    b
 """
 
 
