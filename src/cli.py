@@ -13,14 +13,13 @@ im_global_var = 10
 # import hw01
 
 ## Pygame project
-import december_escapes.app
+# import december_escapes.app
 # from december_escapes.app import main
 
 
 
 
-
-
+from gt_hw01.HW01 import bathBomb
 
 # import oop_explained.sample
 
@@ -49,6 +48,11 @@ def main():
     # encapsulation()
 
 
+    
+    # help(tipAndSplit)
+    bathBomb()
+
+
     # hw01.main()  # Test HW01
     # hw01.main()  # Test HW02
     # hw03.main()  # Test HW03
@@ -71,10 +75,10 @@ def main():
     # gt_hw01.HW01.bathBomb()  # Test GT_HW01
 
 
-    ########################################
-    ############### December Escapes
-    ########################################
-    december_escapes.app.main()
+    # ########################################
+    # ############### December Escapes
+    # ########################################
+    # december_escapes.app.main()
 
 
     # hw02.main()  # Test GT_HW02
