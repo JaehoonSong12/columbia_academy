@@ -19,7 +19,7 @@ im_global_var = 10
 
 
 
-from gt_hw01.HW01 import bathBomb
+from gt_hw02.HW02 import bookStore
 
 # import oop_explained.sample
 
@@ -50,7 +50,9 @@ def main():
 
     
     # help(tipAndSplit)
-    bathBomb()
+    print(bookStore("Shirt", 350.48, 8)) # arguments: actual values you want to pass it to the parameters from the stack where you are at
+
+    print(bookStore("Lanyard", 200.0, 70) )
 
 
     # hw01.main()  # Test HW01
