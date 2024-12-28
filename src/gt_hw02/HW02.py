@@ -31,6 +31,7 @@ def skillLevel(passRate):
     if (passRate <= 25): return "Beginner" # <- at this point, we already sorted everyone who has <= 25%
     elif (passRate <= 75): return "Moderate" # <- at this point, we already sorted everyone who has <= 75%
     else: return "Advanced"
+    return # end point (termination)
 
 #########################################
 
@@ -38,10 +39,33 @@ def skillLevel(passRate):
 Function Name: bookStore()
 Parameters: item (str), walletAmount (float), quantity (int)
 Returns: moneyLeftOver (float)
+Description: While you wait for your exam results, you decide to head over to the Barnes and
+Noble Bookstore to pick up some Georgia Tech swag for you and your close friends. A Shirt
+costs $15.50, a Lanyard costs $4.25, a Sweatshirt costs $25.00, and a Mug costs $10.50.
+Write a function that takes a bookstore item and checks if you can buy that item based on
+the amount of money in your wallet and the quantity you want to purchase. If you can buy
+the items requested, return a float that represents how much money is left in your wallet. If
+you cannot buy the items, return “Not enough money!”. Round your answer to 2 decimal
+places.
 """
-def bookStore(item, walletAmount, quantity):
+def bookStore(item, walletAmount, quantity): # parameters: accepting values from the stack
     # [YOUR_IMPLEMENTATION]
-    return
+    """
+        bookStore("Shirt", 350.48, 8) 
+    226.48
+        bookStore("Lanyard", 200.0, 70) 
+    'Not enough money!'
+    """
+    # conditionals to decide item prices!
+    if item == "Shirt": item_price = 15.50
+    if item == "Lanyard": item_price = 4.25
+    if item == "Sweatshirt": item_price = 25.00
+    if item == "Mug": item_price = 10.50
+    # main logic
+    total_price = item_price * quantity
+    amount_left = float(walletAmount - (total_price))
+    if walletAmount >= total_price: return round(amount_left, 2)
+    else: return "'Not enough money!'"
 
 #########################################
 
