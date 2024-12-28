@@ -20,7 +20,7 @@ im_global_var = 10
 
 
 from gt_hw02.HW02 import bookStore
-
+from gt_hw03.HW03 import movieNight
 # import oop_explained.sample
 
 
@@ -50,9 +50,12 @@ def main():
 
     
     # help(tipAndSplit)
-    print(bookStore("Shirt", 350.48, 8)) # arguments: actual values you want to pass it to the parameters from the stack where you are at
+    # print(bookStore("Shirt", 350.48, 8)) # arguments: actual values you want to pass it to the parameters from the stack where you are at
 
-    print(bookStore("Lanyard", 200.0, 70) )
+    # print(bookStore("Lanyard", 200.0, 70) )
+
+    caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
+    movieNight(caption)
 
 
     # hw01.main()  # Test HW01
