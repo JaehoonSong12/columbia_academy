@@ -14,32 +14,34 @@ Returns: the fixed caption (str)
 """
 def movieNight(caption):
     """
-    After a long day of classes, you and your friends decide to get together for a movie night. 
-    You stream the movie from a very legitimate source, but you run into a problem: 
-    the movie captions contain random numbers! Write a function that takes in a caption (str) 
-    and returns the fixed caption without any numbers.
+    This function processes a movie caption and removes all numeric characters. 
+    It returns the fixed caption as a string without altering the order of other characters.
+
+    Steps:
+    1. Use a string method or regular expression to remove all numeric characters from the caption.
+    2. Return the cleaned caption.
+
+    Assumptions:
+    - The input `caption` is a non-empty string.
+    - The function preserves spaces, punctuation, and letter case.
     """
     # [YOUR_IMPLEMENTATION]
-    my_string = "Hel21321453125lo, World!"
+    my_string = "Hel21321453125lo, World!" # string is a type of array
+
+
 
     for char in my_string:
         if not f"{char}".isdigit(): print(char)  # Process each character here
     return
 
+################# < Sample Runs >
 
+# >>> caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e 
+# proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
 
-"""
-Movie Night
-Function Name: movieNight()
-Parameters: a caption ( str )
-Returns: the fixed caption ( str )
-Description: 
->>> caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e 
-proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
->>> movieNight(caption)
-'Mr. and Mrs. Dursley of number four, Privet Drive, were proud to say that they 
-were perfectly normal, thank you very much.'
-"""
+# >>> movieNight(caption)
+# 'Mr. and Mrs. Dursley of number four, Privet Drive, were proud to say that they 
+# were perfectly normal, thank you very much.'
 
 
 #########################################

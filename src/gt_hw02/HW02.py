@@ -49,7 +49,6 @@ you cannot buy the items, return “Not enough money!”. Round your answer to 2
 places.
 """
 def bookStore(item, walletAmount, quantity): # parameters: accepting values from the stack
-    # [YOUR_IMPLEMENTATION]
     """
         bookStore("Shirt", 350.48, 8) 
     226.48
@@ -73,15 +72,66 @@ def bookStore(item, walletAmount, quantity): # parameters: accepting values from
 Function Name: dinnerPlans()
 Parameters: distance (int), hungerLevel (str)
 Returns: transportMode (str)
-Description: After some shopping fun, you and a couple friends want to go out for dinner
-and are deciding whether you should walk or take an Uber. Write a function that takes in the
-distance from the restaurant and the hunger level of the group and returns whether you
-choose to Uber or Walk. There are four hunger levels: “Not Hungry”, “Slightly Hungry”, “Hun-
-gry”, “Very Hungry”. Use the table below to make your decision.
 """
 def dinnerPlans(distance, hungerLevel):
-    
-    return
+    """
+    This function determines whether the group should walk or take an 
+    Uber to the restaurant based on the distance and hunger level provided.
+
+    Decision Table:
+    | distance | hungerLevel     | decision |
+    |----------|-----------------|----------|
+    | <= 7     | Not Hungry      | Walk     |
+    | <= 5     | Slightly Hungry | Walk     |
+    | <= 3     | Hungry          | Walk     |
+    | <= 1     | Very Hungry     | Walk     |
+    | > 7      | Not Hungry      | Uber     |
+    | > 5      | Slightly Hungry | Uber     |
+    | > 3      | Hungry          | Uber     |
+    | > 1      | Very Hungry     | Uber     |
+
+    Steps:
+    1. Check the `hungerLevel` and apply the corresponding distance threshold.
+    2. Return "Walk" if the distance is within the threshold, otherwise 
+    return "Uber".
+
+    Assumptions:
+    - The input `distance` is a non-negative integer.
+    - The input `hungerLevel` is a valid string from the given set of hunger levels.
+    - Outputs are case-sensitive and must match exactly "Walk" or "Uber".
+    """
+    if distance < 0: return "Runtime Error: Your `distance` is not valid (cannot be negative)."
+    # Error Handling with Decision Structure, "early return technique", not try-catch block!
+    if hungerLevel == "Not Hungry": 
+        if distance <= 7: return "Walk"
+        else: return "Uber"
+    if hungerLevel == "Slightly Hungry":
+        if distance <= 5: return "Walk"
+        else: return "Uber"
+    if hungerLevel == "Hungry":
+        if distance <= 3: return "Walk"
+        else: return "Uber"
+    if hungerLevel == "Very Hungry":
+        if distance <= 1: return "Walk"
+        else: return "Uber"
+    return "Runtime Error: Your `hungerLevel` is not valid." # Error Handling with Decision Structure, not try-catch block!
+     # in python, `and` vs in other lang, `&&`
+
+################# < Sample Runs >
+
+# >>> dinnerPlans(4, "Slightly Hungry")
+# 'Walk'
+
+# >>> dinnerPlans(6, "Very Hungry")
+# 'Uber'
+
+# >>> dinnerPlans(6, "Starving")
+# 'Runtime Error: Your `hungerLevel` is not valid.'
+
+# >>> dinnerPlans(-1, "Very Hungry")
+# 'Runtime Error: Your `distance` is not valid (cannot be negative).'
+
+
 
 #########################################
 
@@ -91,8 +141,72 @@ Parameters: distance (float), speed (float), freeTime (float)
 Returns: transportMode (str)
 """
 def weekendTrip(distance, speed, freeTime):
-    # [YOUR_IMPLEMENTATION]
-    return
+    """
+    This function determines the best mode of transportation to 
+    visit a destination based on the distance, speed, and available 
+    free time. If the travel time exceeds 20% of the free time, it returns a message indicating that the trip would take too much time. Otherwise, the function uses the following speed thresholds to determine the mode of transportation:
+
+    Decision Table:
+    | speed                 | transportMode |
+    |-----------------------|---------------|
+    | 2.5 <= speed <= 15    | walking       |
+    | 15 < speed <= 20      | biking        |
+    | speed > 20            | driving       |
+
+    Steps:
+    1. Calculate the travel time as `distance / speed`.
+    2. Determine if the travel time is less than or equal to 20% of `freeTime`.
+    3. If true, decide the mode of transportation based on the speed:
+        - 2.5 <= speed <= 15: "walking"
+        - 15 < speed <= 20: "biking"
+        - speed > 20: "driving"
+    4. If false, return: "Going to this destination would take too much time."
+
+    Assumptions:
+    - `distance` and `freeTime` are positive.
+    - `speed` is always 2.5 mph or greater.
+    - Outputs are case-sensitive and must match exactly.
+    """
+    PERCENT_OF = 0.2
+    travelTime = distance / speed
+    if speed < 2.5 and distance < 0 and freeTime < 0: 
+        return "Runtime Error: Your `speed,` 'distance,' and 'freeTime' is not valid ('speed' must not be less than 2.5 and 'distance' and 'freeTime' cannot be negative)."
+    if speed < 2.5 and distance < 0:
+        return "Runtime Error: Your `speed` and 'distance' is not valid ('speed' must not be less than 2.5 and 'distance' cannot be negative)."
+    if speed < 2.5:
+        return "Runtime Error: Your `speed` is not valid (must not be less than 2.5)."
+    if distance < 0 and freeTime < 0:
+        return "Runtime Error: Your `distance` and 'freeTime' is not valid ('distance' and 'freeTime' cannot be negative)."
+    if distance < 0: 
+        return "Runtime Error: Your `distance` is not valid (cannot be negative)."
+    if freeTime < 0: 
+        return "Runtime Error: Your `freeTime` is not valid (cannot be negative)."
+    # body
+    if travelTime > (PERCENT_OF * freeTime): return "Going to this destination would take too much time."
+    if speed > 20: return "driving"
+    if speed >= 15: return "biking"
+    return "walking"
+
+################# < Sample Runs >
+
+# >>> weekendTrip(7.0, 46.66, 1.0)
+# 'driving'
+
+# >>> weekendTrip(10.0, 5.0, 8.0)
+# 'Runtime Error: Going to this destination would take too much time.'
+
+# >>> weekendTrip(7.0, 46.66, -1.0)
+# 'Runtime Error: Your `freeTime` is not valid (cannot be negative).'
+
+# >>> weekendTrip(7.0, -46.66, -1.0)
+# 'Runtime Error: Your `speed` is not valid (must not be less than 2.5).'
+
+# >>> weekendTrip(0.06, 1.2, 1.0)
+# 'Runtime Error: Your `speed` is not valid (must not be less than 2.5).'
+
+# >>> weekendTrip(-7.0, -46.66, 1.0)
+# 'Runtime Error: Your `distance` is not valid (cannot be negative).'
+
 
 #########################################
 
@@ -102,5 +216,31 @@ Parameters: distance (float), speed (float), freeTime (float), numSnacks (int), 
 Returns: textMsg (str)
 """
 def textFriends(distance, speed, freeTime, numSnacks, numFriends):
-    # [YOUR_IMPLEMENTATION]
+    """
+    This function determines whether a trip is feasible by calling `weekendTrip()`. 
+    If the trip is feasible (travel time is ≤ 20% of free time), the function 
+    calculates how snacks will be divided among friends and includes the transport 
+    mode in the message. Otherwise, it returns: "Going to this destination would 
+    take too much time."
+
+    Steps:
+    1. Call `weekendTrip()` to check if the trip is feasible and get the transport mode.
+    2. If the trip takes too much time, return: "Going to this destination would take too much time."
+    3. Calculate snacks per person as `numSnacks // numFriends`.
+    4. Calculate leftover snacks as `numSnacks % numFriends`.
+    5. Return a formatted text message using the transport mode.
+
+    Assumptions:
+    - All input values are valid and positive.
+    - `numFriends` includes the user.
+    - Outputs are case-sensitive and must match the required format.
+    """
     return
+
+################# < Sample Runs >
+
+# >>> textFriends(25.0, 65.0, 2.5, 17, 3)
+# 'If each of us gets 5 snack(s), there will be 2 left. I will be driving, who else is doing the same?'
+
+# >>> textFriends(1.5, 2.5, 3.0, 13, 7)
+# 'If each of us gets 1 snack(s), there will be 6 left. I will be walking, who else is doing the same?'

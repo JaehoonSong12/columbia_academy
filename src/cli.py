@@ -19,8 +19,7 @@ im_global_var = 10
 
 
 
-from gt_hw02.HW02 import bookStore
-from gt_hw03.HW03 import movieNight
+
 # import oop_explained.sample
 
 
@@ -54,8 +53,61 @@ def main():
 
     # print(bookStore("Lanyard", 200.0, 70) )
 
-    caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
-    movieNight(caption)
+
+    # from gt_hw02.HW02 import dinnerPlans
+    # print(dinnerPlans(4, "Slightly Hungry"))
+    # print(dinnerPlans(6, "Very Hungry"))
+    # print(dinnerPlans(6, "Starving"))
+    # print(dinnerPlans(-1, "Very Hungry"))
+    
+
+    
+
+    cars = ["Ford", "Volvo", "BMW"]
+
+
+    # array, the start of Abstract Data Type (ADT)
+    integers = [1, 2, 3, 5]
+    real_numbers = [2.4, 1.5, 2.3]
+    characters = ['H', 'e', 'l', 'l', 'o']
+
+    # lv1 of ADT, string
+    my_string = "Hello"
+
+    result = "" # null
+    for x in characters:
+        result += x # result = result + char
+    print(result)
+
+    result = ""
+    for x in my_string: # ['H', 'e', 'l', 'l', 'o']
+        result = result + x
+    print(result)
+
+
+    result = ""
+    x = 0
+     # ['H', 'e', 'l', 'l', 'o']
+    #  'H' == index 0            my_string[0]
+    #  'e' == index 1            my_string[1]
+    #  'l' == index 2            my_string[2]
+    #  'l' == index 3            my_string[3]
+    #  'o' == index 4            my_string[4]
+    while (x < len(my_string)): # x < 5
+        result = result + my_string[x]
+        x = x + 1
+    print(result)
+
+    
+    sum = 0.0
+    for y in real_numbers:
+        sum += y
+    print(sum)
+
+
+    # from gt_hw03.HW03 import movieNight
+    # caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
+    # movieNight(caption)
 
 
     # hw01.main()  # Test HW01
