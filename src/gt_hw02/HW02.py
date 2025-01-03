@@ -73,9 +73,14 @@ def bookStore(item, walletAmount, quantity): # parameters: accepting values from
 Function Name: dinnerPlans()
 Parameters: distance (int), hungerLevel (str)
 Returns: transportMode (str)
+Description: After some shopping fun, you and a couple friends want to go out for dinner
+and are deciding whether you should walk or take an Uber. Write a function that takes in the
+distance from the restaurant and the hunger level of the group and returns whether you
+choose to Uber or Walk. There are four hunger levels: “Not Hungry”, “Slightly Hungry”, “Hun-
+gry”, “Very Hungry”. Use the table below to make your decision.
 """
 def dinnerPlans(distance, hungerLevel):
-    # [YOUR_IMPLEMENTATION]
+    
     return
 
 #########################################
