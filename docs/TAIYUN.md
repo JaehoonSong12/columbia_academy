@@ -34,7 +34,7 @@ Try to use Markdown language using Google search, stackoverflow, and chatGPT, as
 
 What to do for the HW!
 1. `.\src\gt_hw02\HW02.py`: implement the last function.
-2. `.\src\gt_hw02\cli.py`: Write a note for the following contents!
+2. `.\src\cli.py`: Write a note for the following contents!
    - Abstract Data Type (ADT)
    - Array
    - Array of Primitive Data Types
