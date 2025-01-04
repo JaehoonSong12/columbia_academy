@@ -43,6 +43,6 @@ What to do for the HW!
    - What is "index" of array?
    - String vs Array of Char
    - for loop vs while loop
-3. `.\src\gt_hw03\HW03.py`: [optional] try to implement the first function. 
+3. `.\src\gt_hw03\HW03.py`: implement everything..!
 
 ## Your Notes Here (in Markdown Format)
