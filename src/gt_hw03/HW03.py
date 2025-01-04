@@ -25,14 +25,32 @@ def movieNight(caption):
     - The input `caption` is a non-empty string.
     - The function preserves spaces, punctuation, and letter case.
     """
-    # [YOUR_IMPLEMENTATION]
-    my_string = "Hel21321453125lo, World!" # string is a type of array
+    # Highest abstraction, stage #3, important function: in <array>
+    cleaned_caption = ""
+    # each time, 
+    for each_character in caption: 
+        if not each_character.isdigit(): cleaned_caption += each_character
+        # result = result + each_character # original way
+        # result = each_character + result  # reversed way
+        # result = each_character + result + each_character # palindrome way
+    
+    # Lostest abstraction, stage #1, important function: len(<array>)
+    cleaned_caption = ""
+    index = 0
+    while (index < len(caption)):
+        if not caption[index].isdigit(): cleaned_caption += caption[index]
+        index += 1
+    
+    ## Middle abstraction, stage #2, important function: range(<int>)
+    cleaned_caption = ""
+    for index in range(len(caption)):
+        if not caption[index].isdigit(): cleaned_caption += caption[index]
 
-
-
-    for char in my_string:
-        if not f"{char}".isdigit(): print(char)  # Process each character here
-    return
+    # result = ""
+    # for each_character in string_a_set_of_charactors:
+    #     if not f"{each_character}".isdigit(): print(each_character)  # Process each character here
+    
+    return cleaned_caption
 
 ################# < Sample Runs >
 

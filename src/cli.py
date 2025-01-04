@@ -63,51 +63,58 @@ def main():
 
     
 
-    cars = ["Ford", "Volvo", "BMW"]
+    # cars = ["Ford", "Volvo", "BMW"]
 
 
-    # array, the start of Abstract Data Type (ADT)
-    integers = [1, 2, 3, 5]
-    real_numbers = [2.4, 1.5, 2.3]
-    characters = ['H', 'e', 'l', 'l', 'o']
-
-    # lv1 of ADT, string
-    my_string = "Hello"
-
-    result = "" # null
-    for x in characters:
-        result += x # result = result + char
-    print(result)
-
-    result = ""
-    for x in my_string: # ['H', 'e', 'l', 'l', 'o']
-        result = result + x
-    print(result)
-
-
-    result = ""
-    x = 0
-     # ['H', 'e', 'l', 'l', 'o']
-    #  'H' == index 0            my_string[0]
-    #  'e' == index 1            my_string[1]
-    #  'l' == index 2            my_string[2]
-    #  'l' == index 3            my_string[3]
-    #  'o' == index 4            my_string[4]
-    while (x < len(my_string)): # x < 5
-        result = result + my_string[x]
-        x = x + 1
-    print(result)
-
+    # # array, the start of Abstract Data Type (ADT)
+    # integers = [1, 2, 3, 5]
     
-    sum = 0.0
-    for y in real_numbers:
-        sum += y
-    print(sum)
+    # characters = ['H', 'e', 'l', 'l', 'o']
+
+    # # lv1 of ADT, string
+    # my_string = "Hello"
+
+    # result = "" # null
+    # for x in characters:
+    #     result += x # result = result + char
+    # print(result)
+
+    # result = ""
+    # for x in my_string: # ['H', 'e', 'l', 'l', 'o']
+    #     result = result + x
+    # print(result)
 
 
-    # from gt_hw03.HW03 import movieNight
-    # caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
-    # movieNight(caption)
+    # result = ""
+    # x = 0
+    #  # ['H', 'e', 'l', 'l', 'o']
+    # #  'H' == index 0            my_string[0]
+    # #  'e' == index 1            my_string[1]
+    # #  'l' == index 2            my_string[2]
+    # #  'l' == index 3            my_string[3]
+    # #  'o' == index 4            my_string[4]
+    # while (x < len(my_string)): # x < 5
+    #     result = result + my_string[x]
+    #     x = x + 1
+    # print(result)
+
+
+    # real_numbers = [2.4, 1.5, 2.3]
+    # example = "Hie" # = ['H','i','e']
+    # sum = 0.0
+    # for y in real_numbers:
+    #     sum += y
+    # print(sum)
+
+    # print("--------------Testing!---------------")
+    # print(example[0])
+    # print(example[1])
+    # print(example[2])
+
+
+    from gt_hw03.HW03 import movieNight
+    caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
+    print(movieNight(caption))
 
 
     # hw01.main()  # Test HW01
