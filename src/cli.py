@@ -61,6 +61,12 @@ def main():
     # print(dinnerPlans(-1, "Very Hungry"))
     
 
+    # from gt_hw02.HW02 import textFriends
+    # print(textFriends(25.0, 65.0, 2.5, 17, 3))
+    # print(textFriends(1.5, 2.5, 3.0, 13, 7))
+    # print(textFriends(10.0, 5.0, 8.0, 13, 7))
+    # print(textFriends(7.0, -46.66, -1.0, 13, 7))
+
     
 
     # cars = ["Ford", "Volvo", "BMW"]
@@ -112,9 +118,14 @@ def main():
     # print(example[2])
 
 
-    from gt_hw03.HW03 import movieNight
-    caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
-    print(movieNight(caption))
+    # from gt_hw03.HW03 import movieNight
+    # caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
+    # print(movieNight(caption))
+
+    from gt_hw03.HW03 import iceCream
+    print(iceCream("ChoCoLaTe", 3))
+    print(iceCream("strawBERRY", 2))
+
 
 
     # hw01.main()  # Test HW01

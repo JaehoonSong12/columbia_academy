@@ -235,7 +235,15 @@ def textFriends(distance, speed, freeTime, numSnacks, numFriends):
     - `numFriends` includes the user.
     - Outputs are case-sensitive and must match the required format.
     """
-    return
+    error_identifier = "Runtime Error"
+    response = weekendTrip(distance, speed, freeTime)
+    if response == "Going to this destination would take too much time.": 
+        return response
+    if response.startswith(error_identifier):
+        return response
+    snack_per_person = numSnacks // numFriends
+    leftover_snacks = numSnacks % numFriends
+    return f"If each of us gets {snack_per_person} snack(s), there will be {leftover_snacks} left. I will be {response}, who else is doing the same?"
 
 ################# < Sample Runs >
 
