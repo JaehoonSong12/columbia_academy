@@ -129,6 +129,12 @@ def iceCream(flavor, min_vowels):
 Function Name: dreamCar()
 Parameters: car price (float), bank balance(float), interest rate (float)
 Returns: number of years (int)
+Description: While you're eating your ice cream, you start thinking about your dream car.
+You want to figure out how long it will take for you to save up and buy that car. Luckily,
+you've got some money in the bank that's growing every year with compound interest. Given
+the price of your dream car ( float ), the money you currently have in the bank ( float ), and
+the interest rate of your bank account ( float ) given as a percent, return how many years it
+will take for you to have enough money for your dream car.
 """
 def dreamCar(price, balance, rate):
     """
