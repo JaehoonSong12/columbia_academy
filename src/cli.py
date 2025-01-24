@@ -122,9 +122,138 @@ def main():
     # caption = "Mr. and M4rs. Dursley of nu28mber four, Privet Drive, wer903e proud to say th6at they we6re perfectly norm3al, tha894nk you ve89ry much." 
     # print(movieNight(caption))
 
-    from gt_hw03.HW03 import iceCream
-    print(iceCream("ChoCoLaTe", 3))
-    print(iceCream("strawBERRY", 2))
+
+
+
+    # from gt_hw03.HW03 import dreamCar
+    # print(dreamCar(50000.0, 10000.0, 5.0))
+    # print(dreamCar(100000.0, 112.15, 2.1))
+
+
+
+    
+    # from gt_hw03.HW03 import battleship
+    # battleship(3)
+    # battleship(6)
+
+    # from gt_hw03.HW03 import tennisMatch
+    # tennisMatch("Arvin", "Arushi", "11221-222-1111-11121-22111-")
+    # tennisMatch("Anthony", "Caitlin", "1122-22211-11122-1212-")
+
+    from gt_hw04.HW04 import findMax
+    print(findMax([1, 8, 3, 2, -4], 2, 4))
+    print(findMax([3, 0, 7, 3, 2], 0, 4))
+
+
+
+
+    
+
+    # Custom Question! 
+    """
+    You have a string, that is given.
+    Now, you are going to sort (in ascedning order, a->b->c->d->...) all the characters, 
+    you can count the occurence of each letter!
+    (Note: Ignore any whitespaces)
+    For example, 
+    "hi my name is jaehoon" -> {your implementation} -> "aaeehhiijmmnnoosy" << this is the sorted string!
+    
+    Article Refereces (Algorithm)
+    1. https://www.geeksforgeeks.org/sorting-algorithms-in-python/
+    2. https://www.programiz.com/dsa/sorting-algorithm
+
+    dcba
+        d <- d should go the last
+       c <- c should go the second last
+
+    """
+    
+
+
+    def sort(input): # unsorted*
+        if len(input) == 0: # no empty string
+            return output
+        output = "" # sorted string / sorted array
+        input = input.strip().lower()
+        # For loop to iterate, 97 <= english_letter_ascii < 123
+
+
+        # https://www.probabilitycourse.com/chapter1/1_2_2_set_operations.php
+        # A={1, 2, 3, 4, 2} = {1, 2, 3, 4} = range(97, 123)
+        # B={33}
+        # A \union B 
+        for english_letter_ascii in sorted({33, 36} | set(range(97, 123))): # you are assuming, the valid range of letter is constant.
+            i = 0
+            while (i < len(input)): 
+                ## sort ????????????? <- more than 13 knwon solutions, each has their own benefit
+                if ord(input[i]) == "32":
+                    print()
+                elif ord(input[i]) == english_letter_ascii: ## <- must be repreted for every character
+                    output = output + input[i]
+                i += 1
+            
+            
+            # elif ord(input[i]) <= ord(input[i - 1]):
+            #     output = input[i] + output
+            # elif ord(input[i]) > ord(input[i - 1]):
+            #     output = output + input[i]
+            
+            # print(ord(input[i])) # tells you ASCII value (`ord`inal value) so you can sort it by comparing
+            
+
+        # for char in input:
+        #     ## original string! restore
+        #     # output = output + char # [1] -> [1][2] -> [1][2][3]
+        #     ## reverse
+        #     output = char + output # [1] -> [2][1] -> [3][2][1]
+            
+        return output
+    
+
+    # string_given = "hi my name is $jaehoon, $taiyon, $jack, and $alysia, everyone is here!"
+    # print(string_given)
+    # print(sort(string_given))
+
+
+
+    # print(ord(" "))
+
+    # greeting = "     Hello!  "
+    # stripped_greeting = greeting.strip()
+    # print(stripped_greeting,"How are you?")
+
+
+
+
+
+
+
+
+    # ## Array (Ordered Collection of Values, n-tuples, vectors in math)
+    # vect1 = [1, 2, 3]
+    # vect2 = [2, 2, 2]
+
+    # vect3 = vect1 + vect2
+
+    # ## Set (Unordered Collection of Values, number set in math)
+    # set1 = {1,2,3}
+    # set2 = {2,2,2}
+
+    # for x in vect3:
+    #     print(x)
+    
+
+
+
+    # game_record_string = "11221-222-1111-11121-22111-"
+
+    # rounds_of_the_game = game_record_string.split('-')
+
+    # for round in rounds_of_the_game:
+    #     print(round)
+
+
+
 
 
 
