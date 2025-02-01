@@ -79,8 +79,16 @@ Returns: list of fruits (list)
 """
 def fruitPie(theFruit, theMin):
     # [YOUR_IMPLEMENTATION]
-    
-    return
+    COLS = 2
+    i = 0
+    list_of_fruits = []
+    while(i < len(theFruit)):
+        if theFruit[i + 1] >= theMin:
+            list_of_fruits.append(theFruit[i])
+        # print(f"fruit: {theFruit[i]}")
+        # print(f"quantity: {theFruit[i + 1]}")
+        i += COLS
+    return list_of_fruits
 
 #########################################
 
@@ -91,19 +99,41 @@ Returns: corrected sentence (str)
 """
 def replaceWord(sentence, word):
     # [YOUR_IMPLEMENTATION]
-    return
+    split_sentence = sentence.split()
+    corrected_sentence_array = []
+    for word_in_sentence in split_sentence:
+        if len(word_in_sentence) >= 5:
+            corrected_sentence_array.append(word)
+        else:
+            corrected_sentence_array.append(word_in_sentence)
+    corrected_sentence = ""
+    for corrected_word in corrected_sentence_array:
+        corrected_sentence += corrected_word + " "
+    return corrected_sentence
     
 
 #########################################
 
-"""
+""")
 Function Name: highestSum()
 Parameters: list of strings (strings)
 Returns: index of string with the highest sum (int)
 """
 def highestSum(theStrings):
     # [YOUR_IMPLEMENTATION]
-    return
+    index = 0
+    max_value = 0
+    max_index = 0
+    for string in theStrings:
+        sum = 0
+        for char in string:
+            if char.isdigit():
+                sum = sum + int(char)
+        if max_value < sum:
+            max_value = sum
+            max_index = index
+        index += 1
+    return max_index
     
 
 #########################################
