@@ -257,6 +257,155 @@ def main():
 
 
 
+    def print_game_board(board: list, width_of_board: int):
+        """
+        Prints the 1D game board in a 2D format for better visualization.
+        
+        Parameters:
+        board (list): The game board stored as a 1D list.
+        width_of_board (int): The number of columns in the board.
+        
+        Example:
+        >>> board = create_game_board(3, 3)
+        >>> print_game_board(board, 3)
+        X O O
+        X O O
+        X O O
+        """
+        for i in range(len(board)):
+            cell = board[i]
+            # print("\n")
+            if ((i % width_of_board) == 2): 
+                print(cell, end="\n")
+            else: 
+                print(cell, end=" ")
+        return
+    
+    def is_row_bingo(board: list, width_of_board: int):
+        for row_index in range(len(board) // width_of_board):
+            is_row_bingo_detected = True # flag to identify if there is at least one row bingo
+            first_cell = board[((row_index * width_of_board))] # the very first character that is supposed to be in the entire row
+            for col_index in range(width_of_board): # process each row
+                cell = board[((row_index * width_of_board) + col_index)]
+                if (first_cell != cell): 
+                    is_row_bingo_detected = False 
+            if (is_row_bingo_detected): 
+                return True # logic for each row, even if you don't find it, you need to give me another chance
+                # print(f"You are at row: {row_index}")
+                # print(f"You are at col: {col_index}") 
+                # print(f"You are at i based on row {row_index} & col {col_index}: {board[((row_index * width_of_board) + col_index) ]}")
+        return False
+        #      0    1    2
+        #  0 ['X', 'O', 'O', 
+        #  1 'X', 'X', 'X', 
+        #  2 'X', 'O', 'O'] 9
+        
+        # "X", "O", "O",
+        # "X", "X", "X",
+        # "X", "O", "O"
+        
+        # [0,    1 ,  2,     3,  4,  5,     6,   7,  8 ] 
+        # ['X', 'O', 'O',  'X', 'O', 'O',  'X', 'O', 'O'] 
+
+        
+        return True
+    
+    def is_col_bingo(board: list, width_of_board: int):
+        return False
+        return True
+    
+    def is_diagonal_bingo(board: list, width_of_board: int):
+        return False
+        return True
+
+
+
+
+
+
+    def create_game_board(width: int, height: int) -> list:
+        """
+        Creates a 2D game board represented as a 1D list.
+        
+        The board is filled with "X" and "O" based on the following rule:
+        - If the position index (computed as row * width + col) is divisible by 3, place "X".
+        - Otherwise, place "O".
+        
+        Parameters:
+        width (int): The number of columns in the board.
+        height (int): The number of rows in the board.
+        
+        Returns:
+        list: A 1D list representing the game board.
+        
+        Example:
+        >>> create_game_board(3, 3)
+        ['X', 'O', 'O', 'X', 'O', 'O', 'X', 'O', 'O']
+        """
+        return None
+    
+
+    # Example usage
+    COLS = 3
+    ROWS = 3
+    board = create_game_board(COLS, ROWS)
+
+
+
+    board = [ "X", "O", "O", "X", "O", "O", "X", "O", "O"]
+
+    board = [
+        "X", "B", "X",
+        "A", "A", "B",
+        "X", "O", "O"
+    ]
+
+    # print_game_board(board, ROWS)
+
+    # if (is_col_bingo(board, ROWS)): print("You got a column bingo!")
+    # else: print("You dont' get any column bingo!")
+    # if (is_row_bingo(board, ROWS)): print("You got a row bingo!")
+    # else: print("You dont' get any row bingo!")
+    # if (is_diagonal_bingo(board, ROWS)): print("You got a diagonal bingo!")
+    # else: print("You dont' get any diagonal bingo!")
+
+
+    print(True) # boolean data type
+    fdsgfsdgfdgfd = 12
+    print(fdsgfsdgfdgfd)
+    print(12)
+    print(False)
+
+    print(2 > 1)    # 2 > 1 --> True (boolean data)
+
+    print("Ture? False? anything that is non-zero are true, anything that is zero are false")
+    print(bool(50)) # True
+    print(bool(0))  # False
+    print(bool(-1)) # True
+    print(bool(5))  # True
+
+
+    print(2 == 1)
+
+    if (2 > 1): print("hi")
+    if (True): print("hi")
+
+    # if (boolean data type)
+
+
+    # from gt_hw04.HW04 import fruitPie
+    # print(fruitPie(["apple", 2, "cherry", 10, "watermelon", 5], 4))
+
+    # from gt_hw04.HW04 import replaceWord
+    # print(replaceWord("I used to rule the world","seas"))
+
+    from gt_hw04.HW04 import highestSum
+    myList = ["3lf", "bg_73e", "001!0", "gg9./"] 
+    print(highestSum(myList))
+    myList = ["py1h0n", "1s", "v3ry", "fun!!11!!!111"]
+    print(highestSum(myList))
+
+
     # hw01.main()  # Test HW01
     # hw01.main()  # Test HW02
     # hw03.main()  # Test HW03
