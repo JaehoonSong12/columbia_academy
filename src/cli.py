@@ -140,9 +140,9 @@ def main():
     # tennisMatch("Arvin", "Arushi", "11221-222-1111-11121-22111-")
     # tennisMatch("Anthony", "Caitlin", "1122-22211-11122-1212-")
 
-    from gt_hw04.HW04 import findMax
-    print(findMax([1, 8, 3, 2, -4], 2, 4))
-    print(findMax([3, 0, 7, 3, 2], 0, 4))
+    # from gt_hw04.HW04 import findMax
+    # print(findMax([1, 8, 3, 2, -4], 2, 4))
+    # print(findMax([3, 0, 7, 3, 2], 0, 4))
 
 
 
@@ -370,25 +370,25 @@ def main():
     # else: print("You dont' get any diagonal bingo!")
 
 
-    print(True) # boolean data type
-    fdsgfsdgfdgfd = 12
-    print(fdsgfsdgfdgfd)
-    print(12)
-    print(False)
+    # print(True) # boolean data type
+    # fdsgfsdgfdgfd = 12
+    # print(fdsgfsdgfdgfd)
+    # print(12)
+    # print(False)
 
-    print(2 > 1)    # 2 > 1 --> True (boolean data)
+    # print(2 > 1)    # 2 > 1 --> True (boolean data)
 
-    print("Ture? False? anything that is non-zero are true, anything that is zero are false")
-    print(bool(50)) # True
-    print(bool(0))  # False
-    print(bool(-1)) # True
-    print(bool(5))  # True
+    # print("Ture? False? anything that is non-zero are true, anything that is zero are false")
+    # print(bool(50)) # True
+    # print(bool(0))  # False
+    # print(bool(-1)) # True
+    # print(bool(5))  # True
 
 
-    print(2 == 1)
+    # print(2 == 1)
 
-    if (2 > 1): print("hi")
-    if (True): print("hi")
+    # if (2 > 1): print("hi")
+    # if (True): print("hi")
 
     # if (boolean data type)
 
@@ -399,11 +399,11 @@ def main():
     # from gt_hw04.HW04 import replaceWord
     # print(replaceWord("I used to rule the world","seas"))
 
-    from gt_hw04.HW04 import highestSum
-    myList = ["3lf", "bg_73e", "001!0", "gg9./"] 
-    print(highestSum(myList))
-    myList = ["py1h0n", "1s", "v3ry", "fun!!11!!!111"]
-    print(highestSum(myList))
+    # from gt_hw04.HW04 import highestSum
+    # myList = ["3lf", "bg_73e", "001!0", "gg9./"] 
+    # print(highestSum(myList))
+    # myList = ["py1h0n", "1s", "v3ry", "fun!!11!!!111"]
+    # print(highestSum(myList))
 
 
     # hw01.main()  # Test HW01
@@ -450,6 +450,44 @@ def main():
     #########################
     # Programming Paradignms!
     # oop_explained.sample.oo_paradigm()
+
+
+
+    from gt_hw07.HW07 import findCuisine
+    print(findCuisine('./gt_hw07/restaurants.txt', 'American'))
+
+
+
+    # #### file I/O API!!!!!
+    # import os
+    
+    # try:
+    #     os.mkdir("new_directory")
+    #     print("Directory created successfully.")
+    # except FileExistsError:
+    #     print("Directory already exists.")
+    # except OSError as e:
+    #     print(f"Error creating directory: {e}")
+
+
+    # filename = "./new_directory/example.txt"
+
+    # file = open(filename, "w") # w: writing mode (inputting values as file)
+    # # print(type(23))
+    # # print(type(file))
+    # file.write("Hello, World!\n")
+    # file.write("dsafdafdafaf, World!\n")
+    # file.write("Hello, dsafdafdafaf!\n")
+    # file.close()
+
+    # file = open(filename, "r")
+    # output = file.read()
+    # print(type(output))
+    # print(output)
+
+
+
+
 
 if __name__ == "__main__":
     main()
