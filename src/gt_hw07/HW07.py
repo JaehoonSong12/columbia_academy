@@ -12,7 +12,20 @@ Returns: list of restaurants (list)
 
 def findCuisine(filename, cuisine):
     # [YOUR_IMPLEMENTATION]
-    return
+    #### file IO API
+    file = open(filename, "r")
+    data = file.read()
+    file.close()
+    #### convential procedual coding
+    processed_data = data.split("\n\n")
+    restaurants_same_cuisine = []
+    for record in processed_data:
+        fields_arr = record.split("\n")
+        # print(fields_arr)
+        if fields_arr[1] == cuisine:
+            restaurants_same_cuisine.append(fields_arr[0])
+            
+    return restaurants_same_cuisine
     
 
 """
