@@ -455,8 +455,19 @@ def main():
 
     from gt_hw07.HW07 import findCuisine
     print(findCuisine('./gt_hw07/restaurants.txt', 'American'))
+  
+    from gt_hw04.HW04 import sublist
+    alist = ['a', 'b', 'd', 'e', 't'] 
+    blist = ['b', 'd', 'e']
+    print(sublist(alist, blist))
 
+    alist = [6, 2, 3, 4, 5] 
+    blist = [6, 3] 
+    print(sublist(alist, blist))
 
+    alist = ["The", "Houston", "Astros", "are", "cheaters"] 
+    blist = ["The", "Houston", "Astros", "are", "cheaters"] 
+    print(sublist(alist,blist))
 
     # #### file I/O API!!!!!
     # import os
@@ -486,8 +497,14 @@ def main():
     # print(output)
 
 
+    animal_types = ["Dog", "Cat"]
+    animal_sounds = ["Bark", "Meow"]
 
-
-
+    def report(types, sounds):
+        print(f"This animal is {types}, it makes its sound, {sounds}.")
+        return
+    for i in range(len(animal_types)):
+        report(animal_types[i], animal_sounds[i])
+    
 if __name__ == "__main__":
     main()
