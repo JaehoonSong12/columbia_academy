@@ -145,4 +145,15 @@ Returns: True or False (`boolean`)
 """
 def sublist(aList, bList):
     # [YOUR_IMPLEMENTATION]
-    return
+    result = False
+    if len(aList) < len(bList):
+        return False
+    
+    for i in range(len(aList) - len(bList) + 1):
+        if bList[0] == aList[i]:
+            result = True
+            for j in range(len(bList)):
+                if bList[j] != aList[i + j]:
+                    result = False
+            if (result): return True
+    return result
