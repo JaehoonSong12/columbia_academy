@@ -497,14 +497,43 @@ def main():
     # print(output)
 
 
-    animal_types = ["Dog", "Cat"]
-    animal_sounds = ["Bark", "Meow"]
+
+    ############### < Procedure Programming (PP) Paradigm >
+    animal_types = ["Dog", "Cat", "Mouse"]
+    animal_sounds = ["Bark", "Meow", "Squeak"]
 
     def report(types, sounds):
         print(f"This animal is {types}, it makes its sound, {sounds}.")
         return
     for i in range(len(animal_types)):
         report(animal_types[i], animal_sounds[i])
+    
+
+
+
+
+
+    ############### Object Oriented Programming (OOP) Paradigm - step#1 encapsulation
+    # self var <- system setup variable used to store the memory 
+    #               address of objects in `heap`.
+    class Animal:
+        def __init__(self, type, sound): # __init__: is called to initalize your class object 
+            self.type = type             # self.type (in `heap`, OOP): self (class object's) value, type
+            self.sound = sound           # type (in `stack`, PP): parameter accepting arguments outside
+        def report(self):
+            print(f"This animal is a {self.type}, it makes its sound, {self.sound}.")
+    
+    # Animal("Human", "Hi") # === Animal.__init__(self, "Human", "Hi")
+
+
+    animals = [
+        Animal("Dog", "Bark"),  # <- these data are in heap, not stack
+        Animal("Mouse", "Squeak"),
+        Animal("Cat", "Meow")   # <- these data are in heap, not stack
+    ]
+
+    for animal in animals:
+        animal.report()
     
 if __name__ == "__main__":
     main()
