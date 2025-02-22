@@ -498,42 +498,84 @@ def main():
 
 
 
-    ############### < Procedure Programming (PP) Paradigm >
-    animal_types = ["Dog", "Cat", "Mouse"]
-    animal_sounds = ["Bark", "Meow", "Squeak"]
+    # ############### < Procedure Programming (PP) Paradigm >
+    # animal_types = ["Dog", "Cat", "Mouse"]
+    # animal_sounds = ["Bark", "Meow", "Squeak"]
 
-    def report(types, sounds):
-        print(f"This animal is {types}, it makes its sound, {sounds}.")
-        return
-    for i in range(len(animal_types)):
-        report(animal_types[i], animal_sounds[i])
+    # def report(types, sounds):
+    #     print(f"This animal is {types}, it makes its sound, {sounds}.")
+    #     return
+    # for i in range(len(animal_types)):
+    #     report(animal_types[i], animal_sounds[i])
     
 
 
 
 
 
-    ############### Object Oriented Programming (OOP) Paradigm - step#1 encapsulation
-    # self var <- system setup variable used to store the memory 
-    #               address of objects in `heap`.
-    class Animal:
-        def __init__(self, type, sound): # __init__: is called to initalize your class object 
-            self.type = type             # self.type (in `heap`, OOP): self (class object's) value, type
-            self.sound = sound           # type (in `stack`, PP): parameter accepting arguments outside
-        def report(self):
-            print(f"This animal is a {self.type}, it makes its sound, {self.sound}.")
+    # ############### Object Oriented Programming (OOP) Paradigm - step#1 encapsulation
+    # # self var <- system setup variable used to store the memory 
+    # #               address of objects in `heap`.
+    # class Animal:
+    #     def __init__(self, type, sound): # __init__: is called to initalize your class object 
+    #         self.type = type             # self.type (in `heap`, OOP): self (class object's) value, type
+    #         self.sound = sound           # type (in `stack`, PP): parameter accepting arguments outside
+    #     def report(self):
+    #         print(f"This animal is a {self.type}, it makes its sound, {self.sound}.")
     
-    # Animal("Human", "Hi") # === Animal.__init__(self, "Human", "Hi")
+    # # Animal("Human", "Hi") # === Animal.__init__(self, "Human", "Hi")
 
 
-    animals = [
-        Animal("Dog", "Bark"),  # <- these data are in heap, not stack
-        Animal("Mouse", "Squeak"),
-        Animal("Cat", "Meow")   # <- these data are in heap, not stack
-    ]
+    # animals = [
+    #     Animal("Dog", "Bark"),  # <- these data are in heap, not stack
+    #     Animal("Mouse", "Squeak"),
+    #     Animal("Cat", "Meow")   # <- these data are in heap, not stack
+    # ]
 
-    for animal in animals:
-        animal.report()
+    # for animal in animals:
+    #     animal.report()
+
+
+
+
+    
+    # ############### Object Oriented Programming (OOP) Paradigm - step#2 inheritance/polymorphism
+    # class Animal:
+    #     def __init__(self, type, sound): # __init__: is called to initalize your class object 
+    #         self.type = type             # self.type (in `heap`, OOP): self (class object's) value, type
+    #         self.sound = sound           # type (in `stack`, PP): parameter accepting arguments outside
+    #     def report(self):
+    #         print(f"This animal is a {self.type}, it makes its sound, {self.sound}.")
+    # class Dog(Animal):
+    #     def __init__(self):
+    #         super().__init__("Dog", "Bark")
+    # class Cat(Animal):
+    #     def __init__(self):
+    #         super().__init__("Cat", "Meow")
+    #     # @override
+    #     def report(self):
+    #         print(f"Cats are unique, this generation gave up on making sound.")
+    # class Mouse(Animal):
+    #     def __init__(self):
+    #         super().__init__("Mouse", "Squeak")
+
+    # animals = [
+    #     Dog(),  # <- these data are in heap, not stack
+    #     Mouse(),
+    #     Cat()   # <- these data are in heap, not stack
+    # ]
+
+    # for animal in animals:
+    #     animal.report()
+    #     print(type(animal))
+
+
+
+
+    ###### 
+    from gt_hw07.HW07 import restaurantFilter
+    print(restaurantFilter('./gt_hw07/restaurants.txt'))
+
     
 if __name__ == "__main__":
     main()
