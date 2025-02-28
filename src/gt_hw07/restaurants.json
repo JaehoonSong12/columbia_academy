@@ -1,0 +1,25 @@
+{
+  "Mexican": [
+    "Taco Bell",
+    "La Parilla"
+  ],
+  "American": [
+    "Cookout",
+    "McDonald's",
+    "Wendy's",
+    "Chickfila"
+  ],
+  "Italian": [
+    "Olive Garden",
+    "Twisted Kitchen"
+  ],
+  "Greek": [
+    "Gyro Bros"
+  ],
+  "Chinese": [
+    "Panda Express"
+  ],
+  "Japanese": [
+    "Momonoki"
+  ]
+}

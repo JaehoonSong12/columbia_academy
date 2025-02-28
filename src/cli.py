@@ -576,6 +576,9 @@ def main():
     from gt_hw07.HW07 import restaurantFilter
     print(restaurantFilter('./gt_hw07/restaurants.txt'))
 
+    from gt_hw07.HW07 import createDirectory
+    createDirectory('./gt_hw07/restaurants.txt', './gt_hw07/directory.txt')
+
     
 if __name__ == "__main__":
     main()
