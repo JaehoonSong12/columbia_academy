@@ -587,6 +587,15 @@ def main():
     print(text[1:])  # "ello"
 
 
+    def reverse_string(s):
+        if s == "":
+            return s
+        return reverse_string(s[1:]) + s[0]
+    
+    print(reverse_string("abc"))  # "cba"
+
+
+
 
     
 if __name__ == "__main__":
