@@ -572,12 +572,21 @@ def main():
 
 
 
-    ###### 
-    from gt_hw07.HW07 import restaurantFilter
-    print(restaurantFilter('./gt_hw07/restaurants.txt'))
+    # ###### HW07
+    # from gt_hw07.HW07 import restaurantFilter
+    # print(restaurantFilter('./gt_hw07/restaurants.txt'))
 
-    from gt_hw07.HW07 import createDirectory
-    createDirectory('./gt_hw07/restaurants.txt', './gt_hw07/directory.txt')
+    # from gt_hw07.HW07 import createDirectory
+    # createDirectory('./gt_hw07/restaurants.txt', './gt_hw07/directory.txt')
+
+
+
+
+    # slicing notation
+    text = "hello"
+    print(text[1:])  # "ello"
+
+
 
     
 if __name__ == "__main__":
