@@ -572,12 +572,41 @@ def main():
 
 
 
-    ###### 
-    from gt_hw07.HW07 import restaurantFilter
-    print(restaurantFilter('./gt_hw07/restaurants.txt'))
+    # ###### 
+    # from gt_hw07.HW07 import restaurantFilter
+    # print(restaurantFilter('./gt_hw07/restaurants.txt'))
 
-    from gt_hw07.HW07 import createDirectory
-    createDirectory('./gt_hw07/restaurants.txt', './gt_hw07/directory.txt')
+    # from gt_hw07.HW07 import createDirectory
+    # createDirectory('./gt_hw07/restaurants.txt', './gt_hw07/directory.txt')
+
+    # from gt_hw07.HW07 import infectedPercentage
+    # print(infectedPercentage(["Belgium", "Belarus", "Bermuda"], './gt_hw07/covid.csv'))
+    # print(infectedPercentage(["Sweden", "Turkey", "Ukraine"], './gt_hw07/covid.csv'))
+
+
+
+
+    from gt_hw07.HW07 import countryStatus
+    print(
+        countryStatus(["United States", "Tonga", "Poland", "New Zealand", "Norway"], './gt_hw07/covid.csv')
+    )
+    print(
+        countryStatus(["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
+    )
+    
+
+
+    from gt_hw07.HW07 import compareRisk
+    print(
+        compareRisk("Tunisia", ["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
+    )
+    print(
+        compareRisk("Tuvalu", ["Turkmenistan", "Norway", "Netherlands", "Philippines"], './gt_hw07/covid.csv')
+    )
+    
+
+
+
 
     
 if __name__ == "__main__":
