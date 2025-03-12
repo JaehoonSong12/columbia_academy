@@ -113,34 +113,34 @@ def createDirectory(inputfile, outputfile):
     print(dict_sit_down)
     sit_down_array = sorted(dict_sit_down.keys())
 
-    string = "Fast Food\n"
-    for key in fast_food_array:
-        string += f"{key} - {value}\n"
+    ############ Seralizing 
+    #### (object data (structured) in a given language env, python)
+    #### to
+    #### serialized string (non-structured)
 
-
-    # file write
+    # string operation (algorithm)
     serial_string = "Restaurant Directory\n"
+    serial_string += "Fast Food\n"
+    fast_food_number = 0
+    sit_down_number = 0
+    for key in fast_food_array:
+        fast_food_number += 1
+        value = dict_fast_food[key]
+        serial_string += f"{fast_food_number}. {key} - {value}\n"
+                                            #  x - f(x), not x - y bc y is not dynamically updated
+    serial_string += "Sit-Down\n"
+    for key in sit_down_array:
+        sit_down_number += 1
+        value = dict_sit_down[key]
+        serial_string += f"{sit_down_number}. {key} - {value}\n"
+    
+    # file write
     file = open(outputfile, 'w') # ("w" = write mode)
     file.write(serial_string)
     file.close()
     return
 
 
-
-# Restaurant Directory
-# Fast Food
-# 1. Chickfila - American
-# 2. Cookout - American
-# 3. Gyro Bros - Greek
-# 4. McDonald's - American
-# 5. Panda Express - Chinese
-# 6. Taco Bell - Mexican
-# 7. Wendy's - American
-# Sit-down
-# 1. La Parilla - Mexican
-# 2. Momonoki - Japanese
-# 3. Olive Garden - Italian
-# 4. Twisted Kitchen - Italian
 
 
 
@@ -152,7 +152,66 @@ Returns: country and percentage (tuple)
 
 def infectedPercentage(countryList, filename):
     # [YOUR_IMPLEMENTATION]
-    return
+
+
+    ########## 1. open file (serialized string)
+    f = open(filename, "r")
+    data = f.read().split('\n')
+    f.close()
+
+    ########## 2. normalize/clean serial string
+    data_without_colname = []
+    is_first = True
+    for row in data:
+        if is_first: 
+            is_first = False
+            continue
+        data_without_colname.append(row)
+
+    ############ 3. Parsing
+    #### serial string (non-structured)
+    #### to
+    #### object data (structured) in a given language env, python
+    dictData = {} # f(x) = y, x: input, y: output, x == "countries", y == "percentage of infected individuals"
+    for row in data_without_colname:
+        fields = row.split(',')
+        country = fields[0]
+        case = int(fields[1])
+        infected = int(fields[2])
+        # print((country, case, infected))
+        key = country
+        value = round((infected / case) * 100, 2)
+        dictData[key] = value
+        # print((key, dictData[key]))
+    
+    ############ 4. Problem Solving!
+    greatest_avg_country = countryList[0]
+    for country in countryList:
+        if dictData[country] > dictData[greatest_avg_country]:
+            greatest_avg_country = country
+    
+
+    return (greatest_avg_country, dictData[greatest_avg_country]) # tuple is like a vector!
+
+
+
+
+    # # example 1: Indexing (Access elements by index)
+    # my_tuple = ("Python", "Java", "C++")
+    # print(my_tuple[0])  # Output: Python
+    # print(my_tuple[1])  # Output: Java
+    # print(my_tuple[-1]) # Output: C++
+    # # example 2
+    # vec1 = (1,2)
+    # vec2 = (3,4)
+    # print(vec1 + vec2)
+    # # example 3
+    # fruits = ("apple", "banana", "cherry")
+    # for fruit in fruits:
+    #     print(fruit)
+
+
+
 """
 Function Name: countryStatus()
 Parameters: country list (list), filename(str)
@@ -160,8 +219,53 @@ Returns: risk dictionary (dict)
 """
 
 def countryStatus(countryList, filename):
-    # [YOUR_IMPLEMENTATION]
-    return
+    f = open(filename, "r")
+    data = f.read().split('\n')
+    f.close()
+
+    data_without_colname = []
+    is_first = True
+    for row in data:
+        if is_first: 
+            is_first = False
+            continue
+        data_without_colname.append(row)
+    
+    dict_data = {}
+    for row in data_without_colname:
+        fields = row.split(',')
+        country = fields[0]
+        case = int(fields[1])
+        infected = int(fields[2])
+        # print((country, case, infected))
+        key = country
+        value = round((infected / case) * 100, 2)
+        dict_data[key] = value
+
+    risks = ["Low Risk", "Medium Risk", "High Risk"]
+    dict_data_risk = {}
+    key = risks[0]
+    if key not in dict_data_risk: dict_data_risk[key] = [] # defines empty array
+    key = risks[1]
+    if key not in dict_data_risk: dict_data_risk[key] = [] # defines empty array
+    key = risks[2]
+    if key not in dict_data_risk: dict_data_risk[key] = [] # defines empty array
+
+    for country in countryList:
+        if dict_data[country] <= 25:
+            key = risks[0]
+            dict_data_risk[key].append(country) # adds new member to the array
+        elif dict_data[country] <= 65:
+            key = risks[1]
+            dict_data_risk[key].append(country)
+        else:
+            key = risks[2]
+            dict_data_risk[key].append(country)
+
+    ###### serialization
+    import json # json library, API, to convert (or serialize) a dict to a string
+    json_string = json.dumps(dict_data_risk, indent=2)
+    return json_string
 
 """
 Function Name: compareRisk()
