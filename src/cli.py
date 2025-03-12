@@ -572,12 +572,14 @@ def main():
 
 
 
-    # ###### 
+
+    # ###### HW07
     # from gt_hw07.HW07 import restaurantFilter
     # print(restaurantFilter('./gt_hw07/restaurants.txt'))
 
     # from gt_hw07.HW07 import createDirectory
     # createDirectory('./gt_hw07/restaurants.txt', './gt_hw07/directory.txt')
+
 
     # from gt_hw07.HW07 import infectedPercentage
     # print(infectedPercentage(["Belgium", "Belarus", "Bermuda"], './gt_hw07/covid.csv'))
@@ -604,6 +606,20 @@ def main():
         compareRisk("Tuvalu", ["Turkmenistan", "Norway", "Netherlands", "Philippines"], './gt_hw07/covid.csv')
     )
     
+
+
+    # slicing notation
+    text = "hello"
+    print(text[1:])  # "ello"
+
+    # Recursion Example
+    def reverse_string(s):
+        if s == "":
+            return s
+        return reverse_string(s[1:]) + s[0]
+    
+    print(reverse_string("abc"))  # "cba"
+
 
 
 
