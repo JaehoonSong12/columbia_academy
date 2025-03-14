@@ -599,34 +599,35 @@ def main():
 
 
     from gt_hw07.HW07 import compareRisk
+    countryList = ["Belgium", "Bangladesh", "Belarus", "Bermuda"]
     print(
-        compareRisk("Tunisia", ["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
+        compareRisk("Tunisia", countryList, './gt_hw07/covid.csv')
     )
+    countryList = ["Turkmenistan", "Norway", "Netherlands", "Philippines"]
     print(
-        compareRisk("Tuvalu", ["Turkmenistan", "Norway", "Netherlands", "Philippines"], './gt_hw07/covid.csv')
+        compareRisk("Tuvalu", countryList, './gt_hw07/covid.csv')
     )
     
 
+    # # slicing notation
+    # text = "hello"
+    # print(text[1:])  # "ello"
 
-    # slicing notation
-    text = "hello"
-    print(text[1:])  # "ello"
-
-    # Recursion Example
-    def reverse_string(s):
-        if s == "":
-            return s
-        return reverse_string(s[1:]) + s[0]
+    # # Recursion Example
+    # def reverse_string(s):
+    #     if s == "":
+    #         return s
+    #     return reverse_string(s[1:]) + s[0]
     
-    print(reverse_string("abc"))  # "cba"
+    # print(reverse_string("abc"))  # "cba"
 
 
 
 
 
 
-    from gt_hw08.HW08 import meetNewPeople
-    meetNewPeople("Slytherin")
+    # from gt_hw08.HW08 import meetNewPeople
+    # meetNewPeople("Slytherin")
 
 
 
@@ -637,72 +638,72 @@ def main():
 
 
 
-    from gt_hw10.HW10 import Room, Task, Crewmate, Impostor, AmongUs
-    """
-    Detailed usage of AmongUs, Crewmate, Impostor, Room, and Task classes.
-    """
+    # from gt_hw10.HW10 import Room, Task, Crewmate, Impostor, AmongUs
+    # """
+    # Detailed usage of AmongUs, Crewmate, Impostor, Room, and Task classes.
+    # """
 
-    # Create room and task objects.
-    room1 = Room("Medbay")
-    task1 = Task("Scan")
+    # # Create room and task objects.
+    # room1 = Room("Medbay")
+    # task1 = Task("Scan")
 
-    # Create crewmate players.
-    crew1 = Crewmate("Alice", "Red", ("Hat", "Gloves"))
-    crew2 = Crewmate("Amanda", "Blue", ("Cap",))
+    # # Create crewmate players.
+    # crew1 = Crewmate("Alice", "Red", ("Hat", "Gloves"))
+    # crew2 = Crewmate("Amanda", "Blue", ("Cap",))
 
-    # Create impostor players.
-    imp1 = Impostor("Bob", "Green", ("Knife",))
-    imp2 = Impostor("Brenda", "Yellow", ("Sunglasses",))
+    # # Create impostor players.
+    # imp1 = Impostor("Bob", "Green", ("Knife",))
+    # imp2 = Impostor("Brenda", "Yellow", ("Sunglasses",))
 
-    # Create an AmongUs game with a maximum of 4 players.
-    game = AmongUs(4)
+    # # Create an AmongUs game with a maximum of 4 players.
+    # game = AmongUs(4)
 
-    # Register all players to the game.
-    # If the lobby is full or a player with the same name already exists,
-    # the method returns an error message. Otherwise, players are added to the game.
-    print(game.registerPlayer(crew1))   # Registers a crewmate.
-    print(game.registerPlayer(crew2))   # Registers another crewmate.
-    print(game.registerPlayer(imp1))    # Registers an impostor.
-    print(game.registerPlayer(imp2))    # Registers another impostor.
+    # # Register all players to the game.
+    # # If the lobby is full or a player with the same name already exists,
+    # # the method returns an error message. Otherwise, players are added to the game.
+    # print(game.registerPlayer(crew1))   # Registers a crewmate.
+    # print(game.registerPlayer(crew2))   # Registers another crewmate.
+    # print(game.registerPlayer(imp1))    # Registers an impostor.
+    # print(game.registerPlayer(imp2))    # Registers another impostor.
 
-    # Print the current state of the game.
-    print("\nCurrent Players:")
-    print("Crewmates:", game.crewmates)
-    print("Impostors:", game.impostors)
+    # # Print the current state of the game.
+    # print("\nCurrent Players:")
+    # print("Crewmates:", game.crewmates)
+    # print("Impostors:", game.impostors)
 
-    # Register a task to a room.
-    # If the task already exists in any room, the method will return a message.
-    game.registerTask(task1, room1)
-    print("\nRooms after task registration:")
-    print(game.rooms)
+    # # Register a task to a room.
+    # # If the task already exists in any room, the method will return a message.
+    # game.registerTask(task1, room1)
+    # print("\nRooms after task registration:")
+    # print(game.rooms)
 
-    # A crewmate does a task.
-    # The task's isCompleted attribute is updated, and the crewmate's tasksDone counter increases.
-    print("\nBefore performing task:", task1)
-    crew1.doTask(task1)
-    print("After performing task:", task1)
-    print("Crewmate {} has completed {} task(s).".format(crew1.name, crew1.tasksDone))
+    # # A crewmate does a task.
+    # # The task's isCompleted attribute is updated, and the crewmate's tasksDone counter increases.
+    # print("\nBefore performing task:", task1)
+    # crew1.doTask(task1)
+    # print("After performing task:", task1)
+    # print("Crewmate {} has completed {} task(s).".format(crew1.name, crew1.tasksDone))
 
-    # If another crewmate tries to perform the same task, they receive a message.
-    result = crew2.doTask(task1)
-    print("Attempt by {}: {}".format(crew2.name, result))
+    # # If another crewmate tries to perform the same task, they receive a message.
+    # result = crew2.doTask(task1)
+    # print("Attempt by {}: {}".format(crew2.name, result))
 
-    # An impostor eliminates a crewmate.
-    print("\nBefore elimination, is {} alive? {}".format(crew2.name, crew2.isAlive))
-    imp1.eliminate(crew2)
-    print("After elimination, is {} alive? {}".format(crew2.name, crew2.isAlive))
-    print("Impostor {} has eliminated {} player(s).".format(imp1.name, imp1.eliminateCount))
+    # # An impostor eliminates a crewmate.
+    # print("\nBefore elimination, is {} alive? {}".format(crew2.name, crew2.isAlive))
+    # imp1.eliminate(crew2)
+    # print("After elimination, is {} alive? {}".format(crew2.name, crew2.isAlive))
+    # print("Impostor {} has eliminated {} player(s).".format(imp1.name, imp1.eliminateCount))
 
-    # A crewmate calls a meeting.
-    # In the meeting, each player votes based on the first letter of their names.
-    # The player with the most votes is ejected, and the method returns a message indicating the result.
-    meeting_result = crew1.callMeeting(game)
-    print("\nMeeting result:", meeting_result)
+    # # A crewmate calls a meeting.
+    # # In the meeting, each player votes based on the first letter of their names.
+    # # The player with the most votes is ejected, and the method returns a message indicating the result.
+    # meeting_result = crew1.callMeeting(game)
+    # print("\nMeeting result:", meeting_result)
 
-    # Check if the game is over.
-    # The game is over if all crewmates or all impostors have been eliminated.
-    game_state = game.gameOver()
-    print("Game over state:", game_state)
+    # # Check if the game is over.
+    # # The game is over if all crewmates or all impostors have been eliminated.
+    # game_state = game.gameOver()
+    # print("Game over state:", game_state)
 
 
 

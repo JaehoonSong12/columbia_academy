@@ -274,5 +274,45 @@ Returns: compared countries (list)
 """
 
 def compareRisk(country, countryList, filename):
-    # [YOUR_IMPLEMENTATION]
-    return
+    f = open(filename, "r")
+    data = f.read().split('\n')
+    f.close()
+
+    data_without_colname = []
+    is_first = True
+    for row in data:
+        if is_first: 
+            is_first = False
+            continue
+        data_without_colname.append(row)
+
+    # print(data_without_colname)
+
+
+    csv_countries = []
+    dict_population_data = {}
+    dict_infected_pop_data = {}
+    for row in data_without_colname:
+        fields = row.split(',')
+        att_country = fields[0]
+        case = int(fields[1])
+        infected = int(fields[2])
+        ### operations
+        key = att_country
+        csv_countries.append(att_country)
+        dict_population_data[key] = case
+        dict_infected_pop_data[key] = infected
+    
+    returning_list = []
+    for ctry in countryList:
+        if dict_population_data[ctry] < dict_population_data[country]:
+            if dict_infected_pop_data[ctry] > dict_infected_pop_data[country]:
+                returning_list.append(ctry)
+    
+    returning_list_sorted = []
+    for csv_country in csv_countries:
+        if csv_country in returning_list:
+            returning_list_sorted.append(csv_country)
+    
+    if len(returning_list_sorted) == 0: return "No countries"
+    return returning_list_sorted
