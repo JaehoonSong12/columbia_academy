@@ -708,27 +708,6 @@ def main():
     # print("Game over state:", game_state)
 
 
-
-    class NameAndNumber:
-        def __init__(self, name, value):
-            self.name = name
-            self.value = value
-        
-        def __eq__(self, other):
-            if not isinstance(other, NameAndNumber): raise TypeError(f"Cannot compare 'NameAndNumber' with {type(other).__name__}")
-            if (self.name != other.name): return False
-            if (self.value != other.value): return False
-            return True
-
-    a = NameAndNumber("Jake", 5)
-    b = NameAndNumber("Molly", 5)
-    c = NameAndNumber("Jake", 10)
-    d = NameAndNumber("Jake", 5)
-    str_example = "Jake"
-    print(a == b)  # False
-    print(a == c)  # False
-    print(a == d)  # True
-    print(a == str_example)  # TypeError
     
 
 
