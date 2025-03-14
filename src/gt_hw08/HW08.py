@@ -13,8 +13,23 @@ Returns: list of people (list)
 """
 
 def meetNewPeople(house):
+    ### by instructor (Jaehoon)
+    apiKey = "$2a$10$4B95LnHHtY4Rwoe2Ah34IO1urSSipQYyIhfwVvOYFAoqHaAEnOg7K"
+    baseUrl = "https://www.potterapi.com/v1/"
+    url = baseUrl + "characters" + "?key=" + apiKey
+    r = requests.get(url)
+
+    theData = r.json()
+    outputData = []
+    for x in theData:
+        if "house" in x and x["house"] == house:
+            if "bloodStatus" in x and x["bloodStatus"] == "pure-blood":
+                if "deathEater" in x and x["deathEater"] == False:
+                    outputData.append(x["name"])
+    return outputData
+
     # [YOUR_IMPLEMENTATION]
-    return
+    return None
 
 """
 Function Name: matchingStudents()
@@ -23,6 +38,12 @@ Returns: list of students (list)
 """
 
 def matchingStudents(charName):
+    ### by instructor (Jaehoon)
+    apiKey = "$2a$10$4B95LnHHtY4Rwoe2Ah34IO1urSSipQYyIhfwVvOYFAoqHaAEnOg7K"
+    baseUrl = "https://www.potterapi.com/v1/"
+    url = baseUrl + "characters" + "?key=" + apiKey
+    r = requests.get(url)
+    
     # [YOUR_IMPLEMENTATION]
     return
 

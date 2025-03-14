@@ -624,6 +624,13 @@ def main():
 
 
 
+
+    from gt_hw08.HW08 import meetNewPeople
+    meetNewPeople("Slytherin")
+
+
+
+
     
 if __name__ == "__main__":
     main()
