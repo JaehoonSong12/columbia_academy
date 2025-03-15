@@ -453,21 +453,21 @@ def main():
 
 
 
-    from gt_hw07.HW07 import findCuisine
-    print(findCuisine('./gt_hw07/restaurants.txt', 'American'))
+    # from gt_hw07.HW07 import findCuisine
+    # print(findCuisine('./gt_hw07/restaurants.txt', 'American'))
   
-    from gt_hw04.HW04 import sublist
-    alist = ['a', 'b', 'd', 'e', 't'] 
-    blist = ['b', 'd', 'e']
-    print(sublist(alist, blist))
+    # from gt_hw04.HW04 import sublist
+    # alist = ['a', 'b', 'd', 'e', 't'] 
+    # blist = ['b', 'd', 'e']
+    # print(sublist(alist, blist))
 
-    alist = [6, 2, 3, 4, 5] 
-    blist = [6, 3] 
-    print(sublist(alist, blist))
+    # alist = [6, 2, 3, 4, 5] 
+    # blist = [6, 3] 
+    # print(sublist(alist, blist))
 
-    alist = ["The", "Houston", "Astros", "are", "cheaters"] 
-    blist = ["The", "Houston", "Astros", "are", "cheaters"] 
-    print(sublist(alist,blist))
+    # alist = ["The", "Houston", "Astros", "are", "cheaters"] 
+    # blist = ["The", "Houston", "Astros", "are", "cheaters"] 
+    # print(sublist(alist,blist))
 
     # #### file I/O API!!!!!
     # import os
@@ -588,25 +588,25 @@ def main():
 
 
 
-    from gt_hw07.HW07 import countryStatus
-    print(
-        countryStatus(["United States", "Tonga", "Poland", "New Zealand", "Norway"], './gt_hw07/covid.csv')
-    )
-    print(
-        countryStatus(["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
-    )
+    # from gt_hw07.HW07 import countryStatus
+    # print(
+    #     countryStatus(["United States", "Tonga", "Poland", "New Zealand", "Norway"], './gt_hw07/covid.csv')
+    # )
+    # print(
+    #     countryStatus(["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
+    # )
     
 
 
-    from gt_hw07.HW07 import compareRisk
-    countryList = ["Belgium", "Bangladesh", "Belarus", "Bermuda"]
-    print(
-        compareRisk("Tunisia", countryList, './gt_hw07/covid.csv')
-    )
-    countryList = ["Turkmenistan", "Norway", "Netherlands", "Philippines"]
-    print(
-        compareRisk("Tuvalu", countryList, './gt_hw07/covid.csv')
-    )
+    # from gt_hw07.HW07 import compareRisk
+    # countryList = ["Belgium", "Bangladesh", "Belarus", "Bermuda"]
+    # print(
+    #     compareRisk("Tunisia", countryList, './gt_hw07/covid.csv')
+    # )
+    # countryList = ["Turkmenistan", "Norway", "Netherlands", "Philippines"]
+    # print(
+    #     compareRisk("Tuvalu", countryList, './gt_hw07/covid.csv')
+    # )
     
 
     # # slicing notation
@@ -631,9 +631,58 @@ def main():
 
 
 
+    class CustomStr(str):
+        def __new__(cls, value):
+            print("Creating a CustomStr instance")
+            return super().__new__(cls, value)
 
+    print(CustomStr("Hi1"))
+    print(CustomStr("Hi2"))
 
+    class MyClass:
+        def __init__(self, value):
+            self.value = value
+        
+        def get_value(self):
+            return self.value
 
+    print(MyClass(41561).get_value())
+    print(MyClass(145154).get_value())
+
+    class MyClass:
+        def __init__(self, value):
+            self.value = value
+        
+        def __repr__(self):
+            return f"MyClass({self.value!r})"  # Clear, unambiguous representation
+        
+        def __str__(self):
+            return f"MyClass with value {self.value}"  # User-friendly output
+
+    obj = MyClass(10)
+    print(repr(obj))  # Uses __repr__
+    print(obj)       # Uses __str__
+
+    class NameAndNumber:
+        def __init__(self, name, value):
+            self.name = name
+            self.value = value
+        
+        def __eq__(self, other):
+            if not isinstance(other, NameAndNumber): raise TypeError(f"Cannot compare 'NameAndNumber' with {type(other).__name__}")
+            if (self.name != other.name): return False
+            if (self.value != other.value): return False
+            return True
+
+    a = NameAndNumber("Jake", 5)
+    b = NameAndNumber("Molly", 5)
+    c = NameAndNumber("Jake", 10)
+    d = NameAndNumber("Jake", 5)
+    str_example = "Jake"
+    print(a == b)  # False
+    print(a == c)  # False
+    print(a == d)  # True
+    # print(a == str_example)  # TypeError
 
 
 
