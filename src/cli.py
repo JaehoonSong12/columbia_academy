@@ -599,26 +599,27 @@ def main():
 
 
     from gt_hw07.HW07 import compareRisk
+    countryList = ["Belgium", "Bangladesh", "Belarus", "Bermuda"]
     print(
-        compareRisk("Tunisia", ["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
+        compareRisk("Tunisia", countryList, './gt_hw07/covid.csv')
     )
+    countryList = ["Turkmenistan", "Norway", "Netherlands", "Philippines"]
     print(
-        compareRisk("Tuvalu", ["Turkmenistan", "Norway", "Netherlands", "Philippines"], './gt_hw07/covid.csv')
+        compareRisk("Tuvalu", countryList, './gt_hw07/covid.csv')
     )
     
 
+    # # slicing notation
+    # text = "hello"
+    # print(text[1:])  # "ello"
 
-    # slicing notation
-    text = "hello"
-    print(text[1:])  # "ello"
-
-    # Recursion Example
-    def reverse_string(s):
-        if s == "":
-            return s
-        return reverse_string(s[1:]) + s[0]
+    # # Recursion Example
+    # def reverse_string(s):
+    #     if s == "":
+    #         return s
+    #     return reverse_string(s[1:]) + s[0]
     
-    print(reverse_string("abc"))  # "cba"
+    # print(reverse_string("abc"))  # "cba"
 
 
 
@@ -627,9 +628,6 @@ def main():
 
     # from gt_hw08.HW08 import meetNewPeople
     # meetNewPeople("Slytherin")
-
-
-
 
 
 
@@ -706,18 +704,6 @@ def main():
     # # The game is over if all crewmates or all impostors have been eliminated.
     # game_state = game.gameOver()
     # print("Game over state:", game_state)
-
-
-    
-
-
-
-
-
-
-
-
-
 
 
 
