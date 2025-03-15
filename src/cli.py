@@ -453,21 +453,21 @@ def main():
 
 
 
-    from gt_hw07.HW07 import findCuisine
-    print(findCuisine('./gt_hw07/restaurants.txt', 'American'))
+    # from gt_hw07.HW07 import findCuisine
+    # print(findCuisine('./gt_hw07/restaurants.txt', 'American'))
   
-    from gt_hw04.HW04 import sublist
-    alist = ['a', 'b', 'd', 'e', 't'] 
-    blist = ['b', 'd', 'e']
-    print(sublist(alist, blist))
+    # from gt_hw04.HW04 import sublist
+    # alist = ['a', 'b', 'd', 'e', 't'] 
+    # blist = ['b', 'd', 'e']
+    # print(sublist(alist, blist))
 
-    alist = [6, 2, 3, 4, 5] 
-    blist = [6, 3] 
-    print(sublist(alist, blist))
+    # alist = [6, 2, 3, 4, 5] 
+    # blist = [6, 3] 
+    # print(sublist(alist, blist))
 
-    alist = ["The", "Houston", "Astros", "are", "cheaters"] 
-    blist = ["The", "Houston", "Astros", "are", "cheaters"] 
-    print(sublist(alist,blist))
+    # alist = ["The", "Houston", "Astros", "are", "cheaters"] 
+    # blist = ["The", "Houston", "Astros", "are", "cheaters"] 
+    # print(sublist(alist,blist))
 
     # #### file I/O API!!!!!
     # import os
@@ -588,25 +588,25 @@ def main():
 
 
 
-    from gt_hw07.HW07 import countryStatus
-    print(
-        countryStatus(["United States", "Tonga", "Poland", "New Zealand", "Norway"], './gt_hw07/covid.csv')
-    )
-    print(
-        countryStatus(["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
-    )
+    # from gt_hw07.HW07 import countryStatus
+    # print(
+    #     countryStatus(["United States", "Tonga", "Poland", "New Zealand", "Norway"], './gt_hw07/covid.csv')
+    # )
+    # print(
+    #     countryStatus(["Belgium", "Bangladesh", "Belarus", "Bermuda"], './gt_hw07/covid.csv')
+    # )
     
 
 
-    from gt_hw07.HW07 import compareRisk
-    countryList = ["Belgium", "Bangladesh", "Belarus", "Bermuda"]
-    print(
-        compareRisk("Tunisia", countryList, './gt_hw07/covid.csv')
-    )
-    countryList = ["Turkmenistan", "Norway", "Netherlands", "Philippines"]
-    print(
-        compareRisk("Tuvalu", countryList, './gt_hw07/covid.csv')
-    )
+    # from gt_hw07.HW07 import compareRisk
+    # countryList = ["Belgium", "Bangladesh", "Belarus", "Bermuda"]
+    # print(
+    #     compareRisk("Tunisia", countryList, './gt_hw07/covid.csv')
+    # )
+    # countryList = ["Turkmenistan", "Norway", "Netherlands", "Philippines"]
+    # print(
+    #     compareRisk("Tuvalu", countryList, './gt_hw07/covid.csv')
+    # )
     
 
     # # slicing notation
@@ -628,11 +628,6 @@ def main():
 
     # from gt_hw08.HW08 import meetNewPeople
     # meetNewPeople("Slytherin")
-
-
-
-
-
 
 
 
@@ -716,6 +711,13 @@ def main():
     
     print(Fibb(5))
     print(Fibb(30))
+
+
+
+
+
+
+    
 
 
 
