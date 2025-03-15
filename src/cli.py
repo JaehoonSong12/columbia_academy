@@ -631,60 +631,6 @@ def main():
 
 
 
-    class CustomStr(str):
-        def __new__(cls, value):
-            print("Creating a CustomStr instance")
-            return super().__new__(cls, value)
-
-    print(CustomStr("Hi1"))
-    print(CustomStr("Hi2"))
-
-    class MyClass:
-        def __init__(self, value):
-            self.value = value
-        
-        def get_value(self):
-            return self.value
-
-    print(MyClass(41561).get_value())
-    print(MyClass(145154).get_value())
-
-    class MyClass:
-        def __init__(self, value):
-            self.value = value
-        
-        def __repr__(self):
-            return f"MyClass({self.value!r})"  # Clear, unambiguous representation
-        
-        def __str__(self):
-            return f"MyClass with value {self.value}"  # User-friendly output
-
-    obj = MyClass(10)
-    print(repr(obj))  # Uses __repr__
-    print(obj)       # Uses __str__
-
-    class NameAndNumber:
-        def __init__(self, name, value):
-            self.name = name
-            self.value = value
-        
-        def __eq__(self, other):
-            if not isinstance(other, NameAndNumber): raise TypeError(f"Cannot compare 'NameAndNumber' with {type(other).__name__}")
-            if (self.name != other.name): return False
-            if (self.value != other.value): return False
-            return True
-
-    a = NameAndNumber("Jake", 5)
-    b = NameAndNumber("Molly", 5)
-    c = NameAndNumber("Jake", 10)
-    d = NameAndNumber("Jake", 5)
-    str_example = "Jake"
-    print(a == b)  # False
-    print(a == c)  # False
-    print(a == d)  # True
-    # print(a == str_example)  # TypeError
-
-
 
 
     # from gt_hw10.HW10 import Room, Task, Crewmate, Impostor, AmongUs
@@ -753,6 +699,13 @@ def main():
     # # The game is over if all crewmates or all impostors have been eliminated.
     # game_state = game.gameOver()
     # print("Game over state:", game_state)
+
+
+
+
+
+
+    
 
 
 
