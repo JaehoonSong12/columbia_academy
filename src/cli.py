@@ -706,6 +706,18 @@ def main():
     # print("Game over state:", game_state)
 
 
+    def Fibb(n):
+        # base-case
+        if (n < 0): return None
+        if (n == 0): return 1
+        if (n == 1): return 1
+        # recursive-case
+        return Fibb(n-1) + Fibb(n-2)
+    
+    print(Fibb(5))
+    print(Fibb(30))
+
+
 
 
     
