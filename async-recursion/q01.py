@@ -1,4 +1,4 @@
-def factorial(n: int) -> int:
+def factorial(n: int) -> int: # statical typing for functions specifically designed to certain algo.
     """
     Description:
         Given n of 1 or more, return the factorial of n, which is 
@@ -20,8 +20,10 @@ def factorial(n: int) -> int:
     Returns:
         int: The factorial of n.
     """
-    # Base case: your implementation and comment here.
-    # Recursive case: your implementation and comment here.
+    # Base case: 0! = 1
+    if (n == 0): return 1 
+    # Recursive case: n! = n x (n-1)!
+    return n * factorial(n - 1)
     
     
 
@@ -33,7 +35,7 @@ import unittest
 
 class TestFactorialFunction(unittest.TestCase):
     def test_factorial(self):
-        self.assertEqual(factorial(1), 1)
+        self.assertEqual(factorial(1), 1) # this one!
         self.assertEqual(factorial(2), 2)
         self.assertEqual(factorial(3), 6)
         self.assertEqual(factorial(4), 24)
