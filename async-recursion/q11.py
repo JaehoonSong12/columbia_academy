@@ -18,12 +18,9 @@ def countHi(s: str) -> int:
     Returns:
         int: The count of "hi" occurrences in the string.
     """
-    # Base case: If the string has fewer than 2 characters, it can't contain "hi".
-    if len(s) < 2:
-        return 0
+    # Base case: your implementation and comment here.
 
-    # Recursive case: Check if the first two characters are "hi" and count recursively.
-    return (1 if s[:2] == "hi" else 0) + countHi(s[1:])
+    # Recursive case: your implementation and comment here.
 
 
 # Unit tests for the countHi function
