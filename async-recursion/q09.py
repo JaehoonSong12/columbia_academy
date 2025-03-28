@@ -21,9 +21,12 @@ def powerN(base: int, n: int) -> int:
         int: The result of raising base to the power n.
     """
     # Base case: your implementation and comment here.
-
+    if n == 0: return 1 # `n` means exponent.
     # Recursive case: your implementation and comment here.
-
+    is_odd_exp = n % 2 # == 1, odd      == 0, even
+    temp = powerN(base, n // 2) # n // 2 -> quotient only
+    if (is_odd_exp == 1): return base * temp * temp # odd exp
+    return temp * temp # even exp
 
 # Unit tests for the powerN function
 import unittest

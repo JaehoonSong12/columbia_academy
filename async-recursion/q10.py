@@ -19,9 +19,20 @@ def countX(s: str) -> int:
         int: The count of 'x' characters in the string.
     """
     # Base case: your implementation and comment here.
-
+    if (len(s) < 1): return 0
+    if (len(s) == 1): return 1 if s == 'x' else 0
     # Recursive case: your implementation and comment here.
+    left, middle_ch, right = s[:len(s)//2], s[len(s)//2], s[len(s)//2 + 1:]
+    ## [Important Python Syntax]
+    # s[a:b] in Python 
+    # represents a slice of the sequence s, 
+    # starting from index a (inclusive) and 
+    # ending at index b (exclusive).
+    count = 0
+    if (middle_ch == 'x'): count += 1
 
+
+    return countX(left) + count + countX(right) # O(n log n)
 
 # Unit tests for the countX function
 import unittest
