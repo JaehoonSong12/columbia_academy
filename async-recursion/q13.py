@@ -20,9 +20,20 @@ def changePi(s: str) -> str:
         str: The modified string with "pi" replaced by "3.14".
     """
     # Base case: your implementation and comment here.
-
+    if len(s) == 2: 
+        if s == "pi":
+            return "3.14"
+        else: return s
+    if len(s) < 2:
+        return s
     # Recursive case: your implementation and comment here.
-
+    first_ch, sec_ch, rest = s[0], s[1], s[2:]
+    pi_in_num = "3.14"
+    if first_ch == "p" and sec_ch == "i":
+        return pi_in_num + changePi(rest)
+    else:
+        return first_ch + changePi(sec_ch + rest)
+    
 
 # Unit tests for the changePi function
 import unittest

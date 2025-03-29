@@ -20,8 +20,14 @@ def changeXY(s: str) -> str:
         str: The modified string with 'x' replaced by 'y'.
     """
     # Base case: your implementation and comment here.
-
-    # Recursive case: your implementation and comment here.
+    if (len(s) < 1): return ""
+    if (len(s) == 1): 
+        if s == "x": return "y"
+        else: return s
+    # Recursive case: len(s) is at least 2, so possible to divide into 1st char + the rest.
+    first_ch, rest = s[0], s[1:]
+    if (first_ch == "x"): first_ch = "y"
+    return first_ch + changeXY(rest)
 
 
 # Unit tests for the changeXY function

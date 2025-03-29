@@ -20,9 +20,17 @@ def noX(s: str) -> str:
         str: The modified string with all 'x' characters removed.
     """
     # Base case: your implementation and comment here.
-
+    if len(s) == 1:
+        if s == "x":
+            return ""
+        return s
+    if len(s) < 1:
+        return ""
     # Recursive case: your implementation and comment here.
-
+    first_ch, rest = s[0], s[1:]
+    if first_ch == "x":
+        first_ch = ""
+    return first_ch + noX(rest)
 
 # Unit tests for the noX function
 import unittest

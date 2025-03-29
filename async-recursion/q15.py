@@ -24,9 +24,16 @@ def array6(nums: list, index: int) -> bool:
         bool: True if the array contains a 6, otherwise False.
     """
     # Base case: your implementation and comment here.
-
+    if len(nums) < 1: return False
+    if len(nums) == 1:
+        if nums[0] == 6:
+            return True
+        return False
     # Recursive case: your implementation and comment here.
-
+    first_ch, rest = nums[index], nums[index + 1:]
+    if first_ch == 6:
+        return True
+    return array6(rest, index)
 
 # Unit tests for the array6 function
 import unittest
