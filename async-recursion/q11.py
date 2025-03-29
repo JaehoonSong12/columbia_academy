@@ -1,7 +1,8 @@
 def countHi(s: str) -> int:
     """
     Description:
-        Given a string, compute recursively (no loops) the number of times lowercase "hi" appears in the string.
+        Given a string, compute recursively (no loops) the number of 
+        times lowercase "hi" appears in the string.
 
     Examples:
         countHi("xxhixx") -> 1
@@ -19,9 +20,17 @@ def countHi(s: str) -> int:
         int: The count of "hi" occurrences in the string.
     """
     # Base case: your implementation and comment here.
+    if len(s) < 2: return 0 # processing the whole string
 
     # Recursive case: your implementation and comment here.
 
+    ### "xxhixx" -> "x" + "xhixx" 
+    rest = s[1 : len(s)]
+    two_ch = s[0:2]
+    if (two_ch == "hi"): 
+        return 1 + countHi(rest)
+    else:
+        return countHi(rest)
 
 # Unit tests for the countHi function
 import unittest
