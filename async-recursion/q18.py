@@ -23,9 +23,13 @@ def allStar(s: str) -> str:
         str: A new string where adjacent characters are separated by "*".
     """
     # Base case: your implementation and comment here.
-
+    if len(s) < 2:
+        return s
     # Recursive case: your implementation and comment here.
-
+    first_ch, second_ch, rest = s[0], s[1], s[2:]
+    if not second_ch == " ":
+        second_ch, rest = "*", second_ch + rest
+    return first_ch + second_ch + allStar(rest)
 
 # Unit tests for the allStar function
 import unittest

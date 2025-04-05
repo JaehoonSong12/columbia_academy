@@ -21,8 +21,14 @@ def countPairs(s: str) -> int:
         int: The number of pairs found in the string.
     """
     # Base case: your implementation and comment here.
-
+    if len(s) < 3:
+        return 0
     # Recursive case: your implementation and comment here.
+    first_ch, second_ch, third_ch, rest = s[0], s[1], s[2], s[3:]
+    count = 0
+    if first_ch == third_ch:
+         count += 1
+    return count + countPairs(second_ch + third_ch + rest)
 
 
 # Unit tests for the countPairs function

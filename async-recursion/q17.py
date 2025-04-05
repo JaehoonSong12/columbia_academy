@@ -24,9 +24,21 @@ def array220(nums: list, index: int) -> bool:
         bool: True if the condition is met, otherwise False.
     """
     # Base case: your implementation and comment here.
-
+    if len(nums) == 0:
+        return False
+    if len(nums) == 1:
+        return False
+    if len(nums) == 2:
+        if nums[0] * 10 == nums[1]:
+            return True
+        return False
     # Recursive case: your implementation and comment here.
-    
+    first_ch, second_ch, rest = nums[index], nums[index + 1], nums[index + 2:]
+    # int, int, list
+    if first_ch * 10 == second_ch:
+        return True
+    new_lst = [second_ch] + rest
+    return array220(new_lst, 0)
 
 # Unit tests for the array220 function
 import unittest
