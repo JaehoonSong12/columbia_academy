@@ -20,9 +20,13 @@ def pairStar(s: str) -> str:
         str: A new string where adjacent identical characters are separated by "*".
     """
     # Base case: your implementation and comment here.
-
+    if len(s) < 2:
+        return s
     # Recursive case: your implementation and comment here.
-
+    first_ch, second_ch, rest = s[0], s[1], s[2:]
+    if first_ch == second_ch:
+        first_ch += "*"
+    return first_ch + pairStar(second_ch + rest)
 
 # Unit tests for the pairStar function
 import unittest

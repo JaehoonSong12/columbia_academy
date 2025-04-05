@@ -20,9 +20,13 @@ def endX(s: str) -> str:
         str: A new string with all 'x' characters moved to the end.
     """
     # Base case: your implementation and comment here.
-
+    if len(s) < 2:
+        return s
     # Recursive case: your implementation and comment here.
-
+    first_ch, rest = s[0], s[1:]
+    if first_ch == "x":
+        return endX(rest) + first_ch
+    return first_ch + endX(rest)
 
 # Unit tests for the endX function
 import unittest

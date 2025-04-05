@@ -20,9 +20,20 @@ def countAbc(s: str) -> int:
         int: The count of occurrences of "abc" or "aba" substrings.
     """
     # Base case: your implementation and comment here.
-
+    if len(s) < 3:
+        return 0
+    if len(s) == 3:
+        if s[0:3] == "abc" or s[0:3] == "aba":
+            return 1
     # Recursive case: your implementation and comment here.
-
+    first_3, rest = s[0:3], s[3:]
+    if first_3 == "abc":
+        return 1 + countAbc(rest)
+    if first_3 == "aba":
+        return 1 + countAbc(s[2] + rest)
+    else:
+        return countAbc(s[1:3] + rest)
+    
 
 # Unit tests for the countAbc function
 import unittest
