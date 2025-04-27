@@ -27,8 +27,45 @@ def mergeTwo(a: list[str], b: list[str], n: int) -> list[str]:
     Returns:
         list[str]: A sorted list of the first `n` unique strings from merging `a` and `b`.
     """
+    def quicksort(arr: list[str]) -> list[str]:
+        if len(arr) <= 1:
+            return arr
+        pivot = arr[len(arr) // 2]
+        left = [x for x in arr if x < pivot]
+        middle = [x for x in arr if x == pivot]
+        right = [x for x in arr if x > pivot]
+        return quicksort(left) + middle + quicksort(right)
     ### [Your Implementation Here]
-    
+    c = a + b
+    c = quicksort(c) # n log n
+    unique_c = [c[0]] # O(1)
+    for i in range(1, len(c) - 1): # O(n)
+        if (len(unique_c) == n): 
+            break
+        if (c[i] != unique_c[-1]): 
+            unique_c.append(c[i])
+    return unique_c
+
+    # i = 0
+    # j = 0
+    # curr_ord = -1
+    # while len(c) < n:
+    #     if ord(a[i]) < ord(b[j]):
+    #         c.append(a[i])
+    #         curr_ord = ord(a[i])
+    #         i += 1
+    #     elif ord(b[j]) < ord(a[i]):
+    #         c.append(b[i])
+    #         curr_ord = ord(b[j])
+    #         j += 1
+    #     elif ord(a[i]) == ord(b[j]):
+    #         if ord(a[i]) != curr_ord: 
+    #             c.append(a[i])
+    #             curr_ord = ord(a[i])
+    #             i += 1
+    #         j += 1
+    # return c
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 
