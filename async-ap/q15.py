@@ -31,9 +31,24 @@ def scoresSpecial(a: list[int], b: list[int]) -> int:
             Finds the largest "special" score (a multiple of 10) in the given list.
             Returns 0 if there are no multiples of 10.
         """
-        return None
+        i = 0
+        specials = []
+        while i < len(scores):
+            if scores[i] % 10 == 0:
+                specials.append(scores[i])
+            i += 1
+        i = 0
+        if specials == []:
+            return 0
+        maximum = specials[0]
+        while i < len(specials):
+            if specials[i] > maximum:
+                maximum = specials[i]
+            i += 1
+        return maximum
     ### [Your Implementation Here]
-    
+    sum_of_specials = max_special(a) + max_special(b)
+    return sum_of_specials
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

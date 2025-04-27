@@ -34,7 +34,20 @@ def userCompare(aName: str, aId: int, bName: str, bId: int) -> int:
         int: -1 if A < B, 1 if A > B, 0 if they are equal.
     """
     ### [Your Implementation Here]
-    
+    if aName == bName:
+        if aId < bId:
+            return -1
+        if bId < aId:
+            return 1
+        if aId == bId:
+            return 0
+    i = 0
+    while i < len(aName):
+        if ord(aName[i]) < ord(bName[i]):
+            return -1
+        if ord(aName[i]) > ord(bName[i]):
+            return 1
+        i += 1
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

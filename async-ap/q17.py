@@ -24,7 +24,15 @@ def sumHeights2(heights: list[int], start: int, end: int) -> int:
         int: The total sum of height changes, counting each upward change twice.
     """
     ### [Your Implementation Here]
-    
+    i = start
+    abs_height_sum = 0
+    while i < end:
+        if heights[i + 1] - heights[i] > 0:
+            abs_height_sum += 2 * (heights[i + 1] - heights[i])
+        else:
+            abs_height_sum += abs(heights[i] - heights[i + 1])
+        i += 1
+    return abs_height_sum
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

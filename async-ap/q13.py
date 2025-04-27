@@ -24,7 +24,19 @@ def scoreUp(key: list[str], answers: list[str]) -> int:
         int: The student's total score based on the comparison.
     """
     ### [Your Implementation Here]
-    
+    count = 0
+    i = 0
+    while i < len(key):
+        if key[i] == answers[i]:
+            count += 4
+        if key[i] != answers[i]:
+            if answers[i] != "?": 
+                count -= 1
+        i += 1
+    return count
+        
+
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
     

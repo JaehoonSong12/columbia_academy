@@ -25,7 +25,13 @@ def bigHeights(heights: list[int], start: int, end: int) -> int:
         int: The count of "big" steps (difference ≥ 5) between start and end.
     """
     ### [Your Implementation Here]
-    
+    i = start
+    count = 0
+    while i < end:
+        if abs(heights[i] - heights[i + 1]) >= 5:
+            count += 1
+        i += 1
+    return count
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

@@ -25,7 +25,12 @@ def sumHeights(heights: list[int], start: int, end: int) -> int:
         int: The total sum of absolute height changes from start to end.
     """
     ### [Your Implementation Here]
-    
+    i = start
+    abs_height_sum = 0
+    while i < end:
+        abs_height_sum += abs(heights[i] - heights[i + 1])
+        i += 1
+    return abs_height_sum
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 
