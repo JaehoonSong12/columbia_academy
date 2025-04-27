@@ -8,7 +8,6 @@ def endOther(a: str, b: str) -> bool:
         endOther("Hiabc", "abc") → True
         endOther("AbC", "HiaBc") → True
         endOther("abc", "abXabc") → True
-        endOther("Hiabc", "abcd") → False
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.
