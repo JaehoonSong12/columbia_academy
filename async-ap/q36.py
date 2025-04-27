@@ -14,7 +14,6 @@ def fix34(nums: list[int]) -> list[int]:
         fix34([1, 3, 1, 4]) → [1, 3, 4, 1]
         fix34([1, 3, 1, 4, 4, 3, 1]) → [1, 3, 4, 1, 1, 3, 4]
         fix34([3, 2, 2, 4]) → [3, 4, 2, 2]
-        fix34([3, 2, 3, 2, 4, 4]) → [3, 4, 3, 4, 2, 2]
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.

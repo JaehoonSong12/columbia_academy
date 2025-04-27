@@ -9,8 +9,6 @@ def sum13(nums: list[int]) -> int:
         sum13([1, 2, 2, 1]) → 6
         sum13([1, 1]) → 2
         sum13([1, 2, 2, 1, 13]) → 6
-        sum13([1, 2, 13, 2, 1, 13]) → 4
-        sum13([13, 1, 2, 13, 2, 1, 13]) → 3
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.

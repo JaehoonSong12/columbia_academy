@@ -10,11 +10,6 @@ def withoutString(base: str, remove: str) -> str:
         withoutString("Hello there", "llo") → "He there"
         withoutString("Hello there", "e")   → "Hllo thr"
         withoutString("Hello there", "x")   → "Hello there"
-        withoutString("This is a FISH", "IS") → "Th a FH"
-        withoutString("abxxxab", "xx")      → "abxab"
-        withoutString("xxx", "x")           → ""
-        withoutString("xxx", "xx")          → "x"
-        withoutString("xyzzy", "Y")         → "xzz"
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.
