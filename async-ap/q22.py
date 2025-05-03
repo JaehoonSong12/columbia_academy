@@ -23,7 +23,11 @@ def doubleChar(s: str) -> str:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-
+    new_str = ""
+    for char in s:
+        new_str += char
+        new_str += char
+    return new_str
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.

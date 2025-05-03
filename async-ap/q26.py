@@ -26,7 +26,20 @@ def centeredAverage(nums: list[int]) -> int:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-
+    largest = nums[0]
+    smallest = nums[0]
+    for num in nums:
+        if num > largest:
+            largest = num
+        if num < smallest:
+            smallest = num
+    sum = 0
+    total = 0
+    for num in nums:
+        sum += num
+        total += 1
+    average = (sum - smallest - largest) // (total - 2)
+    return average
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.

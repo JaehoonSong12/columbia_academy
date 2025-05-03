@@ -26,7 +26,17 @@ def makeBricks(small: int, big: int, goal: int) -> bool:
         bool: True if the goal can be reached using the available bricks, False otherwise.
     """
     ### [Your Implementation Here]
-    
+    if big * 5 > goal:
+        if goal % 5 == small:
+            return True
+    if big * 5 == goal:
+        return True
+    if small == goal:
+        return True
+    if big * 5 < goal:
+        if big * 5 + small >= goal:
+            return True
+    return False
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

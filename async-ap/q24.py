@@ -23,7 +23,11 @@ def countEvens(nums: list[int]) -> int:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-
+    count = 0
+    for num in nums:
+        if num % 2 == 0:
+            count += 1
+    return count
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
