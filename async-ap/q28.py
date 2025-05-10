@@ -25,7 +25,19 @@ def countYZ(s: str) -> int:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-
+    i = 0
+    count = 0
+    s = s.lower()
+    while i < len(s):
+        if i == len(s) - 1:
+            if s[i] == "y" or s[i] == "z":
+                count += 1
+            break
+        if not s[i + 1].isalpha():
+            if s[i] == "y" or s[i] == "z":
+                count += 1
+        i += 1
+    return count
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.

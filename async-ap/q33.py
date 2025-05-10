@@ -19,7 +19,13 @@ def has22(nums: list[int]) -> bool:
         bool: True if there is at least one occurrence of two consecutive 2's, False otherwise.
     """
     ### [Your Implementation Here]
-    
+    i = 0
+    while i < len(nums) - 1:
+        if nums[i] == 2:
+            if nums[i + 1] == 2:
+                return True
+        i += 1
+    return False
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

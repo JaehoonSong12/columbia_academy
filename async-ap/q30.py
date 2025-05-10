@@ -22,7 +22,22 @@ def catDog(s: str) -> bool:
         bool: True if "cat" and "dog" occur the same number of times, False otherwise.
     """
     ### [Your Implementation Here]
-    
+    i = 0
+    cat_count = 0
+    dog_count = 0
+    while i < len(s) - 2:
+        if s[i] == "c":
+            if s[i + 1] == "a":
+                if s[i + 2] == "t":
+                    cat_count += 1
+        if s[i] == "d":
+            if s[i + 1] == "o":
+                if s[i + 2] == "g":
+                    dog_count += 1
+        i += 1
+    if cat_count == dog_count:
+        return True
+    return False
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

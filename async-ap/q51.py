@@ -20,14 +20,15 @@ def gHappy(s: str) -> bool:
     Returns:
         bool: True if every 'g' in the string is happy, False otherwise.
     """
-    length = len(s)
-    for i, ch in enumerate(s):
-        if ch == 'g':
-            left_happy = (i > 0 and s[i-1] == 'g')
-            right_happy = (i < length-1 and s[i+1] == 'g')
-            if not (left_happy or right_happy):
-                return False
-    return True
+    ### [Your Implementation Here]
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
 
 
 # Unit tests for gHappy function

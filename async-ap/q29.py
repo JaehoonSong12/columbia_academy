@@ -27,6 +27,30 @@ def maxSpan(nums: list[int]) -> int:
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 
+    if len(nums) == 0:
+        return 0
+    
+    if len(nums) == len(list(set(nums))):
+        return 1
+
+
+    i = 0
+    current_span = 0
+    while i < len(nums):
+        j = i + 1
+        new_span = 0
+        start_span_ind = i
+        end_span_ind = j
+        while j < len(nums):
+            if nums[j] == nums[i]:
+                if j != end_span_ind:
+                    end_span_ind = j
+            j += 1
+        new_span = end_span_ind - start_span_ind + 1
+        if current_span < new_span:
+            current_span = new_span
+        i += 1
+    return current_span
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
