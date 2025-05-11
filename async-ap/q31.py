@@ -20,7 +20,15 @@ def countCode(s: str) -> int:
         int: The count of substrings matching the pattern "co_e".
     """
     ### [Your Implementation Here]
-    
+    i = 0
+    count = 0
+    while i < len(s) - 3:
+        if s[i] == "c":
+            if s[i + 1] == "o":
+                if s[i + 3] == "e":
+                    count += 1
+        i += 1
+    return count
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

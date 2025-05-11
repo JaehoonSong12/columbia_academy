@@ -27,13 +27,14 @@ def canBalance(nums: list[int]) -> bool:
         bool: True if there exists an index where the sum of the elements to the left
               equals the sum of the elements to the right.
     """
-    total = sum(nums)
-    left_sum = 0
-    for i in range(len(nums) - 1):
-        left_sum += nums[i]
-        if left_sum * 2 == total:
-            return True
-    return False
+    ### [Your Implementation Here]
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
 # Unit tests for canBalance function

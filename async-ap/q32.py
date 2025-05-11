@@ -21,7 +21,15 @@ def sum13(nums: list[int]) -> int:
         int: The sum according to the "13" rules described above.
     """
     ### [Your Implementation Here]
-    
+    sum = 0
+    i = 0
+    while i < len(nums):
+        if nums[i] != 13:
+            sum += nums[i]
+            i += 1
+        elif nums[i] == 13:
+            i += 2
+    return sum
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 
