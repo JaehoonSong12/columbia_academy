@@ -1,24 +1,24 @@
 def squareUp(n: int) -> list[int]:
     """
     Description:
-        Given an integer n >= 0, return a list of length n * n following a specific pattern.
-        For each group i from 1 to n, the group consists of (n - i) zeros followed by descending
-        integers from i to 1. All such groups are concatenated into a single list.
+        Given a non-negative integer `n`, return a list of length `n*n` following a square-up pattern.
+        For each i from 1 to n, you create a group of length n consisting of (n-i) zeros followed by the numbers
+        i down to 1. Concatenate all groups in order.
 
     Examples:
         squareUp(3) → [0, 0, 1, 0, 2, 1, 3, 2, 1]
         squareUp(2) → [0, 1, 2, 1]
-        squareUp(4) → [0, 0, 0, 1, 0, 0, 2, 1, 0, 3, 2, 1, 4, 3, 2, 1]
+        squareUp(4) → [0, 0, 0, 1,    0, 0, 2, 1,    0, 3, 2, 1,    4, 3, 2, 1]
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.
         2. Run the tests by executing: `python async-ap/q73.py`
 
     Args:
-        n (int): A non-negative integer representing the square dimension.
+        n (int): The dimension of the square pattern (number of groups).
 
     Returns:
-        list[int]: The list following the described square-up pattern.
+        list[int]: A flat list representing the square-up pattern of length n*n.
     """
     ### [Your Implementation Here]
     
@@ -37,7 +37,10 @@ class TestSquareUp(unittest.TestCase):
     def test_squareUp(self):
         self.assertEqual(squareUp(3), [0, 0, 1, 0, 2, 1, 3, 2, 1])
         self.assertEqual(squareUp(2), [0, 1, 2, 1])
-        self.assertEqual(squareUp(4), [0, 0, 0, 1, 0, 0, 2, 1, 0, 3, 2, 1, 4, 3, 2, 1])
+        self.assertEqual(
+            squareUp(4),
+            [0, 0, 0, 1, 0, 0, 2, 1, 0, 3, 2, 1, 4, 3, 2, 1]
+        )
         self.assertEqual(squareUp(1), [1])
         self.assertEqual(squareUp(0), [])
         self.assertEqual(
