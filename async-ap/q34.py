@@ -22,6 +22,14 @@ def loneSum(a: int, b: int, c: int) -> int:
         int: The sum of the values that are not duplicated.
     """
     ### [Your Implementation Here]
+    total = 0
+    if a != b and a != c:
+        total += a
+    if b != a and b != c:
+        total += b
+    if c != a and c != b:
+        total += c
+    return total
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.

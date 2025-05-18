@@ -26,7 +26,37 @@ def fix34(nums: list[int]) -> list[int]:
         list[int]: A new list where each 3 is immediately followed by a 4.
     """
     ### [Your Implementation Here]
+
     
+
+
+
+    my_list = [10, 20, 30, 40, 50]
+    removed_element = my_list.pop(2)  # Removes element at index 2 (value 30)
+    print(my_list)  # Output: [10, 20, 40, 50]
+    print(removed_element)  # Output: 30
+
+    my_list.pop() # Removes the last element if no index is specified
+    print(my_list) # Output: [10, 20, 40]
+
+    my_list = [1, 2, 3, 4]
+    my_list.insert(2, 10)
+    print(my_list)
+    # Expected output: [1, 2, 10, 3, 4]
+
+    temp = new_list[i]
+    new_list[i] = new_list[j]
+    new_list[j] = temp
+    current_four_position = ""
+    new_list = []
+    i = 0
+    while i < len(nums):
+        if nums[i] == 3:
+            j = i + 1
+            while j in range(len(nums[i + 1:])):
+                print()
+    
+    return None
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

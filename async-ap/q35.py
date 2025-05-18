@@ -23,7 +23,20 @@ def withoutString(base: str, remove: str) -> str:
         str: The resulting string after all instances of `remove` have been removed.
     """
     ### [Your Implementation Here]
-    
+    new_str = ""
+
+    i = 0
+    while i <= len(base):
+        if (i > len(base) - len(remove)): 
+            new_str += base[i:]
+            break
+        if (base[i:i+len(remove)].lower() == remove.lower()): 
+            i = i + len(remove)
+            continue
+        else: 
+            new_str += base[i]
+        i += 1
+    return new_str
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 
@@ -40,8 +53,8 @@ class TestWithoutString(unittest.TestCase):
         self.assertEqual(withoutString("Hello there", "llo"), "He there")
         self.assertEqual(withoutString("Hello there", "e"), "Hllo thr")
         self.assertEqual(withoutString("Hello there", "x"), "Hello there")
-        self.assertEqual(withoutString("This is a FISH", "IS"), "Th a FH")
-        self.assertEqual(withoutString("THIS is a FISH", "is"), "TH a FH")
+        self.assertEqual(withoutString("This is a FISH", "IS"), "Th  a FH")
+        self.assertEqual(withoutString("THIS is a FISH", "is"), "TH  a FH")
         self.assertEqual(withoutString("abxxxxab", "xx"), "abab")
         self.assertEqual(withoutString("abxxxab", "xx"), "abxab")
         self.assertEqual(withoutString("abxxxab", "x"), "abab")
