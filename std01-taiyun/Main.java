@@ -1,4 +1,4 @@
-/**
+ /**
  * This is a simple Java program that prints "Hello, World!" to the console.
  * 
  * How to compile and run the application:
@@ -19,8 +19,27 @@
  *      ```
  */
 
+import java.util.Scanner; // Python: input()
+
 class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        // name = input("what is your name?")
+        // print(name)
+
+        Scanner inputStream = new Scanner(System.in);
+        // 1. always declare data type (static-typeing**, dynamic-typing in python)
+        // 2. JRE offers you systemical built-in object, System.in == "system's keyboard", System.out == "system's cli or monitor" 
+        // 3. 
+        System.out.print("What is your name? "); // without ending == print("What is your name?", end="") in python
+        String userName = inputStream.nextLine();
+        // PascalCase
+        // camelCase
+        String formattedString = String.format("Hello, %s!", userName); // formattedString = f"Hello, {userName}!"
+        System.out.println(formattedString); // print(formattedString)
+
+
+
+
+        System.out.println("Hello, World!"); // newline-ending == print("Hello, World?") in python
     }
 }
