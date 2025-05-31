@@ -234,7 +234,22 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
-        return 0;
+     
+        int count = 0;      // count = 0
+        // whenever you finish, make PRs! not to lose any works you did :)
+
+        // i = 0
+        // while i in range(len(words)):
+        //     if len(words[i]) == length: count += 1
+        //     i += 1
+        // return count
+        for(int i = 0; i < words.length; i++) {
+            if (words[i].length() == length) {
+                count += 1;
+                System.out.println("Hi");
+            }
+        }
+        return count;
     }
 
     /**
