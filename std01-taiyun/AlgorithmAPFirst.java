@@ -84,6 +84,7 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient, 
         //         use either 'tabulation' or 'memorization' to break it down 
         //         into 'iteration'.
+        return false;
     }
 
     /**
@@ -234,7 +235,22 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
-        return 0;
+     
+        int count = 0;      // count = 0
+        // whenever you finish, make PRs! not to lose any works you did :)
+
+        // i = 0
+        // while i in range(len(words)):
+        //     if len(words[i]) == length: count += 1
+        //     i += 1
+        // return count
+        for(int i = 0; i < words.length; i++) {
+            if (words[i].length() == length) {
+                count += 1;
+                System.out.println("Hi");
+            }
+        }
+        return count;
     }
 
     /**
@@ -265,7 +281,20 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
-        return null;
+        // i = 0
+        // new_list = []
+        // while i < n:
+        //     new_list.append(words[i])
+        //     i += 1
+        // return new_list
+        String[] newList = null; // pointer in stack
+        newList = new String[n]; // object will be generated in heap, then the pointer now has address of the object
+        // equivalent expression: String[] newList = newList = new String[n];
+        
+        for(int i = 0; i < n; i++) {
+            newList[i] = words[i];
+        }
+        return newList;
     }
 
 
@@ -330,6 +359,18 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
+        // n = str(n)
+        // if "1" in n:
+        //     return True
+        // return False
+        String str = Integer.toString(n); //    "this is your string".charAt(5) == 'i'
+        for(int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            char comparedCh = '1';
+            if (ch == comparedCh) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -363,7 +404,29 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
-        return false;
+
+        // int temp = n;
+        // for (int i = 0; temp > 0; temp /= 10) {
+        //     int digit = temp % 10;
+        //     if (digit == 0) {
+        //         return false;
+        //     }
+        //     if (n % digit != 0) return false; 
+        // }
+        // return true;
+
+        String str = Integer.toString(n);
+        for (int i = 0; i < str.length(); i++) {
+            // in JAVA, char is more like int, not String
+
+            if (Integer.valueOf(String.valueOf(str.charAt(i))) == 0) {
+                return false;
+            }
+            if (n % Integer.valueOf(String.valueOf(str.charAt(i))) != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 

@@ -11,12 +11,16 @@ import java.util.List;
  * 
  * How to compile and run the application:
  * 1. Open a terminal or command prompt.
- * 2. Compile (Current Test Only): 
- *      `javac -cp junit-1.9.3.jar std01-taiyun/AlgorithmAPFirst*.java`
+ * 2. Compile (Current Test Only):                     (.java -> .class)
+ *      ```
+ *      javac -cp junit-1.9.3.jar std01-taiyun/AlgorithmAPFirst*.java
+ *      ```
  * 3. Compile (All Tests): 
  *      `javac -cp junit-1.9.3.jar std01-taiyun/*.java`
- * 4. Run & Clean: 
- *      `java -jar junit-1.9.3.jar --class-path std01-taiyun --scan-classpath; rm -rf std01-taiyun/*.class`
+ * 4. Run & Clean:                                      (.class -> runnning!)
+ *      ```
+ *      java -jar junit-1.9.3.jar --class-path std01-taiyun --scan-classpath; rm -rf std01-taiyun/*.class
+ *      ```
  */
 public class AlgorithmAPFirstTest {
     

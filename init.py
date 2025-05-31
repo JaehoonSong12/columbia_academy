@@ -1,24 +1,27 @@
-#!/bin/bash
-CUS_HOME="/c/taiyu/.bashrc"
-echo -e "\033dsadsadsa...$CUS_HOME\033[0m"
+"""
+setup_env.py
 
-BASHRC_PATH="$HOME/.bashrc" # Check if .bashrc exists, create if missing
-BASHRC_PATH=$CUS_HOME       # just for taiyun
-if [[ -f "$BASHRC_PATH" ]]; then
-    echo ".bashrc exists at: $BASHRC_PATH."
-else
-    echo ".bashrc not found. Creating a new one at: $BASHRC_PATH."
-    cat <<EOL > "$BASHRC_PATH"
-# ~/.bashrc
-# Add your custom configurations here.
+A Python module to replicate a Bash-based environment setup script using standard I/O interactions
+and the Python standard library only. Conforms to PEP 8 conventions and uses PEP 257 docstrings.
+"""
+from pathlib import Path
 
-EOL
-fi
+# ANSI color codes
+COLORS = {
+    'BLACK': '\u001b[30m',
+    'RED': '\u001b[31m',
+    'GREEN': '\u001b[32m',
+    'YELLOW': '\u001b[33m',
+    'BLUE': '\u001b[34m',
+    'PURPLE': '\u001b[35m',
+    'CYAN': '\u001b[36m',
+    'WHITE': '\u001b[37m',
+    'RESET': '\u001b[0m'
+}
 
-TITLE="~./bashrc"
-CONFIG="General configuration for '${TITLE}'" # configuration title
-MARKER="?GENERAL;" # Check if the configuration script exists in ~/.bashrc
-SCRIPT=$(cat <<'EOF'
+# Grouped .bashrc snippet
+BASHRC_SNIPPET = r"""
+
 
 
 
@@ -672,12 +675,25 @@ on_pvm
 on_jvm
 on_gradle
 
-EOF
-)
-if ! grep -qF "$MARKER" ~/.bashrc; then
-    # Append the script to ~/.bashrc
-    echo "$SCRIPT" >> ~/.bashrc
-    echo -e "${CONFIG} has been \033[1;32msuccessfully added to \033[1;33m~/.bashrc\033[0m."
-else
-    echo -e "${CONFIG}\033[1;31m already exists. \033[1;33mNo changes made. \033[0m."
-fi
+"""
+
+def append_bashrc(snippet: str) -> None:
+    """Append a grouped snippet to ~/.bashrc if missing."""
+    bashrc = Path.home() / '.bashrc'
+    content = bashrc.read_text() if bashrc.exists() else ''
+    marker = '?GENERAL;'
+    if marker not in content:
+        bashrc.write_text(content + '\n' + snippet)
+        print(f"{COLORS['GREEN']}Appended general config to {bashrc}{COLORS['RESET']}")
+    else:
+        print(f"{COLORS['YELLOW']}General config already present in {bashrc}{COLORS['RESET']}")
+
+if __name__ == '__main__':
+    custom = Path('/c/taiyu/.bashrc')
+    if custom.exists():
+        print(f".bashrc exists at: {custom}")
+    else:
+        print(f"Creating .bashrc at {custom}")
+        custom.parent.mkdir(parents=True, exist_ok=True)
+        custom.write_text("# ~/.bashrc\n# Add your custom configurations here.\n")
+    append_bashrc(BASHRC_SNIPPET)

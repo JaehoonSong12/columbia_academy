@@ -380,6 +380,7 @@ dist
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+<<<<<<< HEAD
 # Package Files #
 # *.jar
 *.war
@@ -388,6 +389,8 @@ dist
 *.zip
 *.tar.gz
 *.rar
+=======
+>>>>>>> b822d39c16a1c6086748915015052629278420c4
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
