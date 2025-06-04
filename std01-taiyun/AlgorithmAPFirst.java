@@ -84,7 +84,18 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient, 
         //         use either 'tabulation' or 'memorization' to break it down 
         //         into 'iteration'.
-        return false;
+        // i = 0
+        // while i < len(scores) - 1:
+        //     if not (scores[i] <= scores[i + 1]):
+        //         return False
+        //     i += 1
+        // return True
+        for (int i = 0; i < scores.length - 1; i++) {
+            if (!(scores[i] <= scores[i + 1])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -114,6 +125,19 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient, 
         //         use either 'tabulation' or 'memorization' to break it down 
         //         into 'iteration'.
+        // i = 0
+        // while i < len(scores) - 1:
+        //     if scores[i] == 100:
+        //         if scores[i + 1] == 100:
+        //             return True
+        //     i += 1
+        for (int i = 0; i < scores.length - 1; i++) {
+            if (scores[i] == 100) {
+                if (scores[i + 1] == 100) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -329,6 +353,7 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
+        /////////////////////////////////// This is an exception
         return result;
     }
 
@@ -462,7 +487,26 @@ public class AlgorithmAPFirst {
         //         correct algorithm. Since the recursion can be inefficient,
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
-        return result;
+        // new_list = []
+        // i = 0
+        // while len(new_list) < count:
+        //     if nums[i] % 2 == 0:
+        //         new_list.append(nums[i])
+        //     i += 1
+        // return new_list
+        int[] newList = null;
+        newList = new int[count];
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0 && nums[i] > 0) {
+                newList[index] = nums[i];
+                index++; // index += 1;
+            }
+            if (index == count) {
+                break;
+            }
+        }
+        return newList;
     }
 
 
