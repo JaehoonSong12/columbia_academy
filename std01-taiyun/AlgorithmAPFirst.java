@@ -18,10 +18,11 @@
  *      ```
  */
 import java.util.*;
+// import java.lang.*;      // not necessary, since all classes in java.lang are imported by default
 
 
 public class AlgorithmAPFirst {
-    static int statX = 4;
+    // static int statX = 4;
     /**
      * < Q00 >
      * This is a placeholder for the main method. It can be used to test the methods in this class.
@@ -30,23 +31,23 @@ public class AlgorithmAPFirst {
      * @param args command line arguments (not used).
      */
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        // System.out.println("Hello, World!");
 
-        System.out.println(scoresIncreasing(new int[]{1, 3, 2}));
+        // System.out.println(scoresIncreasing(new int[]{1, 3, 2}));
 
 
-        System.out.println("\\* This is not\t a comment *\\");
-        int result = 13 - 3 * 6 / 4 % 3;
-        System.out.println(result);
+        // System.out.println("\\* This is not\t a comment *\\");
+        // int result = 13 - 3 * 6 / 4 % 3;
+        // System.out.println(result);
 
-        double x = 4.53214314;
-        int statX = 6;
-        int localX = 4;
-        System.out.println(Math.pow(x,0.5));
-        System.out.println(Math.sqrt(x));
-        System.out.println(Math.pow(x,0.5) - Math.sqrt(x));
-        System.out.println(statX);
-        System.out.println(localX);
+        // double x = 4.53214314;
+        // int statX = 6;
+        // int localX = 4;
+        // System.out.println(Math.pow(x,0.5));
+        // System.out.println(Math.sqrt(x));
+        // System.out.println(Math.pow(x,0.5) - Math.sqrt(x));
+        // System.out.println(statX);
+        // System.out.println(localX);
     }
 
 
@@ -344,6 +345,10 @@ public class AlgorithmAPFirst {
      */
     public static List<String> wordsWithoutList(String[] words, int length) {
         List<String> result = new ArrayList<>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() != length) result.add(words[i]);
+        }
+        return result;
         // [Your Implementation Here]
         //
         // Case-1. If the question can be solved with 'iteration (for/while)',
@@ -354,7 +359,7 @@ public class AlgorithmAPFirst {
         //         use either 'tabulation' or 'memorization' to break it down
         //         into 'iteration'.
         /////////////////////////////////// This is an exception
-        return result;
+        // return result;
     }
 
     /**
