@@ -22,6 +22,7 @@
 
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.reflect.Field;
 
 
 public class DataStructure { // executable file (class)
@@ -171,9 +172,20 @@ public class DataStructure { // executable file (class)
         for (int i = 1; i <= 10; i++) {
             numbers.add(i);
         }
-        System.out.println(numbers);
+        System.out.println(numbers); 
+        // [1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, (0, 0, 0)], capacity == 20
         // TODO: 12. Trim the list to size and print the capacity hint (if possible).
+        ((ArrayList<Integer>) numbers).trimToSize();
+        System.out.println(numbers);
         
+        ((ArrayList<Integer>) numbers).ensureCapacity(10); // Down-casting
+        // [1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], capacity == 17
+        System.out.println(numbers);
+
+
+
+
+
         // TODO: 13. Add duplicates of number 5 into 'numbers'.
         // TODO: 14. Use indexOf(5) and lastIndexOf(5) and print both results.
 
