@@ -84,9 +84,7 @@ public class Main {
         instance.report();
         instance2.report();
 
-        if (instance instanceof Student) {
-            ((Student) instance).getSumOfNumbers(new int[] {5, 6, 7});
-        }
+        if (instance instanceof Student) ((Student) instance).getSumOfNumbers(new int[] {5, 6, 7});
 
         
 
