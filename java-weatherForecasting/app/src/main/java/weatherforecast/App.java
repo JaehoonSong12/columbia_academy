@@ -3,7 +3,7 @@
  */
 package weatherforecast;
 
-import gui.Main;
+// import gui.Main;
 
 public class App {
     public String getGreeting() {

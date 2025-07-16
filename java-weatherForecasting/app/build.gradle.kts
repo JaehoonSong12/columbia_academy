@@ -33,5 +33,6 @@ java {
 application {
     // Define the main class for the application.
     // mainClass.set("weatherforecast.App")
-    mainClass.set("gui.Main")
+    // mainClass.set("gui.Main")
+    mainClass.set("guireference.Main")
 }
