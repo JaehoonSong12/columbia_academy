@@ -32,6 +32,6 @@ java {
 
 application {
     // Define the main class for the application.
-    // mainClass.set("weatherforecast.App")
-    mainClass.set("gui.Main")
+    // mainClass.set("weatherforecast.App")    /// entry point for CLI
+    mainClass.set("gui.Main")               /// entry point for GUI
 }

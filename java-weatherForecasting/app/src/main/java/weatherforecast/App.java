@@ -4,6 +4,7 @@
 package weatherforecast;
 
 import gui.Main;
+import gui.MenuView;
 
 public class App {
     public String getGreeting() {
