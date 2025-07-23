@@ -1,24 +1,18 @@
 package guireference;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+/**
+ * MainController acts as the Controller for the main view in the MVC pattern.
+ * <p>
+ * It handles user interaction for the main view and delegates navigation to the ViewRouter singleton.
+ */
 public class MainController {
-    private final MessageModel model;
-    private final MainView view;
-
+    /**
+     * Constructs the MainController, wiring up the view and model.
+     * @param model the MessageModel (MVC Model)
+     * @param view the MainView (MVC View)
+     */
     public MainController(MessageModel model, MainView view) {
-        this.model = model;
-        this.view = view;
-        // Set initial label text from model
         view.setLabelText(model.getMessage());
-        // Add button listener
-        view.addButtonListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                model.setMessage("Hello, Swing world!");
-                view.setLabelText(model.getMessage());
-            }
-        });
+        view.addButtonListener(e -> ViewRouter.getInstance().show("second"));
     }
 } 
