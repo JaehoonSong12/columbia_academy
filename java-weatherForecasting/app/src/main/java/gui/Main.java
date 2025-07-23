@@ -40,7 +40,8 @@ import java.awt.event.ActionListener;
 public class Main {
     public static void main(String[] args) {
         // Schedule GUI creation on the Event Dispatch Thread
-        SwingUtilities.invokeLater(Main::createAndShowGUI);
+        // SwingUtilities.invokeLater(Main::createAndShowGUI);
+        SwingUtilities.invokeLater(Main::createAndShowGUI2);
     }
 
 
@@ -52,5 +53,14 @@ public class Main {
         // JFrame frame = new JFrame("Simple GUI App");
         JFrame view = new MenuView();
         new MenuController((MenuView) view);
+    }
+
+
+    
+    private static void createAndShowGUI2() {
+        // Main frame (Window Screen)
+        // JFrame frame = new JFrame("Simple GUI App");
+        JFrame view = new InfoView();
+        new InfoController((InfoView) view);
     }
 }

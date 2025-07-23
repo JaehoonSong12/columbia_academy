@@ -12,11 +12,13 @@ public class MenuController { // computer
         view.setVisible(true);
         view.setLocationRelativeTo(null);
 
-        view.getBtnStart().addActionListener(
+        view.getBtnStart().addActionListener( // (1) when button is clicked (**event fired)
+            // anonymous object allocation
             new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    view.getLblMessage().setText("Hello, Swing world!");
+                    // behavior on the triggered event.
+                    view.getLblMessage().setText("Hello, Swing world!"); // (2) you will do this (**response for the event fired)
                 }
             }
         ); 
