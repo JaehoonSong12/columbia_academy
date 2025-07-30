@@ -10,11 +10,10 @@ import javax.swing.JLabel;      // (3) UI component - visual
 
 import javax.swing.JTextArea;
 
-public class InfoView extends JFrame {
-    static final String TITLE = "Weather Forecast";
-    static final int SCREEN__WIDTH = 680;
-    static final int SCREEN_HEIGHT = 480;
-    private JPanel pnlMain;
+public class InfoView extends JPanel {
+    public static final String TITLE = "Weather Forecast";
+    public static final int SCREEN__WIDTH = 680;
+    public static final int SCREEN_HEIGHT = 480;
 
     private JLabel lblTemp;
     public JLabel getLblTemp() { return this.lblTemp; };
@@ -25,23 +24,23 @@ public class InfoView extends JFrame {
     private JButton btnSubmit;
     public JButton getBtnSubmit() { return this.btnSubmit; };
 
+    private JButton btnBack;
+    public JButton getBtnBack() { return this.btnBack; };
+
     public InfoView() {
-        super(TITLE);
+        // super(TITLE);
 
         
         lblTemp = new JLabel("Temperature: ", JLabel.CENTER);
         txaAskTemp = new JTextArea(10, 30);  // 10 rows, 30 columns
         btnSubmit = new JButton("Submit");
+        btnBack = new JButton("Back");
 
-        pnlMain = new JPanel();
-        pnlMain.setLayout(new FlowLayout());
-        pnlMain.add(lblTemp);
-        pnlMain.add(txaAskTemp);
-        pnlMain.add(btnSubmit);
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(SCREEN__WIDTH, SCREEN_HEIGHT);
-        this.add(pnlMain);
+        this.setLayout(new FlowLayout());
+        this.add(lblTemp);
+        this.add(txaAskTemp);
+        this.add(btnSubmit);
+        this.add(btnBack);
 
         
     }

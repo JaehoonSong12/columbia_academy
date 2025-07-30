@@ -8,8 +8,6 @@ public class InfoController {
 
     public InfoController(InfoView view) {
         this.view = view;
-        view.setVisible(true);
-        view.setLocationRelativeTo(null);
 
 
         view.getBtnSubmit().addActionListener( // (1) when button is clicked (**event fired)
@@ -18,6 +16,18 @@ public class InfoController {
                 public void actionPerformed(ActionEvent e) {
                     String temp = view.getTxaAskTemp().getText();
                     view.getLblTemp().setText(String.format("Temperture: %s", temp));
+                }
+            }
+        );
+        view.getBtnBack().addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("Going Back to Main Menu");
+
+                    ///////////////////////// HW 1: Use Router instead
+                    view.setVisible(false);
+                    new MenuController(new MenuView());
                 }
             }
         );
