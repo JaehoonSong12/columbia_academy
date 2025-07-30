@@ -9,14 +9,19 @@ public class MenuController { // computer
 
     public MenuController(MenuView view) {
         this.view = view;
-        view.setVisible(true);
-        view.setLocationRelativeTo(null);
 
-        view.getBtnStart().addActionListener(
+        view.getBtnStart().addActionListener( // (1) when button is clicked (**event fired)
+            // anonymous object allocation
             new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    view.getLblMessage().setText("Hello, Swing world!");
+                    // behavior on the triggered event.
+                    view.getLblMessage().setText("Hello, Swing world!"); // (2) you will do this (**response for the event fired)
+                    
+                    // route 2: execution
+                    ViewRouter router = ViewRouter.getInstance();
+                    router.setFrame(InfoView.TITLE, InfoView.SCREEN__WIDTH, InfoView.SCREEN_HEIGHT);
+                    router.showView("weatherforcast/info");
                 }
             }
         ); 

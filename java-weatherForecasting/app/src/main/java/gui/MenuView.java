@@ -8,12 +8,11 @@ import java.awt.GridLayout;
 import javax.swing.JButton;     // (3) UI component - control
 import javax.swing.JLabel;      // (3) UI component - visual
 
-public class MenuView extends JFrame {
+public class MenuView extends JPanel {
     // Contant in Java, static == "since the program starts" && final == "permanent for the program lifetime"
-    static final String TITLE = "Weather Forecast";
-    static final int SCREEN__WIDTH = 680;
-    static final int SCREEN_HEIGHT = 480;
-    private JPanel pnlMain;
+    public static final String TITLE = "Weather Forecast";
+    public static final int SCREEN__WIDTH = 680;
+    public static final int SCREEN_HEIGHT = 480;
 
     private JButton btnStart;
     public JButton getBtnStart() { return this.btnStart; } // accessor / getter
@@ -23,7 +22,7 @@ public class MenuView extends JFrame {
     public JLabel getLblMessage() { return this.lblMessage; } // accessor / getter
 
     public MenuView() {
-        super(TITLE); // (1) Window Title on the top bar
+        // super(TITLE); // (1) Window Title on the top bar
 
 
         // Button (-> in the Panel -> *in the Frame)
@@ -31,12 +30,10 @@ public class MenuView extends JFrame {
         btnExit = new JButton("Exit");
         // Labels (-> in the Panel -> *in the Frame)
         lblMessage = new JLabel("Click the button below!", JLabel.CENTER);
-        // Panel (-> *in the Frame)
-        pnlMain = new JPanel();
-        pnlMain.setLayout(new BorderLayout()); // Preferred for FlowLayout, BorderLayout, GridLayout
-        pnlMain.add(btnStart, BorderLayout.NORTH);
-        pnlMain.add(lblMessage, BorderLayout.CENTER);
-        pnlMain.add(btnExit, BorderLayout.SOUTH);
+        this.setLayout(new BorderLayout()); // Preferred for FlowLayout, BorderLayout, GridLayout
+        this.add(btnStart, BorderLayout.NORTH);
+        this.add(lblMessage, BorderLayout.CENTER);
+        this.add(btnExit, BorderLayout.SOUTH);
 
 
 
@@ -62,11 +59,6 @@ public class MenuView extends JFrame {
 
 
         
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(SCREEN__WIDTH, SCREEN_HEIGHT);
-        this.add(pnlMain);
-
         /**
          * super: refer to parent class (Jframe class)
          * this: refer to itself, child class (MenuView class)
