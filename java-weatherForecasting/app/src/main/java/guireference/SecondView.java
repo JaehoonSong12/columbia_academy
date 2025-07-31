@@ -1,5 +1,5 @@
 /**
- * MainView is the View in the MVC pattern for the main screen.
+ * SecondView is the View in the MVC pattern for the second screen.
  * <p>
  * It displays a label and a button for navigation.
  */
@@ -9,24 +9,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class MainView extends JPanel {
-    private final JLabel label = new JLabel("", JLabel.CENTER);
-    private final JButton button = new JButton("Go to Second Panel");
+public class SecondView extends JPanel {
+    private final JLabel label = new JLabel("Second Panel", JLabel.CENTER);
+    private final JButton button = new JButton("Back to Main Panel");
 
     /**
-     * Constructs the MainView UI.
+     * Constructs the SecondView UI.
      */
-    public MainView() {
+    public SecondView() {
         setLayout(new BorderLayout());
         add(label, BorderLayout.CENTER);
         add(button, BorderLayout.SOUTH);
     }
-
-    /**
-     * Sets the label text.
-     * @param text the text to display
-     */
-    public void setLabelText(String text) { label.setText(text); }
 
     /**
      * Adds an ActionListener to the button.
