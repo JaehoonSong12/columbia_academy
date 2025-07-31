@@ -6,11 +6,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ViewRouter is a Singleton responsible for centralized navigation between views (JPanels) in the application.
+ * ViewRouter is a Singleton responsible for centralized navigation 
+ * between views (JPanels) in the application.
  * <p>
  * <b>Design Pattern:</b> Singleton, Router (Controller in MVC for navigation)
  * <br>
- * It owns the main JFrame and CardLayout container, allowing controllers and views to switch screens and manage the window.
+ * 
+ * The Router design pattern centralizes the decision of “which handler should 
+ * process this request” by mapping incoming requests 
+ * (messages, UI events, HTTP calls, etc.) to the appropriate 
+ * processing component. It’s widely used in web frameworks 
+ * (Express, Spring MVC), in UI navigation (React Router), and 
+ * in message‐driven systems.
+ * 
+ * It owns the main JFrame and CardLayout container, allowing controllers 
+ * and views to switch screens and manage the window.
  */
 public class ViewRouter {
     /** Singleton instance of the ViewRouter. */
