@@ -41,7 +41,7 @@ public class ViewRouter {
 
 
 
-
+    
     public void setFrame(String windowTitle, int width, int height) {
         frame.setTitle(windowTitle);
         frame.setSize(width, height);
