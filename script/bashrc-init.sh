@@ -18,7 +18,6 @@ MARKER="?GENERAL;" # Check if the configuration script exists in ~/.bashrc
 SCRIPT=$(cat <<'EOF'
 
 
-
 : '
 Here-Document (Heredoc): A heredoc allows you to redirect a block of 
 text to a command. 
@@ -33,19 +32,6 @@ Colon (:) Command: it is a shell built-in that does nothing with exit status (0)
     : <any_literals> 
 
 Its often used as a no-op (no operation) or placeholder.
-
-
-
-
-
-
-fix this latex code!
-
-
-
-
-
-
 '
 
 ################################################################################
@@ -68,36 +54,10 @@ CYAN_RG='\033[0;36m'
 WHITE_RG='\033[0;37m'
 ##########################
 EOC='\033[0m' # End Of Coloring
-#################################< VERSION >####################################
-# Script metadata
-SCRIPT_VERSION="2.1.3"
-SCRIPT_AUTHOR="Jaehoon Song"
-echo -e "${GREEN_RG}# Bash Configuration Version: ${SCRIPT_VERSION}${EOC}"
-echo -e "${MINT_GREEN_RG}# Author: ${SCRIPT_AUTHOR}${EOC}"
-echo -e "${CYAN_RG}############### SYSTEM & USER INFORMATION ###############${EOC}"
-echo -e "HOME directory: ${LIME_GREEN_RG}$HOME${EOC}"
-echo -e "Current directory: ${LIME_GREEN_RG}$PWD${EOC}"
-echo -e "OS Kernel Type: ${LIME_GREEN_RG}$(uname -s)${EOC}"
-echo -e "OS Kernel Version: ${LIME_GREEN_RG}$(uname -r)${EOC}"
-echo -e "Architecture: ${LIME_GREEN_RG}$(uname -m)${EOC}"
-echo -e "Hostname: ${LIME_GREEN_RG}$(hostname)${EOC}"
-echo -e "Logged-in User: ${LIME_GREEN_RG}$(whoami)${EOC}"
-echo -e "Shell Type: ${LIME_GREEN_RG}$SHELL${EOC}"
-echo -e "Shell Version: ${LIME_GREEN_RG}$BASH_VERSION${EOC}"
-# User-specific environment variables
-echo -e "${CYAN_RG}################# ENVIRONMENT VARIABLES #################${EOC}"
-echo -e "PATH Directories:"
-IFS=':' read -ra PATH_ARRAY <<< "$PATH"  # Split PATH into an array by ':'
-for dir in "${PATH_ARRAY[@]}"; do
-    echo -e "  ${LIME_GREEN_RG}$dir${EOC}"
-done
-echo -e "${CYAN_RG}############### PROJECT INFORMATION ###############${EOC}"
-echo -e "Project Name: ${LIME_GREEN_RG}$PROJ_NAME${EOC}"
-echo -e "Project Directory: ${LIME_GREEN_RG}$PROJ_DIR${EOC}"
-echo -e "Project Source Code Directory: ${LIME_GREEN_RG}$PROJ_SRC${EOC}"
-echo -e "Project External Directory: ${LIME_GREEN_RG}$PWD/ext${EOC}"
-echo -e "${CYAN_RG}#########################################################${EOC}"
-echo -e "\n\n"
+
+
+
+
 ##################################< USAGE >#####################################
 # echo "Pass: $(TEST_PASS 'All tests passed successfully!')."
 # echo "Error: $(TEST_FAIL 'aaaa')."
@@ -624,88 +584,9 @@ function SETUP_PYTHON {
     pipreqs --version
 }
 
-###############################################################################
-#                                   ?JAVA;
-################################################################################
-#################################< VERSION >####################################
-JDK_VERSIONS=("21" "17")
-JDK_IDENTIFIERS=("fd2272bbf8e04c3dbaee13770090416c" "0d483333a00540d886896bac774ff48b")
-GRADLE_VERSIONS=("8.5" "7.3")
-
-JDK_VERSIONS=("17")
-JDK_IDENTIFIERS=("0d483333a00540d886896bac774ff48b")
-GRADLE_VERSIONS=("8.5")
-##################################< USAGE >#####################################
-# ### language system setup ... (1)
-# on_jvm
-# ### build automation setup ... (2 requires `1`)
-# on_gradle
-###############################################################################
-JDK_URL="https://download.java.net/java/GA/jdk{VERSION}/{IDENTIFIER}/35/GPL/openjdk-{VERSION}_windows-x64_bin.zip"
-function on_jvm {
-    local JDK_DIR="$PWD/ext/jdk-{VERSION}/bin"
-    # JDK checkup (positive)
-    if exists "$PWD/ext" "jdk"; then
-        echo "Notice: Directory $(USRPROMPT ''${JDK_DIR}' ')already exists. JRE/JVM has been setup..."
-        # JRE/JVM setup
-        SETUP_JAVA
-        return
-    fi
-    # JDK install
-    for i in "${!JDK_VERSIONS[@]}"; do
-        ver="${JDK_VERSIONS[$i]}"
-        identifier="${JDK_IDENTIFIERS[$i]}"
-        url="${JDK_URL//\{VERSION\}/$ver}"
-        url="${url//\{IDENTIFIER\}/$identifier}"
-        INSTRACT "$url" "jdk.zip" "$PWD/ext"
-    done
-    # JRE/JVM setup
-    SETUP_JAVA
-}
-function SETUP_JAVA {
-    local JDK_DIR="$PWD/ext/jdk-{VERSION}/bin"
-    for ver in "${JDK_VERSIONS[@]}"; do
-        export JAVA_HOME="$PWD/ext/jdk-${ver}"
-        export PATH="${JDK_DIR//\{VERSION\}/$ver}:${PATH}"
-    done
-    echo -e "\n------------------------------------------------------------"
-    echo -e "JAVA"
-    echo -e "------------------------------------------------------------\n"
-    java -version
-    echo "JAVA_HOME: $JAVA_HOME"
-    echo -e "------------------------------------------------------------\n"
-}
-GRADLE_URL="https://services.gradle.org/distributions/gradle-{VERSION}-bin.zip"
-function on_gradle {
-    local GRADLE_DIR="$PWD/ext/gradle-{VERSION}/bin"
-    # Gradle checkup (positive)
-    if exists "$PWD/ext" "gradle"; then
-        echo "Notice: Directory $(USRPROMPT ''${GRADLE_DIR}' ')already exists. Gradle has been setup..."
-        # Gradle setup
-        SETUP_GRADLE
-        return
-    fi
-    # Gradle install
-    for ver in "${GRADLE_VERSIONS[@]}"; do
-        url="${GRADLE_URL//\{VERSION\}/$ver}"
-        INSTRACT "$url" "gradle.zip" "$PWD/ext"
-    done
-    # Gradle setup
-    SETUP_GRADLE
-}
-function SETUP_GRADLE {
-    local GRADLE_DIR="$PWD/ext/gradle-{VERSION}/bin"
-    for ver in "${GRADLE_VERSIONS[@]}"; do
-        export PATH="${GRADLE_DIR//\{VERSION\}/$ver}:${PATH}"
-    done
-    gradle -v
-    echo -e "------------------------------------------------------------\n"
-}
 
 
 on_pvm
-on_jvm
-on_gradle
 
 EOF
 )

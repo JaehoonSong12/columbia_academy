@@ -38,11 +38,12 @@ Welcome to the Columbia Academy project repository! This README provides quick a
 ## Table of Contents
 - [Columbia Academy Project](#columbia-academy-project)
   - [Table of Contents](#table-of-contents)
+- [To My Students](#to-my-students)
 - [Project Overview](#project-overview)
   - [Documentation](#documentation)
   - [Code Access](#code-access)
   - [Contributing](#contributing)
-- [Instructions](#instructions)
+- [Instructions\`](#instructions)
   - [Python (GT CS 1301 / AP CS A)](#python-gt-cs-1301--ap-cs-a)
 
 
@@ -53,6 +54,20 @@ Welcome to the Columbia Academy project repository! This README provides quick a
 
 
 
+
+<br /><br /><br />
+
+---
+
+# To My Students
+Follow the steps below to get started!
+
+1. open the terminal by pressing `ctrl` + `~`.
+2. type-in `./on_venv.sh` in bash.
+3. copy and paste the command shows up in bash.
+4. If you can see `(venv)` at the front of your terminal line, you are all set.
+5. Now, get into your space, for example, `cd std02-jihoo`
+6. Run your python file. `python main.py`
 
 
 
@@ -100,12 +115,13 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 ---
 
-# Instructions
+# Instructions`
 To start, clone the repository using the following command:
 ```bash
 git clone https://github.com/JaehoonSong12/columbia_academy.git
 cd columbia_academy
 ```
+
 
 ## Python (GT CS 1301 / AP CS A)
 After cloning, initialize the repository by running the provided bash scripts (`copy`, then `right-click` in a bash session):
