@@ -25,8 +25,8 @@ public class InfoController {
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("Going Back to Main Menu");
 
-                    ///////////////////////// HW 1: Use Router instead
-                    view.setVisible(false);
+                    ///////////////////////// HW 1: Use Router instead ////////////////////////////////
+                    view.setVisible(false); // <- consumming your memeory now, instead, use View router class to handle it better.
                     new MenuController(new MenuView());
                 }
             }

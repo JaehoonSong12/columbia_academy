@@ -21,6 +21,9 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+    
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.google.code.gson:gson:2.11.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -33,6 +36,7 @@ java {
 application {
     // Define the main class for the application.
     // mainClass.set("weatherforecast.App")    /// entry point for CLI
-    mainClass.set("gui.Main")               /// entry point for GUI
+    // mainClass.set("gui.Main")               /// entry point for GUI
+    mainClass.set("weatherforecast.WeatherAPITest")
     // mainClass.set("guireference.Main")
 }
