@@ -10,10 +10,19 @@ import javax.swing.JLabel;      // (3) UI component - visual
 
 import javax.swing.JTextArea;
 
-public class InfoView extends JPanel {
-    public static final String TITLE = "Weather Forecast";
-    public static final int SCREEN__WIDTH = 680;
-    public static final int SCREEN_HEIGHT = 480;
+public class InfoView extends JPanel implements Displayable {
+    public static String getUrl() {
+        String path = "/" + new Object() {}.getClass().getEnclosingClass().getName().replace('.', '/') + ".class";
+        System.out.println("URL (registered statically): " + path);
+        return path;
+    }
+
+    @Override
+    public String getTitle() { return "Weather Forecast Information page"; }
+    @Override
+    public int getWidth() { return 780; }
+    @Override
+    public int getHeight() { return 620; }
 
     private JLabel lblTemp;
     public JLabel getLblTemp() { return this.lblTemp; };

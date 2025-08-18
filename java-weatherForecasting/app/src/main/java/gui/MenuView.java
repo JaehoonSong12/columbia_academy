@@ -8,11 +8,24 @@ import java.awt.GridLayout;
 import javax.swing.JButton;     // (3) UI component - control
 import javax.swing.JLabel;      // (3) UI component - visual
 
-public class MenuView extends JPanel {
+public class MenuView extends JPanel implements Displayable {
+    public static String getUrl() {
+        String path = "/" + new Object() {}.getClass().getEnclosingClass().getName().replace('.', '/') + ".class";
+        System.out.println("URL (registered statically): " + path);
+        return path;
+    }
+
     // Contant in Java, static == "since the program starts" && final == "permanent for the program lifetime"
-    public static final String TITLE = "Weather Forecast";
-    public static final int SCREEN__WIDTH = 680;
-    public static final int SCREEN_HEIGHT = 480;
+    @Override
+    public String getTitle() { return "Weather Forecast"; }
+    @Override
+    public int getWidth() { return 600; }
+    @Override
+    public int getHeight() { return 480; }
+
+
+
+
 
     private JButton btnStart;
     public JButton getBtnStart() { return this.btnStart; } // accessor / getter

@@ -19,9 +19,7 @@ public class MenuController { // computer
                     view.getLblMessage().setText("Hello, Swing world!"); // (2) you will do this (**response for the event fired)
                     
                     // route 2: execution
-                    ViewRouter router = ViewRouter.getInstance();
-                    router.setFrame(InfoView.TITLE, InfoView.SCREEN__WIDTH, InfoView.SCREEN_HEIGHT);
-                    router.showView("weatherforcast/info");
+                    ViewRouter.getInstance().showView(InfoView.getUrl());
                 }
             }
         ); 

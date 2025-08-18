@@ -33,43 +33,46 @@ import java.util.Map;           // parent class (abstract class)
 
 public class ViewRouter {
     // Router Desgin Pattern
-    private final JFrame frame;                 // (1) Window of the Program            (Stage)
-    private final JPanel container;             // (2) Session of the Program           (Scene)
-    private final CardLayout layout;            // (3) Screen Layout with Transition    (Pane)
-    //routing purpose data structure
-    // private final Map<String, JPanel> viewRoutes;    // routing purpose data structure to save your memory (DSA)
-
-
-
-    
+    private final JFrame frame;                     // (1) Window of the Program Session        (Stage)
+    public JFrame getFrame() { return this.frame; }
     public void setFrame(String windowTitle, int width, int height) {
-        frame.setTitle(windowTitle);
-        frame.setSize(width, height);
+        this.frame.setTitle(windowTitle);
+        this.frame.setSize(width, height);
     }
-
+    private final JPanel container;                 // (2) Session holding all screens (views)  (Scene)
+    private final CardLayout layout;                // (3) Layout switching all screens (views) (Pane)
+    private final Map<String, JPanel> viewRoutes;   // (4) data structure to map (route) of views
     /**
-     * Registers a view (JPanel) with a unique name for navigation.
-     * @param key the unique key (URL) for the view     e.g. https://www.google.com/account
-     * @param view the JPanel instance                    e.g. new InfoView()
+     * Registers a view (JPanel) with a unique URL (key) for navigation.
+     * @param key the unique URL (key) for the view (value)     e.g. https://www.google.com/account
+     * @param view the JPanel instance                          e.g. new InfoView()
      */
-    public void routeView(String key, JPanel value) {
-        container.add(value, key);
+    public void registerRoute(String url, JPanel view) {
+        container.add(view, url);
+        viewRoutes.put(url, view);
     }
     /**
      * Switches to the view registered with the given name and ensures the window is visible.
-     * @param key the unique key (URL) for the view
+     * @param key the unique URL (key) of the view to show
      */
-    public void showView(String key) {
-
-                    ///////////////////////// HW 2: Just like container(key), you should get value, and do ////////////////////////////////
-                    //// frame.setTitle(windowTitle);
-                    ///frame.setSize(width, height);
-                    ///based on the value (View object / JPanel object)
+    public void showView(String url) {
+        layout.show(container, url);
+        JPanel view = viewRoutes.get(url);
 
 
-        layout.show(container, key);
+        if (view instanceof Displayable) {
+            Displayable displayableView = (Displayable) view;
+            String title = displayableView.getTitle();
+            int width = displayableView.getWidth();
+            int height = displayableView.getHeight();
+            this.setFrame(title, width, height);
+        }
+
+
+
+
+
         if (!frame.isVisible()) frame.setVisible(true);
-        return;
     }
 
 
@@ -79,20 +82,25 @@ public class ViewRouter {
 
 
     // Singleton Desgin Pattern
-    private static ViewRouter instance = null; 
-    // private constructor (intended) to initialize when it is called for the first time.
+    private static ViewRouter instance;
+    /**
+     * Private constructor for Singleton pattern. (cannot be called from outside.)
+     */
     private ViewRouter() {
-        this.container = new JPanel(new CardLayout());
-        this.layout = (CardLayout) container.getLayout();
-        // this.viewRoutes = new HashMap<>();
         this.frame = new JFrame();
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.setContentPane(container);
         this.frame.setLocationRelativeTo(null);
-        this.setFrame("Initial Title (For Testing)", 600, 400);
+
+        this.layout = new CardLayout();
+        this.container = new JPanel(layout);
+        this.viewRoutes = new HashMap<>();
+        this.frame.setContentPane(container);
     }
-    // returns singlton and make sure it is created only one object.
-    public static ViewRouter getInstance() {
+    /**
+     * Returns the singleton instance of the ViewRouter.
+     * @return the ViewRouter instance
+     */
+    public static synchronized ViewRouter getInstance() {
         if (instance == null) ViewRouter.instance = new ViewRouter(); // detection of the 1st call
         return ViewRouter.instance; // ViewRouter.instance == "ViewRouter class's instance static variable"
     }
