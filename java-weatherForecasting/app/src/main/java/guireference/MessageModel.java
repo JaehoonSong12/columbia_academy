@@ -1,17 +1,22 @@
 package guireference;
 
+/**
+ * MessageModel is the Model in the MVC pattern.
+ * <p>
+ * It holds the message state for the application.
+ */
 public class MessageModel {
-    private String message;
+    private String message = "Main Panel";
 
-    public MessageModel() {
-        this.message = "Click the button below!";
-    }
+    /**
+     * Gets the current message.
+     * @return the message
+     */
+    public String getMessage() { return message; }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    /**
+     * Sets the message.
+     * @param message the new message
+     */
+    public void setMessage(String message) { this.message = message; }
 } 
