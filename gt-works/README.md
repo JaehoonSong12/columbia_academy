@@ -1,5 +1,6 @@
 This is a subdirectory for Taiyun to work on Georgia Tech lecture contents.
 
+In windows, start your vscode by double clicking `.start.bat` file!
 
 
 
