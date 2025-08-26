@@ -7,6 +7,7 @@ Usage:
 """
 
 
+
 # INPUT / OUPUT
 # python code, syntax (grammer)
 # 1. input(message)
