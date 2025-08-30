@@ -1,6 +1,9 @@
 /**
 INSTRUCTIONS: 
     Homework1 is going on...
+    
+COLLABORATION: 
+    I worked on the assignment alone, using only course-provided materials.
 
 COMPILE & EXECUTE & CLEANUP (Java):
 
