@@ -1,5 +1,16 @@
 // I worked on the assignment alone, using only course-provided materials.
 
+/**
+INSTRUCTIONS: 
+    Homework1 is going on...
+
+COMPILE & EXECUTE & CLEANUP (Java):
+
+     javac  -d out                  hw01/PrimitiveOperations.java      # compile (.java to .class)
+     java           -cp "./out"     PrimitiveOperations                # execute (.class to run)
+     rm -rf out/                                        # clean up .class files
+    
+ */
 public class PrimitiveOperations {
     public static void main(String[] args) {
         int spongebobIQ = 5;

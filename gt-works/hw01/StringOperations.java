@@ -1,3 +1,14 @@
+/**
+INSTRUCTIONS: 
+    Homework1 is going on...
+
+COMPILE & EXECUTE & CLEANUP (Java):
+
+     javac  -d out                  hw01/StringOperations.java      # compile (.java to .class)
+     java           -cp "./out"     StringOperations                # execute (.class to run)
+     rm -rf out/                                        # clean up .class files
+    
+ */
 public class StringOperations {
     public static void main(String[] args) {
         String myName = "Tai";
