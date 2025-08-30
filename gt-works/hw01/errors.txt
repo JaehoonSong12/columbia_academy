@@ -1,0 +1,11 @@
+Bad1.java:
+This error occurs at compile-time.
+The class name "BADOne" doesn't match with the filename "Bad1.java".
+
+Bad2.java:
+This error occurs at runtime.
+Division by zero occurs when evaluating a / b where b = 0.
+
+Bad3.java:
+This error occurs at compile-time.
+A char literal ('a') was incorrectly assigned to a String variable.
