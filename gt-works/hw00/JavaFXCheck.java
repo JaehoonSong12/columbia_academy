@@ -2,12 +2,21 @@
 INSTRUCTIONS: 
     Part Four: JavaFX Verification and Submission
 
-COMPILE & EXECUTE & CLEANUP (Java):
 
-     javac  -d out              JavaFXCheck.java       # compile (.java to .class)
-     java           -cp out     JavaFXCheck            # execute (.class to run)
-     rm -rf out/                                # clean up .class files
-    
+
+COMPILE & EXECUTE & CLEANUP (Java, Julu distribution):
+
+     javac  -d out                  hw00/JavaFXCheck.java   # compile (.java to .class)
+     java           -cp "./out"     JavaFXCheck             # execute (.class to run)
+     rm -rf out/                                            # clean up .class files
+
+
+COMPILE & EXECUTE & CLEANUP (Java, Oracle distribution):
+
+     javac  --module-path "./javafx-sdk-21.0.2/lib" --add-modules javafx.controls,javafx.fxml -d out        hw00/JavaFXCheck.java   # compile (.java to .class)
+     java   --module-path "./javafx-sdk-21.0.2/lib" --add-modules javafx.controls,javafx.fxml -cp "./out"   JavaFXCheck             # execute (.class to run)
+     rm -rf out/                                                                                                                    # clean up .class files
+
  */
 
 

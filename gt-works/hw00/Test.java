@@ -6,9 +6,9 @@ INSTRUCTIONS:
 
 COMPILE & EXECUTE & CLEANUP (Java):
 
-     javac  -d out              Test.java       # compile (.java to .class)
-     java           -cp out     Test            # execute (.class to run)
-     rm -rf out/                                # clean up .class files
+     javac  -d out                  hw00/Test.java      # compile (.java to .class)
+     java           -cp "./out"     Test                # execute (.class to run)
+     rm -rf out/                                        # clean up .class files
     
  */
 

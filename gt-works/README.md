@@ -1,3 +1,13 @@
+This is a subdirectory for Taiyun to work on Georgia Tech lecture contents.
+
+In windows, start your vscode by double clicking `.start.bat` file!
+
+For `Oracle` Java distro, use the following javafx library. `Julu` distro already has JavaFX framework embedded!
+```
+https://jdk.java.net/javafx21/
+```
+
+
 # Installing Java Guide (JDK 11)
 
 ## Windows
