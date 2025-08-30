@@ -1,7 +1,7 @@
 /**
 INSTRUCTIONS: 
     Part Two: Writing and Compiling a Java Class
-    and
+    && 
     Part Three: The `main` Method
 
 COMPILE & EXECUTE & CLEANUP (Java):
