@@ -5,12 +5,35 @@ body {
   line-height: 1.5; /* Adjust line spacing */
 }
 
+
+
 /* Apply a different font to headings */
 h1 {
   font-family: 'Georgia', serif;
   font-size: 2em;
   font-weight: bold;
 }
+
+div h1 {
+  font-family: 'Georgia', serif;
+  font-size: 1em;
+  color: red;
+}
+
+div div h1 {
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  color: rgb(55, 0, 255);
+  background-color:red;
+  border-radius:100px;
+  width:500px;
+  padding: 100px;
+  margin:100px;
+  border-style: 100px;
+  border-style: solid;
+  border-color: aqua;
+}
+
 
 
 
