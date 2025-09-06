@@ -25,13 +25,7 @@ def copyEvens(nums: list[int], count: int) -> list[int]:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    new_list = []
-    i = 0
-    while len(new_list) < count:
-        if nums[i] % 2 == 0:
-            new_list.append(nums[i])
-        i += 1
-    return new_list
+    return None
 
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 

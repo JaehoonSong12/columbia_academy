@@ -24,13 +24,7 @@ def wordsWithoutList(words: list[str], length: int) -> list[str]:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    i = 0
-    new_list = []
-    while i < len(words):
-        if not len(words[i]) == length:
-            new_list.append(words[i])
-        i += 1
-    return new_list
+    return None
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.

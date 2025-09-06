@@ -23,13 +23,7 @@ def wordsCount(words: list[str], length: int) -> int:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    i = 0
-    count = 0
-    while i in range(len(words)):
-        if len(words[i]) == length:
-            count += 1
-        i += 1
-    return count
+    return 0
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.

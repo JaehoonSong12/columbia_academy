@@ -23,13 +23,7 @@ def wordsWithout(words: list[str], target: str) -> list[str]:
         list[str]: A new list containing all words except those that are equal to the target string.
     """
     ### [Your Implementation Here]
-    new_list = []
-    i = 0
-    while i < len(words):
-        if words[i] != target:
-            new_list.append(words[i])
-        i += 1
-    return new_list
+    return None
 
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
