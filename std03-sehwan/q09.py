@@ -27,15 +27,7 @@ def dividesSelf(n: int) -> bool:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    i = 0
-    n = str(n)
-    while i < len(n):
-        if int(n[i]) == 0:
-            return False
-        if not int(n) % int(n[i]) == 0:
-            return False
-        i += 1
-    return True
+    return False
 
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 

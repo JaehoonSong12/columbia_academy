@@ -23,9 +23,6 @@ def hasOne(n: int) -> bool:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    n = str(n)
-    if "1" in n:
-        return True
     return False
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 

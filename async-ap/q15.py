@@ -16,7 +16,7 @@ def scoresSpecial(a: list[int], b: list[int]) -> int:
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q15.py`
+        2. Run the tests by executing: `python q15.py`
 
     Args:
         a (list[int]): First list of non-negative scores.

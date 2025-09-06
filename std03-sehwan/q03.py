@@ -26,11 +26,6 @@ def scoresClump(scores: list[int]) -> bool:
               otherwise False.
     """
     ### [Your Implementation Here]
-    i = 0
-    while i < len(scores) - 2:
-        if scores[i] - scores[i + 2] <= 2 and scores[i] - scores[i + 2] >= -2:
-            return True
-        i += 1
     return False
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.

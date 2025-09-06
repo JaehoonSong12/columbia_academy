@@ -21,13 +21,7 @@ def copyEndy(nums: list[int], count: int) -> list[int]:
         list[int]: A list containing the first `count` endy integers.
     """
     ### [Your Implementation Here]
-    new_list = []
-    i = 0
-    while len(new_list) < count:
-        if nums[i] in range(0, 11) or nums[i] in range(90, 101):
-            new_list.append(nums[i])
-        i += 1
-    return new_list
+    return None
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 

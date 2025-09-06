@@ -23,11 +23,7 @@ def matchUp(a: list[str], b: list[str]) -> int:
         int: The count of non-empty string pairs that start with the same character.
     """
     ### [Your Implementation Here]
-    count = 0
-    for i in range(len(a)):
-        if (len(a[i]) < 1) or (len(b[i]) < 1): continue
-        if (a[i][0] == b[i][0]): count += 1
-    return count
+    return 0
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.

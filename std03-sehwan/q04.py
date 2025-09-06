@@ -27,28 +27,7 @@ def scoresAverage(scores: list[int]) -> int:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    first_half = []
-    second_half = []
-    i = 0
-    while i < len(scores)//2:
-        first_half.append(scores[i])
-        i += 1
-    while i in range(len(scores)//2, len(scores)):
-        second_half.append(scores[i])
-        i += 1
-    first_sum = 0
-    first_amount = len(first_half)
-    for n in first_half:
-        first_sum += n
-    second_sum = 0
-    second_amount = len(second_half)
-    for n in second_half:
-        second_sum += n
-    first_average = first_sum / first_amount
-    second_average = second_sum / second_amount
-    if first_average > second_average:
-        return int(first_average)
-    return int(second_average)
+    return 0
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
