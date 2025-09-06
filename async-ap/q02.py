@@ -12,7 +12,7 @@ def scores100(scores: list[int]) -> bool:
 
     Instructions to run the tests via the CLI:
         1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q02.py`
+        2. Run the tests by executing: `python q02.py`
 
     Args:
         scores (list[int]): A list of integer scores.

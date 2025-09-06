@@ -1,6 +1,32 @@
 print("Hello World")
 
 
+arr_example = [12,17,19,21,22,20,40,80,72]
+
+print(len(arr_example))
+
+print(range(len(arr_example))) # range(0,9) ,,,,,            0 <= integers < 9
+
+
+print(arr_example)
+# print(arr_example[0])
+# print(arr_example[9])
+
+
+for i in range(len(arr_example)):
+    print(f"your index: {i}, and your value: {arr_example[i]}, and your previous term is {arr_example[i-1]}")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
