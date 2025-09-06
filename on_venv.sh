@@ -19,7 +19,9 @@ elif [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* || "$OSTYPE" == "win32"* 
     fi
     TEMP=$PWD
     cd ..
-    if command -v on_pvm &>/dev/null; then
+    if command -v python --version &>/dev/null; then
+        echo "You have python already"
+    elif command -v on_pvm &>/dev/null; then
         on_pvm
     else
         echo "Error: 'on_pvm' command is not found, reach out to the owner of the project"
