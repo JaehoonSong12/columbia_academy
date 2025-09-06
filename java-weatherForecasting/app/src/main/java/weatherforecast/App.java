@@ -3,16 +3,82 @@
  */
 package weatherforecast;
 
-import gui.Main;
-import gui.MenuView;
+import gui.*;
 
+
+
+/// JDK already has the following as library (JRE)
+import javax.swing.JFrame;      // (1) Window Screen
+import javax.swing.JPanel;      // (2) Scene Layout
+import java.awt.BorderLayout;       // styling of layouts!
+import javax.swing.JButton;     // (3) UI component - control
+import javax.swing.JLabel;      // (3) UI component - visual
+
+/**
+ * Logic (Coding Part) of the app, not visual compoenents on your Monitor
+ */
+import javax.swing.SwingUtilities;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+
+
+
+/**
+ * App.java
+ * 
+ * this is the entry point of the application.
+ */
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
+    /**
+     * A simple Swing GUI application with a button and label.
+     */
     public static void main(String[] args) {
         // System.out.println(new App().getGreeting());
-        WeatherAPITest.main(args);
+
+
+
+
+
+
+        SwingUtilities.invokeLater(App::start);
+
+
+        
+        // WeatherAPITest.main(args);
+    }
+
+
+
+
+    /**
+     * Create and display the GUI.
+     */
+    private static void start() {
+
+        ViewRouter router = ViewRouter.getInstance();
+
+
+        // route 1: menu
+        MenuView view1 = new MenuView();
+        new MenuController(view1);
+        router.registerRoute(MenuView.getUrl(), view1);
+
+        // route 2: info (weather-forcasting page)
+        InfoView view2 = new InfoView();
+        new InfoController(view2);
+        router.registerRoute(InfoView.getUrl(), view2);
+
+
+
+
+        // route 1: execution
+        ViewRouter.getInstance().showView(MenuView.getUrl());
+        // ViewRouter.getInstance().showView(InfoView.getUrl());
     }
 }

@@ -1,0 +1,118 @@
+/* Apply font-family to the body */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Fallback fonts included */
+  font-size: 16px; /* Set font size */
+  line-height: 1.5; /* Adjust line spacing */
+}
+
+
+
+/* Apply a different font to headings */
+h1 {
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+div h1 {
+  font-family: 'Georgia', serif;
+  font-size: 1em;
+  color: red;
+}
+
+div div h1 {
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  color: rgb(55, 0, 255);
+  background-color:red;
+  border-radius:100px;
+  width:500px;
+  padding: 100px;
+  margin:100px;
+  border-style: 100px;
+  border-style: solid;
+  border-color: aqua;
+}
+
+
+
+
+
+
+/* Class Selector (.) */
+/* 
+  Usually defined by other people, library or framework
+  1. Bootstrap
+*/
+.custom-font {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5em;
+  font-style: italic;
+}
+.highlight {
+  
+}
+
+
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: #e63f19;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  grid-gap: 10px;
+}
+
+
+
+
+
+.box2 {
+  background-color: #19ace6;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+
+.box1 {
+  background-color: #27e619;
+  grid-row: 1;
+  grid-column: 3;
+}
+
+
+.box3 {
+  background-color: #dc19e6;
+  grid-row: 2;
+  grid-column: 2 / 4; 
+}
+
+
+
+
+
+
+
+
+
+/* ID Selector (#) */
+/* 
+  Usually used by you, your own styling
+*/
+#hhhhh {
+  
+}

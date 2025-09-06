@@ -157,7 +157,7 @@ class Teacher extends Person { // this.
  *      - methods (functions in a class)
  * in a single "class shell" ("Data type")
  */
-class Student extends Person{
+class Student extends Person {
     // (2) Fields are created in "heap"
     String stdId;
     // Constructor (special method for "new" to encapsulate data passed from outside)

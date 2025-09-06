@@ -21,16 +21,6 @@ for i in range(len(arr_example)):
 
 
 
-
-
-
-
-
-
-
-
-
-
 # [High-Level Language] Human-Language:             English / Korean / Spanish 
 # [High-Level Language] Programming Language:       Python / Java / C++ / Kotlin / ...
 
