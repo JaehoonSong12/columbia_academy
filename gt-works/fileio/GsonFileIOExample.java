@@ -89,6 +89,16 @@ public class GsonFileIOExample {
             this.isPremium = isPremium;
         }
 
+        public void report() {
+            System.out.println(
+                "\tUser{id=" + this.id +
+                ", username=" + this.username + 
+                ", age=" + this.age +
+                ", isPremium=" + this.isPremium +
+                "}"
+            );
+        }
+
         /**
          * Provides a natural, human-readable string representation of the object.
          * This is great for logging and debugging.
@@ -104,11 +114,11 @@ public class GsonFileIOExample {
         @Override
         public String toString() {
             return String.format(
-                    "User{id=%d, username='%s', age=%s, isPremium=%s}",
-                    id,
-                    username,
-                    (age == null ? "N/A" : age), // Handle null for clean printing
-                    (isPremium == null ? "Unknown" : isPremium)
+                "User{id=%d, username='%s', age=%s, isPremium=%s}", // Dict or Map string representation (Serializing)
+                id,
+                username,
+                (age == null ? "null" : age.toString()), // Handle null for clean printing
+                (isPremium == null ? "null" : isPremium.toString())
             );
         }
     }
@@ -155,13 +165,14 @@ public class GsonFileIOExample {
              */
             Type userListType = new TypeToken<ArrayList<User>>(){}.getType();
 
-            List<User> restoredUsers = gson.fromJson(reader, userListType);
+            List<User> restoredUsers = gson.fromJson(reader, userListType); // Object Restoration from String (Parsing)
 
             System.out.println("Successfully read and parsed users from " + fileName + ":\n");
             for (User user : restoredUsers) {
                 // We are now working with the restored Java objects.
                 // The .toString() method is used here for a clean console display.
-                System.out.println(user);
+                // System.out.println(user);
+                user.report();
             }
 
         } catch (IOException e) {
