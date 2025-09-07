@@ -10,7 +10,6 @@ COMPILE & EXECUTE & CLEANUP:
      java   -cp "./out;./gson-2.13.1/lib/gson-2.13.1.jar"           GsonFileIOExample               # execute (.class to run)
      rm -rf out/                                                                                    # clean up .class files
 
-
     Note*: For Linux/macOS (using ':' as classpath separator) 
  */
 
