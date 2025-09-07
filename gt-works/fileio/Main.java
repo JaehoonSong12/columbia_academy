@@ -11,11 +11,13 @@ COMPILE & EXECUTE & CLEANUP (Java):
      java           -cp "./out"     Main                # execute (.class to run)
      rm -rf out/                                        # clean up .class files
     
+    Note*: For Linux/macOS (using ':' as classpath separator) 
+
+DEPENDENCIES: 
  */
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-
 // import java.lang.Exception;
 import java.io.File;
 import java.io.IOException;                 // Exception: 
