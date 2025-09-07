@@ -165,6 +165,48 @@ public class GsonFileIOExample {
              */
             Type userListType = new TypeToken<ArrayList<User>>(){}.getType();
 
+            /*
+             * ==============================================================================
+             * * \/ \/ \/   THIS IS WHERE THE PARSING HAPPENS   \/ \/ \/
+             *
+             * ==============================================================================
+             *
+             * The `gson.fromJson()` method is the core of the deserialization process.
+             * It takes the raw text content read from the file and parses it into
+             * structured Java objects. Here's a step-by-step breakdown:
+             *
+             * 1.  `reader`: This is the first argument. The `FileReader` object reads the
+             * `users.json` file character by character. `gson.fromJson()` is smart
+             * enough to consume this entire stream of characters, which represents
+             * the JSON string.
+             *
+             * 2.  `userListType`: This is the second argument and it's crucial. It acts as
+             * a "blueprint" that tells Gson what kind of Java structure to create from
+             * the JSON string. Because of Java's type erasure, you can't just use
+             * `List<User>.class`. The `TypeToken` captures the full generic type
+             * (`ArrayList<User>`), so Gson knows to create a list that specifically
+             * holds `User` objects.
+             *
+             * 3.  The Parsing Process:
+             * - Gson reads the opening `[` from the file, recognizing it as a JSON array.
+             * - It then starts creating a Java `ArrayList`.
+             * - For each JSON object `{...}` it finds inside the array, it does the following:
+             * a. Creates a new instance of the `User` class (this is why a no-arg
+             * constructor is helpful).
+             * b. It reads the key-value pairs (e.g., `"id": 1`, `"username": "jane_doe"`).
+             * c. It matches the JSON key (e.g., "username") to the field name in your
+             * `User` class (e.g., `private String username;`).
+             * d. It converts the JSON value to the correct Java type and sets the
+             * field on the `User` object instance.
+             * e. If a field from the Java class is missing in the JSON object (like
+             * 'age' for john_smith), and the field is a wrapper type (like `Integer`),
+             * Gson correctly assigns `null` to it.
+             * - Once it has processed all the objects in the JSON array, it returns the
+             * fully populated `ArrayList<User>`.
+             *
+             * In short, this single line reads the file content, interprets its structure,
+             * creates the necessary Java objects, and populates them with the data.
+             */
             List<User> restoredUsers = gson.fromJson(reader, userListType); // Object Restoration from String (Parsing)
 
             System.out.println("Successfully read and parsed users from " + fileName + ":\n");
