@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "username": "jane_doe",
+    "age": 28,
+    "isPremium": true
+  },
+  {
+    "id": 2,
+    "username": "john_smith"
+  },
+  {
+    "id": 3,
+    "username": "alex_ray",
+    "age": 35,
+    "isPremium": false
+  }
+]
