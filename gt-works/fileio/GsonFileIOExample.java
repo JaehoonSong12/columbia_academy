@@ -217,6 +217,15 @@ public class GsonFileIOExample {
                 user.report();
             }
 
+            /*
+             * SIDE NOTE: You can also parse a raw string directly.
+             * If the JSON content was already in a String variable, you would do this:
+             *
+             * String jsonString = "[{\"id\":10,\"username\":\"string_user\"}]";
+             * List<User> usersFromString = gson.fromJson(jsonString, userListType);
+             * System.out.println("\nParsed from a raw string: " + usersFromString.get(0));
+             *
+             */
         } catch (IOException e) {
             System.err.println("An error occurred while reading the JSON file.");
             e.printStackTrace();
