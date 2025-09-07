@@ -7,16 +7,15 @@ COLLABORATION:
 
 COMPILE & EXECUTE & CLEANUP (Java):
 
-     javac  -d out                  std01-taiyun/WrapperClassUseCases.java      # compile (.java to .class)
-     java           -cp "./out"     WrapperClassUseCases                # execute (.class to run)
-     rm -rf out/                                        # clean up .class files
+     javac  -d out                  std01-taiyun/WrapperClassUseCases.java  # compile (.java to .class)
+     java           -cp "./out"     WrapperClassUseCases                    # execute (.class to run)
+     rm -rf out/                                                            # clean up .class files
     
+    Note*: For Linux/macOS (using ':' as classpath separator) 
+    
+DEPENDENCIES: 
+     None
  */
-
-
-
-
-
 
 
 
