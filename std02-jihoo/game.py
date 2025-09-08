@@ -110,7 +110,7 @@ def main():
         screen.fill(BLACK)
 
         # Draw the player rectangle onto the screen surface.
-        pygame.draw.rect(screen, BLUE, player_rect)
+        pygame.draw.rect(screen, GREEN, player_rect)
 
         # --- Update Display ---
         # This function updates the contents of the entire screen. It's the
