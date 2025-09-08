@@ -62,9 +62,9 @@ Welcome to the Columbia Academy project repository! This README provides quick a
 # To My Students
 Follow the steps below to get started!
 
-1. open the terminal by pressing `ctrl` + `~`.
+1. open the terminal by pressing `ctrl` + `~`. (In the case of shared session by Live Share, click share terminal)
 2. type-in `./on_venv.sh` in bash.
-3. copy and paste the command shows up in bash.
+3. copy and paste the command shows up in bash. (`source ../venv/Scripts/activate && pip install setuptools && clear`)
 4. If you can see `(venv)` at the front of your terminal line, you are all set.
 5. Now, get into your space, for example, `cd std02-jihoo`
 6. Run your python file. `python main.py`
