@@ -290,8 +290,8 @@ if "%IS_ADMIN%"=="0" (
 
 
 
-@REM install Strawberry Perl for Windows
-call :Install-App "StrawberryPerl.StrawberryPerl" "Strawberry Perl" "perl" "Strawberry"
+@REM @REM install Strawberry Perl for Windows
+@REM call :Install-App "StrawberryPerl.StrawberryPerl" "Strawberry Perl" "perl" "Strawberry"
 
 @REM MiKTeX (short for Micro-Kid TeXLive) is well known for its 
 @REM `on-the-fly` package installation, where 
