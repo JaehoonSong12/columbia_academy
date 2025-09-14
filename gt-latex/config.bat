@@ -97,7 +97,7 @@ echo.
 
 
 
-start "" perl "install-tl"
+@REM start "" perl "install-tl"
 
 @REM :: Open the repository based on README.md location asynchronously
 @REM start /B "" code "%~dp0"
@@ -290,8 +290,8 @@ if "%IS_ADMIN%"=="0" (
 
 
 
-@REM @REM install Strawberry Perl for Windows
-@REM call :Install-App "StrawberryPerl.StrawberryPerl" "Strawberry Perl" "perl" "Strawberry"
+@REM install Strawberry Perl for Windows
+call :Install-App "StrawberryPerl.StrawberryPerl" "Strawberry Perl" "perl" "Strawberry"
 
 @REM MiKTeX (short for Micro-Kid TeXLive) is well known for its 
 @REM `on-the-fly` package installation, where 
