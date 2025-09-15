@@ -1,6 +1,6 @@
 /*
 INSTRUCTIONS:
-    This class is homework 2.
+    A PDF file is attached in the same folder.
 
 COLLABORATION STATEMENT:
     I worked on the homework assignment alone, using only course materials.
@@ -13,8 +13,8 @@ COMPILE & EXECUTE & CLEANUP (Java):
      java           -cp "./out"     Apothecary              # execute (.class to run)
      rm -rf out/                                            # clean up .class files
 
+DEPENDENCIES:
  */
-
 import java.util.Scanner;
 
 /**
@@ -30,64 +30,89 @@ import java.util.Scanner;
  * @version 0.0.1
  */
 public class Apothecary {
-    /**
-     * Main method.
-     *
-     * @param args argument from user input
-     */
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
+
+    private static void welcome() {
         System.out.print("Welcome to my apothecary! Please enter your name here: ");
         String nameInput = sc.nextLine().trim();
         String formattedName;
         if (nameInput.isEmpty()) {
             formattedName = "Apprentice";
         } else {
-            formattedName = nameInput.substring(0, 1).toUpperCase()
-            + nameInput.substring(1).toLowerCase();
+            formattedName = nameInput.substring(0, 1).toUpperCase() + nameInput.substring(1).toLowerCase();
         }
         System.out.print("Hello " + formattedName + ", which potion do you want me to brew? ");
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args argument from user input
+     */
+    public static void main(String[] args) {
+        welcome();
         String potionInput = sc.nextLine().trim();
-        String ing1Sing = "", ing1Plur = "";
-        String ing2Sing = "", ing2Plur = "";
-        String ing3Sing = "", ing3Plur = "";
-        int ing1Qty = 0, ing2Qty = 0, ing3Qty = 0;
-        int ing1Cost = 0, ing2Cost = 0, ing3Cost = 0;
+        String ing1Sing = "";
+        String ing1Plur = "";
+        String ing2Sing = "";
+        String ing2Plur = "";
+        String ing3Sing = "";
+        String ing3Plur = "";
+        int ing1Qty = 0;
+        int ing2Qty = 0;
+        int ing3Qty = 0;
+        int ing1Cost = 0;
+        int ing2Cost = 0;
+        int ing3Cost = 0;
         int numIngredients = 0;
         String potionName = "";
         boolean isAdvanced = false;
         switch (potionInput.toLowerCase()) {
             case "potion of clarity":
                 potionName = "Potion of Clarity";
-                ing1Sing = "Vial of Crystal Dew"; ing1Plur = "Vials of Crystal Dew";
-                ing1Qty = 2; ing1Cost = 10;
+                ing1Sing = "Vial of Crystal Dew";
+                ing1Plur = "Vials of Crystal Dew";
+                ing1Qty = 2;
+                ing1Cost = 10;
                 numIngredients = 1;
                 isAdvanced = false;
                 break;
             case "elixir of agility":
                 potionName = "Elixir of Agility";
-                ing1Sing = "Swift Feather"; ing1Plur = "Swift Feathers";
-                ing1Qty = 3; ing1Cost = 20;
+                ing1Sing = "Swift Feather";
+                ing1Plur = "Swift Feathers";
+                ing1Qty = 3;
+                ing1Cost = 20;
                 numIngredients = 1;
                 isAdvanced = false;
                 break;
             case "healing draught":
                 potionName = "Healing Draught";
-                ing1Sing = "Phoenix Feather"; ing1Plur = "Phoenix Feathers";
-                ing1Qty = 1; ing1Cost = 50;
-                ing2Sing = "Vial of Moonlit Dew"; ing2Plur = "Vials of Moonlit Dew";
-                ing2Qty = 2; ing2Cost = 15;
+                ing1Sing = "Phoenix Feather";
+                ing1Plur = "Phoenix Feathers";
+                ing1Qty = 1;
+                ing1Cost = 50;
+                ing2Sing = "Vial of Moonlit Dew";
+                ing2Plur = "Vials of Moonlit Dew";
+                ing2Qty = 2;
+                ing2Cost = 15;
                 numIngredients = 2;
                 isAdvanced = true;
                 break;
             case "elixir of elemental power":
                 potionName = "Elixir of Elemental Power";
-                ing1Sing = "Vial of Moonlit Dew"; ing1Plur = "Vials of Moonlit Dew";
-                ing1Qty = 1; ing1Cost = 15;
-                ing2Sing = "Lava Stone"; ing2Plur = "Lava Stones";
-                ing2Qty = 3; ing2Cost = 30;
-                ing3Sing = "Phoenix Feather"; ing3Plur = "Phoenix Feathers";
-                ing3Qty = 2; ing3Cost = 50;
+                ing1Sing = "Vial of Moonlit Dew";
+                ing1Plur = "Vials of Moonlit Dew";
+                ing1Qty = 1;
+                ing1Cost = 15;
+                ing2Sing = "Lava Stone";
+                ing2Plur = "Lava Stones";
+                ing2Qty = 3;
+                ing2Cost = 30;
+                ing3Sing = "Phoenix Feather";
+                ing3Plur = "Phoenix Feathers";
+                ing3Qty = 2;
+                ing3Cost = 50;
                 numIngredients = 3;
                 isAdvanced = true;
                 break;
@@ -119,7 +144,9 @@ public class Apothecary {
         int amount;
         try {
             amount = Integer.parseInt(qtyInput);
-            if (amount < 1) amount = 1;
+            if (amount < 1) {
+                amount = 1;
+            }
         } catch (NumberFormatException e) {
             amount = 1;
         }
@@ -154,6 +181,12 @@ public class Apothecary {
         if (discount) {
             totalCost /= 2.0;
         }
+        System.out.printf("%s, thank you for requesting the %s. The cost is $%.2f.%n",
+                formattedName, getFinalPotionName(), totalCost);
+        sc.close();
+    }
+
+    private static String getFinalPotionName() {
         String finalPotionName;
         if (amount > 1) {
             if (potionName.equals("Potion of Clarity")) {
@@ -170,8 +203,6 @@ public class Apothecary {
         } else {
             finalPotionName = potionName;
         }
-        System.out.printf("%s, thank you for requesting the %s. The cost is $%.2f.%n",
-                formattedName, finalPotionName, totalCost);
-        sc.close();
+        return finalPotionName;
     }
 }

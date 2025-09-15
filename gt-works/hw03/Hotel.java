@@ -1,6 +1,6 @@
 /*
 INSTRUCTIONS:
-    This class is homework 3.
+    A PDF file is attached in the same folder.
 
 COLLABORATION STATEMENT:
     I worked on the homework assignment alone, using only course materials.
@@ -9,17 +9,17 @@ CHECKSTYLE:
      java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw03/*.java
 
 COMPILE & EXECUTE & CLEANUP (Java):
-     javac  -d out                  hw03/Hotel.java      # compile (.java to .class)
-     java           -cp "./out"     Hotel                # execute (.class to run)
+     javac  -d out                  hw03/Hotel.java     # compile (.java to .class)
+     java           -cp "./out"     Hotel               # execute (.class to run)
      rm -rf out/                                        # clean up .class files
 
+DEPENDENCIES:
  */
-
 import java.util.Scanner;
 
 /**
  * This class is homework 3.
- * 
+ *
  * @author CS 1331 TAs
  * @version 1.0.0
  */
