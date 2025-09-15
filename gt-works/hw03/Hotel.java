@@ -1,9 +1,36 @@
-// Collaboration Statement: I worked on the homework assignment alone, using only course materials.
+/*
+INSTRUCTIONS:
+    This class is homework 3.
+
+COLLABORATION STATEMENT:
+    I worked on the homework assignment alone, using only course materials.
+
+CHECKSTYLE:
+     java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw03/*.java
+
+COMPILE & EXECUTE & CLEANUP (Java):
+     javac  -d out                  hw03/Hotel.java      # compile (.java to .class)
+     java           -cp "./out"     Hotel                # execute (.class to run)
+     rm -rf out/                                        # clean up .class files
+
+ */
 
 import java.util.Scanner;
 
+/**
+ * This class is homework 3.
+ * 
+ * @author CS 1331 TAs
+ * @version 1.0.0
+ */
 public class Hotel {
-
+    /**
+     * Calculates the total payment from all guests currently checked in.
+     *
+     * @param guests 2D array of guest names
+     * @param costs  2D array of room costs
+     * @return total payment from all guests
+     */
     public static int calculatePayment(String[][] guests, int[][] costs) {
         int total = 0;
         for (int i = 0; i < guests.length; i++) {
@@ -16,6 +43,11 @@ public class Hotel {
         return total;
     }
 
+    /**
+     * Main method.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Invalid number of floors or rooms.");
@@ -94,8 +126,10 @@ public class Hotel {
                         if (guests[f][r] != null) {
                             daysLeft[f][r]--;
                             if (daysLeft[f][r] == 0) {
-                                System.out.println("Checking out " + guests[f][r]
-                                + " from floor " + (f + 1) + ", room " + (r + 1) + ".");
+                                System.out.println(
+                                    "Checking out " + guests[f][r] + " from floor "
+                                    + (f + 1) + ", room " + (r + 1) + "."
+                                );
                                 guests[f][r] = null;
                             }
                         }
@@ -109,8 +143,11 @@ public class Hotel {
                 if (fl < 1 || fl > floors || rm < 1 || rm > rooms) {
                     System.out.println("Invalid floor or room.");
                 } else {
-                    System.out.println("The price for floor " + fl + ", room " + rm
-                    + " is " + formatMoney(costs[fl - 1][rm - 1]) + " per day.");
+                    System.out.println(
+                        "The price for floor " + fl
+                        + ", room " + rm + " is "
+                        + formatMoney(costs[fl - 1][rm - 1]) + " per day."
+                    );
                 }
 
             } else if (cmd.equals("print")) {
@@ -132,6 +169,7 @@ public class Hotel {
         }
         sc.close();
     }
+
 
     private static boolean findGuest(String[][] guests, String name) {
         for (String[] row : guests) {

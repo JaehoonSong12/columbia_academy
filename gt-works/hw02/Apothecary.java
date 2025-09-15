@@ -1,24 +1,53 @@
-// Collaboration Statement: I worked on the homework assignment alone, using only course materials.
+/*
+INSTRUCTIONS:
+    This class is homework 2.
+
+COLLABORATION STATEMENT:
+    I worked on the homework assignment alone, using only course materials.
+
+CHECKSTYLE:
+     java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw02/*.java
+
+COMPILE & EXECUTE & CLEANUP (Java):
+     javac  -d out                  hw02/Apothecary.java    # compile (.java to .class)
+     java           -cp "./out"     Apothecary              # execute (.class to run)
+     rm -rf out/                                            # clean up .class files
+
+ */
 
 import java.util.Scanner;
 
+/**
+ * This class is used to ask potential buyers of potions can query the
+ * cost of your potion-making services.
+ * <ul>
+ *     <li>Item 1</li>
+ *     <li>Item 2</li>
+ *     <li>Item 3</li>
+ * </ul>
+ *
+ * @author Taiyun Park
+ * @version 0.0.1
+ */
 public class Apothecary {
+    /**
+     * Main method.
+     *
+     * @param args argument from user input
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         System.out.print("Welcome to my apothecary! Please enter your name here: ");
         String nameInput = sc.nextLine().trim();
         String formattedName;
         if (nameInput.isEmpty()) {
             formattedName = "Apprentice";
         } else {
-            formattedName = nameInput.substring(0,1).toUpperCase()
-                            + nameInput.substring(1).toLowerCase();
+            formattedName = nameInput.substring(0, 1).toUpperCase()
+            + nameInput.substring(1).toLowerCase();
         }
-
         System.out.print("Hello " + formattedName + ", which potion do you want me to brew? ");
         String potionInput = sc.nextLine().trim();
-
         String ing1Sing = "", ing1Plur = "";
         String ing2Sing = "", ing2Plur = "";
         String ing3Sing = "", ing3Plur = "";
@@ -27,7 +56,6 @@ public class Apothecary {
         int numIngredients = 0;
         String potionName = "";
         boolean isAdvanced = false;
-
         switch (potionInput.toLowerCase()) {
             case "potion of clarity":
                 potionName = "Potion of Clarity";
@@ -72,7 +100,6 @@ public class Apothecary {
                 sc.close();
                 return;
         }
-
         String requires = "";
         if (numIngredients == 1) {
             String name = (ing1Qty == 1) ? ing1Sing : ing1Plur;
@@ -87,11 +114,8 @@ public class Apothecary {
             String name3 = (ing3Qty == 1) ? ing3Sing : ing3Plur;
             requires = ing1Qty + " " + name1 + ", " + ing2Qty + " " + name2 + ", and " + ing3Qty + " " + name3;
         }
-
-        // Ask amount
         System.out.print("The " + potionName + " requires " + requires + ". How many would you like? ");
         String qtyInput = sc.nextLine().trim();
-
         int amount;
         try {
             amount = Integer.parseInt(qtyInput);
@@ -99,7 +123,6 @@ public class Apothecary {
         } catch (NumberFormatException e) {
             amount = 1;
         }
-
         int missingCost = 0;
         if (numIngredients >= 1) {
             System.out.print("How many " + ing1Plur + " will you provide? ");
@@ -122,19 +145,15 @@ public class Apothecary {
             int missing = (provided < required) ? (required - provided) : 0;
             missingCost += missing * ing3Cost;
         }
-
         System.out.print("Is there anything I should know? ");
         String extra = sc.nextLine().trim();
         boolean discount = extra.equals("The order is for the King");
-
         int serviceFee = isAdvanced ? 20 : 10;
         int potionCost = (isAdvanced ? 25 : 15) * amount;
         double totalCost = serviceFee + potionCost + missingCost;
-
         if (discount) {
             totalCost /= 2.0;
         }
-
         String finalPotionName;
         if (amount > 1) {
             if (potionName.equals("Potion of Clarity")) {
@@ -151,10 +170,8 @@ public class Apothecary {
         } else {
             finalPotionName = potionName;
         }
-
         System.out.printf("%s, thank you for requesting the %s. The cost is $%.2f.%n",
                 formattedName, finalPotionName, totalCost);
-
         sc.close();
     }
 }
