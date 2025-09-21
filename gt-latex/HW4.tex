@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{environ}
+\usepackage{amsmath}
+\usepackage[
+    top=    1.00in,
+    bottom= 1.00in,
+    left=   1.00in,
+    right=  1.00in,
+]{geometry}
+
+
+
+
+
+\NewEnviron{answer}{%
+    \par\noindent\vspace{10pt}%
+    \textcolor{red}{\textbf{Answer}:}
+    \par\noindent\textcolor{red}{\BODY}%
+    \par\vspace{-0.5\baselineskip}\raggedleft\textcolor{red}{$\blacksquare$}%
+    \par\vspace{10pt}
+}
+
+
+\author{Taiyun}
+\title{MATH-3012-QHS \\ Homework4}
+\date{Professor Dr. Kalila Lehmann}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+
+
+
+
+
+\begin{enumerate}
+  \item (5 points) In how many ways can we distribute 8 identical tennis balls into 4 distinct baskets (labeled 1-4) so that no basket is empty and the 4th basket has an odd number of balls in it?
+  \begin{answer}
+    The number of ways is 22.
+    \begin{enumerate}
+      \item This is a stars and bars problem with two conditions: no basket is empty, and the 4th basket contains an odd number of balls.
+      \item Let $x_i$ be the number of balls in basket $i$, where $x_i \geq 1$. We have the equation:
+      $$
+      x_1 + x_2 + x_3 + x_4 = 8
+      $$
+      \item Since $x_4$ must be an odd number, we can break this down into cases where $x_4 \in \{1, 3, 5, 7\}$.
+      \begin{enumerate}
+        \item \textbf{Case 1: $x_4 = 1$}. Then $x_1+x_2+x_3=7$. With $x_i \geq 1$, we distribute $7-3=4$ balls into 3 baskets, which can be done in $\binom{4+3-1}{3-1} = \binom{6}{2} = 15$ ways.
+        \item \textbf{Case 2: $x_4 = 3$}. Then $x_1+x_2+x_3=5$. With $x_i \geq 1$, we distribute $5-3=2$ balls into 3 baskets, which can be done in $\binom{2+3-1}{3-1} = \binom{4}{2} = 6$ ways.
+        \item \textbf{Case 3: $x_4 = 5$}. Then $x_1+x_2+x_3=3$. With $x_i \geq 1$, we distribute $3-3=0$ balls into 3 baskets, which can be done in $\binom{0+3-1}{3-1} = \binom{2}{2} = 1$ way.
+        \item \textbf{Case 4: $x_4 = 7$}. Then $x_1+x_2+x_3=1$. With $x_i \geq 1$, this is impossible since $1 < 3$, so there are 0 ways.
+      \end{enumerate}
+      \item The total number of ways is the sum of the ways for each case: $15 + 6 + 1 = 22$. The provided answer of 15 is incorrect.
+    \end{enumerate}
+  \end{answer}
+
+
+  \newpage
+
+  \item (5 points) Determine the coefficient of $x^9 y^3 z^7$ in $(2 x-3 y+4 z)^{19}$.
+  \begin{answer}
+    The correct coefficient is $-439,401,777,286,400$.
+    \begin{enumerate}
+      \item The coefficient is found using the Multinomial Theorem. The term for $x^9 y^3 z^7$ is:
+      $$
+      \binom{19}{9, 3, 7} (2x)^9 (-3y)^3 (4z)^7 = \frac{19!}{9!3!7!} (2^9) (-3^3) (4^7) x^9 y^3 z^7
+      $$
+      \item Calculation of the multinomial coefficient and powers:
+      \begin{enumerate}
+        \item $\binom{19}{9, 3, 7} = \frac{19!}{9! \cdot 3! \cdot 7!} = 1,940,400$
+        \item $2^9 = 512$
+        \item $(-3)^3 = -27$
+        \item $4^7 = 16,384$
+      \end{enumerate}
+      \item The full coefficient is the product of these values:
+      $$
+      1,940,400 \cdot 512 \cdot (-27) \cdot 16,384 = -439,401,777,286,400
+      $$
+      \item The provided answer is incorrect due to a calculation error.
+    \end{enumerate}
+  \end{answer}
+
+  
+
+  \newpage
+
+  \item (5 points) Find the number of permutations of the letters in MISSISSIPPI so that none of the ls are consecutive.
+  \begin{answer}
+    The number of permutations is 7,350. The provided answer of 1,512 is incorrect.
+    \begin{enumerate}
+      \item The problem appears to have a typo and refers to non-consecutive 'I's, as there are no 'l's in MISSISSIPPI.
+      \item \textbf{Step 1: Arrange the non-'I' letters.} There are 7 such letters: M (1), S (4), and P (2). The number of ways to arrange these is:
+      $$
+      \frac{7!}{4! \cdot 2!} = \frac{5040}{24 \cdot 2} = 105
+      $$
+      \item \textbf{Step 2: Place the 'I's in the spaces.} Arranging the 7 letters creates 8 possible spaces where the 4 'I's can be placed to ensure none are consecutive.
+      $$
+      \_ (M, S, S, S, S, P, P) \_ (M, S, S, S, S, P, P) \_ \dots \_
+      $$
+      \item The number of ways to choose 4 of the 8 available spaces for the 'I's is:
+      $$
+      \binom{8}{4} = \frac{8!}{4! 4!} = \frac{8 \cdot 7 \cdot 6 \cdot 5}{4 \cdot 3 \cdot 2 \cdot 1} = 70
+      $$
+      \item \textbf{Step 3: Calculate the total number of permutations.} We multiply the number of ways from each step:
+      $$
+      \text{Total ways} = 105 \cdot 70 = 7,350
+      $$
+    \end{enumerate}
+  \end{answer}
+
+
+
+  \newpage
+
+  \item (5 points) In Professor X's history class, the students will do a project where each group presents on the development of mathematics on one of the 6 continents with long-term human inhabitants (sorry, Antarctica). There are 27 students enrolled in the class, and they need to split into groups so that 4 students report on each of North America, South America, and Australia, and 5 students on each of Asia, Europe, and Africa.
+
+  Since this is a big project, Professor $X$ will assign one of his 6 graduate assistants to consult with each group. However, he needs to assign them to groups carefully: Ang grew up in Asia so assigning her to help that group would be an unfair advantage. Also, Christopher is falling behind in his studies on North America so Professor X would like to help him catch up by assigning him to that group. The other 4 grad assistants may be assigned to any of the 6 groups.
+
+  In how many ways can Professor $X$ assign his students and graduate assistants to groups so that each continent has the correct number of students reporting on it, Christopher is assigned to North America, and Ang is not assigned to Asia?
+  \begin{answer}
+    The number of ways is $\frac{27! \cdot 96}{(4!)^3 (5!)^3}$, which is approximately $4.364 \times 10^{21}$. The provided answer of $1.996 \times 10^{23}$ is incorrect.
+    \begin{enumerate}
+      \item \textbf{Step 1: Assign the students.} We partition the 27 distinct students into groups of size 4, 4, 4, 5, 5, 5. The number of ways to do this is given by the multinomial coefficient:
+      $$
+      \frac{27!}{4! 4! 4! 5! 5! 5!} = \frac{27!}{(4!)^3 (5!)^3}
+      $$
+      \item \textbf{Step 2: Assign the graduate assistants.}
+      \begin{enumerate}
+        \item Christopher must be assigned to North America, which has only 1 way.
+        \item Ang must not be assigned to Asia. There are 5 remaining GAs and 5 groups to be assigned.
+        \item Total ways to assign the 5 remaining GAs to the 5 remaining groups is $5! = 120$.
+        \item The number of ways where Ang is assigned to Asia is $4! = 24$ (Ang is assigned to Asia, and the remaining 4 GAs are arranged in the remaining 4 groups).
+        \item The number of ways Ang is not assigned to Asia is $5! - 4! = 120 - 24 = 96$.
+      \end{enumerate}
+      \item \textbf{Step 3: Combine the results.} We multiply the number of ways for student assignments and GA assignments to get the total number of ways:
+      $$
+      \text{Total ways} = \frac{27!}{(4!)^3 (5!)^3} \cdot 96 \approx 4.364 \times 10^{21}
+      $$
+    \end{enumerate}
+  \end{answer}
+\end{enumerate}
+
+\textit{This is a complicated problem- take your time and read carefully! You may, as always, assume the people are distinct.}
+
+\end{document}
