@@ -19,16 +19,16 @@
 
 
 \NewEnviron{answer}{%
-    \par\noindent\vspace{10pt}%
-    \textcolor{red}{\textbf{Answer}:}
-    \par\noindent\textcolor{red}{\BODY}%
-    \par\vspace{-0.5\baselineskip}\raggedleft\textcolor{red}{$\blacksquare$}%
-    \par\vspace{10pt}
+  \par\noindent\vspace{10pt}%
+  \textcolor{red}{\textbf{Answer}:}
+  \par\noindent\textcolor{red}{\BODY}%
+  \par\vspace{-0.5\baselineskip}\raggedleft\textcolor{red}{$\blacksquare$}%
+  \par\vspace{10pt}
 }
 
 
 \author{Taiyun}
-\title{MATH-3012-QHS \\ Homework4}
+\title{MATH-3012-QHS \\ Homework 4}
 \date{Professor Dr. Kalila Lehmann}
 
 \begin{document}
@@ -44,21 +44,30 @@
 
 
 \begin{enumerate}
-  \item (5 points) In how many ways can we distribute 8 identical tennis balls into 4 distinct baskets (labeled 1-4) so that no basket is empty and the 4th basket has an odd number of balls in it?
+  \item (5 points) In how many ways can we distribute 8 identical tennis balls 
+  into 4 distinct baskets (labeled 1-4) so that no basket is empty and the 4th 
+  basket has an odd number of balls in it?
   \begin{answer}
     The number of ways is 22.
     \begin{enumerate}
-      \item This is a stars and bars problem with two conditions: no basket is empty, and the 4th basket contains an odd number of balls.
-      \item Let $x_i$ be the number of balls in basket $i$, where $x_i \geq 1$. We have the equation:
+      \item This is a stars and bars problem with two conditions: no basket 
+      is empty, and the 4th basket contains an odd number of balls.
+      \item Let $x_i$ be the number of balls in basket $i$, where $x_i \geq 1$. 
+      We have the equation:
       $$
       x_1 + x_2 + x_3 + x_4 = 8
       $$
-      \item Since $x_4$ must be an odd number, we can break this down into cases where $x_4 \in \{1, 3, 5, 7\}$.
+      \item Since $x_4$ must be an odd number, we can break this down into 
+      cases where $x_4 \in \{1, 3, 5, 7\}$.
       \begin{enumerate}
-        \item \textbf{Case 1: $x_4 = 1$}. Then $x_1+x_2+x_3=7$. With $x_i \geq 1$, we distribute $7-3=4$ balls into 3 baskets, which can be done in $\binom{4+3-1}{3-1} = \binom{6}{2} = 15$ ways.
-        \item \textbf{Case 2: $x_4 = 3$}. Then $x_1+x_2+x_3=5$. With $x_i \geq 1$, we distribute $5-3=2$ balls into 3 baskets, which can be done in $\binom{2+3-1}{3-1} = \binom{4}{2} = 6$ ways.
-        \item \textbf{Case 3: $x_4 = 5$}. Then $x_1+x_2+x_3=3$. With $x_i \geq 1$, we distribute $3-3=0$ balls into 3 baskets, which can be done in $\binom{0+3-1}{3-1} = \binom{2}{2} = 1$ way.
-        \item \textbf{Case 4: $x_4 = 7$}. Then $x_1+x_2+x_3=1$. With $x_i \geq 1$, this is impossible since $1 < 3$, so there are 0 ways.
+        \item \textbf{Case 1: $x_4 = 1$}. Then $x_1+x_2+x_3=7$. With $x_i \geq 1$, 
+        we distribute $7-3=4$ balls into 3 baskets, which can be done in $\binom{4+3-1}{3-1} = \binom{6}{2} = 15$ ways.
+        \item \textbf{Case 2: $x_4 = 3$}. Then $x_1+x_2+x_3=5$. With $x_i \geq 1$, 
+        we distribute $5-3=2$ balls into 3 baskets, which can be done in $\binom{2+3-1}{3-1} = \binom{4}{2} = 6$ ways.
+        \item \textbf{Case 3: $x_4 = 5$}. Then $x_1+x_2+x_3=3$. With $x_i \geq 1$, 
+        we distribute $3-3=0$ balls into 3 baskets, which can be done in $\binom{0+3-1}{3-1} = \binom{2}{2} = 1$ way.
+        \item \textbf{Case 4: $x_4 = 7$}. Then $x_1+x_2+x_3=1$. With $x_i \geq 1$, 
+        this is impossible since $1 < 3$, so there are 0 ways.
       \end{enumerate}
       \item The total number of ways is the sum of the ways for each case: $15 + 6 + 1 = 22$. The provided answer of 15 is incorrect.
     \end{enumerate}
@@ -71,7 +80,8 @@
   \begin{answer}
     The correct coefficient is $-439,401,777,286,400$.
     \begin{enumerate}
-      \item The coefficient is found using the Multinomial Theorem. The term for $x^9 y^3 z^7$ is:
+      \item The coefficient is found using the Multinomial Theorem. 
+      The term for $x^9 y^3 z^7$ is:
       $$
       \binom{19}{9, 3, 7} (2x)^9 (-3y)^3 (4z)^7 = \frac{19!}{9!3!7!} (2^9) (-3^3) (4^7) x^9 y^3 z^7
       $$
@@ -94,24 +104,31 @@
 
   \newpage
 
-  \item (5 points) Find the number of permutations of the letters in MISSISSIPPI so that none of the ls are consecutive.
+  \item (5 points) Find the number of permutations of the letters in 
+  MISSISSIPPI so that none of the ls are consecutive.
   \begin{answer}
     The number of permutations is 7,350. The provided answer of 1,512 is incorrect.
     \begin{enumerate}
-      \item The problem appears to have a typo and refers to non-consecutive 'I's, as there are no 'l's in MISSISSIPPI.
-      \item \textbf{Step 1: Arrange the non-'I' letters.} There are 7 such letters: M (1), S (4), and P (2). The number of ways to arrange these is:
+      \item The problem appears to have a typo and refers to 
+      non-consecutive 'I's, as there are no 'l's in MISSISSIPPI.
+      \item \textbf{Step 1: Arrange the non-'I' letters.} There are 7 such 
+      letters: M (1), S (4), and P (2). The number of ways to arrange these is:
       $$
       \frac{7!}{4! \cdot 2!} = \frac{5040}{24 \cdot 2} = 105
       $$
-      \item \textbf{Step 2: Place the 'I's in the spaces.} Arranging the 7 letters creates 8 possible spaces where the 4 'I's can be placed to ensure none are consecutive.
+      \item \textbf{Step 2: Place the 'I's in the spaces.} Arranging the 
+      7 letters creates 8 possible spaces where the 4 'I's can be placed 
+      to ensure none are consecutive.
       $$
       \_ (M, S, S, S, S, P, P) \_ (M, S, S, S, S, P, P) \_ \dots \_
       $$
-      \item The number of ways to choose 4 of the 8 available spaces for the 'I's is:
+      \item The number of ways to choose 4 of the 8 available spaces 
+      for the 'I's is:
       $$
       \binom{8}{4} = \frac{8!}{4! 4!} = \frac{8 \cdot 7 \cdot 6 \cdot 5}{4 \cdot 3 \cdot 2 \cdot 1} = 70
       $$
-      \item \textbf{Step 3: Calculate the total number of permutations.} We multiply the number of ways from each step:
+      \item \textbf{Step 3: Calculate the total number of permutations.} 
+      We multiply the number of ways from each step:
       $$
       \text{Total ways} = 105 \cdot 70 = 7,350
       $$
@@ -122,7 +139,10 @@
 
   \newpage
 
-  \item (5 points) In Professor X's history class, the students will do a project where each group presents on the development of mathematics on one of the 6 continents with long-term human inhabitants (sorry, Antarctica). There are 27 students enrolled in the class, and they need to split into groups so that 4 students report on each of North America, South America, and Australia, and 5 students on each of Asia, Europe, and Africa.
+  \item (5 points) In Professor X's history class, the students will do a 
+  project where each group presents on the development of mathematics on 
+  one of the 6 continents with long-term human inhabitants (sorry, Antarctica). 
+  There are 27 students enrolled in the class, and they need to split into groups so that 4 students report on each of North America, South America, and Australia, and 5 students on each of Asia, Europe, and Africa.
 
   Since this is a big project, Professor $X$ will assign one of his 6 graduate assistants to consult with each group. However, he needs to assign them to groups carefully: Ang grew up in Asia so assigning her to help that group would be an unfair advantage. Also, Christopher is falling behind in his studies on North America so Professor X would like to help him catch up by assigning him to that group. The other 4 grad assistants may be assigned to any of the 6 groups.
 

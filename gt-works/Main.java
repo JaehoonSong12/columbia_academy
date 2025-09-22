@@ -22,6 +22,12 @@ public class Main {
         double z = 199.98; // local variable in "stack" (dynamic)
         Example instance = new Example(); // instance is local variable (pointer).
         System.out.println(instance.x);
+
+
+
+
+        
+
         return;
     }
 }
