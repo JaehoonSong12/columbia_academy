@@ -66,8 +66,9 @@ Follow the steps below to get started!
 2. type-in `./on_venv.sh` in bash.
 3. copy and paste the command shows up in bash. (`source ../venv/Scripts/activate && pip install setuptools && clear`)
 4. If you can see `(venv)` at the front of your terminal line, you are all set.
-5. Now, get into your space, for example, `cd std02-jihoo`
-6. Run your python file. `python main.py`
+5. If you want to run web server (wesite host), `python server.py JSvanilla-jihoo_cv/`
+6. Now, get into your space, for example, `cd std02-jihoo`
+7. Run your python file. `python main.py`
 
 
 
