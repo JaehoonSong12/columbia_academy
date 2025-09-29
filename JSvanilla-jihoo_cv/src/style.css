@@ -1,0 +1,38 @@
+/* Body and Text Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Section Styling */
+section {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Card Styling */
+.project-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* This makes the card "lift" when you hover over it */
+}
