@@ -17,7 +17,12 @@ Chapter 5 Loops
 https://liveexample-ppe.pearsoncmg.com/selftest/selftestpy?chapter=5&username=liangpy1e
 
 Chapter 6 Functions
+https://liveexample-ppe.pearsoncmg.com/selftest/selftestpy?chapter=6&username=liangpy1e
+
 Chapter 7 Objects and Classes
+https://liveexample-ppe.pearsoncmg.com/selftest/selftestpy?chapter=7&username=liangpy1e
+
+
 Chapter 8 More on Strings and Special Methods
 Chapter 9 GUI Programming Using Tkinter
 Chapter 10 Lists
