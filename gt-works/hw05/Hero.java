@@ -1,200 +1,104 @@
-/*
-INSTRUCTIONS:
-    A PDF file is attached in the same folder.
-
-COLLABORATION STATEMENT:
-    I worked on the homework assignment alone, using only course materials.
-
-CHECKSTYLE:
-     java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw05/*.java
-
-COMPILE & EXECUTE & CLEANUP (Java):
-     javac  -d out                  hw05/Hero.java     # compile (.java to .class)
-     java           -cp "./out"     Hero               # execute (.class to run)
-     rm -rf out/                                        # clean up .class files
-
-DEPENDENCIES:
- */
-import java.util.Scanner;
+// COLLABORATION STATEMENT: I worked on the homework assignment alone, using only course materials.
 
 /**
- * This class is homework 3.
+ * Represents an abstract hero with damage capability.
  *
- * @author CS 1331 TAs
- * @version 1.0.0
+ * @author Tai Park
+ * @version 1.0
  */
-public class Hero {
+public abstract class Hero extends Entity {
+
+    private int damage;
+
     /**
-     * Calculates the total payment from all guests currently checked in.
+     * Constructs a hero with name, health, and damage.
+     * If damage < 0, sets to 0.
      *
-     * @param guests 2D array of guest names
-     * @param costs  2D array of room costs
-     * @return total payment from all guests
+     * @param name hero name
+     * @param health hero health
+     * @param damage hero damage
      */
-    public static int calculatePayment(String[][] guests, int[][] costs) {
-        int total = 0;
-        for (int i = 0; i < guests.length; i++) {
-            for (int j = 0; j < guests[i].length; j++) {
-                if (guests[i][j] != null) {
-                    total += costs[i][j];
-                }
-            }
-        }
-        return total;
+    public Hero(String name, int health, int damage) {
+        super(name, health);
+        this.damage = Math.max(0, damage);
     }
 
     /**
-     * Main method.
+     * Constructs a hero with default damage of 1.
      *
-     * @param args command line arguments
+     * @param name hero name
+     * @param health hero health
      */
-    public static void main(String[] args) {
-        if (args.length < 2) {
-            System.out.println("Invalid number of floors or rooms.");
-            return;
-        }
-
-        int floors = Integer.parseInt(args[0]);
-        int rooms = Integer.parseInt(args[1]);
-        if (floors < 1 || rooms < 1) {
-            System.out.println("Invalid number of floors or rooms.");
-            return;
-        }
-
-        Scanner sc = new Scanner(System.in);
-        int[][] costs = new int[floors][rooms];
-        String[][] guests = new String[floors][rooms];
-        int[][] daysLeft = new int[floors][rooms];
-
-        for (int f = 0; f < floors; f++) {
-            boolean ok;
-            do {
-                ok = true;
-                System.out.print("Costs for floor " + (f + 1) + ": ");
-                for (int r = 0; r < rooms; r++) {
-                    costs[f][r] = sc.nextInt();
-                    if (costs[f][r] <= 0) {
-                        ok = false;
-                    }
-                }
-                sc.nextLine(); // consume line end
-                if (!ok) {
-                    System.out.println("Room costs must be positive.");
-                }
-            } while (!ok);
-        }
-
-        System.out.println();
-
-        boolean running = true;
-        while (running) {
-            System.out.print("> ");
-            String cmd = sc.next();
-
-            if (cmd.equals("in")) {
-                String name = sc.next();
-                int stay = sc.nextInt();
-                int fl = sc.nextInt();
-                int rm = sc.nextInt();
-                sc.nextLine();
-
-                if (findGuest(guests, name)) {
-                    System.out.println(name + " already checked in.");
-                } else if (fl < 1 || fl > floors || rm < 1 || rm > rooms) {
-                    System.out.println("Invalid floor or room.");
-                } else if (stay < 1) {
-                    System.out.println("Guests must stay at least one day.");
-                } else if (guests[fl - 1][rm - 1] != null) {
-                    System.out.println("Room is already occupied.");
-                } else {
-                    guests[fl - 1][rm - 1] = name;
-                    daysLeft[fl - 1][rm - 1] = stay;
-                    System.out.println("Checking in " + name + " to floor " + fl
-                                        + ", room " + rm + ", for " + stay
-                                        + (stay == 1 ? " day." : " days."));
-                }
-
-            } else if (cmd.equals("nd")) {
-                int total = calculatePayment(guests, costs);
-                int gcount = countGuests(guests);
-                System.out.println("Total payment from " + gcount + " "
-                        + (gcount == 1 ? "guest" : "guests") + ": "
-                        + formatMoney(total) + ".");
-
-                for (int f = 0; f < floors; f++) {
-                    for (int r = 0; r < rooms; r++) {
-                        if (guests[f][r] != null) {
-                            daysLeft[f][r]--;
-                            if (daysLeft[f][r] == 0) {
-                                System.out.println(
-                                    "Checking out " + guests[f][r] + " from floor "
-                                    + (f + 1) + ", room " + (r + 1) + "."
-                                );
-                                guests[f][r] = null;
-                            }
-                        }
-                    }
-                }
-
-            } else if (cmd.equals("price")) {
-                int fl = sc.nextInt();
-                int rm = sc.nextInt();
-                sc.nextLine();
-                if (fl < 1 || fl > floors || rm < 1 || rm > rooms) {
-                    System.out.println("Invalid floor or room.");
-                } else {
-                    System.out.println(
-                        "The price for floor " + fl
-                        + ", room " + rm + " is "
-                        + formatMoney(costs[fl - 1][rm - 1]) + " per day."
-                    );
-                }
-
-            } else if (cmd.equals("print")) {
-                sc.nextLine();
-                for (int f = floors - 1; f >= 0; f--) {
-                    StringBuilder sb = new StringBuilder("|");
-                    for (int r = 0; r < rooms; r++) {
-                        sb.append(guests[f][r] == null ? " " : guests[f][r]);
-                        sb.append("|");
-                    }
-                    System.out.println(sb);
-                }
-
-            } else if (cmd.equals("quit")) {
-                running = false;
-            } else {
-                sc.nextLine();
-            }
-        }
-        sc.close();
+    public Hero(String name, int health) {
+        this(name, health, 1);
     }
 
-
-    private static boolean findGuest(String[][] guests, String name) {
-        for (String[] row : guests) {
-            for (String g : row) {
-                if (name.equals(g)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    /**
+     * Returns damage dealt by hero.
+     *
+     * @return damage value
+     */
+    public int getDamage() {
+        return damage;
     }
 
-    private static int countGuests(String[][] guests) {
-        int c = 0;
-        for (int i = 0; i < guests.length; i++) {
-            for (int j = 0; j < guests[i].length; j++) {
-                if (guests[i][j] != null) {
-                    c++;
-                }
-            }
+    /**
+     * Increases damage if hero is alive.
+     *
+     * @param amount amount to increase
+     */
+    protected void increaseDamage(int amount) {
+        if (amount > 0 && isAlive()) {
+            this.damage += amount;
         }
-        return c;
     }
 
-    private static String formatMoney(int dollars) {
-        return "$" + dollars + ".00";
+    /**
+     * Abstract method to train hero.
+     *
+     * @param tg training ground
+     */
+    public abstract void train(TrainingGround tg);
+
+    /**
+     * Abstract method to check armor.
+     *
+     * @return true if hero has armor
+     */
+    public abstract boolean hasArmor();
+
+    /**
+     * Hero attacks an enemy, if alive.
+     *
+     * @param enemy target enemy
+     */
+    public void attack(Enemy enemy) {
+        if (isAlive() && enemy != null) {
+            enemy.takeDamage(this.damage);
+        }
+    }
+
+    @Override
+    public String toString() {
+        String prefix = super.toString();
+        if (isAlive()) {
+            return prefix + ". I deal " + damage + " damage";
+        }
+        return prefix;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        Hero other = (Hero) obj;
+        return this.damage == other.damage;
     }
 }
