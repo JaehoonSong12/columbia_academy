@@ -1,63 +1,60 @@
-/*
-INSTRUCTIONS:
-    A PDF file is attached in the same folder.
-
-COLLABORATION STATEMENT:
-    I worked on the homework assignment alone, using only course materials.
-
-CHECKSTYLE:
-     java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw05/*.java
-
-COMPILE & EXECUTE & CLEANUP (Java):
-     javac  -d out                  hw05/Entity.java     # compile (.java to .class)
-     java           -cp "./out"     Entity               # execute (.class to run)
-     rm -rf out/                                        # clean up .class files
-
-DEPENDENCIES:
- */
+// COLLABORATION STATEMENT: I worked on the homework assignment alone, using only course materials.
 
 /**
- * This class is something.
+ * Represents an abstract entity in the world with a name and health.
  *
- * @author CS 1331 TAs
+ * @author Tai Park
  * @version 1.0
  */
 public abstract class Entity {
+
     private String name;
+    private int health;
 
     /**
-     * Getter for name.
+     * Constructs an entity with the given name and health.
+     * If health is less than 0, it is set to 0.
      *
-     * @return name of entity
+     * @param name the entity's name
+     * @param health the entity's health
      */
-    public String getName() {
-        return this.name;
+    public Entity(String name, int health) {
+        this.name = name;
+        setHealth(health);
     }
 
     /**
-     * Setter for name.
+     * Returns the name of the entity.
      *
-     * @param name name of entity
+     * @return the entity's name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Returns the health of the entity.
+     *
+     * @return the entity's health
+     */
+    public int getHealth() {
+        return health;
+    }
+
+    /**
+     * Sets the entity's name.
+     *
+     * @param name the new name
      */
     public void setName(String name) {
         this.name = name;
     }
 
-    private int health;
-
     /**
-     * Getter for health.
+     * Sets the entity's health (private).
+     * If the value is negative, sets health to 0.
      *
-     * @return health of entity
-     */
-    public int getHealth() {
-        return this.health;
-    }
-
-    /**
-     * Setter for health.
-     *
-     * @param health health of entity
+     * @param health the new health value
      */
     private void setHealth(int health) {
         if (health < 0) {
@@ -68,65 +65,61 @@ public abstract class Entity {
     }
 
     /**
-     * Method to check if entity is alive.
+     * Returns whether the entity is alive.
      *
-     * @return true if entity is alive, false otherwise
+     * @return true if alive, false if dead
      */
     public boolean isAlive() {
-        return this.getHealth() > 0;
+        return this.health > 0;
     }
 
     /**
-     * Reduces the entity's health by a given amount of damage.
-     * Health will not drop below 0.
+     * Reduces the entity's health by the given damage.
+     * Health cannot go below 0.
      *
-     * @param damage The amount of damage to take.
+     * @param damage the amount of damage
      */
     public void takeDamage(int damage) {
-        this.setHealth(this.health - damage);
+        int newHealth = this.health - damage;
+        setHealth(newHealth);
     }
 
     /**
-     * Method to heal entity.
+     * Increases the entity's health if alive and amount is positive.
      *
-     * @param amount amount The amount of health to restore.
+     * @param amount amount to heal
      */
     public void heal(int amount) {
-        // The entity may only gain health if it’s alive and the parameter is positive.
-        if (this.isAlive() && amount > 0) {
-            this.setHealth(this.getHealth() + amount);
+        if (amount > 0 && isAlive()) {
+            int newHealth = this.health + amount;
+            setHealth(newHealth);
         }
     }
 
-    /**
-     * Constructor for Entity.
-     *
-     * @param name   name of entity
-     * @param health health of entity
-     */
-    public Entity(String name, int health) { // 2arg constructor
-        this.name = name;
-        this.setHealth(health);
-    }
-
-    @Override public String toString() {
-        if (this.isAlive()) {
-            return String.format("I am %s, and I have %s health.", this.getName(), this.getHealth());
+    @Override
+    public String toString() {
+        if (isAlive()) {
+            return "I am " + name + ", and I have " + health + " health";
         } else {
-            return String.format("I was %s", this.getName());
+            return "I was " + name;
         }
     }
 
-    @Override public boolean equals(Object obj) {
-        Entity other;
+    @Override
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof Entity) {
-            other = (Entity) obj;
-        } else {
+        if (obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
-        return this.getHealth() == other.getHealth() && this.getName().equals(other.getName());
+        Entity other = (Entity) obj;
+        if (this.health != other.health) {
+            return false;
+        }
+        if (this.name == null) {
+            return other.name == null;
+        }
+        return this.name.equals(other.name);
     }
 }
