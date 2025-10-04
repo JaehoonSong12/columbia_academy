@@ -1,3 +1,35 @@
+
+# class list: 
+# class str:  r
+class ParallelList:
+    def __init__(self, original: list[int]): # constructor
+        self.first_half = []
+        self.second_half = []
+        for i in range(len(original)):
+            if i < len(original) // 2:
+                self.first_half.append(original[i])
+            else:
+                self.second_half.append(original[i])
+    
+    def __repr__(self): # string representation
+        return f"first_half={self.first_half}, second_half={self.second_half}"
+
+    def get_average(self, list_data: list[int]):
+        sum = 0
+        for i in range(len(list_data)):
+            sum += list_data[i]
+        average = sum / len(list_data)
+        return average if list_data else 0
+    
+    def get_first_avg(self):
+        return self.get_average(self.first_half)
+    
+    def get_second_avg(self):
+        return self.get_average(self.second_half)
+
+
+
+
 def scoresAverage(scores: list[int]) -> int:
     """
     Description:
@@ -27,7 +59,11 @@ def scoresAverage(scores: list[int]) -> int:
     
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return 0
+    pl = ParallelList(scores)
+    first_avg = pl.get_first_avg()
+    second_avg = pl.get_second_avg()
+    return (first_avg) if (first_avg > second_avg) else (second_avg)
+
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
