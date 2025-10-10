@@ -4,9 +4,9 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{enumitem}
 \usepackage{environ}
-\usepackage{amsmath}
+
+\usepackage{mathtools}
 \usepackage[
     top=    1.00in,
     bottom= 1.00in,
@@ -15,6 +15,17 @@
 ]{geometry}
 
 \usepackage{hyperref}
+
+% no indent
+\setlength\parindent{0pt}
+
+% Theorem environments
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}
 
 
 
@@ -86,11 +97,14 @@ $$
 
 This power series, in many fewer terms, actually encodes our entire sequence without losing any information. A power series that is currently being understood to encode a particular sequence is called a generating function. To be precise:
 
-Definition: An ordinary generating function (OGF) encodes the terms of a sequence $\left(s_{n}\right)_{n \geq 0}$ as the coefficients of $x^{n}$ for $n \geq 0$.
+\begin{definition}[Ordinary Generating Function]
+An \textbf{ordinary generating function (OGF)} encodes the terms of a sequence $\left(s_{n}\right)_{n \geq 0}$ as the coefficients of $x^{n}$ for $n \geq 0$.
 
-That is, the OGF of $\left(s_{n}\right)_{n \geq 0}$ is $f(x)=\sum_{n=0}^{\infty} s_{n} x^{n}$.
+That is, the OGF of $\left(s_{n}\right)_{n \geq 0}$ is 
+\[f(x)=\sum_{n=0}^{\infty} s_{n} x^{n}.\]
 
-In this case, we say the function $f(x)$ generates the sequence $\left(s_{n}\right)_{n \geq 0}$.
+In this case, we say the function $f(x)$ \textbf{generates} the sequence $\left(s_{n}\right)_{n \geq 0}$.
+\end{definition}
 
 Why do we care about doing this? Well, rook polynomials did two things for us: allowed us to efficiently encode the rook numbers of chessboards, and also exploit the structure of polynomial/power series multiplication to find information about larger chessboards.
 
@@ -98,104 +112,176 @@ We have other sequences we care about, often associated with combinatorial objec
 
 Let's begin by looking at an example where we can make our lives a lot easier by replacing some of the other tools we have with a couple of generating functions.
 
-Example: How many non-negative integer solutions are there to $a+b+c=10$, where
+\begin{example}
+How many non-negative integer solutions are there to $a+b+c=10$, where
+\begin{align}
+2 &\leq a \leq 4 \\
+3 &\leq b \leq 5 \\
+2 &\leq c \leq 5
+\end{align}
+\end{example}
 
-$$
-\begin{aligned}
-& 2 \leq a \leq 4 \\
-& 3 \leq b \leq 5 \\
-& 2 \leq c \leq 5
-\end{aligned}
-$$
 
-We already know a couple of ways to solve this problem:\\
-Strategy 1: List solutions explicitly (there are 8): this is reasonably possible here, but isn't usually a viable approach so we don't really want to make it our standard plan.
 
-Strategy 2: Substitute to move each of the lower bounds up to 0 , and use PIE to address the upper bounds. We know how to do this and it always works, but it seems like overkill for such a small problem!
 
-Strategy 3: Represent possible values of each variable with a polynomial:\\
+
+\textbf{Note}:
+\begin{enumerate}
+  \item \textbf{Generating functions}: model each variable
+  \item \textbf{Polynomial Degree} $n$: an event (independent)
+  \item \textbf{Addition}: sum rule of counting
+  \item \textbf{Multiplication}: product rule of counting
+  \item \textbf{Coefficient} of $x^{n}$: total number of solutions to the event
+\end{enumerate}
+
+
+
+We already know a couple of ways to solve this problem:
+
+\textbf{Strategy 1:} List solutions explicitly (there are 8): this is reasonably possible here, but isn't usually a viable approach so we don't really want to make it our standard plan.
+
+\textbf{Strategy 2:} Substitute to move each of the lower bounds up to 0, and use PIE to address the upper bounds. We know how to do this and it always works, but it seems like overkill for such a small problem!
+
+\textbf{Strategy 3:} Represent possible values of each variable with a polynomial:
+
 For each variable, the coefficient of $x^{i}$ in the corresponding polynomial is the number of different ways the variable could attain the value $i$. Thus a term $x^{i}$ has a nonzero coefficient (and appears in the polynomial) exactly when $i$ is a possible value of the variable.
 
 In this problem, there is only one way a particular variable could have a specific value, so all coefficients are 1.
 
 To use this strategy, then, we begin by writing the following polynomials:
 
-$$
-\begin{array}{ll}
-2 \leq a \leq 4 & \text { is represented by } f_{a}(x)=x^{2}+x^{3}+x^{4} \\
-3 \leq b \leq 5 & \text { is represented by } f_{b}(x)=x^{3}+x^{4}+x^{5} \\
-2 \leq c \leq 5 & \text { is represented by } f_{c}(x)=x^{2}+x^{3}+x^{4}+x^{5}
-\end{array}
-$$
+\begin{align}
+2 \leq a \leq 4 \quad &\text{is represented by} \quad f_{a}(x)=x^{2}+x^{3}+x^{4} \\
+3 \leq b \leq 5 \quad &\text{is represented by} \quad f_{b}(x)=x^{3}+x^{4}+x^{5} \\
+2 \leq c \leq 5 \quad &\text{is represented by} \quad f_{c}(x)=x^{2}+x^{3}+x^{4}+x^{5}
+\end{align}
 
 We can then multiply the polynomials for each variable to get a generating function that describes the whole situation, or all possible ways to combine all possible values of each variable (whether or not we get the desired sum).
 
-$$
-\begin{aligned}
-f(x) & =f_{a}(x) f_{b}(x) f_{c}(x) \\
-& =\left(x^{2}+x^{3}+x^{4}\right)\left(x^{3}+x^{4}+x^{5}\right)\left(x^{2}+x^{3}+x^{4}+x^{5}\right) \\
-& =x^{7}+3 x^{8}+6 x^{9}+8 x^{10}+8 x^{11}+6 x^{12}+3 x^{13}+x^{14}
-\end{aligned}
-$$
+\begin{align}
+f(x) &= f_{a}(x) f_{b}(x) f_{c}(x) \\
+&= \left(x^{2}+x^{3}+x^{4}\right)\left(x^{3}+x^{4}+x^{5}\right)\left(x^{2}+x^{3}+x^{4}+x^{5}\right) \\
+&= x^{7}+3 x^{8}+6 x^{9}+8 x^{10}+8 x^{11}+6 x^{12}+3 x^{13}+x^{14}
+\end{align}
 
 In this polynomial, the coefficient of $x^{i}$ is the number of different ways we can get a sum of $i$ using the allowed values of each of our variables.
 
-Thus the number of solutions to our equation (where $a+b+c=10$ ) is the coefficient of $x^{10}$, which is 8 , as expected.
+Thus the number of solutions to our equation (where $a+b+c=10$) is the coefficient of $x^{10}$, which is 8, as expected.
 
-Notice what just happened here-- we solved infinitely many problems simultaneously! We only needed the coefficient of $x^{10}$ to solve this problem, but we have the coefficient of every power of $x$ (most of them are just 0 ).
+Notice what just happened here---we solved infinitely many problems simultaneously! We only needed the coefficient of $x^{10}$ to solve this problem, but we have the coefficient of every power of $x$ (most of them are just 0).
 
 So not only have we solved our problem, we have actually done all the work to solve any problem where $a+b+c=n$ under these same bounds.
 
 A new strategy, then, is to solve problems like this by representing possibilities for each part with a generating function, then multiplying to get the big picture. Not only is this process pretty simple and efficient, it nicely allows us to account for more interesting conditions placed on each part of the problem.
 
-Example: Find an OGF that gives the number of non-negative integer solutions to the equation
-
-$$
-q+r+s+t=n
-$$
-
+\begin{example}
+Find an OGF that gives the number of non-negative integer solutions to the equation
+\[q+r+s+t=n\]
 where
+\begin{align}
+q &\leq 4 \quad \text{and} \quad s \text{ is odd} \\
+r &> 7 \quad \text{and} \quad t \text{ is even}
+\end{align}
+\end{example}
 
-$$
-\begin{array}{rr}
-q \leq 4 & s \text { is odd } \\
-r>7 & t \text { is even }
-\end{array}
-$$
+Let's start with a polynomial for each variable: $f_{q}(x)=1+x+x^{2}+x^{3}+x^{4}$ since the possible values of $q$ are $0,1,2,3$, and 4.
 
-Let's start with a polynomial for each variable: $f_{q}(x)=1+x+x^{2}+x^{3}+x^{4}$ since the possible values of $q$ are $0,1,2,3$, and 4 .
+Similarly, $r$ may take on any value of at least 8, so $f_{r}(x)=x^{8}+x^{9}+x^{10}+\cdots=\sum_{i=8}^{\infty} x^{i}$.
 
-Similarly, $r$ may take on any value of at least 8 , so $f_{r}(x)=x^{8}+x^{9}+x^{10}+\cdots=\sum_{i=8}^{\infty} x^{i}$.\\
 We approach $s$ and $t$ in the same way, with some care given to the way we write our summations (which are often the best way to carefully and concisely express the terms of our power series):
 
-$$
-\begin{aligned}
-& f_{s}(x)=x+x^{3}+x^{5}+x^{7}+\cdots=\sum_{i=0}^{\infty} x^{2 i+1} \\
-& f_{t}(x)=1+x^{2}+x^{4}+x^{6}+\cdots=\sum_{i=0}^{\infty} x^{2 i}
-\end{aligned}
-$$
+\begin{align}
+f_{s}(x) &= x+x^{3}+x^{5}+x^{7}+\cdots=\sum_{i=0}^{\infty} x^{2 i+1} \\
+f_{t}(x) &= 1+x^{2}+x^{4}+x^{6}+\cdots=\sum_{i=0}^{\infty} x^{2 i}
+\end{align}
 
-So overall, the number of solutions to our equation is the coefficient of $x^{n}$ in the generating function\\
-$f(x)=f_{q} f_{r} f_{x} f_{t}(x)=\left(1+x+x^{2}+x^{3}+x^{4}\right)\left(\sum_{i=8}^{\infty} x^{i}\right)\left(\sum_{i=0}^{\infty} x^{2 i+1}\right)\left(\sum_{i=0}^{\infty} x^{2 i}\right)$.
+So overall, the number of solutions to our equation is the coefficient of $x^{n}$ in the generating function
+\[f(x)=f_{q}(x) f_{r}(x) f_{s}(x) f_{t}(x)=\left(1+x+x^{2}+x^{3}+x^{4}\right)\left(\sum_{i=8}^{\infty} x^{i}\right)\left(\sum_{i=0}^{\infty} x^{2 i+1}\right)\left(\sum_{i=0}^{\infty} x^{2 i}\right).\]
 
 Now you try!
 
-Problem: A hungry college student wants to order a lot of chicken nuggets. The restaurant sells nuggets in boxes of 2,3 , or 7 . In how many different ways can they order $n$ nuggets?\\
-Hint: there is only one way to order a box of a particular\\
-size. The size of the boxes determines how many nuggets the ones from each kind of box can contribute to your total!
+\begin{problem}
+A hungry college student wants to order a lot of chicken nuggets. The restaurant sells nuggets in boxes of 2, 3, or 7. In how many different ways can they order $n$ nuggets?
 
-We want to find the number of non-negative integer solutions to the equation $2 a+3 b+7 c=n$
+\textbf{Hint:} There is only one way to order a box of a particular size. The size of the boxes determines how many nuggets the ones from each kind of box can contribute to your total!
+\end{problem}
 
-We start by writing down functions that represent the possible contributions of each term to the total:\\
-$2 a$ can contribute $0,2,4,6$, etc., so is represented by
+We want to find the number of non-negative integer solutions to the equation $2a+3b+7c=n$.
 
-$$
-f_{a}(x)=1+x^{2}+x^{4}+\cdots=\sum_{i=0}^{\infty} x^{2 i}
-$$
+We start by writing down functions that represent the possible contributions of each term to the total:
 
-Similarly, $f_{b}(x)=\sum_{i=0}^{\infty} x^{3 i}$ and $f_{c}(x)=\sum_{i=0}^{\infty} x^{7 i}$.\\
-So the number of possible solutions is the coefficient of $x^{n}$ in\\
-$f(x)=f_{a} f_{b} f_{c}(x)=\left(\sum_{i=0}^{\infty} x^{2 i}\right)\left(\sum_{i=0}^{\infty} x^{3 i}\right)\left(\sum_{i=0}^{\infty} x^{7 i}\right)$.
+$2a$ can contribute $0,2,4,6$, etc., so is represented by
+\[f_{a}(x)=1+x^{2}+x^{4}+\cdots=\sum_{i=0}^{\infty} x^{2 i}.\]
+
+Similarly, $f_{b}(x)=\sum_{i=0}^{\infty} x^{3 i}$ and $f_{c}(x)=\sum_{i=0}^{\infty} x^{7 i}$.
+
+So the number of possible solutions is the coefficient of $x^{n}$ in
+\[f(x)=f_{a}(x) f_{b}(x) f_{c}(x)=\left(\sum_{i=0}^{\infty} x^{2 i}\right)\left(\sum_{i=0}^{\infty} x^{3 i}\right)\left(\sum_{i=0}^{\infty} x^{7 i}\right).\]
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+
+\section*{Quiz questions}
+
+\begin{enumerate}
+  \item Suppose $f(x)=\sum_{n=0}^{\infty} x^{4 n}=1+x^{4}+x^{8}+\cdots$ 
+  is the ordinary generating function for the 
+  sequence $\left(a_n\right)_{n \geq 0}$. 
+  Find the following terms of the sequence:
+  $$
+  a_0=1
+  $$
+  $$
+  a_8=1
+  $$
+  $$
+  a_{11}=0
+  $$
+  \item Which of the following is the ordinary 
+  generating function for the sequence 
+  $(0,1,2,3,4,5, \ldots)$ ?
+\begin{enumerate}
+  \item $\sum_{n=0}^{\infty} n x^n = {0} x^{0}+{1} x^{1}+{2} x^{2}+\cdots \to (0,1,2,3,4,5, \ldots)$
+  \item $\sum_{n=0}^{\infty} n x = {0} x+{1} x+{2} x+\cdots = ({0} +{1}+{2} +\cdots) x \to  (0,0+1+2+\cdots,0,0,0,0, \ldots)$
+  \item $\sum_{n=0}^{\infty} x^n = x^{0} + x^{1} + x^{2} + \cdot \to (1,1,1,1,1,1, \ldots)$
+\end{enumerate}
+  \item Suppose we want to find the number of integer solutions to the equation $a+b+c=18$, where $3 \leq a \leq 7$. Which of the following generating functions correctly represents the possible contributions of $a$ to the sum?
+\begin{enumerate}
+  \item $3 x+4 x+5 x+6 x+7 x$
+  \item $3 x^3+4 x^4+5 x^5+6 x^6+7 x^7$
+  \item $1+x^3+x^4+x^5+x^6+x^7$
+  \item $x^3+x^4+x^5+x^6+x^7$
+\end{enumerate}
+
+
+\item In the case of lattice path, say you have square lattice of size $2$.
+Here are the states.
+\begin{enumerate}
+  \item You start from the left bottom corner and want to reach the top right corner. (degree 0)
+  \item You start from the left bottom corner and want to reach the right bottom corner. (degree 1)
+  \item You start from the left bottom corner and want to reach the top left corner. (degree 2)
+\end{enumerate}
+What is the correct generating function for this lattice path problem?
+\[
+  f(x) = 2x^{0} + 1x^{1} + 1x^{2}
+\]
+
+
+\end{enumerate}
+
 
 
 
@@ -218,120 +304,219 @@ Grimaldi: Relevant parts of section 9.2\\
 Keller and Trotter: 8.1-8.3\\
 Levin: 5.1; 2.1 and 2.2 may also be a helpful refresher on sequences.
 
+
+\textbf{Note}: 
+\underbar{Ordinary generating functions} are just \underbar{power series} in Calculus.
+By convergence and divergence tests, you could find the convergent form of a \underbar{power series} (\underbar{taylor series}).
+$$
+f_a(x)=\underset{\text{closed form}}{\sin{x}} = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} = \underset{\text{Ordinary generating function}}{x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots}
+$$
+
+
+Here, $\sin{x}$ is the convergent form (\textbf{closed form}) of the taylor series (\textbf{Ordinary generating functions}).
+
+
+
+For example, you are given sine and cosine closed forms. And you have to find
+product of sine and cosine events where the degree is $10$.
+$$
+f_b(x)=\cos{x} = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
+$$
+
+Which calculation feels easier?
+$$
+\sin{x} \cdot \cos{x} = \frac{1}{2} \sin{2x} = \frac{1}{2} \sum_{n=0}^{\infty} (-1)^n \frac{(2x)^{2n+1}}{(2n+1)!} = \frac{1}{2} \left(2x - \frac{(2x)^3}{3!} + \frac{(2x)^5}{5!} - \frac{(2x)^7}{7!} + \cdots\right)
+$$
+or
+$$
+\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} \cdot \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
+$$
+
+
+
+
+
+
+
+% latex under comment
+
+
+
+
 \section*{Lesson}
 In our first lesson on generating functions, we learned that we can use a power series $\sum_{i=0}^{\infty} a_{i} x^{i}$ as a convenient indexed container for storing a sequence $\left(a_{i}\right)_{i \geq 0}$. Today we want to remember a fun fact from Calculus II: some power series converge nicely to a closed-form function, and these are very often nicer to work with.
 
 Note: Since we are using power series strictly as a storage facility for the sequences we care about (and will not ever evaluate them at specific $x$ values), we do not need to worry about where they converge- the fact that they do anywhere is good enough for us.
 
-\section*{Basic Functions:}
-Most of the generating functions we'll deal with this semester can be obtained from three basic "building block," functions- we'll look at those first, then move on to the various ways we can manipulate them to get other functions.
+\section*{Basic Functions}
+Most of the generating functions we'll deal with this semester can be obtained from three basic "building block" functions---we'll look at those first, then move on to the various ways we can manipulate them to get other functions.
 
-Function 1: We already know from our earlier studies that Binomial Coefficients work really nicely as coefficients (hence the name)- and we even have an expression that fits the format we are looking\\
-for:
+\textbf{Function 1:} We already know from our earlier studies that Binomial Coefficients work really nicely as coefficients (hence the name)---and we even have an expression that fits the format we are looking for:
+\[(1+x)^{n}=\sum_{i=0}^{\infty}\binom{n}{i} x^{i}.\]
 
-$$
-(1+x)^{n}=\sum_{i=0}^{\infty}\binom{n}{i} x^{i}
-$$
+We may be used to seeing the summation on the right side terminate at $n$, but since all larger index terms are equal to 0, we can extend the sum with no consequences. We recognize this summation as one of the form we used to define a generating function, and therefore determine that the closed form function $(1+x)^{n}$ generates the sequence $\left(\binom{n}{i}\right)_{i \geq 0}=\left(\binom{n}{0},\binom{n}{1}, \ldots,\binom{n}{n}, 0,0, \ldots\right)$.
 
-We may be used to seeing the summation on the right side terminate at $n$, but since all larger index terms are equal to 0 , we can extend the sum with no consequences. We recognize this summation as one of the form we used to define a generating function, and therefore determine that the closed form function $(1+x)^{n}$ generates the sequence $\left(\binom{n}{i}\right)_{i \geq 0}=\left(\binom{n}{0},\binom{n}{1}, \ldots,\binom{n}{n}, 0,0, \ldots\right)$.
+\textbf{Function 2:} We learned in Calculus about the convergence of geometric series: in particular, we know that
+\[\frac{1}{1-x}=\sum_{i=0}^{\infty} x^{i}.\]
 
-Function 2: We learned in Calculus about the convergence of geometric series: in particular, we know that
+That is, $f(x)=\frac{1}{1-x}$ is a closed form function whose power series representation has a coefficient of 1 for every power of $x$---so it generates the sequence $(1,1,1,1,1,1, \ldots)$.
 
-$$
-\frac{1}{1-x}=\sum_{i=0}^{\infty} x^{i}
-$$
-
-That is, $f(x)=\frac{1}{1-x}$ is a closed form function whose power series representation has a coefficient of 1 for every power of $x$-so it generates the sequence $(1,1,1,1,1,1, \ldots)$.
-
-Function 3: Similarly, we know that $e^{x}=\sum_{i=0}^{\infty} \frac{x^{i}}{i!}=\sum_{i=0}^{\infty} \frac{1}{i!} x^{i}$, so $e^{x}$ is the closed form expression for the power series whose coefficients are $\frac{1}{i!}$ - or in other words, $e^{x}$ generates the sequence $\left(\frac{1}{i!}\right)_{i \geq 0}$.
+\textbf{Function 3:} Similarly, we know that $e^{x}=\sum_{i=0}^{\infty} \frac{x^{i}}{i!}=\sum_{i=0}^{\infty} \frac{1}{i!} x^{i}$, so $e^{x}$ is the closed form expression for the power series whose coefficients are $\frac{1}{i!}$---or in other words, $e^{x}$ generates the sequence $\left(\frac{1}{i!}\right)_{i \geq 0}$.
 
 Before we move on, here is a chart to summarize these generating functions: you will need to know these correspondences.
 
-Function
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Function} & \textbf{Generates} \\
+\hline
+$(1+x)^{n} = \sum_{i=0}^{\infty}\binom{n}{i} x^{i}$ & $\left(\binom{n}{i}\right)_{i \geq 0}$ \\
+\hline
+$\frac{1}{1-x} = \sum_{i=0}^{\infty} x^{i}$ & $(1,1,1,1,1, \ldots)$ \\
+\hline
+$e^{x} = \sum_{i=0}^{\infty} \frac{x^{i}}{i!}$ & $\left(\frac{1}{i!}\right)_{i \geq 0}$ \\
+\hline
+\end{tabular}
+\end{center}
 
-$$
-\begin{aligned}
-(1+x)^{n} & =\sum_{i=0}^{\infty}\binom{n}{i} x^{i} \\
-\frac{1}{1-x} & =\sum_{i=0}^{\infty} x^{i} \\
-e^{x} & =\sum_{i=0}^{\infty} \frac{x^{i}}{i!}
-\end{aligned}
-$$
-
-Generates\\
-$(1,1,1,1,1, \ldots)$
-
-$$
-\left(\frac{1}{i!}\right)_{i \geq 0}
-$$
-
-\section*{Manipulation Techniques:}
+\section*{Manipulation Techniques}
 Almost all of the techniques we will discuss are consequences of algebraic manipulations that can be done to power series. We may not need to be proficient in doing all of the detailed derivations carefully, but this perspective can help us to understand where the rules come from.
 
 \begin{enumerate}
-  \item Multiply by a Constant
+  \item \textbf{Multiply by a Constant}
 \end{enumerate}
 
-To multiply every term of a sequence by a constant $c$, we can use the fact that factoring still works nicely in power series.\\
+To multiply every term of a sequence by a constant $c$, we can use the fact that factoring still works nicely in power series.
+
 That is, if we know that $f(x)$ generates the sequence $\left(a_{i}\right)_{i \geq 0}$ and we'd like a generating function for $\left(c \cdot a_{i}\right)_{i \geq 0}$, we just multiply:
+\[\sum_{i=0}^{\infty} c a_{i} x^{i}=c \sum_{i=0}^{\infty} a_{i} x^{i}=c \cdot f(x).\]
 
-$$
-\sum_{i=0}^{\infty} c a_{i} x^{i}=c \sum_{i=0}^{\infty} a_{i} x^{i}=c \cdot f(x)
-$$
+\begin{problem}
+Find the ordinary generating function for the sequence $(2,2,2,2, \ldots)$.
+\end{problem}
 
-\section*{Problem: Find the ordinary generating function for the sequence $(2,2,2,2, \ldots)$.}
-$\sum_{i=0}^{\infty} 2 x^{n}=2 \sum_{i=0}^{\infty} x^{n}=\frac{2}{1-x}=2 \cdot \frac{1}{1-x}$.\\
-So we can derive the generating function $\frac{2}{1-x}$ from the definition, or can recognize our sequence as $2(1,1,1,1, \ldots)$ and multiply the function we already know by 2 to get the same answer.\\
-2. Shift by an index
+$\sum_{i=0}^{\infty} 2 x^{i}=2 \sum_{i=0}^{\infty} x^{i}=\frac{2}{1-x}=2 \cdot \frac{1}{1-x}$.
 
-To keep the same list of numbers, but shift them by one index to the right, we can multiply through by $x$ to shift the alignment of coefficients with powers of $x$.\\
+So we can derive the generating function $\frac{2}{1-x}$ from the definition, or can recognize our sequence as $2(1,1,1,1, \ldots)$ and multiply the function we already know by 2 to get the same answer.
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \textbf{Shift by an index}
+\end{enumerate}
+
+To keep the same list of numbers, but shift them by one index to the right, we can multiply through by $x$ to shift the alignment of coefficients with powers of $x$.
+
 That is, if $\left(a_{i}\right)_{i \geq 0}=\left(a_{0}, a_{1}, a_{2}, \ldots\right)$ is the sequence generated by $f(x)=\sum_{i=0}^{\infty} a_{i} x^{i}$, then the function $x f(x)=x \sum_{i=0}^{\infty} a_{i} x^{i}=\sum_{i=0}^{\infty} a_{i} x^{i+1}=a_{0} x+a_{1} x^{2}+a_{2} x^{3}+\cdots$ generates the sequence $\left(0, a_{0}, a_{1}, a_{2}, \ldots\right)$.
 
-\section*{Problem: Find the function that generates the sequence $\left(0,0,1,1, \frac{1}{2!}, \frac{1}{3!}, \ldots\right)$.}
-We recognize that this sequence has denominators with factorials (so we might want to start with $e^{x}$ ), but we have shifted to get two 0 s at the beginning. The sequence we want can be generated by the function $\sum_{i=0}^{\infty} \frac{x^{i+2}}{i!}=x^{2} e^{x}$.\\
-3. Multiply by the index
+\begin{problem}
+Find the function that generates the sequence $\left(0,0,1,1, \frac{1}{2!}, \frac{1}{3!}, \ldots\right)$.
+\end{problem}
 
-Suppose we know as a starting place that $f(x)=\sum_{i=0}^{\infty} a_{i} x^{i}$ generates $\left(a_{i}\right)_{i \geq 0}$, and we want to find the OGF for $\left(i a_{i}\right)_{i \geq 0}$.\\
-The trick to this manipulation is to remember that differentiation has the effect of multiplying $x^{i}$ by $i$ : we proceed then by differentiating both sides of the equality we already have.
+We recognize that this sequence has denominators with factorials (so we might want to start with $e^{x}$), but we have shifted to get two 0s at the beginning. The sequence we want can be generated by the function $\sum_{i=0}^{\infty} \frac{x^{i+2}}{i!}=x^{2} e^{x}$.
 
-$$
-\begin{aligned}
-f(x) & =\sum_{i=0}^{\infty} a_{i} x^{i} \\
-f^{\prime}(x) & =\sum_{i=0}^{\infty} i a_{i} x^{i-1}
-\end{aligned}
-$$
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item \textbf{Multiply by the index}
+\end{enumerate}
 
-This gives us the coefficients $i a_{i}$ that we wanted, but they don't line up with the correct index anymore (i.e., we want $i a_{i}$ in index $i$ of our sequence, but right now it's in spot $i-1$. We can fix this though- all we have to do is multiply by $x$ to realign. Thus $x f_{a}^{\prime}(x)=\sum_{i=0}^{\infty} i a_{i} x^{i}$ is the generating function we wanted.
+Suppose we know as a starting place that $f(x)=\sum_{i=0}^{\infty} a_{i} x^{i}$ generates $\left(a_{i}\right)_{i \geq 0}$, and we want to find the OGF for $\left(i a_{i}\right)_{i \geq 0}$.
 
-Problem: Find the sequence generated by the OGF $\frac{2 x}{(1-x)^{2}}$\\
-Hint: What is the derivative of $\frac{1}{1-x}$ ?
+The trick to this manipulation is to remember that differentiation has the effect of multiplying $x^{i}$ by $i$: we proceed then by differentiating both sides of the equality we already have.
+
+\begin{align}
+f(x) &= \sum_{i=0}^{\infty} a_{i} x^{i} \\
+f^{\prime}(x) &= \sum_{i=0}^{\infty} i a_{i} x^{i-1}
+\end{align}
+
+This gives us the coefficients $i a_{i}$ that we wanted, but they don't line up with the correct index anymore (i.e., we want $i a_{i}$ in index $i$ of our sequence, but right now it's in spot $i-1$). We can fix this though---all we have to do is multiply by $x$ to realign. Thus $x f^{\prime}(x)=\sum_{i=0}^{\infty} i a_{i} x^{i}$ is the generating function we wanted.
+
+\begin{problem}
+Find the sequence generated by the OGF $\frac{2 x}{(1-x)^{2}}$.
+
+\textbf{Hint:} What is the derivative of $\frac{1}{1-x}$?
+\end{problem}
 
 We know $\frac{1}{1-x}=\sum_{i=0}^{\infty} x^{i}$, and differentiating both sides gives us
+\[\frac{1}{(1-x)^{2}}=\sum_{i=0}^{\infty} i x^{i-1}.\]
 
-$$
-\frac{1}{(1-x)^{2}}=\sum_{i=0}^{\infty} i x^{i-1}
-$$
+This is almost the function we have, but we need to multiply by $2 x$:
+\[\frac{2 x}{(1-x)^{2}}=\sum_{i=0}^{\infty} 2 i x^{i}.\]
 
-This is almost the function we have, but we need to multiply by $2 x$ :
+Extracting the coefficients, we now see that the sequence generated is $(2 i)_{i \geq 0}=(0,2,4,6,8, \ldots)$.
 
-$$
-\frac{2 x}{(1-x)^{2}}=\sum_{i=0}^{\infty} 2 i x^{i}
-$$
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item \textbf{Substitution}
+\end{enumerate}
 
-Extracting the coefficients, we now see that the sequence generated is $(2 i)_{i \geq 0}=(0,2,4,6,8, \ldots)$.\\
-4. Substitution
+As with any other algebraic expression, we can replace $x$ with any other variable quantity in any generating function. Most basically, this has the effect of scaling coefficients or exponents.
 
-As with any other algebraic expression, we can replace $x$ with any other variable quantity in any generating function. Most basically, this has the effect of scaling coefficients or exponents.\\
-For example:\\
-(a) $\frac{1}{1+4 x}=\sum_{i=0}^{\infty}(-4 x)^{i}=\sum_{i=0}^{\infty}(-4)^{i} x^{i}$, which generates the sequence $\left(1,-4,4^{2},-4^{3}, \ldots\right)$.\\
-(b) $e^{x^{2}}=\sum_{i=0}^{\infty} \frac{\left(x^{2}\right)^{i}}{i!}=1+\frac{x^{2}}{1!}+\frac{x^{4}}{2!}+\frac{x^{6}}{3!}+\cdots$, which generates the sequence $\left(1,0, \frac{1}{1!}, 0, \frac{1}{2!}, 0, \frac{1}{3!}, 0, \ldots\right)$.
+For example:
+\begin{enumerate}[label=(\alph*)]
+\item $\frac{1}{1+4 x}=\sum_{i=0}^{\infty}(-4 x)^{i}=\sum_{i=0}^{\infty}(-4)^{i} x^{i}$, which generates the sequence $\left(1,-4,4^{2},-4^{3}, \ldots\right)$.
+\item $e^{x^{2}}=\sum_{i=0}^{\infty} \frac{\left(x^{2}\right)^{i}}{i!}=1+\frac{x^{2}}{1!}+\frac{x^{4}}{2!}+\frac{x^{6}}{3!}+\cdots$, which generates the sequence $\left(1,0, \frac{1}{1!}, 0, \frac{1}{2!}, 0, \frac{1}{3!}, 0, \ldots\right)$.
+\end{enumerate}
 
-Problem: Find the sequence generated by the OGF $\frac{1}{1-x^{2}}$.
+\begin{problem}
+Find the sequence generated by the OGF $\frac{1}{1-x^{2}}$.
+\end{problem}
 
 We recognize this function as our standard geometric series, with $x^{2}$ substituted for $x$. Thus we know $\frac{1}{1-x^{2}}=\sum_{i=0}^{\infty}\left(x^{2}\right)^{i}=\sum_{i=0}^{\infty} x^{2 i}=1+x^{2}+x^{4}+x^{6}+x^{8}+\cdots$.
 
 Reading off the coefficients, then, we see that the sequence generated is $(1,0,1,0,1,0, \ldots)$.
 
-Don't worry if this feels like a lot right now- using all of these tools takes lots of practice!
+Don't worry if this feels like a lot right now---using all of these tools takes lots of practice!
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section*{Quiz questions}
+
+\begin{enumerate}
+  \item Which of the following is the Ordinary 
+  Generating function for the sequence $(1,-1,1,-1,1,-1, \ldots)$ ?
+
+  \begin{align*}
+  f(x) &= 1 - x + x^2 - x^3 + x^4 - x^5 + \cdots \\
+  &= 1 + (- x) + (- x)^2 + (- x)^3 + (-x)^4 + (- x)^5 + \cdots \\
+  &= \sum_{n=0}^{\infty} (-x)^n \\
+  &= \frac{1}{1 - (-x)} = \frac{1}{1 + x} \text{ where $x \in (-1,1)$}
+  \end{align*}
+  \begin{enumerate}
+    \item $\frac{-1}{1-x}$
+    \item $\frac{-1}{1+x}$
+    \item $\frac{1}{1-x}$
+    \item $\frac{1}{1+x}$
+  \end{enumerate}
+
+  \item Fill in the blanks: the sequence $\left(5^{n+1}\right)_{n \geq 0}$ is generated by the function $\frac{a}{1-b}$, where
+  $$
+  a=\square
+  $$
+  $$
+  b=\square
+  $$
+
+
+  \item Find the sequence generated by the OGF $4 x e^{5 x}$.
+  \begin{enumerate}
+    \item $\left(\frac{5^{n-1}}{(n-1)!}\right)_{n>0}$
+    \item $\left(4 \cdot \frac{5^n}{(n)!}\right)_{n \geq 0}$
+    \item $\left(4 \cdot \frac{5^{n+1}}{(n+1)!}\right)_{n \geq 0}$
+    \item $\left(4 \cdot \frac{5^{n-1}}{(n-1)!}\right)_{n \geq 0}$
+  \end{enumerate}
+
+
+
+\end{enumerate}
 
 
 
@@ -365,164 +550,174 @@ So far we have learned the basic building blocks of generating functions, and se
 
 We begin by recalling that the two nicest ways of combining any pair of functions are addition and multiplication (composition combined with power series is not something we want to try right now). In this lesson we investigate what the addition and multiplication of generating functions does to the sequences they generate.
 
-\section*{Addition:}
+\section*{Addition}
 Addition of generating functions has the rather predictable effect of adding together the sequences they generate. This should make intuitive sense, as we can define the addition of two sequences by adding the terms in each index.
 
 More carefully, if $f_{a}(x)$ generates $\left(a_{i}\right)_{i \geq 0}$ and $f_{b}(x)$ generates $\left(b_{i}\right)_{i \geq 0}$, then by summation rules we immediately have
-
-$$
-\sum_{i=0}^{\infty} a_{i} x^{i}+\sum_{i=0}^{\infty} b_{i} x^{i}=\sum_{i=0}^{\infty}\left(a_{i}+b_{i}\right) x^{i}
-$$
+\[\sum_{i=0}^{\infty} a_{i} x^{i}+\sum_{i=0}^{\infty} b_{i} x^{i}=\sum_{i=0}^{\infty}\left(a_{i}+b_{i}\right) x^{i}.\]
 
 In other words, the function $f(x)=f_{a}(x)+f_{b}(x)$ generates the sequence $\left(a_{i}+b_{i}\right)_{i \geq 0}$.
 
-Example: Suppose
+\begin{example}
+Suppose
+\begin{align}
+\left(a_{n}\right)_{n \geq 0} &= \left(1,3,3^{2}, 3^{3}, 3^{4}, \ldots\right) \\
+\left(b_{n}\right)_{n \geq 0} &= (1,3,3,1,0,0, \ldots) \\
+\left(c_{n}\right)_{n \geq 0} &= \left(2,2, \frac{2}{2!}, \frac{2}{3!}, \frac{2}{4!}, \ldots\right)
+\end{align}
 
-$$
-\begin{aligned}
-\left(a_{n}\right)_{n \geq 0} & =\left(1,3,3^{2}, 3^{3}, 3^{4}, \ldots\right) \\
-\left(b_{n}\right)_{n \geq 0} & =(1,3,3,1,0,0, \ldots) \\
-\left(c_{n}\right)_{n \geq 0} & =\left(2,2, \frac{2}{2!}, \frac{2}{3!}, \frac{2}{4!}, \ldots\right)
-\end{aligned}
-$$
+Then the corresponding generating functions are, respectively, $f_{a}(x)=\frac{1}{1-3 x}$, $f_{b}(x)=(1+x)^{3}$, and $f_{c}(x)=2 e^{x}$.
 
-Then the corresponding generating functions are, respectively, $f_{a}(x)=\frac{1}{1-3 x}, f_{b}(x)=(1+x)^{3}$, and $f_{c}(x)=2 e^{x}$.\\
-(a) We see that the function $f_{a}(x)+f_{b}(x)=\frac{1}{1-3 x}+(1+x)^{3}$ generates the sequence $\left(1+1,3+3,3^{2}+3,3^{3}+1,3^{4}, 3^{5}, \ldots\right)$.
+\begin{enumerate}[label=(\alph*)]
+\item We see that the function $f_{a}(x)+f_{b}(x)=\frac{1}{1-3 x}+(1+x)^{3}$ generates the sequence $\left(1+1,3+3,3^{2}+3,3^{3}+1,3^{4}, 3^{5}, \ldots\right)$.
 
-Note that this sequence looks like the sequence of increasing powers of 3 , except for the first few terms- adding any polynomial to a generating function is a really nice way to change just a couple terms of a sequence that otherwise follows a more predictable pattern.\\
-(b) Similarly, the sequence $\left(\frac{2}{i!}+3^{i}\right)_{i \geq 0}$ is generated by $\frac{1}{1-3 x}+2 e^{x}=f_{a}(x)+f_{c}(x)$.
+Note that this sequence looks like the sequence of increasing powers of 3, except for the first few terms---adding any polynomial to a generating function is a really nice way to change just a couple terms of a sequence that otherwise follows a more predictable pattern.
 
-Problem: Find the sequence generated by $2 e^{x}-(1+x)^{3}$
+\item Similarly, the sequence $\left(\frac{2}{i!}+3^{i}\right)_{i \geq 0}$ is generated by $\frac{1}{1-3 x}+2 e^{x}=f_{a}(x)+f_{c}(x)$.
+\end{enumerate}
+\end{example}
 
-We recognize this function as $f_{c}(x)-f_{b}(x)$ and we know subtraction works the same way as addition- so we just need to subtract the corresponding terms in the sequences generated by each of the terms in our function.
+\begin{problem}
+Find the sequence generated by $2 e^{x}-(1+x)^{3}$.
+\end{problem}
+
+We recognize this function as $f_{c}(x)-f_{b}(x)$ and we know subtraction works the same way as addition---so we just need to subtract the corresponding terms in the sequences generated by each of the terms in our function.
 
 That is, the sequence we want is $\left(\frac{2}{i!}-\binom{3}{i}\right)_{i \geq 0}=\left(2-1,2-3, \frac{2}{2!}-3, \frac{2}{3!}-1, \frac{2}{4!}, \ldots\right)$.
 
-\section*{Multiplication:}
+\section*{Multiplication}
 Like addition, multiplication of closed form generating functions is relatively straightforward. The more interesting aspect of this process, though, is what happens with the corresponding power series expansions (and thus the sequences these functions generate). Multiplication of power series and sequences is not quite so straightforward.
 
-One could, of course, try defining the product of two sequences by just multiplying corresponding terms- and we wouldn't run into anything weird right away. The reason we don't do this, though, is that it would completely break the way our generating functions work- and that's something we want to avoid.
+One could, of course, try defining the product of two sequences by just multiplying corresponding terms---and we wouldn't run into anything weird right away. The reason we don't do this, though, is that it would completely break the way our generating functions work---and that's something we want to avoid.
 
-For example, we know $(1+x)^{2}$ generates $(1,2,1,0,0, \ldots)$ and $(1+x)^{3}$ generates $(1,3,3,1,0,0, \ldots)$-so multiplying these series together term by term would give us $(1,2 \cdot 3,1 \cdot 3,0 \cdot 1,0,0, \ldots)=(1,6,3,0,0 \ldots)$.
+For example, we know $(1+x)^{2}$ generates $(1,2,1,0,0, \ldots)$ and $(1+x)^{3}$ generates $(1,3,3,1,0,0, \ldots)$---so multiplying these series together term by term would give us $(1,2 \cdot 3,1 \cdot 3,0 \cdot 1,0,0, \ldots)=(1,6,3,0,0 \ldots)$.
 
 But we also know that
+\[(1+x)^{2}(1+x)^{3}=(1+x)^{5}=1+5 x+10 x^{2}+10 x^{3}+5 x^{4}+x^{5},\]
+so by our original definition, this generating function has to generate the sequence $(1,5,10,10,5,1,0,0,0, \ldots)$. What we see here, then, is that multiplying term-by-term doesn't work.
 
-$$
-(1+x)^{2}(1+x)^{3}=(1+x)^{5}=1+5 x+10 x^{2}+10 x^{3}+5 x^{4}+x^{5}
-$$
+The answer to this discrepancy is that we need a different definition of what it means to "multiply" two sequences together (and consequently, power series). The fact that we have power series to think about is actually helpful though---a power series is really just a pretentiously named infinite polynomial, and we know how to multiply polynomials together. So if we generalize that process, we see that all we need to do to multiply two series together is multiply every term in each series by every term in the other series, and add the results.
 
-, so by our original definition, this generating function has to generate the sequence $(1,5,10,10,5,1,0,0,0, \ldots)$. What we see here, then, is that multiplying term-by-term doesn't work.
+We do want to be careful about the order in which we multiply our terms, though: we'll get the same answer no matter what we do, but if we want to multiply together $\sum_{i=0}^{\infty} a_{i}$ and $\sum_{i=0}^{\infty} b_{i}$, if we start with $a_{0} b_{0}+a_{0} b_{1} x+a_{0} b_{2} x^{2}+a_{0} b_{3} x^{3}+\cdots$, we'll never get to what happens with the further terms of our first series, and won't be able to calculate what happens beyond scaling our second series by $a_{0}$.
 
-The answer to this discrepancy is that we need a different definition of what it means to "multiply" two sequences together (and consequently, power series). The fact that we have power series to think about is actually helpful though- a power series is really just a pretentiously named infinite polynomial, and we know how to multiply polynomials together. So if we generalize that process, we see that all we need to do to multiply two series together is multiply every term in each series by every term in the other series, and add the results.
+Instead, then, we think about all the possible terms of our product, and we sort by what power of $x$ will be produced---this allows us to look at the whole picture for a finite number of terms. That is, we can write
+\[\sum_{i=0}^{\infty} a_{i} x^{i} \sum_{i=0}^{\infty} b_{i} x^{i}=\left(a_{0} b_{0}\right)+\left(a_{0} b_{1}+a_{1} b_{0}\right) x+\left(a_{0} b_{2}+a_{1} b_{1}+a_{2} b_{0}\right) x^{2}+\cdots\]
 
-We do want to be careful about the order in which we multiply our terms, though: we'll get the same answer no matter what we do, but if we want to multiply together $\sum_{i=0}^{\infty} a_{i}$ and $\sum_{i=0}^{\infty} b_{i}$, if we start with $a_{0} b_{0}+a_{0} b_{1} x+a_{0} b_{2} x^{2}+a_{0} b_{3} x^{3}+\cdots$, we'll never get to what happens with the further terms of our first series, and won't be able to calculate what happens beyond scaling our second series by $a_{0}$
+Since the resulting sequence doesn't behave quite the way we usually imagine products working, we use a different word for it: combining two sequences in the way that corresponds to power series multiplication is called \textbf{convoluting}.
 
-Instead, then, we think about all the possible terms of our product, and we sort by what power of $x$ will be produced- this allows us to look at the whole picture for a finite number of terms. That is, we can write
+\begin{definition}[Convolution]
+The sequence $\left(c_{i}\right)_{i \geq 0}$ generated by the product $f_{a}(x) f_{b}(x)$ is called the \textbf{convolution} of the sequences $\left(a_{i}\right)_{i \geq 0}$ and $\left(b_{i}\right)_{i \geq 0}$, i.e.,
+\[f_{a}(x) f_{b}(x)=\sum_{i=0}^{\infty} a_{i} x^{i} \sum_{i=0}^{\infty} b_{i} x^{i}=\sum_{i=0}^{\infty} c_{i} x^{i}\]
+where $c_{i}=\sum_{j=0}^{i} a_{j} b_{i-j}$.
+\end{definition}
 
-$$
-\sum_{i=0}^{\infty} a_{i} \sum_{i=0}^{\infty} b_{i}=\left(a_{0} b_{0}\right)+\left(a_{0} b_{1}+a_{1} b_{0}\right) x+\left(a_{0} b_{2}+a_{1} b_{1}+a_{2} b_{0}\right) x^{2}+\cdots
-$$
+In practice, finding the convolution of two functions by looking at this formula is not what we want to do---we really want to exploit the fact that we know the generating functions for each separate sequence whenever we can. Not only does this save us a lot of tedious calculations, it gives us a much better chance of being able to write down the general pattern of the resulting sequence rather than just the first few terms---and this is always our goal.
 
-Since the resulting sequence doesn't behave quite the way we usually imagine products working, we use a different word for it: combining two sequences in the way that corresponds to power series multiplication is called convoluting.
+\begin{example}
+Find the convolution of the sequences $\left(a_{i}\right)_{i \geq 0}=(1,1,1,1, \ldots)$ and $\left(b_{i}\right)_{i \geq 0}=\left((-1)^{i}\right)_{i \geq 0}=(1,-1,1,-1, \ldots)$.
+\end{example}
 
-Definition: The sequence $\left(c_{i}\right)_{i \geq 0}$ generated by the product $f_{a}(x) f_{b}(x)$ is called the convolution of the sequences $\left(a_{i}\right)_{i \geq 0}$ and $\left(b_{i}\right)_{i \geq 0}$ i.e.,
+\textbf{Solution 1:} If we'd like, we could try the method we were just advised against. Using the definition above, we know the convolution $\left(c_{i}\right)_{i \geq 0}$ is generated by $\sum_{i=0}^{\infty} c_{i} x^{i}$, where
+\[c_{i}=\sum_{n=0}^{i} a_{n} b_{i-n}=\sum_{n=0}^{i} a_{i-n} b_{n}=\sum_{n=0}^{i} 1^{i-n}(-1)^{n}=\sum_{n=0}^{i}(-1)^{n}.\]
 
-$$
-f_{a}(x) f_{b}(x)=\sum_{i=0}^{\infty} a_{i} x^{i} \sum_{i=0}^{\infty} b_{i} x^{i}=\sum_{i=0}^{\infty} c_{i} x^{i}
-$$
+Now we happen to be able to reason through what happens if we take a sum of a particular length of positive and negative 1s: the result is 1 if $i$ is even, and 0 if $i$ is odd. That is, the convolution we want is $(1,0,1,0,1,0, \ldots)=\left(\frac{1+(-1)^{i}}{2}\right)_{i \geq 0}$.
 
-where $c_{i}=\sum_{i=0}^{n} a_{i} b_{n-i}$.
+\textbf{Note:} This second fancy way of writing an alternating sequence as a fraction using an alternating sum in the numerator is really nothing more than a fancy trick---you might find it convenient, but you will not be tested on your ability to do this. You just need to be sure you fully describe the pattern of a sequence in a way that shows you understand what's going on beyond the first few terms.
 
-In practice, finding the convolution of two functions by looking at this formula is not what we want to do- we really want to exploit the fact that we know the generating functions for each separate sequence whenever we can. Not only does this save us a lot of tedious calculations, it gives us a much better chance of being able to write down the general pattern of the resulting sequence rather than just the first few terms- and this is always our goal.
-
-Example: Find the convolution of the sequences $\left(a_{i}\right)_{i \geq 0}=(1,1,1,1, \ldots)$ and $\left(b_{i}\right)_{i \geq 0}=\left(-1^{i}\right)_{i \geq 0}=(1,-1,1,-1, \ldots)$.
-
-Solution 1: If we'd like, we could try the method we were just advised against. Using the definition above, we know the convolution $\left(c_{i}\right)_{i \geq 0}$ is generated by $\sum_{i=0}^{\infty} c_{i} x^{i}$, where
-
-$$
-c_{i}=\sum_{n=0}^{i} a_{n} b_{i-n}=\sum_{n=0}^{i} a_{i-n} b_{n}=\sum_{n=0}^{i} 1^{i-n}(-1)^{n}=\sum_{n=0}^{i}(-1)^{n} .
-$$
-
-Now we happen to be able to reason through what happens if we take a sum of a particular length of positive and negative 1 s : the result is 1 if $i$ is even, and 0 if $i$ is odd. That is, the convolution we want is $1,0,1,0,1,0, \ldots)=\left(\frac{1+(-1)^{i}}{2}\right)_{i \geq 0}$.
-
-Note: this second fancy way of writing an alternating sequence as a fraction using an alternating sum in the numerator is really nothing more than a fancy trick- you might find it convenient, but you will not be tested on your ability to do this. You just need to be sure you fully describe the pattern of a sequence in a way that shows you understand what's going on beyond the first few terms.
-
-Solution 2: Our preferred method of solution here is to remember that we actually know the generating functions for each of these sequences: $f_{a}(x)=\frac{1}{1-x}$, and $f_{b}(x)=\frac{1}{1+x}$.
+\textbf{Solution 2:} Our preferred method of solution here is to remember that we actually know the generating functions for each of these sequences: $f_{a}(x)=\frac{1}{1-x}$, and $f_{b}(x)=\frac{1}{1+x}$.
 
 The convolution of these two sequences, then, is generated by the product of their generating functions: $f(x)=f_{a}(x) f_{b}(x)=\frac{1}{1-x} \cdot \frac{1}{1+x}=\frac{1}{1-x^{2}}=\sum_{i=0}^{\infty} x^{2 i}$.
 
-We get this last step from what we know about geometric sequences, and it allows us to read off the convolution as $(1,0,1,0, \ldots)$, or $c_{i}$ equal to 1 when $i$ is even and 0 when $i$ is odd, as expected- but without the tricks in the middle.
+We get this last step from what we know about geometric sequences, and it allows us to read off the convolution as $(1,0,1,0, \ldots)$, or $c_{i}$ equal to 1 when $i$ is even and 0 when $i$ is odd, as expected---but without the tricks in the middle.
 
 The last technique we need to think about is how to transform a convolution into something nicer to handle. Suppose we want to find the convolution of two sequences, and we know their generating functions in closed form, then all we need to do is multiply those functions together and figure out what sequence that OGF generates. This is great if the product we have happens to be exceptionally nice, but that's not usually what happens!
 
-So instead we think: wouldn't it be great if we were adding instead of multiplying? That's so much easier. But the good news is that we know how to transform multiplication of fractions into additionwe just need a partial fraction decomposition.
+So instead we think: wouldn't it be great if we were adding instead of multiplying? That's so much easier. But the good news is that we know how to transform multiplication of fractions into addition---we just need a partial fraction decomposition.
 
-Note: We won't go over the basics of this process in detail, 
-since you know it from Calculus, and it's essentially the 
-process of finding a common denominator, but run in reverse. 
-If you want a refresher, check out Paul's Online Notes 
+\textbf{Note:} We won't go over the basics of this process in detail, since you know it from Calculus, and it's essentially the process of finding a common denominator, but run in reverse. If you want a refresher, check out Paul's Online Notes at \href{https://tutorial.math.lamar.edu/classes/calcii/partialfractions.aspx}{https://tutorial.math.lamar.edu/classes/calcii/partialfractions.aspx}---this is a calculus-based treatment, but it's a decent review nevertheless.
 
+\begin{example}
+Find the sequence generated by $f(x)=\frac{1}{(x-3)(x+2)}$.
 
-\href{https://tutorial.math.lamar.edu/classes/calcii/partialfractions.aspx}{https://tutorial.math.lamar.edu/classes/calcii/partialfractions.aspx}
-
-this is a calculus-based treatment, 
-but it's a decent review nevertheless.
-
-Example: Find the sequence generated by $f(x)=\frac{1}{(x-3)(x+2)}$.\\
 First, let's use partial fractions to turn this product into a sum. We set up our equation:
-
-$$
-\frac{1}{(x-3)(x+2)}=\frac{A}{x-3}+\frac{B}{x+2}
-$$
+\[\frac{1}{(x-3)(x+2)}=\frac{A}{x-3}+\frac{B}{x+2}.\]
 
 Now we know these quantities are equal, so if we find a common denominator on the right side of the equation, we end up with
-
-$$
-\frac{1}{(x-3)(x+2)}=\frac{A(x+2)}{(x-3)(x+2)}+\frac{B(x-3)}{(x-3)(x+2)} .
-$$
+\[\frac{1}{(x-3)(x+2)}=\frac{A(x+2)}{(x-3)(x+2)}+\frac{B(x-3)}{(x-3)(x+2)}.\]
 
 We can multiply both sides by the denominator to make things simpler:
+\[A x+2 A+B x-3 B=1.\]
 
-$$
-A x+2 A+B x-3 B=1
-$$
+Now we just need to remember what makes two polynomials equal: the coefficients of each power of our variable need to be equal. Comparing these, we get $A+B=0$ (from the coefficients of $x$), and $2 A-3 B=1$ from the constant term.
 
-Now we just need to remember what makes two polynomials equal: the coefficients of each power of our variable need to be equal. Comparing these, we get $A+B=0$ (from the coefficients of $x$ ), and $2 A-3 B=1$ from the constant term.
+The first equation tells us $A=-B$, and substituting into the second we find that $A=1/5$ and subsequently $B=-1/5$. It follows that $f(x)=\frac{1}{5(x-3)}-\frac{1}{5(x+2)}$.
 
-The first equation tells us $A=-B$, and substituting into the second we find that $A=1 / 5$ and subsequently $B=-1 / 5$. It follows that $f(x)=\frac{1}{5(x-3)}-\frac{1}{5(x+2)}$.
-
-Now we have transformed out problem into two smaller ones- we just need to sort out these geometric sequences. Be careful here though- we can only read off the generated sequence if a function is in the form $\frac{A}{1-B}$ - and these aren't, so we need to do a bit of creative rewriting. This isn't too bad though- really all we need to do is remember (1) we can change the order of a subtraction by factoring out -1 , and (2) we can always divide through numerator and denominator by the same number without changing the value of a fraction.
+Now we have transformed our problem into two smaller ones---we just need to sort out these geometric sequences. Be careful here though---we can only read off the generated sequence if a function is in the form $\frac{A}{1-B}$---and these aren't, so we need to do a bit of creative rewriting. This isn't too bad though---really all we need to do is remember (1) we can change the order of a subtraction by factoring out $-1$, and (2) we can always divide through numerator and denominator by the same number without changing the value of a fraction.
 
 This gives us:
-
-$$
-\begin{aligned}
-\frac{1}{5(x-3)} & =\frac{1}{5} \cdot \frac{-1}{3-x} \\
-& =\frac{1}{5} \cdot \frac{-1 / 3}{1-(x / 3)} \\
-& =\frac{-1}{15} \cdot \frac{1}{1-(x / 3)}
-\end{aligned}
-$$
-
+\begin{align}
+\frac{1}{5(x-3)} &= \frac{1}{5} \cdot \frac{-1}{3-x} \\
+&= \frac{1}{5} \cdot \frac{-1/3}{1-(x/3)} \\
+&= \frac{-1}{15} \cdot \frac{1}{1-(x/3)}
+\end{align}
 and
-
-$$
-\begin{aligned}
-\frac{1}{5(x+2)} & =\frac{1}{5} \cdot \frac{1}{2-(-x)} \\
-& =\frac{1}{5} \cdot \frac{1 / 2}{1-(-x / 2)} \\
-& =\frac{1}{10} \cdot \frac{1}{1-(-x / 2)}
-\end{aligned}
-$$
+\begin{align}
+\frac{1}{5(x+2)} &= \frac{1}{5} \cdot \frac{1}{2-(-x)} \\
+&= \frac{1}{5} \cdot \frac{1/2}{1-(-x/2)} \\
+&= \frac{1}{10} \cdot \frac{1}{1-(-x/2)}
+\end{align}
 
 Putting this all together then,
-
-$$
-f(x)=\frac{-1}{15} \cdot \frac{1}{1-(x / 3)}-\frac{1}{10} \cdot \frac{1}{1-(-x / 2)}
-$$
+\[f(x)=\frac{-1}{15} \cdot \frac{1}{1-(x/3)}-\frac{1}{10} \cdot \frac{1}{1-(-x/2)}.\]
 
 We see that this generates the sequence $\left(\frac{-1}{15} \cdot\left(\frac{x}{3}\right)^{n}-\frac{1}{10} \cdot\left(\frac{-x}{2}\right)^{n}\right)_{n \geq 0}$.
+\end{example}
 
 
 
+
+
+
+
+
+\newpage
+
+\section*{Quiz Questions}
+\begin{enumerate}
+  \item Which of the following is the sequence generated by the OGF $f(x)=4 e^{2 x}-\frac{x}{2-x}$ ?
+  \begin{enumerate}
+    \item $\frac{4 \cdot 2^n}{n!}-\frac{1}{2^{n-1}}$
+    \item $\frac{2^n}{n!}-\frac{1}{2^n}$
+    \item $\frac{2^{n+1}}{n!}-\frac{1}{2^{n+2}}$
+    \item $\frac{2^{n+2}}{n!}-\frac{1}{2^{n+1}}$
+  \end{enumerate}
+
+  \item True or False: If $f(x)$ is the OGF for $\left(a_n\right)_{n \geq 0}$ and $\mathrm{g}(\mathrm{x})$ is the OGF for $\left(b_n\right)_{n \geq 0}$, then $f(x) \cdot g(x)$ is the OGF for the sequence $\left(a_n b_n\right)_{n \geq 0}$.
+  
+
+  \item Suppose $\frac{2}{x^2-4}$ is the generating function for the sequence $\left(a_n\right)_{n \geq 0}$, and $\frac{5 x}{7-x^4}$ is the generating function for the sequence $\left(b_n\right)_{n \geq 0}$.\\
+  Which of the following generates the convolution of the sequences $\left(a_n\right)_{n \geq 0}$ and $\left(b_n\right)_{n \geq 0}$ ?
+  \begin{enumerate}
+    \item $\frac{10 x}{-x^6+4 x^4+7 x^2-28}$
+    \item $\frac{10}{-x^6+4 x^4+7 x^2-28}$
+    \item $\frac{-2 x^4+5 x^3-20 x+14}{-x^6+4 x^4+7 x^2-28}$
+    \item $\frac{5 x+2}{-x^6+4 x^4+7 x^2-28}$
+  \end{enumerate}
+
+  \item Find the partial fraction decomposition: $\frac{2}{(x-4)(6-x)}=\frac{A}{x-4}+\frac{B}{6-x}$, where
+  $$
+  A=\square
+  $$
+  $$
+  B=\square
+  $$
+\end{enumerate}
+
+
+
+
+
+\newpage
 
 % \textbf{Note}: These problems are often a little challenging the first time around 
 % so there is an extra point available on this homework. That is, 24 points are 
