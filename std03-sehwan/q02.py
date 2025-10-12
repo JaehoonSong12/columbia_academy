@@ -36,7 +36,7 @@ import unittest
 
 class TestScores100(unittest.TestCase):
     def test_scores100(self):
-        self.assertTrue(scores100([1, 100, 100]))           # → True
+        self.assertTrue(scores100([1, 100, 100]))             # → True
         self.assertFalse(scores100([1, 100, 99, 100]))        # → False
         self.assertTrue(scores100([100, 1, 100, 100]))        # → True
         self.assertFalse(scores100([100, 1, 100, 1]))         # → False

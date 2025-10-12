@@ -1,7 +1,8 @@
 def wordsCount(words: list[str], length: int) -> int:
     """
     Description:
-        Given an array of strings, return the count of the number of strings that have the given length.
+        Given an array of strings, return the count of the 
+        number of strings that have the given length.
 
     Examples:
         wordsCount(["a", "bb", "b", "ccc"], 1) → 2
@@ -20,7 +21,16 @@ def wordsCount(words: list[str], length: int) -> int:
         int: The number of strings that have the given length.
     """
     ### [Your Implementation Here]
-    
+    count = 0
+    for word in words:
+        if len(word) == length: 
+            count = count + 1
+    return count
+
+    # https://www.w3schools.com/python/python_strings.asp
+
+
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
     return 0
