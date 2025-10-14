@@ -1,13 +1,185 @@
+// https://www.w3schools.com/js/
+// https://the-winter.github.io/codingjs/
+
+
+
+// dsadsadsas dsadsad
+// sadsadsa
+// dsadsa
+// d
+
+/*
+    Multi-line comment
+    dsadsadsads
+    adsadsa
+    dasd
+    sad
+    sa
+    dsa
+    ds
+    ad
+*/
+
+
+/**
+ * JSDoc Comment
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @return {number} The sum of the two numbers.
+ */
+function add(a, b) {
+    return a + b;
+}
+
+
+console.log(11 + 31);
+
+console.log(add(5, 3));
+console.log(add(10, 20));
+console.log(add(100, 200));
+console.log(add(1234, 5678));
+
+
+
+
+// Variable: a container for data
+let num = 10;
+let str = "num"
+let str2 = 'ber'
+let strresult = str + str2; // "num" + "ber" -> "number"
+/*
+1. var : old variable declaration keyword (not recommended)
+2. let : variable declaration keyword
+3. const : constant declaration keyword
+4. num : variable name
+*/
+
+console.log(strresult); // "number"
+// console.log("num")
+// console.log(num);
+// console.log() : num
+// console.log() <- num
+
+
+// console.log(2);
+// console.log(4 / 0);
+console.log('9' * 3);
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    The parameter weekday is true if it is a weekday, 
+    and the parameter vacation is true if we are on 
+    vacation. We sleep in if it is not a weekday or 
+    we're on vacation. Return true if we sleep in.
+
+    sleepIn(true, true) → true
+    sleepIn(true, false) → false
+    sleepIn(false, true) → true
+ */
+function sleepIn(weekday, vacation){ // weekday = true, vacation = true
+
+    // == : equality operator
+    // < : less than operator
+    // > : greater than operator
+    // <= : less than or equal to operator
+    // >= : greater than or equal to operator
+    // != : not equal operator
+    // ! : not operator
+    // && : and operator
+    // || : or operator
+
+    if (!weekday) { // conditional statement
+        return true; // 1
+    }
+    if (vacation) {
+        return true; // 1
+    }
+    return false; // 0
+}
+// function: group of code you want to reuse later on!
+// parameter (variable inside function): input for the function
+
+// return: output of the function
+
+
+
+sleepIn(true, true) // argument: actual value you pass to the function when you call it
+sleepIn(true, false) 
+sleepIn(false, true)
+
+
+
+
+console.log(1 == 2); // false
+
+
+
+
+
+
+
+
+
+// We have two monkeys, a and b, and the parameters 
+// aSmile and bSmile indicate if each is smiling. 
+// We are in trouble if they are both smiling or 
+// if neither of them is smiling. Return true if we are in trouble.
+function monkeyTrouble(aSmile, bSmile) {
+
+    // == : equality operator
+    // < : less than operator
+    // > : greater than operator
+    // <= : less than or equal to operator
+    // >= : greater than or equal to operator
+    // != : not equal operator
+    // ! : not operator
+    // && : and operator
+    // || : or operator
+
+    if (aSmile && bSmile) {
+        return true;
+    }
+    if (!aSmile && !bSmile) {
+        return true;
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
 const header = document.createElement('header');
+
 const h1 = document.createElement('h1');
+h1.textContent = 'Jihoo Choi';
+const h2 = document.createElement('h2');
+h2.textContent = '야호';
 const pHeader = document.createElement('p');
+pHeader.textContent = '2025 월즈 재밌겠다';
+
 header.appendChild(h1);
 header.appendChild(pHeader);
+header.appendChild(h2);
+
 document.body.appendChild(header);
 
-// Data
-h1.textContent = 'Jihoo Choi';
-pHeader.textContent = '2025 월즈 재밌겠다';
 
 
 
