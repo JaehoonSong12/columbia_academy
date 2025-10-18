@@ -1,200 +1,135 @@
-/*
-INSTRUCTIONS:
-    A PDF file is attached in the same folder.
+// COLLABORATION STATEMENT: I worked on the homework assignment alone, using only course materials.
 
-COLLABORATION STATEMENT:
-    I worked on the homework assignment alone, using only course materials.
-
-CHECKSTYLE:
-     java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw06/*.java
-
-COMPILE & EXECUTE & CLEANUP (Java):
-     javac  -d out                  hw06/Gym.java     # compile (.java to .class)
-     java           -cp "./out"     Gym               # execute (.class to run)
-     rm -rf out/                                        # clean up .class files
-
-DEPENDENCIES:
- */
-import java.util.Scanner;
+import java.util.Arrays;
 
 /**
- * This class is homework 6.
+ * Represents a gym that manages its equipment.
+ * Stores arrays of FreeWeight and WeightMachine objects.
  *
- * @author CS 1331 TAs
- * @version 1.0.0
+ * @author Taiyun
+ * @version 1.2
  */
 public class Gym {
-    /**
-     * Calculates the total payment from all guests currently checked in.
-     *
-     * @param guests 2D array of guest names
-     * @param costs  2D array of room costs
-     * @return total payment from all guests
-     */
-    public static int calculatePayment(String[][] guests, int[][] costs) {
-        int total = 0;
-        for (int i = 0; i < guests.length; i++) {
-            for (int j = 0; j < guests[i].length; j++) {
-                if (guests[i][j] != null) {
-                    total += costs[i][j];
-                }
-            }
-        }
-        return total;
-    }
+    private FreeWeight[] freeWeights;
+    private WeightMachine[] weightMachines;
 
     /**
-     * Main method.
+     * Constructs a Gym with the given arrays of equipment.
      *
-     * @param args command line arguments
+     * @param freeWeights the free weights array
+     * @param weightMachines the weight machines array
      */
-    public static void main(String[] args) {
-        if (args.length < 2) {
-            System.out.println("Invalid number of floors or rooms.");
+    public Gym(FreeWeight[] freeWeights, WeightMachine[] weightMachines) {
+        if (freeWeights == null) {
+            this.freeWeights = new FreeWeight[0];
+        } else {
+            Arrays.sort(freeWeights);
+            this.freeWeights = freeWeights;
+        }
+
+        if (weightMachines == null) {
+            this.weightMachines = new WeightMachine[0];
+        } else {
+            Arrays.sort(weightMachines);
+            this.weightMachines = weightMachines;
+        }
+    }
+
+    /**
+     * Constructs an empty Gym with no equipment.
+     */
+    public Gym() {
+        this.freeWeights = new FreeWeight[0];
+        this.weightMachines = new WeightMachine[0];
+    }
+
+    /**
+     * Prints all gym equipment, free weights first, then weight machines.
+     */
+    public void browseGymEquipment() {
+        for (FreeWeight fw : this.freeWeights) {
+            System.out.println(fw.toString());
+        }
+        for (WeightMachine wm : this.weightMachines) {
+            System.out.println(wm.toString());
+        }
+    }
+
+    /**
+     * Adds a FreeWeight to the gym.
+     * The new array remains sorted.
+     *
+     * @param newWeight the free weight to add
+     */
+    public void addEquipment(FreeWeight newWeight) {
+        if (newWeight == null) {
             return;
         }
+        FreeWeight[] newArr = Arrays.copyOf(this.freeWeights, this.freeWeights.length + 1);
+        newArr[newArr.length - 1] = newWeight;
+        Arrays.sort(newArr);
+        this.freeWeights = newArr;
+    }
 
-        int floors = Integer.parseInt(args[0]);
-        int rooms = Integer.parseInt(args[1]);
-        if (floors < 1 || rooms < 1) {
-            System.out.println("Invalid number of floors or rooms.");
+    /**
+     * Adds a WeightMachine to the gym.
+     * The new array remains sorted.
+     *
+     * @param newMachine the weight machine to add
+     */
+    public void addEquipment(WeightMachine newMachine) {
+        if (newMachine == null) {
             return;
         }
-
-        Scanner sc = new Scanner(System.in);
-        int[][] costs = new int[floors][rooms];
-        String[][] guests = new String[floors][rooms];
-        int[][] daysLeft = new int[floors][rooms];
-
-        for (int f = 0; f < floors; f++) {
-            boolean ok;
-            do {
-                ok = true;
-                System.out.print("Costs for floor " + (f + 1) + ": ");
-                for (int r = 0; r < rooms; r++) {
-                    costs[f][r] = sc.nextInt();
-                    if (costs[f][r] <= 0) {
-                        ok = false;
-                    }
-                }
-                sc.nextLine(); // consume line end
-                if (!ok) {
-                    System.out.println("Room costs must be positive.");
-                }
-            } while (!ok);
-        }
-
-        System.out.println();
-
-        boolean running = true;
-        while (running) {
-            System.out.print("> ");
-            String cmd = sc.next();
-
-            if (cmd.equals("in")) {
-                String name = sc.next();
-                int stay = sc.nextInt();
-                int fl = sc.nextInt();
-                int rm = sc.nextInt();
-                sc.nextLine();
-
-                if (findGuest(guests, name)) {
-                    System.out.println(name + " already checked in.");
-                } else if (fl < 1 || fl > floors || rm < 1 || rm > rooms) {
-                    System.out.println("Invalid floor or room.");
-                } else if (stay < 1) {
-                    System.out.println("Guests must stay at least one day.");
-                } else if (guests[fl - 1][rm - 1] != null) {
-                    System.out.println("Room is already occupied.");
-                } else {
-                    guests[fl - 1][rm - 1] = name;
-                    daysLeft[fl - 1][rm - 1] = stay;
-                    System.out.println("Checking in " + name + " to floor " + fl
-                                        + ", room " + rm + ", for " + stay
-                                        + (stay == 1 ? " day." : " days."));
-                }
-
-            } else if (cmd.equals("nd")) {
-                int total = calculatePayment(guests, costs);
-                int gcount = countGuests(guests);
-                System.out.println("Total payment from " + gcount + " "
-                        + (gcount == 1 ? "guest" : "guests") + ": "
-                        + formatMoney(total) + ".");
-
-                for (int f = 0; f < floors; f++) {
-                    for (int r = 0; r < rooms; r++) {
-                        if (guests[f][r] != null) {
-                            daysLeft[f][r]--;
-                            if (daysLeft[f][r] == 0) {
-                                System.out.println(
-                                    "Checking out " + guests[f][r] + " from floor "
-                                    + (f + 1) + ", room " + (r + 1) + "."
-                                );
-                                guests[f][r] = null;
-                            }
-                        }
-                    }
-                }
-
-            } else if (cmd.equals("price")) {
-                int fl = sc.nextInt();
-                int rm = sc.nextInt();
-                sc.nextLine();
-                if (fl < 1 || fl > floors || rm < 1 || rm > rooms) {
-                    System.out.println("Invalid floor or room.");
-                } else {
-                    System.out.println(
-                        "The price for floor " + fl
-                        + ", room " + rm + " is "
-                        + formatMoney(costs[fl - 1][rm - 1]) + " per day."
-                    );
-                }
-
-            } else if (cmd.equals("print")) {
-                sc.nextLine();
-                for (int f = floors - 1; f >= 0; f--) {
-                    StringBuilder sb = new StringBuilder("|");
-                    for (int r = 0; r < rooms; r++) {
-                        sb.append(guests[f][r] == null ? " " : guests[f][r]);
-                        sb.append("|");
-                    }
-                    System.out.println(sb);
-                }
-
-            } else if (cmd.equals("quit")) {
-                running = false;
-            } else {
-                sc.nextLine();
-            }
-        }
-        sc.close();
+        WeightMachine[] newArr =
+                Arrays.copyOf(this.weightMachines, this.weightMachines.length + 1);
+        newArr[newArr.length - 1] = newMachine;
+        Arrays.sort(newArr);
+        this.weightMachines = newArr;
     }
 
-
-    private static boolean findGuest(String[][] guests, String name) {
-        for (String[] row : guests) {
-            for (String g : row) {
-                if (name.equals(g)) {
-                    return true;
-                }
+    /**
+     * Finds a FreeWeight in the gym by its ID.
+     *
+     * @param id the ID to search for
+     * @return the FreeWeight with that ID, or null if not found
+     */
+    public FreeWeight getFreeWeight(String id) {
+        if (id == null) {
+            return null;
+        }
+        for (FreeWeight fw : this.freeWeights) {
+            if (id.equals(fw.getFreeWeightID())) {
+                return fw;
             }
         }
-        return false;
+        return null;
     }
 
-    private static int countGuests(String[][] guests) {
-        int c = 0;
-        for (int i = 0; i < guests.length; i++) {
-            for (int j = 0; j < guests[i].length; j++) {
-                if (guests[i][j] != null) {
-                    c++;
-                }
+    /**
+     * Finds a WeightMachine in the gym by its ID.
+     *
+     * @param id the ID to search for
+     * @return the WeightMachine with that ID, or null if not found
+     */
+    public WeightMachine getWeightMachine(String id) {
+        if (id == null) {
+            return null;
+        }
+        for (WeightMachine wm : this.weightMachines) {
+            if (id.equals(wm.getWeightMachineID())) {
+                return wm;
             }
         }
-        return c;
+        return null;
     }
 
-    private static String formatMoney(int dollars) {
-        return "$" + dollars + ".00";
+    /**
+     * Returns the total number of equipment in the gym.
+     *
+     * @return total count of free weights and weight machines
+     */
+    public int getEquipmentCount() {
+        return this.freeWeights.length + this.weightMachines.length;
     }
 }
