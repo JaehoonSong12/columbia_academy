@@ -1262,4 +1262,134 @@ We now arrive at the central theorem connecting the concepts from the previous s
 
 
 
+
+\newpage
+
+\begin{enumerate}
+\item \textbf{Letter permutations.}  
+In what follows we assume that any letter appearing more than once 
+is indistinguishable from that same letter. For example, repeated 
+``O''s in a word are not considered distinct.
+\begin{enumerate}[label=(\alph*)]
+  \item How many permutations are there of the letters in the word \textsf{SOCIOLOGICAL}?
+  \item How many of these permutations have the letters \textsf{A} and \textsf{G} adjacent?
+  \item In how many of the permutations are all the vowels adjacent?
+\end{enumerate}
+
+
+\item \textbf{Lattice paths.}  
+Consider lattice paths in the plane that move from one point to 
+another by unit steps to the right (from $(x,y)$ to $(x+1,y)$) 
+or unit steps up (from $(x,y)$ to $(x,y+1)$).
+\begin{enumerate}[label=(\alph*)]
+  \item How many such paths are there from $(0,0)$ to $(7,7)$?
+  \item How many such paths are there from $(0,0)$ to $(n,n)$?
+  \item How many such paths are there from $(2,7)$ to $(9,14)$?
+  \item Give a general formula for the number of such paths between 
+  $(a,b)$ and $(c,d)$ (with $c\ge a$, $d\ge b$).
+\end{enumerate}
+
+
+\item \textbf{Donuts (combinatorics with limited flavors).}  
+Neda is buying 4 donuts: Viktor wants one filled and one unfilled; 
+Neda wants one unfilled and another donut that may be either 
+filled or unfilled. The shop has only single units of each flavor 
+and currently has 3 flavors of unfilled donuts and 2 flavors of 
+filled donuts remaining.
+\begin{enumerate}[label=(\alph*)]
+  \item List all possible selections (sets of 4 distinct-flavor donuts) 
+  that Neda could buy under the constraints above.
+  \item Ezri claims: ``There are $ \binom{3}{2}-3 $ ways to choose 2 
+  unfilled donuts, $ \binom{2}{1}-2 $ ways to choose a filled one for 
+  Viktor, and then 2 ways to choose Neda's other donut from the two 
+  that are left, so in total 12 choices.'' Use your answer from part 
+  (a) to explain the flaw in Ezri's reasoning.
+  \item The next day, the shop has 12 unfilled and 7 filled flavors 
+  (all distinct). Neda wants the same kind of order (4 different-flavored 
+  donuts satisfying the same preferences). How many different orders could 
+  Neda make?
+  \item Ezri wants to buy two boxes: one 4-pack for herself and another 
+  4-pack to take to Jerome (8 distinct flavors in all). If the shop has 
+  12 unfilled and 7 filled flavors and she wants 8 distinct flavors 
+  total, how many possible orders (choices of 8 distinct flavors and 
+  their assignment into the two 4-packs, if order within a pack does 
+  not matter) could she place?
+\end{enumerate}
+
+\item \textbf{Consecutive-letter constraint in \textsc{INFORMATION}.} \\
+In how many ways can one arrange all the letters of the word 
+\textsf{INFORMATION} so that no ordered pair of consecutive letters 
+(a digram) appears more than once in the permutation?  
+For example, permutations such as \textsf{IINNOOFRMTA} or 
+\textsf{FORTMAIINON} would be allowed, but \textsf{INFORINMOTA} 
+(the digram ``IN'' appears twice) or \textsf{NORTFNOIAMI} (the 
+digram ``NO'' appears twice) would not be allowed.
+
+\item \textbf{Inclusion–exclusion variant.} \\
+Recall that
+\[
+E_k = S_k - \binom{k+1}{1}S_{k+1} + \binom{k+2}{2}S_{k+2} - \cdots + (-1)^{\,n-k}\binom{n}{n-k}S_n,
+\]
+where the $S_i$ are the usual sums of sizes of intersections 
+of $i$ conditions.  Can you write down a general formula for 
+$L_k$, the number of elements of the universe $A$ that satisfy 
+\emph{at least} $k$ of the given conditions?  (It may be 
+difficult to express $L_k$ using only the $S_i$; you may 
+use the $E_i$ if you wish.)\\
+\textbf{Suggestion}: relate $L_k$ to sums of the $E_i$'s.
+
+
+
+\newpage
+
+
+
+\item \textbf{Derangements with fixed initial block.} \\
+For positive integers $1,2,\dots,n$, there are $11\,660$ derangements 
+in which the numbers $1,2,3,4,5$ occupy the first five positions 
+(in some order). What is the value of $n$?
+
+
+
+\item \textbf{Ordinary generating function and central binomial coefficients.} \\
+Show that the ordinary generating function
+\[
+g(x) = (1-4x)^{-1/2}
+\]
+generates the sequence $\bigl(\binom{2n}{n}\bigr)_{n\ge0}$. You may use 
+the binomial expansion
+\[
+(1+x)^n=\sum_{k=0}^n \binom{n}{k} x^k.
+\]
+\emph{Note:} this problem is challenging; mastery is not required 
+for assessments.
+
+\item \textbf{Generating functions: ordinary vs exponential.} \\
+Let
+\[
+f(x)=a_0+a_1 x+a_2 x^2+a_3 x^3+\cdots
+\]
+be the ordinary generating function (OGF) for the sequence $(a_n)_{n\ge0}$, and let
+\[
+\tilde g(x)=a_0 + a_1\frac{x}{1!} + a_2\frac{x^2}{2!} + a_3\frac{x^3}{3!} + \cdots
+\]
+be the exponential generating function (EGF) for the same sequence. Let $k$ be an arbitrary fixed positive integer. (The problem continues in your source; this is the cleaned statement of the introductory notation.)
+
+\medskip
+
+\item \textbf{Convolution with the all-ones sequence.} \\
+Show that the convolution of any sequence $(a_n)_{n\ge0}$ with 
+the sequence $(b_n)_{n\ge0}=(1,1,1,\dots)$ is the sequence of 
+partial sums of $(a_n)$, i.e. the convolution $c_n=\sum_{k=0}^n a_k$ 
+for each $n\ge0$.  
+\newline
+\emph{Note:} this explains why multiplying a generating function by 
+$\dfrac{1}{1-x}$ yields the sequence of cumulative sums: $\dfrac{1}{1-x}$ 
+is sometimes called the ``addition operator.''
+
+\end{enumerate}
+
+
+
+
 \end{document}
