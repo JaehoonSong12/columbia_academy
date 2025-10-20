@@ -853,13 +853,13 @@ Thus our completed table is as follows:
 \hline
 Balls & Baskets & Total solutions & At most 1 ball in each basket & At least 1 ball in each basket \\
 \hline
-Distinct & Distinct & A: $n^{k}$ & B: $P(n, k)$ & C: $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
+Distinct & Distinct & $n^{k}$ & $P(n, k)$ & $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
 \hline
-Identical & Distinct & D: $\binom{n+k-1}{k-1}$ & E: $\binom{n}{k}$ & F: $\binom{k-1}{n-1}$ \\
+Identical & Distinct & $\binom{n+k-1}{k-1}$ & $\binom{n}{k}$ & $\binom{k-1}{n-1}$ \\
 \hline
-Distinct & Identical & G: $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\left\{\begin{array}{c}k \\ 2\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & H: 1 if $k \leq n$; 0 otherwise & I: $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
+Distinct & Identical & $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & 1 if $k \leq n$; else 0 & $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
 \hline
-Identical & Identical & J: $p_{\leq n}(k)=p_{1}(k)+p_{2}(k)+\cdots+p_{n}(k)$ & K: 1 if $k \leq n$; 0 otherwise & L: $p_{n}(k)$ \\
+Identical & Identical & $p_{\leq n}(k)=p_{1}(k)+\cdots+p_{n}(k)$ & if $k \leq n$; else 0 & $p_{n}(k)$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -1172,7 +1172,6 @@ A generating function is a formal power series whose coefficients encode a seque
   The ordinary generating function for the sequence of partition numbers $p(k)$ is given by:
   $$ \sum_{k=0}^{\infty} p(k)x^k = \prod_{i=1}^{\infty} \frac{1}{1-x^i} $$
 \end{theorem}
-
 \begin{proof}[Sketch of Proof]
   We use the geometric series expansion $\frac{1}{1-y} = 1 + y + y^2 + \dots$.
   The product can be written as:
@@ -1181,6 +1180,21 @@ A generating function is a formal power series whose coefficients encode a seque
   $$ k = m_1 \cdot 1 + m_2 \cdot 2 + m_3 \cdot 3 + \dots $$
   This is precisely a partition of $k$, where $m_1$ is the number of parts of size 1, $m_2$ is the number of parts of size 2, etc. The coefficient of $x^k$ is therefore the total number of ways to form such a sum, which is $p(k)$.
 \end{proof}
+
+
+
+
+\begin{theorem}[Generating Function for Partitions with Exactly $n$ Parts]
+  Let $p_n(k)$ be the number of partitions of $k$ into exactly $n$ parts. Its generating function is:
+  $$
+  \sum_{k=0}^{\infty} p_n(k) x^k=\boldsymbol{x}^n \prod_{i=1}^n \frac{1}{1-x^i}
+  $$
+\end{theorem}
+\begin{proof}
+  To form a partition of $k$ into exactly $n$ parts, we can think of first choosing one part from each of the first $n$ factors in the product $\prod_{i=1}^{\infty} \frac{1}{1-x^i}$, which corresponds to selecting at least one of each of the first $n$ integers as parts. This contributes a factor of $x^n$ (one from each of the first $n$ factors). The remaining parts can be any combination of parts from sizes 1 to $n$, which is represented by the product $\prod_{i=1}^{n} \frac{1}{1-x^i}$. Thus, the generating function for partitions into exactly $n$ parts is:
+  $$ \sum_{k=0}^{\infty} p_n(k) x^k = x^n \prod_{i=1}^{n} \frac{1}{1-x^i} $$  
+\end{proof}
+
 
 \begin{theorem}[Generating Function for Partitions with Restricted Parts]
   Let $p_{\text{largest part } \le n}(k)$ be the number of partitions of $k$ where the largest part is at most $n$. Its generating function is:
