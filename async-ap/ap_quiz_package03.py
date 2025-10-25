@@ -215,7 +215,9 @@ def countEvens(nums: list[int]) -> int:
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
-
+# -----------------------------------------------------------------
+# Question 5: bigDiff
+# -----------------------------------------------------------------
 def bigDiff(nums: list[int]) -> int:
     """
     Description:
@@ -251,6 +253,9 @@ def bigDiff(nums: list[int]) -> int:
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
+# -----------------------------------------------------------------
+# Question 6: centeredAverage
+# -----------------------------------------------------------------
 def centeredAverage(nums: list[int]) -> int:
     """
     Description:
@@ -293,6 +298,9 @@ def centeredAverage(nums: list[int]) -> int:
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
+# -----------------------------------------------------------------
+# Question 7: makeBricks
+# -----------------------------------------------------------------
 def makeBricks(small: int, big: int, goal: int) -> bool:
     """
     Description:
@@ -335,6 +343,9 @@ def makeBricks(small: int, big: int, goal: int) -> bool:
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
+# -----------------------------------------------------------------
+# Question 8: countYZ
+# -----------------------------------------------------------------
 def countYZ(s: str) -> int:
     """
     Description:
@@ -378,6 +389,9 @@ def countYZ(s: str) -> int:
 
 
 
+# -----------------------------------------------------------------
+# Question 9: maxSpan
+# -----------------------------------------------------------------
 def maxSpan(nums: list[int]) -> int:
     """
     Description:
@@ -432,6 +446,9 @@ def maxSpan(nums: list[int]) -> int:
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
+# -----------------------------------------------------------------
+# Question 10: catDog
+# -----------------------------------------------------------------
 def catDog(s: str) -> bool:
     """
     Description:

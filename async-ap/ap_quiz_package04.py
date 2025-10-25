@@ -3,19 +3,19 @@
 """
 Instructions to run the tests via the CLI:
     1. Open your terminal or command prompt.
-    2. Run the tests by executing: `python async-ap/ap_quiz_package03.py`
+    2. Run the tests by executing: `python async-ap/ap_quiz_package04.py`
 
 This is a list of quiz questions for practice, including:
-1.  commonTwo: Counts unique common strings in two sorted arrays.
-2.  doubleChar: Duplicates each character in a string.
-3.  countHi: Counts occurrences of "hi" in a string.
-4.  countEvens: Counts even integers in a list.
-5.  bigDiff: Finds the difference between the largest and smallest integers in a list.
-6.  centeredAverage: Calculates the centered average of a list of integers.
-7.  makeBricks: Determines if a goal length can be achieved with given bricks.
-8.  countYZ: Counts words ending in 'y' or 'z' in a string.
-9.  maxSpan: Finds the largest span of identical values in a list.
-10. catDog: Checks if "cat" and "dog" appear the same number of times in a string.
+1.  countCode: Count occurrences of "co_e" patterns in a string.
+2.  sum13: Sum numbers in a list, ignoring 13 and the number after it.
+3.  has22: Check if a list contains two consecutive 2's.
+4.  loneSum: Sum three integers, ignoring duplicates.
+5.  withoutString: Remove all instances of a substring from a base string, case-insensitively.
+6.  fix34: Rearrange a list so every 3 is followed by a 4.
+7.  endOther: Check if one string ends with another, case-insensitively.
+8.  xyzThere: Check if "xyz" appears in a string not preceded by a period.
+9.  lucky13: Check if a list contains no 1's and no 3's.
+10. sum28: Check if the sum of all 2's in a list is exactly 8.
 """
 
 # Import the unittest module, needed for creating test cases.
@@ -59,122 +59,37 @@ from typing import List
 
 
 # -----------------------------------------------------------------
-# Question 1: commonTwo
+# Question 1: countCode
 # -----------------------------------------------------------------
-def commonTwo(a: list[str], b: list[str]) -> int:
+def countCode(s: str) -> int:
     """
     Description:
-        Start with two arrays of strings, `a` and `b`, each in 
-        alphabetical order, possibly with duplicates.
-        Return the count of the number of unique strings which 
-        appear in both arrays. Use a single-pass
-        linear solution taking advantage of the sorted order.
+        Return the number of times that the string "code" appears anywhere in the given string,
+        except we'll accept any letter for the 'd' position—so "cope" and "cooe" count as well.
 
     Examples:
-        commonTwo(["a", "c", "x"], ["b", "c", "d", "x"]) -> 2
-        commonTwo(["a", "c", "x"], ["a", "b", "c", "x", "z"]) -> 3
-        commonTwo(["a", "b", "c"], ["a", "b", "c"]) -> 3
+        countCode("aaacodebbb") -> 1
+        countCode("codexxcode") -> 2
+        countCode("cozexxcope") -> 2
 
     Args:
-        a (list[str]): First sorted list of strings, may contain duplicates.
-        b (list[str]): Second sorted list of strings, may contain duplicates.
+        s (str): The input string to search within.
 
     Returns:
-        int: The count of unique strings that appear in both `a` and `b`.
+        int: The count of substrings matching the pattern "co_e".
     """
     ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-    temp = []
-    for string in a:
-        if string not in temp:
-            temp.append(string)
-    a = temp
-    temp = []
-    for string in b:
-        if string not in temp:
-            temp.append(string)
-    b = temp
-
-    count = 0
-    i = 0
-    while i < len(b):
-        if b[i] in a:
-            count += 1
-        i += 1
-    return count
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-
-# -----------------------------------------------------------------
-# Question 2: doubleChar
-# -----------------------------------------------------------------
-def doubleChar(s: str) -> str:
-    """
-    Description:
-        Given a string, return a new string where for every character in the original,
-        there are two characters in the result.
-
-    Examples:
-        doubleChar("The") -> "TThhee"
-        doubleChar("AAbb") -> "AAAAbbbb"
-        doubleChar("Hi-There") -> "HHii--TThheerree"
-        
-    Args:
-        s (str): The input string.
-
-    Returns:
-        str: A string where each character from `s` is repeated twice.
-    """
-    ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-    new_str = ""
-    for char in s:
-        new_str += char
-        new_str += char
-    return new_str
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-
-# -----------------------------------------------------------------
-# Question 3: countHi
-# -----------------------------------------------------------------
-def countHi(s: str) -> int:
-    """
-    Description:
-        Return the number of times the string "hi" appears anywhere in the given string.
-        The match is case-sensitive, so only lowercase "hi" counts.
-
-    Examples:
-        countHi("abc hi ho") -> 1
-        countHi("ABChi hi") -> 2
-        countHi("hihi") -> 2
-
-    Args:
-        s (str): Input string to search within.
-
-    Returns:
-        int: Number of times "hi" appears.
-    """
-    ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
     i = 0
     count = 0
-    while i < len(s) - 1:
-        if s[i] == "h":
-            if s[i + 1] == "i":
-                count += 1
+    while i < len(s) - 3:
+        if s[i] == "c":
+            if s[i + 1] == "o":
+                if s[i + 3] == "e":
+                    count += 1
         i += 1
     return count
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
 
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
@@ -182,292 +97,263 @@ def countHi(s: str) -> int:
 
 
 # -----------------------------------------------------------------
-# Question 4: countEvens
+# Question 2: sum13
 # -----------------------------------------------------------------
-def countEvens(nums: list[int]) -> int:
+def sum13(nums: list[int]) -> int:
     """
     Description:
-        Return the number of even integers in the given array.
-        An integer is even if it has no remainder when divided by 2 (i.e., num % 2 == 0).
+        Return the sum of the numbers in the list, returning 0 for an empty list.
+        The number 13 is unlucky—it does not count toward the sum, and any number
+        immediately following a 13 also does not count.
 
     Examples:
-        countEvens([2, 1, 2, 3, 4]) -> 3
-        countEvens([2, 2, 0]) -> 3
-        countEvens([1, 3, 5]) -> 0
+        sum13([1, 2, 2, 1]) -> 6
+        sum13([1, 1]) -> 2
+        sum13([1, 2, 2, 1, 13]) -> 6
 
     Args:
         nums (list[int]): A list of integers.
 
     Returns:
-        int: Count of even integers in the list.
+        int: The sum according to the "13" rules described above.
     """
     ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-    count = 0
-    for num in nums:
-        if num % 2 == 0:
-            count += 1
-    return count
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-
-
-def bigDiff(nums: list[int]) -> int:
-    """
-    Description:
-        Given a list of integers with length 1 or more, return the difference
-        between the largest and smallest values in the list.
-
-    Examples:
-        bigDiff([10, 3, 5, 6]) -> 7
-        bigDiff([7, 2, 10, 9]) -> 8
-        bigDiff([2, 10, 7, 2]) -> 8
-
-    Args:
-        nums (list[int]): A list of one or more integers.
-
-    Returns:
-        int: The difference between the maximum and minimum values in the list.
-    """
-    ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-    largest = nums[0]
-    smallest = nums[0]
-    for num in nums:
-        if num > largest:
-            largest = num
-        if num < smallest:
-            smallest = num
-    difference = largest - smallest
-    return difference
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-
-def centeredAverage(nums: list[int]) -> int:
-    """
-    Description:
-        Return the "centered" average of a list of integers.
-        The centered average is the mean of the values, excluding the smallest
-        and largest values (ignoring only one copy of each).
-        Use integer division for the result.
-        The input list is guaranteed to have a length of 3 or more.
-
-    Examples:
-        centeredAverage([1, 2, 3, 4, 100]) -> 3
-        centeredAverage([1, 1, 5, 5, 10, 8, 7]) -> 5
-        centeredAverage([-10, -4, -2, -4, -2, 0]) -> -3
-
-    Args:
-        nums (list[int]): A list of integers with length 3 or more.
-
-    Returns:
-        int: The centered average of the list using integer division.
-    """
-    ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-    largest = nums[0]
-    smallest = nums[0]
-    for num in nums:
-        if num > largest:
-            largest = num
-        if num < smallest:
-            smallest = num
     sum = 0
-    total = 0
-    for num in nums:
-        sum += num
-        total += 1
-    average = (sum - smallest - largest) // (total - 2)
-    return average
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-def makeBricks(small: int, big: int, goal: int) -> bool:
-    """
-    Description:
-        Determine if it is possible to reach the desired goal 
-        length using a combination
-        of small bricks (1 inch each) and big bricks (5 inches each). 
-        The function returns True if the goal can be reached 
-        exactly, otherwise False.
-        No loops are needed for this solution.
-
-    Examples:
-        makeBricks(3, 1, 8) -> True
-        makeBricks(3, 1, 9) -> False
-        makeBricks(3, 2, 10) -> True
-
-    Args:
-        small (int): Number of small bricks (1 inch each).
-        big (int): Number of big bricks (5 inches each).
-        goal (int): The target length to achieve.
-
-    Returns:
-        bool: True if the goal can be reached using the available bricks, False otherwise.
-    """
-    ### [Your Implementation Here]
-    if big * 5 > goal:
-        if goal % 5 == small:
-            return True
-    if big * 5 == goal:
-        return True
-    if small == goal:
-        return True
-    if big * 5 < goal:
-        if big * 5 + small >= goal:
-            return True
-    return False
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-def countYZ(s: str) -> int:
-    """
-    Description:
-        Given a string, count the number of words ending in 'y' or 'z'.
-        The character must appear at the end of a word — that is, it must not be
-        immediately followed by another alphabetic letter. The comparison is
-        case-insensitive.
-
-    Examples:
-        countYZ("fez day") -> 2
-        countYZ("day fez") -> 2
-        countYZ("day fyyyz") -> 2
-
-    Args:
-        s (str): The input string.
-
-    Returns:
-        int: The number of words ending in 'y' or 'z'.
-    """
-    ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
     i = 0
-    count = 0
-    s = s.lower()
-    while i < len(s):
-        if i == len(s) - 1:
-            if s[i] == "y" or s[i] == "z":
-                count += 1
-            break
-        if not s[i + 1].isalpha():
-            if s[i] == "y" or s[i] == "z":
-                count += 1
-        i += 1
-    return count
-    # Case-2. If the question can be solved with 'recursion', design a 
-    # correct algorithm. Since the recursion can be inefficient, use 
-    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-
-
-
-def maxSpan(nums: list[int]) -> int:
-    """
-    Description:
-        Consider the leftmost and rightmost appearances of some value in an array.
-        We'll say that the "span" is the number of elements between the two, inclusive.
-        A single occurrence of a value has a span of 1.
-        Return the largest span found in the given array.
-        Note: Efficiency is not a priority.
-
-    Examples:
-        maxSpan([1, 2, 1, 1, 3]) -> 4
-        maxSpan([1, 4, 2, 1, 4, 1, 4]) -> 6
-        maxSpan([1, 4, 2, 1, 4, 4, 4]) -> 6
-
-    Args:
-        nums (list[int]): The input list of integers.
-
-    Returns:
-        int: The largest span found in the array.
-    """
-    ### [Your Implementation Here]
-    
-    # Case-1. If the question can be solved with 'iteration (for/while)', 
-    # design the most efficient algorithm.
-
-    if len(nums) == 0:
-        return 0
-    
-    if len(nums) == len(list(set(nums))):
-        return 1
-
-
-    i = 0
-    current_span = 0
     while i < len(nums):
-        j = i + 1
-        new_span = 0
-        start_span_ind = i
-        end_span_ind = j
-        while j < len(nums):
-            if nums[j] == nums[i]:
-                if j != end_span_ind:
-                    end_span_ind = j
-            j += 1
-        new_span = end_span_ind - start_span_ind + 1
-        if current_span < new_span:
-            current_span = new_span
-        i += 1
-    return current_span
+        if nums[i] != 13:
+            sum += nums[i]
+            i += 1
+        elif nums[i] == 13:
+            i += 2
+    return sum
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
-def catDog(s: str) -> bool:
+# -----------------------------------------------------------------
+# Question 3: has22
+# -----------------------------------------------------------------
+def has22(nums: list[int]) -> bool:
     """
     Description:
-        Return True if the strings "cat" and "dog" appear the 
-        same number of times in the given string.
-        The comparison is case-sensitive and counts non-overlapping 
-        occurrences.
+        Given a list of integers, return True if the list contains a 2 next to a 2 somewhere.
 
     Examples:
-        catDog("catdog") -> True
-        catDog("catcat") -> False
-        catDog("1cat1cadodog") -> True
+        has22([1, 2, 2]) -> True
+        has22([1, 2, 1, 2]) -> False
+        has22([2, 1, 2]) -> False
 
     Args:
-        s (str): The input string to examine.
+        nums (list[int]): The list of integers to check.
 
     Returns:
-        bool: True if "cat" and "dog" occur the same number of times, False otherwise.
+        bool: True if there is at least one occurrence of two consecutive 2's, False otherwise.
     """
     ### [Your Implementation Here]
     i = 0
-    cat_count = 0
-    dog_count = 0
-    while i < len(s) - 2:
-        if s[i] == "c":
-            if s[i + 1] == "a":
-                if s[i + 2] == "t":
-                    cat_count += 1
-        if s[i] == "d":
-            if s[i + 1] == "o":
-                if s[i + 2] == "g":
-                    dog_count += 1
+    while i < len(nums) - 1:
+        if nums[i] == 2:
+            if nums[i + 1] == 2:
+                return True
         i += 1
-    if cat_count == dog_count:
-        return True
     return False
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+# -----------------------------------------------------------------
+# Question 4: loneSum
+# -----------------------------------------------------------------
+def loneSum(a: int, b: int, c: int) -> int:
+    """
+    Description:
+        Given 3 integer values, a, b, and c, return their sum. However, if one of the values
+        is the same as another value, that value does not count toward the sum.
+
+    Examples:
+        loneSum(1, 2, 3) -> 6
+        loneSum(3, 2, 3) -> 2
+        loneSum(3, 3, 3) -> 0
+
+    Args:
+        a (int): First integer.
+        b (int): Second integer.
+        c (int): Third integer.
+
+    Returns:
+        int: The sum of the values that are not duplicated.
+    """
+    ### [Your Implementation Here]
+    total = 0
+    if a != b and a != c:
+        total += a
+    if b != a and b != c:
+        total += b
+    if c != a and c != b:
+        total += c
+    return total
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+# -----------------------------------------------------------------
+# Question 5: withoutString
+# -----------------------------------------------------------------
+def withoutString(base: str, remove: str) -> str:
+    """
+    Description:
+        Given two strings, `base` and `remove`, return a version of the `base` string where all
+        non-overlapping instances of the `remove` string have been removed. Removal is not case
+        sensitive (e.g. removing "is" will remove "IS", "Is", etc.), but the remaining characters
+        keep their original case. You may assume `remove` has length 1 or more.
+
+    Examples:
+        withoutString("Hello there", "llo") -> "He there"
+        withoutString("Hello there", "e")   -> "Hllo thr"
+        withoutString("Hello there", "x")   -> "Hello there"
+
+    Args:
+        base (str):    The original string.
+        remove (str):  The substring to remove (case-insensitive).
+
+    Returns:
+        str: The resulting string after all instances of `remove` have been removed.
+    """
+    ### [Your Implementation Here]
+    new_str = ""
+
+    i = 0
+    while i <= len(base):
+        if (i > len(base) - len(remove)): 
+            new_str += base[i:]
+            break
+        if (base[i:i+len(remove)].lower() == remove.lower()): 
+            i = i + len(remove)
+            continue
+        else: 
+            new_str += base[i]
+        i += 1
+    return new_str
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+# -----------------------------------------------------------------
+# Question 6: fix34
+# -----------------------------------------------------------------
+def fix34(nums: list[int]) -> list[int]:
+    """
+    Description:
+        Return a list containing exactly the same numbers as the given list, 
+        but rearranged so that every 3 
+        is immediately followed by a 4. Do not move the 3's themselves, but 
+        every other number may move (specifically, may be swaped).
+        You may assume:
+          - The list contains the same number of 3's and 4's.
+          - Every 3 has a non-3 immediately after it.
+          - No 4 appears before the first 3.
+
+    Examples:
+        fix34([1, 3, 1, 4]) -> [1, 3, 4, 1]
+        fix34([1, 3, 1, 4, 4, 3, 1]) -> [1, 3, 4, 1, 1, 3, 4]
+        fix34([3, 2, 2, 4]) -> [3, 4, 2, 2]
+
+    Args:
+        nums (list[int]): The input list of integers containing matching numbers of 3's and 4's.
+
+    Returns:
+        list[int]: A new list where each 3 is immediately followed by a 4.
+    """
+    ### [Your Implementation Here]
+
+    
+
+
+    
+    return None
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+# -----------------------------------------------------------------
+# Question 7: endOther
+# -----------------------------------------------------------------
+
+def endOther(a: str, b: str) -> bool:
+    """
+    Description:
+        Given two strings, return True if either of the strings appears at the very end
+        of the other string, ignoring upper/lower case differences.
+
+    Examples:
+        endOther("Hiabc", "abc") -> True
+        endOther("AbC", "HiaBc") -> True
+        endOther("abc", "abXabc") -> True
+
+    Args:
+        a (str): First input string.
+        b (str): Second input string.
+
+    Returns:
+    
+        bool: True if one string appears at the end of the other (case-insensitive), else False.
+    """
+    ### [Your Implementation Here]
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+# -----------------------------------------------------------------
+# Question 8: xyzThere
+# -----------------------------------------------------------------
+def xyzThere(s: str) -> bool:
+    """
+    Description:
+        Return True if the given string contains an appearance of 
+        "xyz" where the "xyz"
+        is not directly preceded by a period ('.'). For example, 
+        "xxyz" counts but "x.xyz" does not.
+
+    Examples:
+        xyzThere("abcxyz") -> True
+        xyzThere("abc.xyz") -> False
+        xyzThere("xyz.abc") -> True
+
+    Args:
+        s (str): The input string to check.
+
+    Returns:
+        bool: True if "xyz" appears not preceded by '.', otherwise False.
+    """
+    ### [Your Implementation Here]
+    
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
 
@@ -478,31 +364,65 @@ def catDog(s: str) -> bool:
 
 
 
+# -----------------------------------------------------------------
+# Question 9: lucky13
+# -----------------------------------------------------------------
+def lucky13(nums: list[int]) -> bool:
+    """
+    Description:
+        Given a list of integers, return True if the list contains no 1's and no 3's.
+
+    Examples:
+        lucky13([0, 2, 4]) -> True
+        lucky13([1, 2, 3]) -> False
+        lucky13([1, 2, 4]) -> False
+        lucky13([2, 7, 2, 8]) -> True
+
+    Args:
+        nums (list[int]): The list of integers to check.
+
+    Returns:
+        bool: True if there are no 1's and no 3's in the list, otherwise False.
+    """
+    ### [Your Implementation Here]
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
+# -----------------------------------------------------------------
+# Question 10: sum28
+# -----------------------------------------------------------------
+def sum28(nums: list[int]) -> bool:
+    """
+    Description:
+        Given a list of integers, return True if the sum of all the 2's in the list is exactly 8.
 
+    Examples:
+        sum28([2, 3, 2, 2, 4, 2]) -> True
+        sum28([2, 3, 2, 2, 4, 2, 2]) -> False
+        sum28([1, 2, 3, 4]) -> False
+        sum28([2, 2, 2, 2]) -> True
+        sum28([1, 2, 2, 2, 2, 4]) -> True
 
+    Args:
+        nums (list[int]): The list of integers to examine.
 
+    Returns:
+        bool: True if the sum of all 2's is exactly 8, otherwise False.
+    """
+    ### [Your Implementation Here]
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
 
@@ -520,168 +440,178 @@ def catDog(s: str) -> bool:
 # -----------------------------------------------------------------
 # Unit Tests
 # -----------------------------------------------------------------
-class TestCommonTwo(unittest.TestCase):
-    def test_commonTwo(self):
-        self.assertEqual(commonTwo(["a", "c", "x"], ["b", "c", "d", "x"]), 2)
-        self.assertEqual(commonTwo(["a", "c", "x"], ["a", "b", "c", "x", "z"]), 3)
-        self.assertEqual(commonTwo(["a", "b", "c"], ["a", "b", "c"]), 3)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["a", "b", "c"]), 3)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["a", "b", "b", "b", "c"]), 3)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["a", "b", "b", "c", "c"]), 3)
-        self.assertEqual(commonTwo(["b", "b", "b", "b", "c"], ["a", "b", "b", "b", "c"]), 2)
-        self.assertEqual(commonTwo(["a", "b", "c", "c", "d"], ["a", "b", "b", "c", "d", "d"]), 4)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["b", "b", "b"]), 1)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["c", "c"]), 1)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["b", "b", "b", "x"]), 1)
-        self.assertEqual(commonTwo(["a", "a", "b", "b", "c"], ["b", "b"]), 1)
-        self.assertEqual(commonTwo(["a"], ["a", "b"]), 1)
-        self.assertEqual(commonTwo(["a"], ["b"]), 0)
-        self.assertEqual(commonTwo(["a", "a"], ["b", "b"]), 0)
-        self.assertEqual(commonTwo(["a", "b"], ["a", "b"]), 2)
+class TestCountCode(unittest.TestCase):
+    def test_countCode(self):
+        self.assertEqual(countCode("aaacodebbb"), 1)
+        self.assertEqual(countCode("codexxcode"), 2)
+        self.assertEqual(countCode("cozexxcope"), 2)
+        self.assertEqual(countCode("cozfxxcope"), 1)
+        self.assertEqual(countCode("xxcozeyycop"), 1)
+        self.assertEqual(countCode("cozcop"), 0)
+        self.assertEqual(countCode("abcxyz"), 0)
+        self.assertEqual(countCode("code"), 1)
+        self.assertEqual(countCode("ode"), 0)
+        self.assertEqual(countCode("c"), 0)
+        self.assertEqual(countCode(""), 0)
+        self.assertEqual(countCode("AAcodeBBcoleCCccoreDD"), 3)
+        self.assertEqual(countCode("AAcodeBBcoleCCccorfDD"), 2)
+        self.assertEqual(countCode("coAcodeBcoleccoreDD"), 3)
 
-class TestDoubleChar(unittest.TestCase):
-    def test_doubleChar(self):
-        self.assertEqual(doubleChar("The"), "TThhee")
-        self.assertEqual(doubleChar("AAbb"), "AAAAbbbb")
-        self.assertEqual(doubleChar("Hi-There"), "HHii--TThheerree")
-        self.assertEqual(doubleChar("Word!"), "WWoorrdd!!")
-        self.assertEqual(doubleChar("!!"), "!!!!")
-        self.assertEqual(doubleChar(")"), "))")
-        self.assertEqual(doubleChar("a"), "aa")
-        self.assertEqual(doubleChar("."), "..")
-        self.assertEqual(doubleChar("aa"), "aaaa")
-    
-class TestCountHi(unittest.TestCase):
-    def test_countHi(self):
-        self.assertEqual(countHi("abc hi ho"), 1)
-        self.assertEqual(countHi("ABChi hi"), 2)
-        self.assertEqual(countHi("hihi"), 2)
-        self.assertEqual(countHi("hiHIhi"), 2)
-        self.assertEqual(countHi(""), 0)
-        self.assertEqual(countHi("h"), 0)
-        self.assertEqual(countHi("hi"), 1)
-        self.assertEqual(countHi("Hi is no HI on ahI"), 0)
-        self.assertEqual(countHi("hiho not HOHIhi"), 2)
 
-class TestCountEvens(unittest.TestCase):
-    def test_countEvens(self):
-        self.assertEqual(countEvens([2, 1, 2, 3, 4]), 3)
-        self.assertEqual(countEvens([2, 2, 0]), 3)
-        self.assertEqual(countEvens([1, 3, 5]), 0)
-        self.assertEqual(countEvens([]), 0)
-        self.assertEqual(countEvens([11, 9, 0, 1]), 1)
-        self.assertEqual(countEvens([2, 11, 9, 0]), 2)
-        self.assertEqual(countEvens([2]), 1)
-        self.assertEqual(countEvens([2, 5, 12]), 2)
 
-class TestBigDiff(unittest.TestCase):
-    def test_bigDiff(self):
-        self.assertEqual(bigDiff([10, 3, 5, 6]), 7)
-        self.assertEqual(bigDiff([7, 2, 10, 9]), 8)
-        self.assertEqual(bigDiff([2, 10, 7, 2]), 8)
-        self.assertEqual(bigDiff([2, 10]), 8)
-        self.assertEqual(bigDiff([10, 2]), 8)
-        self.assertEqual(bigDiff([10, 0]), 10)
-        self.assertEqual(bigDiff([2, 3]), 1)
-        self.assertEqual(bigDiff([2, 2]), 0)
-        self.assertEqual(bigDiff([2]), 0)
-        self.assertEqual(bigDiff([5, 1, 6, 1, 9, 9]), 8)
-        self.assertEqual(bigDiff([7, 6, 8, 5]), 3)
-        self.assertEqual(bigDiff([7, 7, 6, 8, 5, 5, 6]), 3)
+class TestSum13(unittest.TestCase):
+    def test_sum13(self):
+        self.assertEqual(sum13([1, 2, 2, 1]), 6)
+        self.assertEqual(sum13([1, 1]), 2)
+        self.assertEqual(sum13([1, 2, 2, 1, 13]), 6)
+        self.assertEqual(sum13([1, 2, 13, 2, 1, 13]), 4)
+        self.assertEqual(sum13([13, 1, 2, 13, 2, 1, 13]), 3)
+        self.assertEqual(sum13([]), 0)
+        self.assertEqual(sum13([13]), 0)
+        self.assertEqual(sum13([13, 13]), 0)
+        self.assertEqual(sum13([13, 0, 13]), 0)
+        self.assertEqual(sum13([13, 1, 13]), 0)
+        self.assertEqual(sum13([5, 7, 2]), 14)
+        self.assertEqual(sum13([5, 13, 2]), 5)
+        self.assertEqual(sum13([0]), 0)
+        self.assertEqual(sum13([13, 0]), 0)
 
-class TestCenteredAverage(unittest.TestCase):
-    def test_centeredAverage(self):
-        self.assertEqual(centeredAverage([1, 2, 3, 4, 100]), 3)
-        self.assertEqual(centeredAverage([1, 1, 5, 5, 10, 8, 7]), 5)
-        self.assertEqual(centeredAverage([-10, -4, -2, -4, -2, 0]), -3)
-        self.assertEqual(centeredAverage([5, 3, 4, 6, 2]), 4)
-        self.assertEqual(centeredAverage([5, 3, 4, 0, 100]), 4)
-        self.assertEqual(centeredAverage([100, 0, 5, 3, 4]), 4)
-        self.assertEqual(centeredAverage([4, 0, 100]), 4)
-        self.assertEqual(centeredAverage([0, 2, 3, 4, 100]), 3)
-        self.assertEqual(centeredAverage([1, 1, 100]), 1)
-        self.assertEqual(centeredAverage([7, 7, 7]), 7)
-        self.assertEqual(centeredAverage([1, 7, 8]), 7)
-        self.assertEqual(centeredAverage([1, 1, 99, 99]), 50)
-        self.assertEqual(centeredAverage([1000, 0, 1, 99]), 50)
-        self.assertEqual(centeredAverage([4, 4, 4, 4, 5]), 4)
-        self.assertEqual(centeredAverage([4, 4, 4, 1, 5]), 4)
-        self.assertEqual(centeredAverage([6, 4, 8, 12, 3]), 6)
+class TestHas22(unittest.TestCase):
+    def test_has22(self):
+        self.assertTrue(has22([1, 2, 2]))
+        self.assertFalse(has22([1, 2, 1, 2]))
+        self.assertFalse(has22([2, 1, 2]))
+        self.assertTrue(has22([2, 2, 1, 2]))
+        self.assertFalse(has22([1, 3, 2]))
+        self.assertTrue(has22([1, 3, 2, 2]))
+        self.assertTrue(has22([2, 3, 2, 2]))
+        self.assertTrue(has22([4, 2, 4, 2, 2, 5]))
+        self.assertFalse(has22([1, 2]))
+        self.assertTrue(has22([2, 2]))
+        self.assertFalse(has22([2]))
+        self.assertFalse(has22([]))
+        self.assertTrue(has22([3, 3, 2, 2]))
+        self.assertFalse(has22([5, 2, 5, 2]))
 
-class TestMakeBricks(unittest.TestCase):
-    def test_makeBricks(self):
-        self.assertTrue(makeBricks(3, 1, 8))
-        self.assertFalse(makeBricks(3, 1, 9))
-        self.assertTrue(makeBricks(3, 2, 10))
-        self.assertTrue(makeBricks(3, 2, 8))
-        self.assertFalse(makeBricks(3, 2, 9))
-        self.assertTrue(makeBricks(6, 1, 11))
-        self.assertFalse(makeBricks(6, 0, 11))
-        self.assertTrue(makeBricks(1, 4, 11))
-        self.assertTrue(makeBricks(0, 3, 10))
-        self.assertFalse(makeBricks(1, 4, 12))
-        self.assertTrue(makeBricks(3, 1, 7))
-        self.assertFalse(makeBricks(1, 1, 7))
-        self.assertTrue(makeBricks(2, 1, 7))
-        self.assertTrue(makeBricks(7, 1, 11))
-        self.assertTrue(makeBricks(7, 1, 8))
-        self.assertFalse(makeBricks(7, 1, 13))
-        self.assertTrue(makeBricks(43, 1, 46))
-        self.assertFalse(makeBricks(40, 1, 46))
-        self.assertTrue(makeBricks(40, 2, 47))
-        self.assertTrue(makeBricks(40, 2, 50))
-        self.assertFalse(makeBricks(40, 2, 52))
-        self.assertFalse(makeBricks(22, 2, 33))
-        self.assertTrue(makeBricks(0, 2, 10))
-        self.assertTrue(makeBricks(1000000, 1000, 1000100))
-        self.assertFalse(makeBricks(2, 1000000, 100003))
-        self.assertTrue(makeBricks(20, 0, 19))
-        self.assertFalse(makeBricks(20, 0, 21))
-        self.assertFalse(makeBricks(20, 4, 51))
-        self.assertTrue(makeBricks(20, 4, 39))
 
-class TestCountYZ(unittest.TestCase):
-    def test_countYZ(self):
-        self.assertEqual(countYZ("fez day"), 2)
-        self.assertEqual(countYZ("day fez"), 2)
-        self.assertEqual(countYZ("day fyyyz"), 2)
-        self.assertEqual(countYZ("day yak"), 1)
-        self.assertEqual(countYZ("day:yak"), 1)
-        self.assertEqual(countYZ("!!day--yaz!!"), 2)
-        self.assertEqual(countYZ("yak zak"), 0)
-        self.assertEqual(countYZ("DAY abc XYZ"), 2)
-        self.assertEqual(countYZ("aaz yyz my"), 3)
-        self.assertEqual(countYZ("y2bz"), 2)
-        self.assertEqual(countYZ("zxyx"), 0)
+class TestLoneSum(unittest.TestCase):
+    def test_loneSum(self):
+        self.assertEqual(loneSum(1, 2, 3), 6)
+        self.assertEqual(loneSum(3, 2, 3), 2)
+        self.assertEqual(loneSum(3, 3, 3), 0)
+        self.assertEqual(loneSum(9, 2, 2), 9)
+        self.assertEqual(loneSum(2, 2, 9), 9)
+        self.assertEqual(loneSum(2, 9, 2), 9)
+        self.assertEqual(loneSum(2, 9, 3), 14)
+        self.assertEqual(loneSum(4, 2, 3), 9)
+        self.assertEqual(loneSum(1, 3, 1), 3)
 
-class TestMaxSpan(unittest.TestCase):
-    def test_maxSpan(self):
-        self.assertEqual(maxSpan([1, 2, 1, 1, 3]), 4)
-        self.assertEqual(maxSpan([1, 4, 2, 1, 4, 1, 4]), 6)
-        self.assertEqual(maxSpan([1, 4, 2, 1, 4, 4, 4]), 6)
-        self.assertEqual(maxSpan([3, 3, 3]), 3)
-        self.assertEqual(maxSpan([3, 9, 3]), 3)
-        self.assertEqual(maxSpan([3, 9, 9]), 2)
-        self.assertEqual(maxSpan([3, 9]), 1)
-        self.assertEqual(maxSpan([3, 3]), 2)
-        self.assertEqual(maxSpan([]), 0)
-        self.assertEqual(maxSpan([1]), 1)
+class TestWithoutString(unittest.TestCase):
+    def test_withoutString(self):
+        self.assertEqual(withoutString("Hello there", "llo"), "He there")
+        self.assertEqual(withoutString("Hello there", "e"), "Hllo thr")
+        self.assertEqual(withoutString("Hello there", "x"), "Hello there")
+        self.assertEqual(withoutString("This is a FISH", "IS"), "Th  a FH")
+        self.assertEqual(withoutString("THIS is a FISH", "is"), "TH  a FH")
+        self.assertEqual(withoutString("abxxxxab", "xx"), "abab")
+        self.assertEqual(withoutString("abxxxab", "xx"), "abxab")
+        self.assertEqual(withoutString("abxxxab", "x"), "abab")
+        self.assertEqual(withoutString("xxx", "x"), "")
+        self.assertEqual(withoutString("xxx", "xx"), "x")
+        self.assertEqual(withoutString("xyzzy", "Y"), "xzz")
+        self.assertEqual(withoutString("", "x"), "")
+        self.assertEqual(withoutString("abcabc", "b"), "acac")
+        self.assertEqual(withoutString("AA22bb", "2"), "AAbb")
+        self.assertEqual(withoutString("1111", "1"), "")
+        self.assertEqual(withoutString("1111", "11"), "")
+        self.assertEqual(withoutString("MkjtMkx", "Mk"), "jtx")
+        self.assertEqual(withoutString("Hi HoHo", "Ho"), "Hi ")
 
-class TestCatDog(unittest.TestCase):
-    def test_catDog(self):
-        self.assertTrue(catDog("catdog"))
-        self.assertFalse(catDog("catcat"))
-        self.assertTrue(catDog("1cat1cadodog"))
-        self.assertFalse(catDog("catxxdogxxxdog"))
-        self.assertTrue(catDog("catxdogxdogxcat"))
-        self.assertFalse(catDog("catxdogxdogxca"))
-        self.assertFalse(catDog("dogdogcat"))
-        self.assertTrue(catDog("dogogcat"))
-        self.assertFalse(catDog("dog"))
-        self.assertFalse(catDog("cat"))
-        self.assertTrue(catDog("ca"))
-        self.assertTrue(catDog("c"))
-        self.assertTrue(catDog(""))
+class TestFix34(unittest.TestCase):
+    def test_fix34(self):
+        self.assertEqual(fix34([1, 3, 1, 4]), [1, 3, 4, 1])
+        self.assertEqual(fix34([1, 3, 1, 4, 4, 3, 1]), [1, 3, 4, 1, 1, 3, 4])
+        self.assertEqual(fix34([3, 2, 2, 4]), [3, 4, 2, 2])
+        self.assertEqual(fix34([3, 2, 3, 2, 4, 4]), [3, 4, 3, 4, 2, 2])
+        self.assertEqual(fix34([2, 3, 2, 3, 2, 4, 4]), [2, 3, 4, 3, 4, 2, 2])
+        self.assertEqual(fix34([5, 3, 5, 4, 5, 4, 5, 4, 3, 5, 3, 5]), 
+                         [5, 3, 4, 5, 5, 5, 5, 5, 3, 4, 3, 4])
+        self.assertEqual(fix34([3, 1, 4]), [3, 4, 1])
+        self.assertEqual(fix34([3, 4, 1]), [3, 4, 1])
+        self.assertEqual(fix34([1, 1, 1]), [1, 1, 1])
+        self.assertEqual(fix34([1]), [1])
+        self.assertEqual(fix34([]), [])
+        self.assertEqual(fix34([7, 3, 7, 7, 4]), [7, 3, 4, 7, 7])
+        self.assertEqual(fix34([3, 1, 4, 3, 1, 4]), [3, 4, 1, 3, 4, 1])
+        self.assertEqual(fix34([3, 1, 1, 3, 4, 4]), [3, 4, 1, 3, 4, 1])
+
+class TestEndOther(unittest.TestCase):
+    def test_endOther(self):
+        self.assertTrue(endOther("Hiabc", "abc"))
+        self.assertTrue(endOther("AbC", "HiaBc"))
+        self.assertTrue(endOther("abc", "abXabc"))
+        self.assertFalse(endOther("Hiabc", "abcd"))
+        self.assertTrue(endOther("Hiabc", "bc"))
+        self.assertFalse(endOther("Hiabcx", "bc"))
+        self.assertTrue(endOther("abc", "abc"))
+        self.assertTrue(endOther("xyz", "12xyz"))
+        self.assertFalse(endOther("yz", "12xz"))
+        self.assertTrue(endOther("Z", "12xz"))
+        self.assertTrue(endOther("12", "12"))
+        self.assertFalse(endOther("abcXYZ", "abcDEF"))
+        self.assertFalse(endOther("ab", "ab12"))
+        self.assertTrue(endOther("ab", "12ab"))
+
+class TestXyzThere(unittest.TestCase):
+    def test_xyzThere(self):
+        self.assertTrue(xyzThere("abcxyz"))
+        self.assertFalse(xyzThere("abc.xyz"))
+        self.assertTrue(xyzThere("xyz.abc"))
+        self.assertFalse(xyzThere("abcxy"))
+        self.assertTrue(xyzThere("xyz"))
+        self.assertFalse(xyzThere("xy"))
+        self.assertFalse(xyzThere("x"))
+        self.assertFalse(xyzThere(""))
+        self.assertTrue(xyzThere("abc.xyzxyz"))
+        self.assertTrue(xyzThere("abc.xxyz"))
+        self.assertFalse(xyzThere(".xyz"))
+        self.assertFalse(xyzThere("12.xyz"))
+        self.assertTrue(xyzThere("12xyz"))
+        self.assertFalse(xyzThere("1.xyz.xyz2.xyz"))
+
+
+class TestLucky13(unittest.TestCase):
+    def test_lucky13(self):
+        self.assertTrue(lucky13([0, 2, 4]))
+        self.assertFalse(lucky13([1, 2, 3]))
+        self.assertFalse(lucky13([1, 2, 4]))
+        self.assertTrue(lucky13([2, 7, 2, 8]))
+        self.assertFalse(lucky13([2, 7, 1, 8]))
+        self.assertFalse(lucky13([3, 7, 2, 8]))
+        self.assertFalse(lucky13([2, 7, 2, 1]))
+        self.assertFalse(lucky13([1, 2]))
+        self.assertTrue(lucky13([2, 2]))
+        self.assertTrue(lucky13([2]))
+        self.assertFalse(lucky13([3]))
+        self.assertTrue(lucky13([]))
+
+
+class TestSum28(unittest.TestCase):
+    def test_sum28(self):
+        self.assertTrue(sum28([2, 3, 2, 2, 4, 2]))
+        self.assertFalse(sum28([2, 3, 2, 2, 4, 2, 2]))
+        self.assertFalse(sum28([1, 2, 3, 4]))
+        self.assertTrue(sum28([2, 2, 2, 2]))
+        self.assertTrue(sum28([1, 2, 2, 2, 2, 4]))
+        self.assertFalse(sum28([]))
+        self.assertFalse(sum28([2]))
+        self.assertFalse(sum28([8]))
+        self.assertFalse(sum28([2, 2, 2]))
+        self.assertFalse(sum28([2, 2, 2, 2, 2]))
+        self.assertTrue(sum28([1, 2, 2, 1, 2, 2]))
+        self.assertTrue(sum28([5, 2, 2, 2, 4, 2]))
+
+
 
 # -----------------------------------------------------------------
 # Main execution block
