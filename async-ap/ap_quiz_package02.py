@@ -195,6 +195,348 @@ def wordsWithout(words: list[str], target: str) -> list[str]:
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
+# -----------------------------------------------------------------
+# Question 5: scoresSpecial
+# -----------------------------------------------------------------
+def scoresSpecial(a: list[int], b: list[int]) -> int:
+    """
+    Description:
+        Given two arrays of non-negative integer scores, a "special" 
+        score is one which is a multiple of 10
+        (e.g., 40 or 90). Return the sum of the largest special score 
+        in array `a` plus the largest special
+        score in array `b`.
+
+    Examples:
+        scoresSpecial([12, 10, 4], [2, 20, 30]) → 40
+        scoresSpecial([20, 10, 4], [2, 20, 10]) → 40
+        scoresSpecial([12, 11, 4], [2, 20, 31]) → 20
+        scoresSpecial([1, 20, 2, 50], [3, 4, 5]) → 50
+        scoresSpecial([10, 4, 20, 30], [30, 20, 99]) → 60
+
+    Instructions to run the tests via the CLI:
+        1. Open your terminal or command prompt.
+        2. Run the tests by executing: `python q15.py`
+
+    Args:
+        a (list[int]): First list of non-negative scores.
+        b (list[int]): Second list of non-negative scores.
+
+    Returns:
+        int: Sum of the largest multiple-of-10 in `a` and the largest multiple-of-10 in `b`.
+    """
+    def max_special(scores: list[int]) -> int:
+        """
+        Helper:
+            Finds the largest "special" score (a multiple of 10) in the given list.
+            Returns 0 if there are no multiples of 10.
+        """
+        i = 0
+        specials = []
+        while i < len(scores):
+            if scores[i] % 10 == 0:
+                specials.append(scores[i])
+            i += 1
+        i = 0
+        if specials == []:
+            return 0
+        maximum = specials[0]
+        while i < len(specials):
+            if specials[i] > maximum:
+                maximum = specials[i]
+            i += 1
+        return maximum
+    ### [Your Implementation Here]
+    sum_of_specials = max_special(a) + max_special(b)
+    return sum_of_specials
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return None
+
+
+
+
+# 
+def sumHeights(heights: list[int], start: int, end: int) -> int:
+    """
+    Description:
+        We have an array of heights, representing the altitude along a walking trail.
+        Given start/end indexes into the array, return the sum of the changes for a walk
+        beginning at the start index and ending at the end index. For example, with the
+        heights [5, 3, 6, 7, 2] and start=2, end=4 yields a sum of 1 + 5 = 6.
+        The start and end indices will both be valid with start <= end.
+
+    Examples:
+        sumHeights([5, 3, 6, 7, 2], 2, 4) → 6
+        sumHeights([5, 3, 6, 7, 2], 0, 1) → 2
+        sumHeights([5, 3, 6, 7, 2], 0, 4) → 11
+
+    Instructions to run the tests via the CLI:
+        1. Open your terminal or command prompt.
+        2. Run the tests by executing: `python async-ap/q16.py`
+
+    Args:
+        heights (list[int]): List of integer altitudes along the trail.
+        start (int): Starting index of the walk.
+        end (int): Ending index of the walk.
+
+    Returns:
+        int: The total sum of absolute height changes from start to end.
+    """
+    ### [Your Implementation Here]
+    i = start
+    abs_height_sum = 0
+    while i < end:
+        abs_height_sum += abs(heights[i] - heights[i + 1])
+        i += 1
+    return abs_height_sum
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+
+def sumHeights2(heights: list[int], start: int, end: int) -> int:
+    """
+    Description:
+        A variation on the sumHeights problem. We have an array of heights representing
+        the altitude along a walking trail. Given start/end indexes into the array,
+        return the sum of the changes for a walk beginning at the start index and ending
+        at the end index, however increases in height count double.
+
+    Examples:
+        sumHeights2([5, 3, 6, 7, 2], 2, 4) → 7
+        sumHeights2([5, 3, 6, 7, 2], 0, 1) → 2
+        sumHeights2([5, 3, 6, 7, 2], 0, 4) → 15
+
+    Instructions to run the tests via the CLI:
+        1. Open your terminal or command prompt.
+        2. Run the tests by executing: `python async-ap/q17.py`
+
+    Args:
+        heights (list[int]): List of integer altitudes along the trail.
+        start (int): Starting index of the walk.
+        end (int): Ending index of the walk.
+
+    Returns:
+        int: The total sum of height changes, counting each upward change twice.
+    """
+    ### [Your Implementation Here]
+    i = start
+    abs_height_sum = 0
+    while i < end:
+        if heights[i + 1] - heights[i] > 0:
+            abs_height_sum += 2 * (heights[i + 1] - heights[i])
+        else:
+            abs_height_sum += abs(heights[i] - heights[i + 1])
+        i += 1
+    return abs_height_sum
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+
+
+def bigHeights(heights: list[int], start: int, end: int) -> int:
+    """
+    Description:
+        A variation on the sumHeights problem. We have an array of heights representing
+        the altitude along a walking trail. Given start/end indexes into the array,
+        return the number of "big" steps for a walk beginning at the start index and
+        ending at the end index. A step is "big" if the change is 5 or more up or down.
+
+    Examples:
+        bigHeights([5, 3, 6, 7, 2], 2, 4) → 1
+        bigHeights([5, 3, 6, 7, 2], 0, 1) → 0
+        bigHeights([5, 3, 6, 7, 2], 0, 4) → 1
+        bigHeights([5, 3, 6, 7, 3], 0, 4) → 0
+
+    Instructions to run the tests via the CLI:
+        1. Open your terminal or command prompt.
+        2. Run the tests by executing: `python async-ap/q18.py`
+
+    Args:
+        heights (list[int]): The list of integer altitudes along the trail.
+        start (int): The starting index of the walk (inclusive).
+        end (int): The ending index of the walk (inclusive).
+
+    Returns:
+        int: The count of "big" steps (difference ≥ 5) between start and end.
+    """
+    ### [Your Implementation Here]
+    i = start
+    count = 0
+    while i < end:
+        if abs(heights[i] - heights[i + 1]) >= 5:
+            count += 1
+        i += 1
+    return count
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+def userCompare(aName: str, aId: int, bName: str, bId: int) -> int:
+    """
+    Description:
+        We have data for two users, A and B, each with a string 
+        `name` and an integer `id`.
+        The goal is to order the users for sorting. Return:
+          - -1 if A comes before B
+          -  1 if A comes after B
+          -  0 if they are the same.
+        Order first by name (lexicographically), and if the names 
+        are equal, order by id.
+
+    Examples:
+        userCompare("bb", 1, "zz", 2) → -1
+        userCompare("bb", 1, "aa", 2) → 1
+        userCompare("bb", 1, "bb", 1) → 0
+        userCompare("bb", 5, "bb", 1) → 1
+        userCompare("bb", 5, "bb", 10) → -1
+        userCompare("adam", 1, "bob", 2) → -1
+        userCompare("bob", 1, "bob", 2) → -1
+        userCompare("bzb", 1, "bob", 2) → 1
+
+    Instructions to run the tests via the CLI:
+        1. Open your terminal or command prompt.
+        2. Run the tests by executing: `python async-ap/q19.py`
+
+    Args:
+        aName (str): Name of user A.
+        aId   (int): ID of user A.
+        bName (str): Name of user B.
+        bId   (int): ID of user B.
+
+    Returns:
+        int: -1 if A < B, 1 if A > B, 0 if they are equal.
+    """
+    ### [Your Implementation Here]
+    if aName == bName:
+        if aId < bId:
+            return -1
+        if bId < aId:
+            return 1
+        if aId == bId:
+            return 0
+    i = 0
+    while i < len(aName):
+        if ord(aName[i]) < ord(bName[i]):
+            return -1
+        if ord(aName[i]) > ord(bName[i]):
+            return 1
+        i += 1
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+
+
+
+
+
+
+def mergeTwo(a: list[str], b: list[str], n: int) -> list[str]:
+    """
+    Description:
+        Start with two arrays of strings, `a` and `b`, each sorted 
+        alphabetically and without duplicates.
+        Return a new list containing the first `n` elements from the 
+        two arrays merged together.
+        The result list should be in alphabetical order and 
+        without duplicates.
+        You should make a single pass over `a` and `b`, taking 
+        advantage of their sorted order.
+
+    Examples:
+        mergeTwo(["a", "c", "z"], ["b", "f", "z"], 3) → ["a", "b", "c"]
+        mergeTwo(["a", "c", "z"], ["c", "f", "z"], 3) → ["a", "c", "f"]
+        mergeTwo(["f", "g", "z"], ["c", "f", "g"], 3) → ["c", "f", "g"]
+
+    Instructions to run the tests via the CLI:
+        1. Open your terminal or command prompt.
+        2. Run the tests by executing: `python async-ap/q20.py`
+
+    Args:
+        a (list[str]): First sorted list of unique strings.
+        b (list[str]): Second sorted list of unique strings.
+        n (int): Number of elements to include in the merged result.
+
+    Returns:
+        list[str]: A sorted list of the first `n` unique strings from merging `a` and `b`.
+    """
+    def quicksort(arr: list[str]) -> list[str]:
+        if len(arr) <= 1:
+            return arr
+        pivot = arr[len(arr) // 2]
+        left = [x for x in arr if x < pivot]
+        middle = [x for x in arr if x == pivot]
+        right = [x for x in arr if x > pivot]
+        return quicksort(left) + middle + quicksort(right)
+    ### [Your Implementation Here]
+    c = a + b
+    c = quicksort(c) # n log n
+    unique_c = [c[0]] # O(1)
+    for i in range(1, len(c) - 1): # O(n)
+        if (len(unique_c) == n): 
+            break
+        if (c[i] != unique_c[-1]): 
+            unique_c.append(c[i])
+    return unique_c
+
+    # i = 0
+    # j = 0
+    # curr_ord = -1
+    # while len(c) < n:
+    #     if ord(a[i]) < ord(b[j]):
+    #         c.append(a[i])
+    #         curr_ord = ord(a[i])
+    #         i += 1
+    #     elif ord(b[j]) < ord(a[i]):
+    #         c.append(b[i])
+    #         curr_ord = ord(b[j])
+    #         j += 1
+    #     elif ord(a[i]) == ord(b[j]):
+    #         if ord(a[i]) != curr_ord: 
+    #             c.append(a[i])
+    #             curr_ord = ord(a[i])
+    #             i += 1
+    #         j += 1
+    # return c
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -272,7 +614,87 @@ class TestWordsWithout(unittest.TestCase):
         self.assertEqual(wordsWithout(["xx", "yyy", "x", "yy", "x"], "yy"), ["xx", "yyy", "x", "x"])
         self.assertEqual(wordsWithout(["aa", "ab", "ac", "aa"], "aa"), ["ab", "ac"])
 
+class TestScoresSpecial(unittest.TestCase):
+    def test_scoresSpecial(self):
+        self.assertEqual(scoresSpecial([12, 10, 4], [2, 20, 30]), 40)
+        self.assertEqual(scoresSpecial([20, 10, 4], [2, 20, 10]), 40)
+        self.assertEqual(scoresSpecial([12, 11, 4], [2, 20, 31]), 20)
+        self.assertEqual(scoresSpecial([1, 20, 2, 50], [3, 4, 5]), 50)
+        self.assertEqual(scoresSpecial([3, 4, 5], [1, 50, 2, 20]), 50)
+        self.assertEqual(scoresSpecial([10, 4, 20, 30], [20]), 50)
+        self.assertEqual(scoresSpecial([10, 4, 20, 30], [3, 20, 99]), 50)
+        self.assertEqual(scoresSpecial([10, 4, 20, 30], [30, 20, 99]), 60)
+        self.assertEqual(scoresSpecial([], [2]), 0)
+        self.assertEqual(scoresSpecial([], [20]), 20)
+        self.assertEqual(scoresSpecial([14, 10, 4], [4, 20, 30]), 40)
 
+
+class TestSumHeights(unittest.TestCase):
+    def test_sumHeights(self):
+        self.assertEqual(sumHeights([5, 3, 6, 7, 2], 2, 4), 6)
+        self.assertEqual(sumHeights([5, 3, 6, 7, 2], 0, 1), 2)
+        self.assertEqual(sumHeights([5, 3, 6, 7, 2], 0, 4), 11)
+        self.assertEqual(sumHeights([5, 3, 6, 7, 2], 1, 1), 0)
+        self.assertEqual(sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 0, 3), 3)
+
+
+class TestSumHeights2(unittest.TestCase):
+    def test_sumHeights2(self):
+        self.assertEqual(sumHeights2([5, 3, 6, 7, 2], 2, 4), 7)
+        self.assertEqual(sumHeights2([5, 3, 6, 7, 2], 0, 1), 2)
+        self.assertEqual(sumHeights2([5, 3, 6, 7, 2], 0, 4), 15)
+        self.assertEqual(sumHeights2([5, 3, 6, 7, 2], 1, 1), 0)
+        self.assertEqual(sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 0, 3), 6)
+        self.assertEqual(sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 4, 8), 19)
+        self.assertEqual(sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 7, 8), 16)
+        self.assertEqual(sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 8, 8), 0)
+        self.assertEqual(sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 2, 2), 0)
+        self.assertEqual(sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 3, 6), 4)
+        self.assertEqual(sumHeights2([10, 8, 7, 7, 7, 6, 7], 1, 4), 1)
+        self.assertEqual(sumHeights2([10, 8, 7, 7, 7, 6, 7], 1, 5), 2)
+
+
+class TestBigHeights(unittest.TestCase):
+    def test_bigHeights(self):
+        self.assertEqual(bigHeights([5, 3, 6, 7, 2], 2, 4), 1)
+        self.assertEqual(bigHeights([5, 3, 6, 7, 2], 0, 1), 0)
+        self.assertEqual(bigHeights([5, 3, 6, 7, 2], 0, 4), 1)
+        self.assertEqual(bigHeights([5, 3, 6, 7, 3], 0, 4), 0)
+        self.assertEqual(bigHeights([5, 3, 6, 7, 2], 1, 1), 0)
+        self.assertEqual(bigHeights([5, 13, 6, 7, 2], 1, 2), 1)
+        self.assertEqual(bigHeights([5, 13, 6, 7, 2], 0, 2), 2)
+        self.assertEqual(bigHeights([5, 13, 6, 7, 2], 1, 4), 2)
+        self.assertEqual(bigHeights([5, 13, 6, 7, 2], 0, 4), 3)
+        self.assertEqual(bigHeights([5, 13, 6, 7, 2], 0, 3), 2)
+        self.assertEqual(bigHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 0, 3), 0)
+        self.assertEqual(bigHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 4, 8), 1)
+        self.assertEqual(bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 0, 3), 1)
+        self.assertEqual(bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 7, 8), 1)
+        self.assertEqual(bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 3, 8), 2)
+        self.assertEqual(bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 2, 8), 3)
+
+class TestUserCompare(unittest.TestCase):
+    def test_userCompare(self):
+        self.assertEqual(userCompare("bb", 1, "zz", 2), -1)
+        self.assertEqual(userCompare("bb", 1, "aa", 2), 1)
+        self.assertEqual(userCompare("bb", 1, "bb", 1), 0)
+        self.assertEqual(userCompare("bb", 5, "bb", 1), 1)
+        self.assertEqual(userCompare("bb", 5, "bb", 10), -1)
+        self.assertEqual(userCompare("adam", 1, "bob", 2), -1)
+        self.assertEqual(userCompare("bob", 1, "bob", 2), -1)
+        self.assertEqual(userCompare("bzb", 1, "bob", 2), 1)
+
+class TestMergeTwo(unittest.TestCase):
+    def test_mergeTwo(self):
+        self.assertEqual(mergeTwo(["a", "c", "z"], ["b", "f", "z"], 3), ["a", "b", "c"])
+        self.assertEqual(mergeTwo(["a", "c", "z"], ["c", "f", "z"], 3), ["a", "c", "f"])
+        self.assertEqual(mergeTwo(["f", "g", "z"], ["c", "f", "g"], 3), ["c", "f", "g"])
+        self.assertEqual(mergeTwo(["a", "c", "z"], ["a", "c", "z"], 3), ["a", "c", "z"])
+        self.assertEqual(mergeTwo(["a", "b", "c", "z"], ["a", "c", "z"], 3), ["a", "b", "c"])
+        self.assertEqual(mergeTwo(["a", "c", "z"], ["a", "b", "c", "z"], 3), ["a", "b", "c"])
+        self.assertEqual(mergeTwo(["a", "c", "z"], ["a", "c", "z"], 2), ["a", "c"])
+        self.assertEqual(mergeTwo(["a", "c", "z"], ["a", "c", "y", "z"], 3), ["a", "c", "y"])
+        self.assertEqual(mergeTwo(["x", "y", "z"], ["a", "b", "z"], 3), ["a", "b", "x"])
 
 
 # -----------------------------------------------------------------
