@@ -9,110 +9,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page Title</title>
-  <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #FFEBCD;
-  }
-  .custom-font {
-    font-family: 'Courier New', Courier, monospace;
-    font-style: italic;
-  }
-  .highlight {
-    color: blue;
-    background-color: yellow;
-    font-size: 24px;
-  }
-  .container {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .item {
-    background-color: #FFEBCD;
-    padding: 10px;
-    border: 1px solid black;
-    flex: 1;
-    text-align: center;
-  }
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .box1 {
-    background-color: rgb(227, 214, 255);
-    padding: 20px;
-    text-align: center;
-  }
-  .box2 {
-    background-color: rgb(32, 178, 170);
-    padding: 20px;
-    text-align: center;
-  }
-  .box3 {
-    background-color: lightblue;
-    padding: 20px;
-    text-align: center;
-  }
-  </style>
+  <title>Chess Block</title>
 </head>
 <body>
-  <h1>Chess Block</h1>
-  <p>This is a paragraph.</p>
-
-
-
-
-
-
-
-
-  <h1>Heading with Georgia Font</h1>
-  <p>This paragraph uses the default font-family: Arial.</p>
-  <p class="custom-font">This text uses Courier New with italic style.</p>
-  <h1>마이 네임 이즈 지후</h1> 
-  <!-- no nested, "h1" -->
-
-  <br>
-
-  <h1 class="highlight">Welcome to My Website</h1>
-  <p class="highlight">This paragraph is styled using the same class as the heading.</p>
-  <p id="hhhhh">This paragraph is not styled with the class.</p>
-
-  <div>
-  <h1 class="highlight">Welcome to My Website, nested 2</h1>
-  <!-- nested Html, "div h1" -->
-  <div>
-    <h1 class="highlight">Welcome to My Website, nested 3</h1>
-    <!-- nested Html, "div div h1" -->
+  <div id="section">
+    <h1>Welcome to Chess Block!</h1>
+    <p>This is a chess website!</p>
   </div>
-  </div>
-
-
-  <br>
-  <br>
-
-
-
-  
-  <div class="container">
-  <div class="item">Item 1</div>
-  <div class="item">Item 2</div>
-  <div class="item">Item 3</div>
-  </div>
-
-
-  <div class="wrapper">
-  <div class="box1">하나</div>
-  <div class="box2">둘</div>
-  <div class="box3">셋</div>
-  </div>
-
-
-
-
+  <button id="btn-style">Style Headings</button>
+  <button id="btn-centering">Center Heading</button>
+  <button id="btn-redirect">Go to Beautiful Background</button>
 </body>
+<script src="script.js"></script>
 </html>
+
+
+
+

@@ -25,7 +25,7 @@ Design notes
 Command-line interface
     python server.py <project_dir>             # run server on default port 8080
     python server.py <project_dir> -b          # create build-<project_dir> and exit
-    python server.py <project_dir> --build          # create build-<project_dir> and exit
+    python server.py <project_dir> --build     # create build-<project_dir> and exit
     python server.py <project_dir> -b -o dist  # copy into "dist" instead of build-...
     python server.py <project_dir> --port 5000 # run server on port 5000
 
