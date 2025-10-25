@@ -4,17 +4,17 @@
  */
 document.body.style.backgroundColor = "DarkseaGreen";
 
-let loadedH1List = document.getElementsByTagName("h1");
-for (let i = 0; i < loadedH1List.length; i++){
-    const loadedH1 = document.getElementsByTagName("h1")[i];
-    // 5. modify the value of h1
-    loadedH1.style.color = "lemonchiffon";
-    loadedH1.style.fontFamily = "Georgia, serif";
-    loadedH1.style.marginTop = "20px";
-}
+// let loadedH1List = document.getElementsByTagName("h1");
+// for (let i = 0; i < loadedH1List.length; i++){
+//     const loadedH1 = document.getElementsByTagName("h1")[i];
+//     // 5. modify the value of h1
+//     loadedH1.style.color = "lemonchiffon";
+//     loadedH1.style.fontFamily = "Georgia, serif";
+//     loadedH1.style.marginTop = "20px";
+// }
 
-let loadedSections = document.getElementById('section');
-loadedSections.style.textAlign = "center";
+// let loadedSections = document.getElementById('section');
+// loadedSections.style.textAlign = "center";
 
 
 
