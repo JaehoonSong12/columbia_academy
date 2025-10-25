@@ -35,6 +35,183 @@ from typing import List
 
 
 
+# -----------------------------------------------------------------
+# Question 1: scores_increasing
+# -----------------------------------------------------------------
+def scores_increasing(scores: list[int]) -> bool:
+    """
+    Description:
+    Given a list of scores (integers), return True if the scores are 
+    in non-decreasing order — that is, each score is equal to or 
+    greater than the one before.
+
+    Examples:
+        scores_increasing([1, 3, 4]) → True
+        scores_increasing([1, 3, 2]) → False
+        scores_increasing([1, 1, 4]) → True
+
+    Args:
+        scores (list[int]): A list of integers, length 2 or more.
+
+    Returns:
+        bool: True if each score is equal or greater than the previous one.
+    """
+    ### [Your Implementation Here]
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    for i in range(1, len(scores)):
+        if scores[i - 1] > scores[i]: #scores = array: [1,3,4]
+            return False
+    return True
+
+
+
+
+# -----------------------------------------------------------------
+# Question 2: scores100
+# -----------------------------------------------------------------
+def scores100(scores: list[int]) -> bool:
+    """
+    Description:
+        Given an array of scores, return True if there are scores 
+        of 100 next to each other
+        in the array. The array length will be at least 2.
+    
+    Examples:
+        scores100([1, 100, 100]) → True
+        scores100([1, 100, 99, 100]) → False
+        scores100([100, 1, 100, 100]) → True
+
+    Args:
+        scores (list[int]): A list of integer scores.
+
+    Returns:
+        bool: True if there is at least one occurrence of consecutive 100's, else False.
+    """
+    ### [Your Implementation Here]
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return False
+
+
+
+
+
+
+# -----------------------------------------------------------------
+# Question 3: scoresClump
+# -----------------------------------------------------------------
+def scoresClump(scores: list[int]) -> bool:
+    """
+    Description:
+        Given an array of scores sorted in increasing order, 
+        return True if the array contains 
+        3 adjacent scores that differ from each other by at 
+        most 2. In other words, if any 
+        consecutive triplet of scores has a maximum difference 
+        (between the highest and lowest) 
+        of 2 or less, the function returns True.
+
+    Examples:
+        scoresClump([3, 4, 5]) → True
+        scoresClump([3, 4, 6]) → False
+        scoresClump([1, 3, 5, 5]) → True
+
+    Args:
+        scores (list[int]): A list of integer scores, sorted in increasing order.
+
+    Returns:
+        bool: True if there exists a triplet of adjacent scores with a max difference of 2 or less,
+              otherwise False.
+    """
+    ### [Your Implementation Here]
+    return False
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+
+
+
+
+# -----------------------------------------------------------------
+# Question 4: scoresAverage
+# -----------------------------------------------------------------
+def scoresAverage(scores: list[int]) -> int:
+    """
+    Description:
+        Given an array of scores, compute the integer average 
+        of the first half and the second half,
+        and return whichever is larger. The second half begins 
+        at index len(scores)//2.
+        You must use a helper function that computes the average 
+        of the values between two indices.
+
+    Examples:
+        scoresAverage([2, 2, 4, 4]) → 4
+        scoresAverage([4, 4, 4, 2, 2, 2]) → 4
+        scoresAverage([3, 4, 5, 1, 2, 3]) → 4
+
+    Args:
+        scores (list[int]): A list of scores (at least 2 elements long).
+
+    Returns:
+        int: The higher integer average between the first and second half of the list.
+    """
+    ### [Your Implementation Here]
+    
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    pl = ParallelList(scores)
+    first_avg = pl.get_first_avg()
+    second_avg = pl.get_second_avg()
+    return (first_avg) if (first_avg > second_avg) else (second_avg)
+
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+
+
+class ParallelList:
+    def __init__(self, original: list[int]): # constructor
+        self.first_half = []
+        self.second_half = []
+        for i in range(len(original)):
+            if i < len(original) // 2:
+                self.first_half.append(original[i])
+            else:
+                self.second_half.append(original[i])
+    
+    def __repr__(self): # string representation
+        return f"first_half={self.first_half}, second_half={self.second_half}"
+
+    def get_average(self, list_data: list[int]):
+        sum = 0
+        for i in range(len(list_data)):
+            sum += list_data[i]
+        average = sum / len(list_data)
+        return average if list_data else 0
+    
+    def get_first_avg(self):
+        return self.get_average(self.first_half)
+    
+    def get_second_avg(self):
+        return self.get_average(self.second_half)
+
 
 
 # -----------------------------------------------------------------
@@ -221,6 +398,45 @@ def hasOne(n: int) -> bool:
 # -----------------------------------------------------------------
 # Unit Tests
 # -----------------------------------------------------------------
+class TestScoresIncreasing(unittest.TestCase):
+    def test_examples(self):
+        self.assertTrue(scores_increasing([1, 3, 4]))            # → True
+        self.assertFalse(scores_increasing([1, 3, 2]))           # → False
+        self.assertTrue(scores_increasing([1, 1, 4]))            # → True
+        self.assertTrue(scores_increasing([1, 1, 2, 4, 4, 7]))   # → True
+        self.assertFalse(scores_increasing([1, 1, 2, 4, 3, 7]))  # → False
+        self.assertTrue(scores_increasing([-5, 4, 11]))          # → True
+
+class TestScores100(unittest.TestCase):
+    def test_scores100(self):
+        self.assertTrue(scores100([1, 100, 100]))             # → True
+        self.assertFalse(scores100([1, 100, 99, 100]))        # → False
+        self.assertTrue(scores100([100, 1, 100, 100]))        # → True
+        self.assertFalse(scores100([100, 1, 100, 1]))         # → False
+        self.assertFalse(scores100([1, 2, 3, 4, 5]))          # → False
+        self.assertFalse(scores100([1, 2, 100, 4, 5]))        # → False
+
+class TestScoresClump(unittest.TestCase):
+    def test_scoresClump(self):
+        self.assertTrue(scoresClump([3, 4, 5]))           # → True
+        self.assertFalse(scoresClump([3, 4, 6]))          # → False
+        self.assertTrue(scoresClump([1, 3, 5, 5]))         # → True
+        self.assertTrue(scoresClump([2, 4, 5, 6]))         # → True
+        self.assertFalse(scoresClump([2, 4, 5, 7]))         # → False
+        self.assertTrue(scoresClump([2, 4, 4, 7]))         # → True
+        self.assertFalse(scoresClump([3, 3, 6, 7, 9]))      # → False
+        self.assertTrue(scoresClump([3, 3, 7, 7, 9]))       # → True
+        self.assertFalse(scoresClump([4, 5, 8]))            # → False
+
+class TestScoresAverage(unittest.TestCase):
+    def test_scoresAverage(self):
+        self.assertEqual(scoresAverage([2, 2, 4, 4]), 4)
+        self.assertEqual(scoresAverage([4, 4, 4, 2, 2, 2]), 4)
+        self.assertEqual(scoresAverage([3, 4, 5, 1, 2, 3]), 4)
+        self.assertEqual(scoresAverage([5, 6]), 6)
+        self.assertEqual(scoresAverage([5, 4]), 5)
+        self.assertEqual(scoresAverage([5, 4, 5, 6, 2, 1, 2, 3]), 5)
+
 class TestWordsCount(unittest.TestCase):
     def test_wordsCount(self):
         self.assertEqual(wordsCount(["a", "bb", "b", "ccc"], 1), 2)
