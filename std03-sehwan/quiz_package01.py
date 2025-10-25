@@ -103,7 +103,14 @@ def wordsFront(words: List[str], n: int) -> List[str]:
     """
     
     ### [Your Implementation Here]
-    
+    selectedlist=[]
+    count = 0
+    for word in words:
+        selectedlist.append(word)
+        count = count + 1
+        if(count == n): break
+    return selectedlist
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
     return None
