@@ -3,10 +3,19 @@
 """
 Instructions to run the tests via the CLI:
     1. Open your terminal or command prompt.
-    2. Run the tests by executing: `python async-ap/ap_quiz_package05.py`
+    2. Run the tests by executing: `python async-ap/ap_quiz_package06.py`
 
 This is a list of quiz questions for practice, including:
-1.  more14: Check if the array contains more 1's than 4's.
+1.  gHappy: Check if all 'g' chars in the string are happy (surrounded by 'g's).
+2.  canBalance: Determine if a list can be split into two parts with equal sums.
+3.  no14: Check if a list contains no 1's or no 4's.
+4.  isEverywhere: Verify if a value appears in every adjacent pair in a list. 
+5.  repeatEnd: Create a new string by repeating the last n characters of a string n times.
+6.  mixString: Merge two strings by alternating their characters.
+7.  xyBalance: Check if all 'x' chars in a string are followed by a 'y' char later in the string.
+8.  bobThere: Check if a string contains the pattern 'b?b' ('b', any char, 'b').
+9.  roundSum: Round three integers to the nearest ten and return their sum.
+10. countTriple: Count the number of triples (three identical chars in a row) in a string.
 """
 
 # Import the unittest module, needed for creating test cases.
@@ -50,7 +59,7 @@ from typing import List
 
 
 # -----------------------------------------------------------------
-# Question 1: countCode
+# Question 1: gHappy
 # -----------------------------------------------------------------
 def gHappy(s: str) -> bool:
     """
@@ -60,13 +69,9 @@ def gHappy(s: str) -> bool:
         are happy.
 
     Examples:
-        gHappy("xxggxx") → True
-        gHappy("xxgxx") → False
-        gHappy("xxggyygxx") → False
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q51.py`
+        gHappy("xxggxx") -> True
+        gHappy("xxgxx") -> False
+        gHappy("xxggyygxx") -> False
 
     Args:
         s (str): The input string.
@@ -85,6 +90,9 @@ def gHappy(s: str) -> bool:
 
 
 
+# -----------------------------------------------------------------
+# Question 2: canBalance
+# -----------------------------------------------------------------
 def canBalance(nums: list[int]) -> bool:
     """
     Description:
@@ -92,20 +100,16 @@ def canBalance(nums: list[int]) -> bool:
         so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
 
     Examples:
-        canBalance([1, 1, 1, 2, 1]) → True   # split after third 1: sum([1,1,1]) == sum([2,1])
-        canBalance([2, 1, 1, 2, 1]) → False
-        canBalance([10, 10]) → True
-        canBalance([10, 0, 1, -1, 10]) → True
-        canBalance([1, 1, 1, 1, 4]) → True
-        canBalance([2, 1, 1, 1, 4]) → False
-        canBalance([2, 3, 4, 1, 2]) → False
-        canBalance([1, 2, 3, 1, 0, 2, 3]) → True
-        canBalance([1, 2, 3, 1, 0, 1, 3]) → False
-        canBalance([1]) → False
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q52.py`
+        canBalance([1, 1, 1, 2, 1]) -> True   # split after third 1: sum([1,1,1]) == sum([2,1])
+        canBalance([2, 1, 1, 2, 1]) -> False
+        canBalance([10, 10]) -> True
+        canBalance([10, 0, 1, -1, 10]) -> True
+        canBalance([1, 1, 1, 1, 4]) -> True
+        canBalance([2, 1, 1, 1, 4]) -> False
+        canBalance([2, 3, 4, 1, 2]) -> False
+        canBalance([1, 2, 3, 1, 0, 2, 3]) -> True
+        canBalance([1, 2, 3, 1, 0, 1, 3]) -> False
+        canBalance([1]) -> False
 
     Args:
         nums (list[int]): A non-empty list of integers.
@@ -124,8 +128,9 @@ def canBalance(nums: list[int]) -> bool:
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
-
-
+# -----------------------------------------------------------------
+# Question 3: no14
+# -----------------------------------------------------------------
 def no14(nums: list[int]) -> bool:
     """
     Description:
@@ -133,13 +138,9 @@ def no14(nums: list[int]) -> bool:
         In other words, it fails only if there is at least one 1 and at least one 4.
 
     Examples:
-        no14([1, 2, 3]) → True   # has 1's but no 4's
-        no14([1, 2, 3, 4]) → False  # has both 1 and 4
-        no14([2, 3, 4]) → True   # has 4's but no 1's
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q53.py`
+        no14([1, 2, 3]) -> True   # has 1's but no 4's
+        no14([1, 2, 3, 4]) -> False  # has both 1 and 4
+        no14([2, 3, 4]) -> True   # has 4's but no 1's
 
     Args:
         nums (list[int]): The list of integers to examine.
@@ -158,7 +159,9 @@ def no14(nums: list[int]) -> bool:
 
 
 
-
+# -----------------------------------------------------------------
+# Question 4: isEverywhere
+# -----------------------------------------------------------------
 def isEverywhere(nums: list[int], val: int) -> bool:
     """
     Description:
@@ -167,13 +170,9 @@ def isEverywhere(nums: list[int], val: int) -> bool:
         everywhere in the list. An empty list or a single-element list trivially satisfies this.
 
     Examples:
-        isEverywhere([1, 2, 1, 3], 1) → True
-        isEverywhere([1, 2, 1, 3], 2) → False
-        isEverywhere([1, 2, 1, 3, 4], 1) → False
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q54.py`
+        isEverywhere([1, 2, 1, 3], 1) -> True
+        isEverywhere([1, 2, 1, 3], 2) -> False
+        isEverywhere([1, 2, 1, 3, 4], 1) -> False
 
     Args:
         nums (list[int]): The list of integers to check.
@@ -191,6 +190,9 @@ def isEverywhere(nums: list[int], val: int) -> bool:
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
+# -----------------------------------------------------------------
+# Question 5: repeatEnd
+# -----------------------------------------------------------------
 def repeatEnd(s: str, n: int) -> str:
     """
     Description:
@@ -198,13 +200,9 @@ def repeatEnd(s: str, n: int) -> str:
         of the last `n` characters of `s`. You may assume that 0 ≤ n ≤ len(s).
 
     Examples:
-        repeatEnd("Hello", 3) → "llollollo"
-        repeatEnd("Hello", 2) → "lolo"
-        repeatEnd("Hello", 1) → "o"
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q55.py`
+        repeatEnd("Hello", 3) -> "llollollo"
+        repeatEnd("Hello", 2) -> "lolo"
+        repeatEnd("Hello", 1) -> "o"
 
     Args:
         s (str): The input string.
@@ -223,7 +221,9 @@ def repeatEnd(s: str, n: int) -> str:
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
 
-
+# -----------------------------------------------------------------
+# Question 6: mixString
+# -----------------------------------------------------------------
 def mixString(a: str, b: str) -> str:
     """
     Description:
@@ -233,13 +233,9 @@ def mixString(a: str, b: str) -> str:
         go at the end of the result.
 
     Examples:
-        mixString("abc", "xyz") → "axbycz"
-        mixString("Hi", "There") → "HTihere"
-        mixString("xxxx", "There") → "xTxhxexre"
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q56.py`
+        mixString("abc", "xyz") -> "axbycz"
+        mixString("Hi", "There") -> "HTihere"
+        mixString("xxxx", "There") -> "xTxhxexre"
 
     Args:
         a (str): First input string.
@@ -259,6 +255,9 @@ def mixString(a: str, b: str) -> str:
 
 
 
+# -----------------------------------------------------------------
+# Question 7: xyBalance
+# -----------------------------------------------------------------
 def xyBalance(s: str) -> bool:
     """
     Description:
@@ -267,13 +266,9 @@ def xyBalance(s: str) -> bool:
         Return True if the given string is xy-balanced.
 
     Examples:
-        xyBalance("aaxbby") → True    # both x's have a y after them
-        xyBalance("aaxbb") → False    # x at pos 2 has no y after
-        xyBalance("yaaxbb") → False   # same, no y after the x's
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q57.py`
+        xyBalance("aaxbby") -> True    # both x's have a y after them
+        xyBalance("aaxbb") -> False    # x at pos 2 has no y after
+        xyBalance("yaaxbb") -> False   # same, no y after the x's
 
     Args:
         s (str): The input string to check for xy-balance.
@@ -290,6 +285,10 @@ def xyBalance(s: str) -> bool:
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
+
+# -----------------------------------------------------------------
+# Question 8: bobThere
+# -----------------------------------------------------------------
 def bobThere(s: str) -> bool:
     """
     Description:
@@ -297,13 +296,9 @@ def bobThere(s: str) -> bool:
         The middle character can be any char. Overlapping patterns count.
 
     Examples:
-        bobThere("abcbob") → True    # "bob" at positions 3-5
-        bobThere("b9b") → True       # "b9b"
-        bobThere("bbb") → True       # first and third 'b'
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q58.py`
+        bobThere("abcbob") -> True    # "bob" at positions 3-5
+        bobThere("b9b") -> True       # "b9b"
+        bobThere("bbb") -> True       # first and third 'b'
 
     Args:
         s (str): The input string to search.
@@ -320,6 +315,10 @@ def bobThere(s: str) -> bool:
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
+
+# -----------------------------------------------------------------
+# Question 9: roundSum
+# -----------------------------------------------------------------
 def roundSum(a: int, b: int, c: int) -> int:
     """
     Description:
@@ -329,13 +328,9 @@ def roundSum(a: int, b: int, c: int) -> int:
         Use a helper function round10(num) to perform the rounding for each value.
 
     Examples:
-        roundSum(16, 17, 18) → 60   # 20 + 20 + 20
-        roundSum(12, 13, 14) → 30   # 10 + 10 + 10
-        roundSum(6, 4, 4)   → 10    # 10 + 0 + 0
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q59.py`
+        roundSum(16, 17, 18) -> 60   # 20 + 20 + 20
+        roundSum(12, 13, 14) -> 30   # 10 + 10 + 10
+        roundSum(6, 4, 4)   -> 10    # 10 + 0 + 0
 
     Args:
         a (int): First integer.
@@ -354,6 +349,10 @@ def roundSum(a: int, b: int, c: int) -> int:
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
 
+
+# -----------------------------------------------------------------
+# Question 10: countTriple
+# -----------------------------------------------------------------
 def countTriple(s: str) -> int:
     """
     Description:
@@ -361,13 +360,9 @@ def countTriple(s: str) -> int:
         Return the number of triples in the given string. Triples may overlap.
 
     Examples:
-        countTriple("abcXXXabc") → 1
-        countTriple("xxxabyyyycd") → 3
-        countTriple("a") → 0
-
-    Instructions to run the tests via the CLI:
-        1. Open your terminal or command prompt.
-        2. Run the tests by executing: `python async-ap/q60.py`
+        countTriple("abcXXXabc") -> 1
+        countTriple("xxxabyyyycd") -> 3
+        countTriple("a") -> 0
 
     Args:
         s (str): The input string to examine for triples.
