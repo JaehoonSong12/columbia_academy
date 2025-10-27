@@ -853,6 +853,7 @@ Thus our completed table is as follows:
 \hline
 Balls & Baskets & Total solutions & At most 1 ball in each basket & At least 1 ball in each basket \\
 \hline
+<<<<<<< HEAD
 Distinct & Distinct & A: $n^{k}$ & B: $P(n, k)$ & C: $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
 \hline
 Identical & Distinct & D: $\binom{n+k-1}{k-1}$ & E: $\binom{n}{k}$ & F: $\binom{k-1}{n-1}$ \\
@@ -860,6 +861,15 @@ Identical & Distinct & D: $\binom{n+k-1}{k-1}$ & E: $\binom{n}{k}$ & F: $\binom{
 Distinct & Identical & G: $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\left\{\begin{array}{c}k \\ 2\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & H: 1 if $k \leq n$; 0 otherwise & I: $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
 \hline
 Identical & Identical & J: $p_{\leq n}(k)=p_{1}(k)+p_{2}(k)+\cdots+p_{n}(k)$ & K: 1 if $k \leq n$; 0 otherwise & L: $p_{n}(k)$ \\
+=======
+Distinct & Distinct & $n^{k}$ & $P(n, k)$ & $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
+\hline
+Identical & Distinct & $\binom{n+k-1}{k-1}$ & $\binom{n}{k}$ & $\binom{k-1}{n-1}$ \\
+\hline
+Distinct & Identical & $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & 1 if $k \leq n$; else 0 & $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
+\hline
+Identical & Identical & $p_{\leq n}(k)=p_{1}(k)+\cdots+p_{n}(k)$ & if $k \leq n$; else 0 & $p_{n}(k)$ \\
+>>>>>>> main
 \hline
 \end{tabular}
 \end{center}
@@ -1172,7 +1182,10 @@ A generating function is a formal power series whose coefficients encode a seque
   The ordinary generating function for the sequence of partition numbers $p(k)$ is given by:
   $$ \sum_{k=0}^{\infty} p(k)x^k = \prod_{i=1}^{\infty} \frac{1}{1-x^i} $$
 \end{theorem}
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 \begin{proof}[Sketch of Proof]
   We use the geometric series expansion $\frac{1}{1-y} = 1 + y + y^2 + \dots$.
   The product can be written as:
@@ -1182,6 +1195,24 @@ A generating function is a formal power series whose coefficients encode a seque
   This is precisely a partition of $k$, where $m_1$ is the number of parts of size 1, $m_2$ is the number of parts of size 2, etc. The coefficient of $x^k$ is therefore the total number of ways to form such a sum, which is $p(k)$.
 \end{proof}
 
+<<<<<<< HEAD
+=======
+
+
+
+\begin{theorem}[Generating Function for Partitions with Exactly $n$ Parts]
+  Let $p_n(k)$ be the number of partitions of $k$ into exactly $n$ parts. Its generating function is:
+  $$
+  \sum_{k=0}^{\infty} p_n(k) x^k=\boldsymbol{x}^n \prod_{i=1}^n \frac{1}{1-x^i}
+  $$
+\end{theorem}
+\begin{proof}
+  To form a partition of $k$ into exactly $n$ parts, we can think of first choosing one part from each of the first $n$ factors in the product $\prod_{i=1}^{\infty} \frac{1}{1-x^i}$, which corresponds to selecting at least one of each of the first $n$ integers as parts. This contributes a factor of $x^n$ (one from each of the first $n$ factors). The remaining parts can be any combination of parts from sizes 1 to $n$, which is represented by the product $\prod_{i=1}^{n} \frac{1}{1-x^i}$. Thus, the generating function for partitions into exactly $n$ parts is:
+  $$ \sum_{k=0}^{\infty} p_n(k) x^k = x^n \prod_{i=1}^{n} \frac{1}{1-x^i} $$  
+\end{proof}
+
+
+>>>>>>> main
 \begin{theorem}[Generating Function for Partitions with Restricted Parts]
   Let $p_{\text{largest part } \le n}(k)$ be the number of partitions of $k$ where the largest part is at most $n$. Its generating function is:
   $$ \sum_{k=0}^{\infty} p_{\text{largest part } \le n}(k)x^k = \prod_{i=1}^{n} \frac{1}{1-x^i} $$
@@ -1247,5 +1278,129 @@ We now arrive at the central theorem connecting the concepts from the previous s
 \end{proof}
 
 
+\newpage
 
+\begin{enumerate}
+\item \textbf{Letter permutations.}  
+In what follows we assume that any letter appearing more than once 
+is indistinguishable from that same letter. For example, repeated 
+``O''s in a word are not considered distinct.
+\begin{enumerate}[label=(\alph*)]
+  \item How many permutations are there of the letters in the word \textsf{SOCIOLOGICAL}?
+  \item How many of these permutations have the letters \textsf{A} and \textsf{G} adjacent?
+  \item In how many of the permutations are all the vowels adjacent?
+\end{enumerate}
+
+
+\item \textbf{Lattice paths.}  
+Consider lattice paths in the plane that move from one point to 
+another by unit steps to the right (from $(x,y)$ to $(x+1,y)$) 
+or unit steps up (from $(x,y)$ to $(x,y+1)$).
+\begin{enumerate}[label=(\alph*)]
+  \item How many such paths are there from $(0,0)$ to $(7,7)$?
+  \item How many such paths are there from $(0,0)$ to $(n,n)$?
+  \item How many such paths are there from $(2,7)$ to $(9,14)$?
+  \item Give a general formula for the number of such paths between 
+  $(a,b)$ and $(c,d)$ (with $c\ge a$, $d\ge b$).
+\end{enumerate}
+
+
+\item \textbf{Donuts (combinatorics with limited flavors).}  
+Neda is buying 4 donuts: Viktor wants one filled and one unfilled; 
+Neda wants one unfilled and another donut that may be either 
+filled or unfilled. The shop has only single units of each flavor 
+and currently has 3 flavors of unfilled donuts and 2 flavors of 
+filled donuts remaining.
+\begin{enumerate}[label=(\alph*)]
+  \item List all possible selections (sets of 4 distinct-flavor donuts) 
+  that Neda could buy under the constraints above.
+  \item Ezri claims: ``There are $ \binom{3}{2}-3 $ ways to choose 2 
+  unfilled donuts, $ \binom{2}{1}-2 $ ways to choose a filled one for 
+  Viktor, and then 2 ways to choose Neda's other donut from the two 
+  that are left, so in total 12 choices.'' Use your answer from part 
+  (a) to explain the flaw in Ezri's reasoning.
+  \item The next day, the shop has 12 unfilled and 7 filled flavors 
+  (all distinct). Neda wants the same kind of order (4 different-flavored 
+  donuts satisfying the same preferences). How many different orders could 
+  Neda make?
+  \item Ezri wants to buy two boxes: one 4-pack for herself and another 
+  4-pack to take to Jerome (8 distinct flavors in all). If the shop has 
+  12 unfilled and 7 filled flavors and she wants 8 distinct flavors 
+  total, how many possible orders (choices of 8 distinct flavors and 
+  their assignment into the two 4-packs, if order within a pack does 
+  not matter) could she place?
+\end{enumerate}
+
+\item \textbf{Consecutive-letter constraint in \textsc{INFORMATION}.} \\
+In how many ways can one arrange all the letters of the word 
+\textsf{INFORMATION} so that no ordered pair of consecutive letters 
+(a digram) appears more than once in the permutation?  
+For example, permutations such as \textsf{IINNOOFRMTA} or 
+\textsf{FORTMAIINON} would be allowed, but \textsf{INFORINMOTA} 
+(the digram ``IN'' appears twice) or \textsf{NORTFNOIAMI} (the 
+digram ``NO'' appears twice) would not be allowed.
+
+\item \textbf{Inclusion–exclusion variant.} \\
+Recall that
+\[
+E_k = S_k - \binom{k+1}{1}S_{k+1} + \binom{k+2}{2}S_{k+2} - \cdots + (-1)^{\,n-k}\binom{n}{n-k}S_n,
+\]
+where the $S_i$ are the usual sums of sizes of intersections 
+of $i$ conditions.  Can you write down a general formula for 
+$L_k$, the number of elements of the universe $A$ that satisfy 
+\emph{at least} $k$ of the given conditions?  (It may be 
+difficult to express $L_k$ using only the $S_i$; you may 
+use the $E_i$ if you wish.)\\
+\textbf{Suggestion}: relate $L_k$ to sums of the $E_i$'s.
+
+
+
+\newpage
+
+
+
+\item \textbf{Derangements with fixed initial block.} \\
+For positive integers $1,2,\dots,n$, there are $11\,660$ derangements 
+in which the numbers $1,2,3,4,5$ occupy the first five positions 
+(in some order). What is the value of $n$?
+
+
+
+\item \textbf{Ordinary generating function and central binomial coefficients.} \\
+Show that the ordinary generating function
+\[
+g(x) = (1-4x)^{-1/2}
+\]
+generates the sequence $\bigl(\binom{2n}{n}\bigr)_{n\ge0}$. You may use 
+the binomial expansion
+\[
+(1+x)^n=\sum_{k=0}^n \binom{n}{k} x^k.
+\]
+\emph{Note:} this problem is challenging; mastery is not required 
+for assessments.
+
+\item \textbf{Generating functions: ordinary vs exponential.} \\
+Let
+\[
+f(x)=a_0+a_1 x+a_2 x^2+a_3 x^3+\cdots
+\]
+be the ordinary generating function (OGF) for the sequence $(a_n)_{n\ge0}$, and let
+\[
+\tilde g(x)=a_0 + a_1\frac{x}{1!} + a_2\frac{x^2}{2!} + a_3\frac{x^3}{3!} + \cdots
+\]
+be the exponential generating function (EGF) for the same sequence. Let $k$ be an arbitrary fixed positive integer. (The problem continues in your source; this is the cleaned statement of the introductory notation.)
+
+\medskip
+
+\item \textbf{Convolution with the all-ones sequence.} \\
+Show that the convolution of any sequence $(a_n)_{n\ge0}$ with 
+the sequence $(b_n)_{n\ge0}=(1,1,1,\dots)$ is the sequence of 
+partial sums of $(a_n)$, i.e. the convolution $c_n=\sum_{k=0}^n a_k$ 
+for each $n\ge0$.  
+\newline
+\emph{Note:} this explains why multiplying a generating function by 
+$\dfrac{1}{1-x}$ yields the sequence of cumulative sums: $\dfrac{1}{1-x}$ 
+is sometimes called the ``addition operator.''
+
+\end{enumerate}
 \end{document}

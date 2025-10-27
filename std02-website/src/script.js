@@ -21,6 +21,149 @@
 */
 
 
+
+console.log("Testings.....");
+
+
+let text = "Hello, World!";
+
+// Extract from index 0 up to (but not including) index 5
+let part1 = text.substring(0, 5); // "Hello" 
+console.log(part1);
+
+// Extract from index 7 to the end of the string
+let part2 = text.substring(7); // "World!"
+console.log(part2);
+
+// Extract from index 7 up to (but not including) index 12
+let part3 = text.substring(7, 12); // "World"
+console.log(part3);
+
+
+console.log("Testings.....");
+
+
+
+
+
+
+
+
+
+// let player1 = "Alice";
+// let player2 = "Oriana";
+
+// if (player2.use('R').on(player1)) {
+//     console.log(player1 + " has been hit by " + player2 + "'s R!");
+//     player1.moveTo(player2.getBallPosition());
+// }
+
+
+
+
+// Count the number of 'xx' in the given string. 
+// We'll say that overlapping is allowed, 
+// so 'xxx' contains 2 'xx'.
+// 
+// Examples
+// countXX('abcxx') -> 1
+// countXX('xxx') -> 2
+// countXX('xxxx') -> 3
+function countXX(str){
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str.substring(i, i + 2) == "xx") { // substring(i, i + 2) means i <= 번째 < i + 2
+            count = count + 1;
+        }
+    }
+    return count;
+}
+
+
+console.log("Testing countXX function:");
+console.log("Input: 'abcxxdefxx'");
+
+countResult = countXX("abcxxdefxx");
+
+console.log("Value: " + countResult);
+
+
+
+let str3 = "dasjfkldsngklfsdmg";
+for (let i = 0; i < str3.length; i++) {
+    console.log(str3[i]);
+}
+
+
+
+
+
+
+
+function frontTimes(str, n){
+    let result = "";
+    for (let i = 0; i < n; i = i + 1) {
+        result += str.substring(0, 3);
+    }
+    return result;
+}
+
+
+console.log("Testing frontTimes function:");
+console.log("Input: 'Chocolate', 2");
+frontTimesResult = frontTimes("Chocolate", 2);
+console.log("Value: " + frontTimesResult);
+console.log("Expected: ChoCho");
+
+
+
+
+
+
+function stringTimes(str, n){
+    let result = "";
+    for (let i = 0; i < n; i++) {
+        result = result + str;
+    }
+    return result;
+}
+
+
+
+console.log("Testing stringTimes function:");
+console.log("Input: 'Hi', 3");
+stringTimesResult = stringTimes("Hi", 3);
+console.log("Value: " + stringTimesResult);
+console.log("Expected: HiHiHi");
+
+
+
+
+
+function myFunction(str, n){ 
+    let result = "";
+    for (let i = 0; i < n; i++) {
+        result= result + str;
+    }
+    return result;
+}
+
+let resultValue = myFunction("Hello", 5);
+console.log(resultValue); // HelloHelloHelloHelloHello
+
+
+// 1. seqencial 순서대로
+// 2. conditional 조건 (if, switch)
+// 3. loop 반복 (for, while)
+
+
+
+
+
+
+
+
+
 /**
  * JSDoc Comment
  * @param {number} a - The first number.
@@ -82,9 +225,9 @@ console.log('9' * 3);
     vacation. We sleep in if it is not a weekday or 
     we're on vacation. Return true if we sleep in.
 
-    sleepIn(true, true) → true
-    sleepIn(true, false) → false
-    sleepIn(false, true) → true
+    sleepIn(true, true) -> true
+    sleepIn(true, false) -> false
+    sleepIn(false, true) -> true
  */
 function sleepIn(weekday, vacation){ // weekday = true, vacation = true
 
