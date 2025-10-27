@@ -794,613 +794,123 @@ We see that this generates the sequence $\left(\frac{-1}{15} \cdot\left(\frac{x}
 
 \newpage
 
+% \textbf{Note}: These problems are often a little challenging the first time around 
+% so there is an extra point available on this homework. That is, 24 points are 
+% available but you'll still be graded out of 23.
 
+% \noindent\rule{\textwidth}{0.4pt}
 
-\section*{Lesson M4.4: The Twelvefold Way, Part III: Integer Partitions}
+% \textit{For each part, please simplify your answer to a single integer; you may use 
+% a calculator. If it is helpful, you may use your answer to any part in any 
+% subsequent part. Please remember to give some verbal indication of your 
+% process in addition to just doing the necessary calculations.}
 
-\section*{Lesson}
-We return at last to the two final entries yet to be solved in our 
-Twelvefold Way table- let's remind ourselves of our current progress. 
-The number of ways to place $k$ balls into $n$ baskets is:
-
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-Balls & Baskets & Total solutions & At most 1 ball in each basket & At least 1 ball in each basket \\
-\hline
-Distinct & Distinct & A: $n^{k}$ & B: $P(n, k)$ & C: $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
-\hline
-Identical & Distinct & D: $\binom{n+k-1}{k-1}$ & E: $\binom{n}{k}$ & F: $\binom{k-1}{n-1}$ \\
-\hline
-Distinct & Identical & G: $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\left\{\begin{array}{c}k \\ 2\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & H: 1 if $k \leq n$; 0 otherwise & I: $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
-\hline
-Identical & Identical & J: Unknown right now & K: 1 if $k \leq n$; 0 otherwise & L: Unknown right now; related to J \\
-\hline
-\end{tabular}
-\end{center}
-
-What remains to be discovered is the number of ways to place indistinct balls into indistinct baskets. With the tools we had last time we considered this question, we lacked the ability to do this really carefully and in a reasonably manageable way. It turns out, though, that generating functions are the trick we need to come up with a really nice solution.
-
-Before we can solve this problem, though, we need to translate it. First, a definition:
-
-\begin{definition}[Integer Partition]
-For any positive integer $k$, a \textbf{partition of $k$} is a grouping of $k$ "ones" into positive, unordered summands (or parts). The number of partitions of $k$ is denoted $p(k)$.
-\end{definition}
-
-If we want to specify the number of positive summands involved in a partition, we use a subscript: $p_{n}(k)$ is the number of partitions of $k$ into exactly $n$ positive summands.
-
-Example: We see below the number of partitions of the integers $0-4$, based on the actual partitions possible (which are listed):
-
-$$
-\begin{aligned}
-& p(0)=1 \text { by convention } \\
-& p(1)=1: 1 \\
-& p(2)=2: 2,1+1 \\
-& p(3)=3: 3,2+1,1+1+1 \\
-& p(4)=5: 4,3+1,2+2,2+1+1,1+1+1+1
-\end{aligned}
-$$
-
-Our first order of business is to note that this is an equivalent problem: we know the "ones" in any number are indistinct from each other, and the summands are unordered (remember this is equivalent to unlabeled, or indistinct). Thus if "ones" are "balls" and "summands" are "baskets," then the number of partitions of $k$ into exactly $n$ summands is precisely the number of ways to distribute $k$ identical balls into $n$ identical baskets so that no basket is empty- which is exactly the quantity we're looking for in box $L$ of our table.
-
-Similarly, if we don't care how many of the baskets are actually used, we just need the number of partitions of $k$ into at most $n$ parts; we can find this by finding the number of partitions of $k$ into $i$\\
-parts for $1 \leq i \leq n$, often written as $p_{\leq n}(k)=p_{1}(k)+p_{2}(k)+\cdots+p_{n}(k)$. This is the number of ways to place $k$ indistinct balls into $n$ indistinct baskets with no further conditions- or quantity J .
-
-Thus our completed table is as follows:
-
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-Balls & Baskets & Total solutions & At most 1 ball in each basket & At least 1 ball in each basket \\
-\hline
-<<<<<<< HEAD
-Distinct & Distinct & A: $n^{k}$ & B: $P(n, k)$ & C: $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
-\hline
-Identical & Distinct & D: $\binom{n+k-1}{k-1}$ & E: $\binom{n}{k}$ & F: $\binom{k-1}{n-1}$ \\
-\hline
-Distinct & Identical & G: $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\left\{\begin{array}{c}k \\ 2\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & H: 1 if $k \leq n$; 0 otherwise & I: $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
-\hline
-Identical & Identical & J: $p_{\leq n}(k)=p_{1}(k)+p_{2}(k)+\cdots+p_{n}(k)$ & K: 1 if $k \leq n$; 0 otherwise & L: $p_{n}(k)$ \\
-=======
-Distinct & Distinct & $n^{k}$ & $P(n, k)$ & $S(k, n)=\sum_{i=0}^{n}(-1)^{i}\binom{n}{i}(n-i)^{k}$ \\
-\hline
-Identical & Distinct & $\binom{n+k-1}{k-1}$ & $\binom{n}{k}$ & $\binom{k-1}{n-1}$ \\
-\hline
-Distinct & Identical & $\left\{\begin{array}{c}k \\ 1\end{array}\right\}+\cdots+\left\{\begin{array}{c}k \\ n\end{array}\right\}$ & 1 if $k \leq n$; else 0 & $\left\{\begin{array}{c}k \\ n\end{array}\right\}=\frac{S(k, n)}{n!}$ \\
-\hline
-Identical & Identical & $p_{\leq n}(k)=p_{1}(k)+\cdots+p_{n}(k)$ & if $k \leq n$; else 0 & $p_{n}(k)$ \\
->>>>>>> main
-\hline
-\end{tabular}
-\end{center}
-
-We are not quite done yet though- we've translated a little bit and defined a concise notation for the quantities we wanted in boxes J and L , and have given a few very small examples, but in general we have no idea how to actually find $p_{n}(k)$ without just listing out every possible partition- which gets to be a daunting task very quickly!
-
-We might try the same strategy we used to get quantity I from quantity C: can we somehow use stars and bars/binomial coefficients to count the number of ways to put identical objects into distinct groups, then divide to "unlabel" the baskets? This doesn't quite work-- this strategy worked before because we counted every possibility a constant number of times, but this is not the situation we currently have. For example, if we count ordered groupings of 15 , then $1+2+3+4+5$ is counted a very different number of times than $3+3+3+3+3$.
-
-It turns out that there is not a particularly nice way of calculating $p(k)=p_{\leq k}(k), p_{n}(k)$, or any simply related quantity. A strategy that is successful, though, is to find a generating function for the sequence $(p(k))_{k \geq 0}$ - if we have this, then anytime we want $p(k)$, all we have to do is ask a computer for the coefficient of $x^{k}$ in our OGF. In the next lesson, we'll look at ways to manipulate this OGF to give us particular kinds of partitions.
-
-We can construct this function the same way we've been doing: we can think of a particular partition of $k$ as a non-negative integer solution to the equation $(1) x_{1}+2 x_{2}+3 x_{3}+\cdots+k x_{k}=k$, where $x_{i}$ is the number of summands of size $i$ that appear in the given partition. Note the sum on the left side of the equation contains the terms it does since each summand of a partition of $k$ must be between (or equal to) 1 and $k$.
-
-So now we use our generating functions to encode possible contributions of each term toward the total sum. One helpful thing to notice is that since our plan is to create an OGF that contains a particular coefficient, we actually don't need to worry about the possibility of making a function that gets "too big:" any possibilities that make the overall sum too big (such as $x_{1}=k+1$ ) can exist without hurting anything- they will just not actually contribute to the value of the coefficient of $x^{k}$.
-
-We know now our summands of size 1 can contribute any number toward a sum of $k$ (i.e., $x_{1}$ can be any value), so this contribution is modeled by
-
-$$
-1+x+x^{2}+x^{3}+x^{4}+x^{5}+\cdots=\frac{1}{1-x}
-$$
-
-Similarly, $x_{2}$ can take on any non-negative value (we can theoretically include any number of 2 s in a partition of $k$ ), but their overall contribution has to be an even number so is modeled by
-
-$$
-1+x^{2}+x^{4}+x^{6}+x^{8}+\cdots=\frac{1}{1-x^{2}}
-$$
-
-We have to get a multiple of 3 from summands of size 3 (so $1+x^{3}+x^{6}+x^{9}+\cdots=\frac{1}{1-x^{3}}$ represents the contributions to the sum from summands of size 3 ), and so on.
-
-So we see that, in general, the ways summands of size $i$ can contribute to the total can be represented by the OGF $f_{i}(x)=\frac{1}{1-x^{i}}$.
-
-Now we have an OGF that models the possible contributions of each individual potential summand in our partition, and we need to combine all those possibilities into one OGF to allow for partitions using non-unique summands: again, it's okay if we include possibilities where the summands are larger than $k$, since the terms obtained from actually using those factors will all have larger powers of $x$ than the one we care about. Thus we can simply take an infinite product, and find that
-
-\begin{theorem}[Partition Generating Function]
-The number of partitions $p(k)$ of a non-negative integer $k$ is the coefficient of $x^{k}$ in the OGF
-\[f(x)=\prod_{i=1}^{\infty} \frac{1}{1-x^{i}}\]
-\end{theorem}
-
-If we use what we know about $f_{i}(x)$ as defined above, we see that the number of partitions of $k$ into summands of size at most $n$ is given by the product of only the first $n$ terms of the function in our theorem, that is, $\prod_{i=1}^{n} \frac{1}{1-x^{i}}$ is the OGF for partitions of this type.
-
-In particular, then, since we know partitions of $k$ may have summands of size at most $k$, we may safely truncate the given infinite product and find the coefficient of $x^{k}$ in $\prod_{i=1}^{k} \frac{1}{1-x^{i}}$.
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-
-
-\section*{Lesson M4.5: Ferrers diagrams and Calculating $p_{n}(k)$}
-\section*{Learning Goals}
-\begin{itemize}
-  \item Use generating functions to model the number of integer partitions satisfying a set of conditions
-\end{itemize}
-
-\section*{Textbook References}
-Grimaldi: 9.3\\
-Keller and Trotter: 8.5\\
-Levin: Not Covered
-
-\section*{Lesson}
-We learned in the previous lesson that $f(x)=\prod_{i=1}^{\infty} \frac{1}{1-x^{i}}$ is the ordinary generating function for the sequence $(p(k))_{k \geq 0}$.
-
-While it's great to be able to find the total number of partitions of $k$, it's also important to be able to count particular subsets of those partitions. In particular, since it's relevant to actually finding the values in our twelvefold way table, we want to know how to calculate $p_{n}(k)$ and $p_{\leq n}(k)$.
-
-In order to better understand the manipulations we do to calculate these quantities, we define another way to visually represent partitions:
-
-\begin{definition}[Ferrers Diagram]
-The \textbf{Ferrers diagram} of a partition of $k$ displays each summand of size $i$ as a row of $i$ dots, arranged so that each row contains at least as many dots as the row below it. (This is equivalent to a convention of listing summands in order of size). Note the total number of dots in a diagram is always equal to $k$.
-\end{definition}
-
-Example: The partitions of 5, along with their associated Ferrers diagrams, are given below.\\
-
-Ferrers diagrams help us to visualize partitions, but they also provide a key insight that allows us to actually find the quantities we want for our table.
-
-Recall from the last lesson that the number of partitions of $k$ into summands of size at most $n$ is given by the coefficient of $x^{k}$ in the OGF $\prod_{i=1}^{n} \frac{1}{1-x^{i}}$.
-
-While it is conventional to think of Ferrers diagrams as displaying each summand as a row (thus the number of rows is the number of parts in a particular partition), it really would be equally reasonable to assign this role to columns instead (each diagram would just correspond to a different partition).
-
-If we visualize swapping rows and columns, we'll end up with the same set of diagrams- and really all we've done is swapped "number of parts" (\# of rows) with "size of the largest part" (\# of columns). That is, we have proved combinatorially that:
-
-\begin{theorem}
-The number of partitions of $k$ into at most $n$ parts is equal to the number of partitions of $k$ into parts of size $\leq n$.
-\end{theorem}
-
-Aha- this is a quantity we already know!\\
-Result 1: So the total number of ways to place $k$ identical balls into $n$ identical baskets is $p_{\leq n}(k)$, which is the coefficient of $x^{k}$ in the OGF $\prod_{i=1}^{n} \frac{1}{1-x^{i}}$.
-
-Example: Suppose we know that
-
-$$
-\prod_{i=1}^{5} \frac{1}{1-x^{i}}=1+x+2 x^{2}+3 x^{3}+5 x^{4}+7 x^{5}+10 x^{6}+13 x^{7}+18 x^{8}+23 x^{9}+30 x^{10}+\cdots
-$$
-
-
-Now all we need to do is figure out how many partitions of $k$ consist of exactly $n$ parts- it turns out Ferrers diagrams can help us here too. Suppose we want to draw a Ferrers diagram for a partition of $k$ that consists of exactly $n$ summands. By definition, the diagram needs to have exactly $n$ rows- so the first column needs to consist of $n$ dots.\\
-
-
-Once we have placed those $n$ dots though, we can build the rest of the diagram however we'd like, using as many or as few of the established rows as desired. That is, we can get any Ferrers diagram for a partition of $k$ that has exactly $k$ parts by appending a column of $n$ dots to any Ferrers diagram representing a partition of $k-n$ into at most $n$ parts.
-
-Because Ferrers diagrams correspond exactly to partitions (they just represent them visually), we conclude that the number of partitions of $k$ into exactly $n$ parts is equal to the number of partitions of $k-n$ into at most $n$ parts.
-
-Result 2:Thus the number of ways to place $k$ identical balls into $n$ non-empty baskets is $p_{n}(k)$, the coefficient of $x^{k-n}$ in in the OGF $\prod_{i=1}^{n} \frac{1}{1-x^{i}}$.
-
-Example: Again, recall that
-
-$$
-\prod_{i=1}^{5} \frac{1}{1-x^{i}}=1+x+2 x^{2}+3 x^{3}+5 x^{4}+7 x^{5}+10 x^{6}+13 x^{7}+18 x^{8}+23 x^{9}+30 x^{10}+\cdots
-$$
-
-
-
-
-
-
-
-
-
-
-\newpage
-
-
-\section*{Lesson M4.6: Proof Via Generating Function}
-\section*{Learning Goals}
-\begin{itemize}
-  \item Use generating functions together with combinatorial proofs to show equality
-\end{itemize}
-
-\section*{Textbook References}
-Grimaldi: 9.3\\
-Keller and Trotter: 8.5\\
-Levin: Not Covered
-
-\section*{Lesson}
-\subsection*{Part 1: Detailed Manipulations}
-So far, we have learned that $f(x)=\prod_{i=1}^{\infty} \frac{1}{1-x^{i}}$ is the ordinary generating function for the sequence $(p(k))_{k \geq 0}$ that gives the total number of partitions of each integer.
-
-We saw in the last lesson that we can limit ourselves to count only partitions with summands of size at most $n$ by only using factors $\frac{1}{1-x^{i}}$ for values of $i$ that are between 1 and $n$ - but we can generalize this strategy to count partitions using any collection of summands.
-
-\begin{theorem}
-The product
-\[\prod_{s \in S} \frac{1}{1-x^{s}}=\frac{1}{1-x^{s_{1}}} \frac{1}{1-x^{s_{2}}} \cdots \frac{1}{1-x^{s_{n}}} \cdots\]
-is the OGF for the sequence whose $i^{\text{th}}$ term is the number of partitions of $i$ using only summands $s$ belonging to a set $S$.
-\end{theorem}
-
-Example: The OGF for the sequence consisting of the number of partitions of $n$ into parts of size 2, 3 , and/or 5 is $\frac{1}{1-x^{2}} \frac{1}{1-x^{3}} \frac{1}{1-x^{5}}$.
-
-The OGF that gives the number of partitions of $n$ into only odd summands is $\frac{1}{1-x} \frac{1}{1-x^{3}} \frac{1}{1-x^{5}} \cdots=\prod_{i=1}^{\infty} \frac{1}{1-x^{2 i-1}}$.
-
-\section*{Problem: Find the OGF for the number of partitions of $n$ into only even summands.}
-We proceed similarly, but use only the even powers of $x$ to represent even summands: if $p_{e}(n)$ is the number of partitions of $n$ into even summands, the sequence $\left(p_{e}(n)\right)_{n \geq 0}$ is generated by $f(x)=\prod_{i=1}^{\infty} \frac{1}{1-x^{2 i}}$.
-
-In addition to more nuanced manipulation of which summands could appear in the partitions we're counting, we might wish to limit the number of times any particular summand is used in a partition: we do this by changing the term $\frac{1}{1-x^{i}}$ corresponding to that summand $i$.
-
-Recall that $\frac{1}{1-x^{i}}=1+x^{i}+x^{2 i}+x^{3 i}+\cdots$ represents the contributions of summands of size $i$ to the total sum (the number we're trying to partition) by using a term in the sum for each possible number of $i$ s in the partition. That is, 1 represents $0 i$ s, $x^{i}$ represents one $i, x^{k i}$ represents $k i$ s, and so on.
-
-Example: Find the OGF giving the number $p_{d}(n)$ of partitions of $n$ into distinct parts.\\
-In this set of partitions we can use any given summand at most once (otherwise if we used a summand twice, they would not be distinct). That means each potential summand $i$ (any positive integer, since that's not limited in this problem) can be used 0 or 1 times: to represent this we just use the polynomial $1+x^{i}$.
-
-Thus the OGF we are looking for has one of these factors for each potential summand $i$ : it is $f(x)=\prod_{i=1}^{\infty}\left(1+x^{i}\right)$.
-
-\section*{Problem: Find the OGF giving the number of partitions of $n$ where each summand is used at most twice.}
-If each summand is used at most twice, it can be used 0,1 , or 2 times: thus each potential summand $i$ is represented in our OGF by a factor of $1+x^{i}+x^{2 i}$. Our OGF is then $f(x)=\prod_{i=1}^{\infty}\left(1+x^{i}+x^{2 i}\right)$.
-
-It looks slightly more complex, but we can easily combine the ideas of limiting the repetition of each summand with limiting which summands are allowed. We just limit repetition using the term representing a particular summand, and limit which summands may be used by limiting which terms we include in our product.
-
-Example: Find the OGF whose coefficients give the number of partitions of $n$ into odd summands, each of which appears an odd number of times or not at all.
-
-We know each possible summand $i$ can appear $0,1,3,5,7 \ldots$ times, so is represented by $1+x^{i}+x^{3 i}+x^{5 i}+x^{7 i}+\cdots=1+\sum_{k=0}^{\infty}\left(x^{i}\right)^{2 k+1}$. Note since 0 doesn't fit the pattern of the rest of the numbers, we add that term separately.
-
-Now we need to ensure that we only use odd parts: to be sure $i$ is odd, we can iterate through $i=2 m+1$ for $m \geq 0$.
-
-Overall, then, our OGF is
-
-$$
-\prod_{m=1}^{\infty} 1+\sum_{k=0}^{\infty}\left(x^{2 m+1}\right)^{2 k+1}=\prod_{m=1}^{\infty} 1+\sum_{k=0}^{\infty} x^{(2 m+1)(2 k+1)}
-$$
-
-Proficiency in writing generating functions for different types of partitions, along with a couple of basic arithmetic facts, allows us to easily prove some interesting and advanced equalities that would otherwise be quite difficult.
-
-\subsection*{Part 2: Proofs About Partitions}
-Before we dive in, let's establish a few crucial properties.\\
-\begin{lemma}[A]
-$1+x+x^{2}+x^{3}+\cdots+x^{n}=\frac{1-x^{n+1}}{1-x}$, and more generally $1+x^{i}+x^{2 i}+\cdots x^{n i}=\frac{1-x^{(n+1) i}}{1-x^{i}}$.
-\end{lemma}
-
-These equalities can be derived from algebraic manipulations (the general case follows in the same way):
-
-\begin{itemize}
-  \item Method 1: Separate the right side of the equation into two fractions, and expand:
-\end{itemize}
-
-$$
-\frac{1-x^{n+1}}{1-x}=\frac{1}{1-x}-\frac{x^{n+1}}{1-x}=\left(1+x+x^{2} \cdots\right)-\left(x^{n+1}+x^{n+2}+\cdots\right)=1+x+x^{2}+x^{3}+\cdots
-$$
-
-\begin{itemize}
-  \item Method 2: Multiply both sides by $1-x$ :
-\end{itemize}
-
-$$
-\left(1+x+\cdots x^{n}\right)-\left(x+x^{2}+\cdots x^{n+1}\right)=1-x^{n+1}
-$$
-
-The other two propositions we need won't be proved, but hopefully are somewhat intuitive.\\
-\begin{lemma}[B]
-If the sequences $\left(a_{n}\right)_{n \geq 0}$ and $\left(b_{n}\right)_{n \geq 0}$ are generated by the same function, then $a_{n}=b_{n}$ for all $n \geq 0$.
-\end{lemma}
-
-\begin{lemma}[C]
-If two sequences of terms $a_{i}=b_{i}$ are equal for each $i \geq 0$, then the products $\prod_{i=1}^{\infty} a_{i}$ and $\prod_{i=1}^{\infty} b_{i}$ are also equal.
-\end{lemma}
-
-Putting all of these ideas together, we can create the following proof.
-
-\begin{theorem}
-For any positive integer $n$, the number of partitions of $n$ into odd parts is equal to the number of partitions into distinct parts.
-\end{theorem}
-
-\begin{proof}
-First, recall that the number of partitions of $n$ into odd summands is given by
-
-$$
-f_{o}(x)=\prod_{i=1}^{\infty} \frac{1}{1-x^{2 i-1}},
-$$
-
-and the number of partitions of $n$ into distinct summands is given by
-
-$$
-f_{d}(x)=\prod_{i=1}^{\infty}\left(1+x^{i}\right)
-$$
-
-By proposition $B$, if we understand the number of partitions of $n$ into odd or distinct parts as the $n^{t h}$ term of the sequences generated by the functions $f_{o}(x)$ and $f_{d}(x)$, then to prove the number of partitions is equal all we need to do is show $f_{o}(x)=f_{d}(x)$.
-
-Further, proposition C guarantees that since both functions consist of a product from $i=1$ to $\infty$, if we can prove each term of the two products is equal, we know the whole products (and thus the functions) are equal.
-
-Finally, then, all we need to show is that $\frac{1}{1-x^{2 i-1}}=\left(1+x^{i}\right)$ - but this is just the result from substituting $n=1$ into the equality we proved in proposition A.
-\end{proof}
-
-As we wrap up this unit, let's reflect for a moment on what we were just able to do: we know in general it's quite difficult to even count any type of partition, but we were able to efficiently use generating functions to show that there are the same number of partitions following two very different and specific patterns!
-
-In general proofs of this type are quite sophisticated- there are tons of identities like the one we just proved, and most of them are much more complex to show! First-class mathematicians have been working on research related to this type of identity for the last century- the most famous example are the "Rogers-Ramanujan Identities:"
-
-\begin{itemize}
-  \item The number of partitions of an integer $n$ where all parts differ by at least 2 is equal to the number of partitions of $n$ where all parts are congruent to 1 or $4(\bmod 5)$.
-  \item The number of partitions of $n$ where parts differ by at least 2 and the smallest part is at least 2 equals the number of partitions of $n$ with all parts congruent to 2 or $3(\bmod 5)$.
-\end{itemize}
-
-These identities were discovered and proved by Leonard James Rogers and (independently) Srinivasa Ramanujan in the early 1900s (you may have heard of Ramanujan $\vec{G}$ (\href{https://en.wikipedia.org/wiki/Srinivasa_Ramanujan}{https://en.wikipedia.org/wiki/Srinivasa\_Ramanujan})\_- he was a phenomenal Indian mathematician who made huge contributions to several areas of math despite very little formal training and a tragically short life). Many identities of this type have been proven in the years since, and are still an active area of research today.
-
-
-
-
-
-
-
-
-
-\newpage
-
-
-
-\begin{abstract}
-  This document provides formal definitions for several integer partition functions, introduces their associated ordinary generating functions, and presents a proof for a fundamental duality theorem that connects two distinct types of restricted partitions.
-\end{abstract}
-
-\section{Definitions of Partition Functions}
-
-We begin by formally defining an integer partition and the functions that count them.
-
-\begin{definition}[Integer Partition]
-  An \textbf{integer partition} of a non-negative integer $k$ is a way of writing $k$ as a sum of positive integers, called \textbf{parts}. The order of the parts does not matter. For example, the partitions of $k=4$ are:
-  \begin{itemize}
-    \item $4$
-    \item $3+1$
-    \item $2+2$
-    \item $2+1+1$
-    \item $1+1+1+1$
-  \end{itemize}
-\end{definition}
-
-\begin{definition}[The Partition Function $p(k)$]
-  For $k\in\mathbb{Z}_{\ge0}$ define
-  \[
-    p(k)\;:=\;\Bigg|\Big\{(m_i)_{i\ge1}\in\mathbb{Z}_{\ge0}^{\mathbb{N}} :
-    \sum_{i\ge1} i\,m_i = k,\; m_i=0\ \text{for all but finitely many }i\Big\}\Bigg|.
-  \]
-  Equivalently, $p(k)$ is the number of ways to write $k$ as an unordered sum of positive integers (order of summands ignored). By convention $p(0)=1$ (the empty partition).
-\end{definition}
-
-\begin{definition}[The Partition Function $p_n(k)$]
-  The function $\boldsymbol{p_n(k)}$ denotes the number of partitions of $k$ into \textbf{exactly} $n$ parts. For example, $p_2(4)=2$ since the partitions of 4 into exactly two parts are $3+1$ and $2+2$.
-\end{definition}
-
-\begin{definition}[The Partition Function $p_{\le n}(k)$]
-  The function $\boldsymbol{p_{\le n}(k)}$ denotes the number of partitions of $k$ into \textbf{at most} $n$ parts. This is equivalent to the sum $\sum_{j=1}^{n} p_j(k)$. For example, $p_{\le 2}(4) = p_1(4) + p_2(4) = 1 + 2 = 3$.
-\end{definition}
-
-\section{Generating Functions for Partitions}
-A generating function is a formal power series whose coefficients encode a sequence of numbers. They are a powerful tool in combinatorics for solving counting problems.
-
-\begin{theorem}[Generating Function for $p(k)$]
-  The ordinary generating function for the sequence of partition numbers $p(k)$ is given by:
-  $$ \sum_{k=0}^{\infty} p(k)x^k = \prod_{i=1}^{\infty} \frac{1}{1-x^i} $$
-\end{theorem}
-<<<<<<< HEAD
-
-=======
->>>>>>> main
-\begin{proof}[Sketch of Proof]
-  We use the geometric series expansion $\frac{1}{1-y} = 1 + y + y^2 + \dots$.
-  The product can be written as:
-  $$ (1+x^1+x^{1+1}+\dots)(1+x^2+x^{2+2}+\dots)(1+x^3+x^{3+3}+\dots)\dots $$
-  A term $x^k$ in the full expansion is formed by choosing one term from each factor, say $x^{m_1 \cdot 1}$ from the first, $x^{m_2 \cdot 2}$ from the second, and so on, such that their product is $x^k$. This corresponds to a sum:
-  $$ k = m_1 \cdot 1 + m_2 \cdot 2 + m_3 \cdot 3 + \dots $$
-  This is precisely a partition of $k$, where $m_1$ is the number of parts of size 1, $m_2$ is the number of parts of size 2, etc. The coefficient of $x^k$ is therefore the total number of ways to form such a sum, which is $p(k)$.
-\end{proof}
-
-<<<<<<< HEAD
-=======
-
-
-
-\begin{theorem}[Generating Function for Partitions with Exactly $n$ Parts]
-  Let $p_n(k)$ be the number of partitions of $k$ into exactly $n$ parts. Its generating function is:
-  $$
-  \sum_{k=0}^{\infty} p_n(k) x^k=\boldsymbol{x}^n \prod_{i=1}^n \frac{1}{1-x^i}
-  $$
-\end{theorem}
-\begin{proof}
-  To form a partition of $k$ into exactly $n$ parts, we can think of first choosing one part from each of the first $n$ factors in the product $\prod_{i=1}^{\infty} \frac{1}{1-x^i}$, which corresponds to selecting at least one of each of the first $n$ integers as parts. This contributes a factor of $x^n$ (one from each of the first $n$ factors). The remaining parts can be any combination of parts from sizes 1 to $n$, which is represented by the product $\prod_{i=1}^{n} \frac{1}{1-x^i}$. Thus, the generating function for partitions into exactly $n$ parts is:
-  $$ \sum_{k=0}^{\infty} p_n(k) x^k = x^n \prod_{i=1}^{n} \frac{1}{1-x^i} $$  
-\end{proof}
-
-
->>>>>>> main
-\begin{theorem}[Generating Function for Partitions with Restricted Parts]
-  Let $p_{\text{largest part } \le n}(k)$ be the number of partitions of $k$ where the largest part is at most $n$. Its generating function is:
-  $$ \sum_{k=0}^{\infty} p_{\text{largest part } \le n}(k)x^k = \prod_{i=1}^{n} \frac{1}{1-x^i} $$
-\end{theorem}
-\begin{proof}
-  The logic is identical to the proof above, but the product is truncated. Since the product only runs up to $i=n$, the available parts for any partition are restricted to the set $\{1, 2, \dots, n\}$.
-\end{proof}
-
-
-\section{The Duality Theorem (The ``Magic Trick'')}
-
-We now arrive at the central theorem connecting the concepts from the previous sections. It establishes a surprising and powerful equivalence between two seemingly different types of restricted partitions.
-
-\begin{theorem}\label{thm:duality}
-  The number of partitions of $k$ into at most $n$ parts is equal to the number of partitions of $k$ where the largest part is at most $n$. That is:
-  $$ p_{\le n}(k) = p_{\text{largest part } \le n}(k) $$
-\end{theorem}
-
-\begin{proof}
-  We will establish a bijection (a one-to-one correspondence) between the set of partitions of $k$ into at most $n$ parts and the set of partitions of $k$ where the largest part is at most $n$. The visual tool for this proof is the \textbf{Ferrers diagram}.
-
-  A Ferrers diagram represents a partition $\lambda = (\lambda_1, \lambda_2, \dots, \lambda_m)$ of $k$ as an array of dots, where the $i$-th row has $\lambda_i$ dots. For example, the partition of $k=10$ into $4+3+3$ is:
-  \begin{center}
-    \begin{tabular}{cccc}
-      $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ \\
-      $\bullet$ & $\bullet$ & $\bullet$ & \\
-      $\bullet$ & $\bullet$ & $\bullet$ & \\
-    \end{tabular}
-  \end{center}
+% \begin{enumerate}
   
-  The \textbf{conjugate} of a partition $\lambda$, denoted $\lambda'$, is the partition corresponding to the Ferrers diagram obtained by transposing the original diagram (swapping rows and columns). The number of parts in $\lambda'$ is equal to the size of the largest part in $\lambda$, and the size of the largest part in $\lambda'$ is equal to the number of parts in $\lambda$.
+%   \item (6 points) Amal needs to sort the distinct numbers 1-8 into 3 different groups.
+%   \begin{enumerate}
+%     \item If there needs to be at least one number in each group, in how many ways could this be done?
+%     \begin{answer}
+%       This problem requires finding the number of ways to partition a set of 8 distinct elements into 3 non-empty, unlabeled subsets. This quantity is calculated using the Stirling number of the second kind, denoted as $S(n, k)$, where $n=8$ and $k=3$.
 
-  For our example partition $4+3+3$:
-  \begin{itemize}
-    \item The number of parts is 3.
-    \item The largest part is 4.
-  \end{itemize}
-  The conjugate diagram is:
-  \begin{center}
-    \begin{tabular}{ccc}
-      $\bullet$ & $\bullet$ & $\bullet$ \\
-      $\bullet$ & $\bullet$ & $\bullet$ \\
-      $\bullet$ & $\bullet$ & $\bullet$ \\
-      $\bullet$ & & \\
-    \end{tabular}
-  \end{center}
-  This corresponds to the partition $3+3+3+1$. For this conjugate partition:
-  \begin{itemize}
-    \item The number of parts is 4.
-    \item The largest part is 3.
-  \end{itemize}
-  
-  Now, consider a partition of $k$ into \textbf{at most $n$ parts}. Its Ferrers diagram will have at most $n$ rows. When we take the conjugate, the number of columns in the new diagram will be at most $n$. The number of columns in a Ferrers diagram is equal to the size of its largest part. Therefore, the conjugate partition will have a \textbf{largest part of at most $n$}.
+%       The value of $S(8, 3)$ is determined by the formula:
+%       $$S(n, k) = \frac{1}{k!} \sum_{j=0}^{k} (-1)^{k-j} \binom{k}{j} j^n$$
+%       For this specific case, the calculation is performed as follows:
+%       \begin{align*}
+%         S(8, 3) &= \frac{1}{3!} \left[ \binom{3}{0}(-1)^{3-0} 0^8 + \binom{3}{1}(-1)^{3-1} 1^8 + \binom{3}{2}(-1)^{3-2} 2^8 + \binom{3}{3}(-1)^{3-3} 3^8 \right] \\
+%         &= \frac{1}{6} \left[ 0 + (3)(1)(1^8) + (3)(-1)(2^8) + (1)(1)(3^8) \right] \\
+%         &= \frac{1}{6} \left[ 3 - 3(256) + 6561 \right] \\
+%         &= \frac{1}{6} [3 - 768 + 6561] \\
+%         &= \frac{5796}{6} \\
+%         &= 966
+%       \end{align*}
+%       Thus, there are 966 ways to sort the numbers into 3 non-empty, indistinguishable groups.
+%       \newline\newline
+%       \textbf{Answer}: 966
+%     \end{answer}
+%     \item Suppose there needs to be at least one number in each group, and the groups are labeled $\mathrm{A}, \mathrm{B}$, and C. How many options are there now?
+%     \begin{answer}
+%       When the groups are labeled, the problem becomes finding the number of ways to partition 8 distinct elements into 3 non-empty, labeled subsets. This is equivalent to finding the number of surjective (onto) functions from a set of 8 elements to a set of 3 elements.
 
-  This mapping (conjugation) is its own inverse. If you conjugate a partition twice, you get back the original partition. Thus, it is a bijection. Since we have a bijection between the set of partitions of $k$ with at most $n$ parts and the set of partitions of $k$ with a largest part of at most $n$, the sizes of these two sets must be equal. This concludes the proof.
-\end{proof}
+%       This can be calculated by taking the result from part (a), which is for unlabeled groups, and multiplying it by the number of ways to assign the distinct labels to these groups. There are $3!$ ways to label the 3 groups.
+%       $$ \text{Number of ways} = S(8, 3) \times 3! $$
+%       Using the value of $S(8, 3)$ from the previous part:
+%       $$ \text{Number of ways} = 966 \times 6 = 5796 $$
+%       Alternatively, the principle of inclusion-exclusion can be applied directly. The total number of ways to place 8 distinct items into 3 distinct groups is $3^8$. From this, the cases where one or more groups are empty must be subtracted.
+%       \begin{align*}
+%         \text{Number of ways} &= \binom{3}{3}3^8 - \binom{3}{2}2^8 + \binom{3}{1}1^8 \\
+%         &= (1)(6561) - (3)(256) + (3)(1) \\
+%         &= 6561 - 768 + 3 \\
+%         &= 5796
+%       \end{align*}
+%       Both methods confirm the result.
+%       \newline\newline
+%       \textbf{Answer}: 5796
+%     \end{answer}
+%     \item How many options for sorting does Amal have if he now is allowed to sort the numbers into at most 3 groups, i.e., some of the 3 groups could be empty?
+%     \begin{answer}
+%       This problem asks for the total number of ways to sort 8 distinct numbers into 3 labeled groups, with no restrictions on the groups being non-empty. This implies that for each of the 8 distinct numbers, there are 3 independent choices of group to which it can be assigned.
 
-\begin{corollary}
-  The generating function for $p_{\le n}(k)$ is $\prod_{i=1}^{n} \frac{1}{1-x^i}$.
-\end{corollary}
-\begin{proof}
-  This follows directly from Theorem \ref{thm:duality} and Theorem 2.2. The generating function counts partitions where the largest part is at most $n$, and since this is equal to the number of partitions with at most $n$ parts, the same generating function applies to both.
-\end{proof}
-
-
-\newpage
-
-\begin{enumerate}
-\item \textbf{Letter permutations.}  
-In what follows we assume that any letter appearing more than once 
-is indistinguishable from that same letter. For example, repeated 
-``O''s in a word are not considered distinct.
-\begin{enumerate}[label=(\alph*)]
-  \item How many permutations are there of the letters in the word \textsf{SOCIOLOGICAL}?
-  \item How many of these permutations have the letters \textsf{A} and \textsf{G} adjacent?
-  \item In how many of the permutations are all the vowels adjacent?
-\end{enumerate}
-
-
-\item \textbf{Lattice paths.}  
-Consider lattice paths in the plane that move from one point to 
-another by unit steps to the right (from $(x,y)$ to $(x+1,y)$) 
-or unit steps up (from $(x,y)$ to $(x,y+1)$).
-\begin{enumerate}[label=(\alph*)]
-  \item How many such paths are there from $(0,0)$ to $(7,7)$?
-  \item How many such paths are there from $(0,0)$ to $(n,n)$?
-  \item How many such paths are there from $(2,7)$ to $(9,14)$?
-  \item Give a general formula for the number of such paths between 
-  $(a,b)$ and $(c,d)$ (with $c\ge a$, $d\ge b$).
-\end{enumerate}
-
-
-\item \textbf{Donuts (combinatorics with limited flavors).}  
-Neda is buying 4 donuts: Viktor wants one filled and one unfilled; 
-Neda wants one unfilled and another donut that may be either 
-filled or unfilled. The shop has only single units of each flavor 
-and currently has 3 flavors of unfilled donuts and 2 flavors of 
-filled donuts remaining.
-\begin{enumerate}[label=(\alph*)]
-  \item List all possible selections (sets of 4 distinct-flavor donuts) 
-  that Neda could buy under the constraints above.
-  \item Ezri claims: ``There are $ \binom{3}{2}-3 $ ways to choose 2 
-  unfilled donuts, $ \binom{2}{1}-2 $ ways to choose a filled one for 
-  Viktor, and then 2 ways to choose Neda's other donut from the two 
-  that are left, so in total 12 choices.'' Use your answer from part 
-  (a) to explain the flaw in Ezri's reasoning.
-  \item The next day, the shop has 12 unfilled and 7 filled flavors 
-  (all distinct). Neda wants the same kind of order (4 different-flavored 
-  donuts satisfying the same preferences). How many different orders could 
-  Neda make?
-  \item Ezri wants to buy two boxes: one 4-pack for herself and another 
-  4-pack to take to Jerome (8 distinct flavors in all). If the shop has 
-  12 unfilled and 7 filled flavors and she wants 8 distinct flavors 
-  total, how many possible orders (choices of 8 distinct flavors and 
-  their assignment into the two 4-packs, if order within a pack does 
-  not matter) could she place?
-\end{enumerate}
-
-\item \textbf{Consecutive-letter constraint in \textsc{INFORMATION}.} \\
-In how many ways can one arrange all the letters of the word 
-\textsf{INFORMATION} so that no ordered pair of consecutive letters 
-(a digram) appears more than once in the permutation?  
-For example, permutations such as \textsf{IINNOOFRMTA} or 
-\textsf{FORTMAIINON} would be allowed, but \textsf{INFORINMOTA} 
-(the digram ``IN'' appears twice) or \textsf{NORTFNOIAMI} (the 
-digram ``NO'' appears twice) would not be allowed.
-
-\item \textbf{Inclusion–exclusion variant.} \\
-Recall that
-\[
-E_k = S_k - \binom{k+1}{1}S_{k+1} + \binom{k+2}{2}S_{k+2} - \cdots + (-1)^{\,n-k}\binom{n}{n-k}S_n,
-\]
-where the $S_i$ are the usual sums of sizes of intersections 
-of $i$ conditions.  Can you write down a general formula for 
-$L_k$, the number of elements of the universe $A$ that satisfy 
-\emph{at least} $k$ of the given conditions?  (It may be 
-difficult to express $L_k$ using only the $S_i$; you may 
-use the $E_i$ if you wish.)\\
-\textbf{Suggestion}: relate $L_k$ to sums of the $E_i$'s.
+%       Since the choice for each of the 8 numbers is independent, the total number of options is found by multiplying the number of choices for each number.
+%       $$ \text{Total options} = 3 \times 3 \times 3 \times 3 \times 3 \times 3 \times 3 \times 3 = 3^8 $$
+%       The result of this calculation is:
+%       $$ 3^8 = 6561 $$
+%       This answer can be verified by summing the number of ways to have exactly one, two, or three non-empty labeled groups.
+%       \begin{itemize}
+%         \item Exactly 3 non-empty groups: $5796$ (from part b).
+%         \item Exactly 2 non-empty groups: $\binom{3}{2} \times (2^8 - \binom{2}{1}1^8) = 3 \times (256 - 2) = 3 \times 254 = 762$.
+%         \item Exactly 1 non-empty group: $\binom{3}{1} \times 1^8 = 3 \times 1 = 3$.
+%       \end{itemize}
+%       The total sum is $5796 + 762 + 3 = 6561$, which confirms the direct calculation.
+%       \newline\newline
+%       \textbf{Answer}: 6561
+%     \end{answer}
+%   \end{enumerate}
 
 
 
-\newpage
+%   \newpage
+
+%   \item (6 points) Amal needs to sort the distinct numbers 1-8 into 3 different groups.
+%   \begin{enumerate}
+%     \item If there needs to be at least one number in each group, in how many ways could this be done?
+%     \begin{answer}
+%       [Your answer here.]
+%     \end{answer}
+%     \item Suppose there needs to be at least one number in each group, and the groups are labeled $\mathrm{A}, \mathrm{B}$, and C. How many options are there now?
+%     \begin{answer}
+%       [Your answer here.]
+%     \end{answer}
+%     \item How many options for sorting does Amal have if he now is allowed to sort the numbers into at most 3 groups, i.e., some of the 3 groups could be empty?
+%     \begin{answer}
+%       [Your answer here.]
+%     \end{answer}
+%   \end{enumerate}
 
 
+%   \newpage
 
-\item \textbf{Derangements with fixed initial block.} \\
-For positive integers $1,2,\dots,n$, there are $11\,660$ derangements 
-in which the numbers $1,2,3,4,5$ occupy the first five positions 
-(in some order). What is the value of $n$?
+%   \item (5 points) How many nine-digit sequences have each of the numbers 2, 5, and 8 appearing at least once? You do not need to simplify your answer.
+%   \begin{answer}
+%     [Your answer here.]
+%   \end{answer}
 
+%   \item (5 points) Find the number of integer solutions to the equation $A+B+C=15$, where
+%   $$
+%   \begin{aligned}
+%   & 0 \leq A \leq 6 \\
+%   & 0 \leq B \leq 11 \\
+%   & 2 \leq C \leq 7
+%   \end{aligned}
+%   $$
+%   \begin{answer}
+%     [Your answer here.]
+%   \end{answer}
 
+%   \item (5 points) In how many ways can the letters of the word ARRANGEMENT be arranged so that there are exactly two pairs of consecutive identical letters?
+%   \begin{answer}
+%     [Your answer here.]
+%   \end{answer}
+% \end{enumerate}
 
-\item \textbf{Ordinary generating function and central binomial coefficients.} \\
-Show that the ordinary generating function
-\[
-g(x) = (1-4x)^{-1/2}
-\]
-generates the sequence $\bigl(\binom{2n}{n}\bigr)_{n\ge0}$. You may use 
-the binomial expansion
-\[
-(1+x)^n=\sum_{k=0}^n \binom{n}{k} x^k.
-\]
-\emph{Note:} this problem is challenging; mastery is not required 
-for assessments.
-
-\item \textbf{Generating functions: ordinary vs exponential.} \\
-Let
-\[
-f(x)=a_0+a_1 x+a_2 x^2+a_3 x^3+\cdots
-\]
-be the ordinary generating function (OGF) for the sequence $(a_n)_{n\ge0}$, and let
-\[
-\tilde g(x)=a_0 + a_1\frac{x}{1!} + a_2\frac{x^2}{2!} + a_3\frac{x^3}{3!} + \cdots
-\]
-be the exponential generating function (EGF) for the same sequence. Let $k$ be an arbitrary fixed positive integer. (The problem continues in your source; this is the cleaned statement of the introductory notation.)
-
-\medskip
-
-\item \textbf{Convolution with the all-ones sequence.} \\
-Show that the convolution of any sequence $(a_n)_{n\ge0}$ with 
-the sequence $(b_n)_{n\ge0}=(1,1,1,\dots)$ is the sequence of 
-partial sums of $(a_n)$, i.e. the convolution $c_n=\sum_{k=0}^n a_k$ 
-for each $n\ge0$.  
-\newline
-\emph{Note:} this explains why multiplying a generating function by 
-$\dfrac{1}{1-x}$ yields the sequence of cumulative sums: $\dfrac{1}{1-x}$ 
-is sometimes called the ``addition operator.''
-
-\end{enumerate}
 \end{document}
