@@ -153,7 +153,7 @@ console.log(resultValue); // HelloHelloHelloHelloHello
 
 
 // 1. seqencial 순서대로
-// 2. conditional 조건 (if, switch)
+// 2. selection 조건 (if, switch)
 // 3. loop 반복 (for, while)
 
 
