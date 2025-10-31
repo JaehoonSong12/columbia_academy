@@ -1,39 +1,25 @@
+// Collaboration Statement: I worked on the homework assignment alone, using only course materials.
+
 /**
- * Represents a product in the market's inventory.
- * Stores information about the product's ID, pricing, and quantity.
+ * Represents a product in the market inventory.
  *
- * @author [Your Name]
+ * @author Tai Park
  * @version 1.0
  */
 public class Product {
 
-    /**
-     * The unique identifier for the product.
-     */
     private String id;
-
-    /**
-     * The price the market pays to buy this product from a supplier.
-     */
     private int buyPrice;
-
-    /**
-     * The price the market charges to sell this product to a customer.
-     */
     private int sellPrice;
-
-    /**
-     * The current quantity of this product in the inventory.
-     */
     private int quantity;
 
     /**
-     * Creates a new Product instance.
+     * Constructs a Product with the given parameters.
      *
-     * @param id The product's unique ID.
-     * @param buyPrice The price the market pays for this product.
-     * @param sellPrice The price the market sells this product for.
-     * @param quantity The initial quantity of this product.
+     * @param id product ID
+     * @param buyPrice cost to buy from suppliers
+     * @param sellPrice price sold to customers
+     * @param quantity stock quantity
      */
     public Product(String id, int buyPrice, int sellPrice, int quantity) {
         this.id = id;
@@ -43,58 +29,57 @@ public class Product {
     }
 
     /**
-     * Gets the product's ID.
+     * Returns product ID.
      *
-     * @return The String ID.
+     * @return product ID
      */
     public String getId() {
-        return this.id;
+        return id;
     }
 
     /**
-     * Gets the product's buy price.
+     * Returns buy price.
      *
-     * @return The integer buy price.
+     * @return buy price
      */
     public int getBuyPrice() {
-        return this.buyPrice;
+        return buyPrice;
     }
 
     /**
-     * Gets the product's sell price.
+     * Returns sell price.
      *
-     * @return The integer sell price.
+     * @return sell price
      */
     public int getSellPrice() {
-        return this.sellPrice;
+        return sellPrice;
     }
 
     /**
-     * Gets the current quantity of the product.
+     * Returns current quantity.
      *
-     * @return The integer quantity.
+     * @return current quantity
      */
     public int getQuantity() {
-        return this.quantity;
+        return quantity;
     }
 
     /**
-     * Sets the quantity of the product.
+     * Sets the current quantity.
      *
-     * @param quantity The new quantity.
+     * @param quantity new quantity
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
     /**
-     * Returns a string representation of the product, with all instance
-     * variables comma-separated.
+     * Returns product info as CSV format.
      *
-     * @return A String in the format "id,buyPrice,sellPrice,quantity".
+     * @return formatted string
      */
     @Override
     public String toString() {
-        return this.id + "," + this.buyPrice + "," + this.sellPrice + "," + this.quantity;
+        return id + "," + buyPrice + "," + sellPrice + "," + quantity;
     }
 }
