@@ -1,36 +1,29 @@
+// Collaboration Statement: I worked on the homework assignment alone, using only course materials.
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.InputMismatchException;
+// import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * Manages the market's inventory, including products and money.
- * This class can load inventory from a file, perform buy/sell transactions,
- * and save the inventory back to a file. It also serves as the main
- * program executable.
+ * Manages the market inventory, buying and selling products,
+ * reading/writing from/to file, and interacting with the employee.
  *
- * @author Tayion Park
+ * @author Tai Park
  * @version 1.0
  */
 public class MarketInventoryManager {
 
-    /**
-     * An array holding all the products in the inventory.
-     */
     private Product[] products;
-
-    /**
-     * The amount of money the market currently has.
-     */
     private int money;
 
     /**
-     * Private constructor to create a MarketInventoryManager instance.
+     * Constructs a manager with given products and money.
      *
-     * @param products An array of Product objects.
-     * @param money The initial amount of money for the market.
+     * @param products array of products
+     * @param money available market money
      */
     private MarketInventoryManager(Product[] products, int money) {
         this.products = products;
@@ -38,64 +31,59 @@ public class MarketInventoryManager {
     }
 
     /**
-     * Creates and returns a MarketInventoryManager instance by reading
-     * inventory data from a file.
+     * Loads market data from file.
      *
-     * @param file The file to read the inventory from.
-     * @return A new MarketInventoryManager instance.
-     * @throws IOException If the file cannot be read.
-     * @throws MalformedInventoryFileException If the file format is invalid.
+     * @param file file containing inventory info
+     * @return MarketInventoryManager instance
+     * @throws IOException if file cannot be read
+     * @throws MalformedInventoryFileException if file is invalid
      */
-    public static MarketInventoryManager fromFile(File file) throws IOException, MalformedInventoryFileException {
-        Scanner fileScanner = null;
-        try {
-            fileScanner = new Scanner(file);
-            // 1. Read Header
-            if (!fileScanner.hasNextLine()) {
+    public static MarketInventoryManager fromFile(File file)
+            throws IOException, MalformedInventoryFileException {
+        try (Scanner sc = new Scanner(file)) {
+            if (!sc.hasNextLine()) {
                 throw new MalformedInventoryFileException("Invalid inventory header");
             }
-            String headerLine = fileScanner.nextLine();
-            Scanner headerScanner = new Scanner(headerLine);
 
-            int productCount;
+            String[] header = sc.nextLine().trim().split(" ");
+            if (header.length != 2) {
+                throw new MalformedInventoryFileException("Invalid inventory header");
+            }
+
+            int numProducts;
             int money;
-
             try {
-                productCount = headerScanner.nextInt();
-                money = headerScanner.nextInt();
-            } catch (InputMismatchException | NoSuchElementException e) {
+                numProducts = Integer.parseInt(header[0]);
+                money = Integer.parseInt(header[1]);
+            } catch (NumberFormatException e) {
                 throw new MalformedInventoryFileException("Invalid inventory header");
             }
 
-            // Check for negative values or extra data
-            if (productCount < 0 || money < 0 || headerScanner.hasNext()) {
+            if (numProducts < 0 || money < 0) {
                 throw new MalformedInventoryFileException("Invalid inventory header");
             }
-            headerScanner.close();
 
-            // 2. Read Products
-            Product[] products = new Product[productCount];
-            for (int i = 0; i < productCount; i++) {
-                int productNumber = i + 1;
-
-                if (!fileScanner.hasNextLine()) {
+            Product[] products = new Product[numProducts];
+            for (int i = 0; i < numProducts; i++) {
+                if (!sc.hasNextLine()) {
                     throw new MalformedInventoryFileException("Product information incomplete");
                 }
-                String productLine = fileScanner.nextLine();
-                String[] parts = productLine.split(",");
+                String line = sc.nextLine().trim();
+                String[] parts = line.split(",");
 
                 if (parts.length != 4) {
-                    throw new MalformedInventoryFileException("Product information invalid for product " + productNumber);
+                    throw new MalformedInventoryFileException(
+                        "Product information invalid for product " + (i + 1));
                 }
 
                 String id = parts[0];
                 if (id.isEmpty() || id.contains(" ")) {
-                    throw new MalformedInventoryFileException("Product information invalid for product " + productNumber);
+                    throw new MalformedInventoryFileException(
+                        "Product information invalid for product " + (i + 1));
                 }
 
-                // Check for duplicate ID
-                for (int j = 0; j < i; j++) {
-                    if (products[j].getId().equals(id)) {
+                for (Product p : products) {
+                    if (p != null && p.getId().equals(id)) {
                         throw new MalformedInventoryFileException("Duplicate product ID: " + id);
                     }
                 }
@@ -103,41 +91,117 @@ public class MarketInventoryManager {
                 int buyPrice;
                 int sellPrice;
                 int quantity;
-
                 try {
                     buyPrice = Integer.parseInt(parts[1]);
                     sellPrice = Integer.parseInt(parts[2]);
                     quantity = Integer.parseInt(parts[3]);
                 } catch (NumberFormatException e) {
-                    throw new MalformedInventoryFileException("Product information invalid for product " + productNumber);
+                    throw new MalformedInventoryFileException(
+                        "Product information invalid for product " + (i + 1));
                 }
 
                 if (buyPrice < 0 || sellPrice < 0 || quantity < 0) {
-                    throw new MalformedInventoryFileException("Product information invalid for product " + productNumber);
+                    throw new MalformedInventoryFileException(
+                        "Product information invalid for product " + (i + 1));
                 }
 
-                // All checks passed for this product
                 products[i] = new Product(id, buyPrice, sellPrice, quantity);
             }
-
-            // All products loaded successfully
             return new MarketInventoryManager(products, money);
+        } catch (NoSuchElementException e) {
+            throw new MalformedInventoryFileException("Invalid inventory header");
+        }
+    }
 
-        } finally {
-            if (fileScanner != null) {
-                fileScanner.close();
+    /**
+     * Buys a product from supplier.
+     *
+     * @param id product ID
+     * @param quantity quantity to buy
+     * @throws CannotFulfillTransactionException if transaction fails
+     */
+    public void buy(String id, int quantity)
+            throws CannotFulfillTransactionException {
+        if (quantity < 0) {
+            throw new CannotFulfillTransactionException("Quantity is negative");
+        }
+
+        Product p = findProduct(id);
+        if (p == null) {
+            throw new CannotFulfillTransactionException("Product ID not found");
+        }
+
+        int cost = p.getBuyPrice() * quantity;
+        if (cost > money) {
+            throw new CannotFulfillTransactionException("Not enough money to buy");
+        }
+
+        p.setQuantity(p.getQuantity() + quantity);
+        money -= cost;
+    }
+
+    /**
+     * Sells a product to customer.
+     *
+     * @param id product ID
+     * @param quantity quantity to sell
+     * @throws CannotFulfillTransactionException if transaction fails
+     */
+    public void sell(String id, int quantity)
+            throws CannotFulfillTransactionException {
+        if (quantity < 0) {
+            throw new CannotFulfillTransactionException("Quantity is negative");
+        }
+
+        Product p = findProduct(id);
+        if (p == null) {
+            throw new CannotFulfillTransactionException("Product ID not found");
+        }
+
+        if (p.getQuantity() < quantity) {
+            throw new CannotFulfillTransactionException("Not enough quantity to sell");
+        }
+
+        p.setQuantity(p.getQuantity() - quantity);
+        money += p.getSellPrice() * quantity;
+    }
+
+    /**
+     * Returns array of product IDs in market order.
+     *
+     * @return array of product IDs in market order
+     */
+    public String[] marketProducts() {
+        String[] ids = new String[products.length];
+        for (int i = 0; i < products.length; i++) {
+            ids[i] = products[i].getId();
+        }
+        return ids;
+    }
+
+    /**
+     * Saves inventory data to file.
+     *
+     * @param file output file
+     * @throws IOException if writing fails
+     */
+    public void saveToFile(File file) throws IOException {
+        try (PrintWriter pw = new PrintWriter(file)) {
+            pw.println(products.length + " " + money);
+            for (Product p : products) {
+                pw.println(p.toString());
             }
         }
     }
 
     /**
-     * Helper method to find a product by its ID.
+     * Helper to find a product by ID.
      *
-     * @param id The ID of the product to find.
-     * @return The Product object if found, or null otherwise.
+     * @param id product ID
+     * @return Product or null
      */
-    private Product findProductById(String id) {
-        for (Product p : this.products) {
+    private Product findProduct(String id) {
+        for (Product p : products) {
             if (p.getId().equals(id)) {
                 return p;
             }
@@ -146,114 +210,17 @@ public class MarketInventoryManager {
     }
 
     /**
-     * Buys a specified quantity of a product from a supplier.
+     * Program entry point for interactive use.
      *
-     * @param id The ID of the product to buy.
-     * @param quantity The non-negative quantity to buy.
-     * @throws CannotFulfillTransactionException If the transaction cannot be completed.
-     */
-    public void buy(String id, int quantity) throws CannotFulfillTransactionException {
-        if (quantity < 0) {
-            throw new CannotFulfillTransactionException("Quantity is negative");
-        }
-
-        Product product = findProductById(id);
-        if (product == null) {
-            throw new CannotFulfillTransactionException("Product ID not found");
-        }
-
-        // Use long to prevent overflow during calculation
-        long totalCost = (long) product.getBuyPrice() * quantity;
-        if (this.money < totalCost) {
-            throw new CannotFulfillTransactionException("Not enough money to buy");
-        }
-
-        // Transaction is valid
-        this.money -= totalCost;
-        product.setQuantity(product.getQuantity() + quantity);
-    }
-
-    /**
-     * Sells a specified quantity of a product to a customer.
-     *
-     * @param id The ID of the product to sell.
-     * @param quantity The non-negative quantity to sell.
-     * @throws CannotFulfillTransactionException If the transaction cannot be completed.
-     */
-    public void sell(String id, int quantity) throws CannotFulfillTransactionException {
-        if (quantity < 0) {
-            throw new CannotFulfillTransactionException("Quantity is negative");
-        }
-
-        Product product = findProductById(id);
-        if (product == null) {
-            throw new CannotFulfillTransactionException("Product ID not found");
-        }
-
-        if (product.getQuantity() < quantity) {
-            throw new CannotFulfillTransactionException("Not enough quantity to sell");
-        }
-
-        // Transaction is valid
-        // Use long to prevent overflow during calculation
-        this.money += (long) product.getSellPrice() * quantity;
-        product.setQuantity(product.getQuantity() - quantity);
-    }
-
-    /**
-     * Returns an array of all product IDs in the inventory.
-     *
-     * @return A String array of product IDs.
-     */
-    public String[] marketProducts() {
-        String[] ids = new String[this.products.length];
-        for (int i = 0; i < this.products.length; i++) {
-            ids[i] = this.products[i].getId();
-        }
-        return ids;
-    }
-
-    /**
-     * Saves the current state of the market inventory (money and products)
-     * to the specified file.
-     *
-     * @param file The file to write the inventory data to.
-     * @throws IOException If an error occurs during writing.
-     */
-    public void saveToFile(File file) throws IOException {
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter(file);
-
-            // Write header
-            writer.println(this.products.length + " " + this.money);
-
-            // Write each product
-            for (Product p : this.products) {
-                writer.println(p.toString());
-            }
-        } finally {
-            if (writer != null) {
-                writer.close();
-            }
-        }
-    }
-
-    /**
-     * The main entry point for the Market Inventory Manager program.
-     *
-     * @param args Command-line arguments, expecting one: the filename.
+     * @param args command line arguments
      */
     public static void main(String[] args) {
-        // 1. Check arguments
         if (args.length != 1) {
             System.out.println("Usage: java MarketInventoryManager <inventory-file>");
             return;
         }
 
-        // 2. Load inventory from file
-        String filename = args[0];
-        File file = new File(filename);
+        File file = new File(args[0]);
         MarketInventoryManager manager;
 
         try {
@@ -263,70 +230,54 @@ public class MarketInventoryManager {
             return;
         }
 
-        // 3. Command loop
-        Scanner consoleScanner = new Scanner(System.in);
-        boolean running = true;
-
-        while (running) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
             System.out.print("> ");
-            String line = consoleScanner.nextLine();
-            String[] parts = line.split(" ");
-            String command = parts.length > 0 ? parts[0] : "";
-
-            switch (command) {
-            case "quit":
-                if (parts.length == 1) {
-                    running = false;
-                } else {
-                    System.out.println("Error: Invalid command");
-                }
-                break;
-            case "products":
-                if (parts.length == 1) {
-                    String[] ids = manager.marketProducts();
-                    // Manually join to avoid importing java.lang.String
-                    for (int i = 0; i < ids.length; i++) {
-                        System.out.print(ids[i]);
-                        if (i < ids.length - 1) {
-                            System.out.print(", ");
-                        }
-                    }
-                    System.out.println();
-                } else {
-                    System.out.println("Error: Invalid command");
-                }
-                break;
-            case "buy":
-            case "sell":
-                if (parts.length == 3) {
-                    try {
-                        String id = parts[1];
-                        int quantity = Integer.parseInt(parts[2]);
-                        if (command.equals("buy")) {
-                            manager.buy(id, quantity);
-                        } else {
-                            manager.sell(id, quantity);
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Error: Invalid command");
-                    } catch (CannotFulfillTransactionException e) {
-                        System.out.println("Error: " + e.getMessage());
-                    }
-                } else {
-                    System.out.println("Error: Invalid command");
-                }
-                break;
-            default:
-                System.out.println("Error: Invalid command");
+            if (!input.hasNextLine()) {
                 break;
             }
-        }
-        consoleScanner.close();
+            String command = input.nextLine().trim();
 
-        // 4. Save inventory back to file
+            if (command.equals("quit")) {
+                break;
+            } else if (command.equals("products")) {
+                String[] ids = manager.marketProducts();
+                if (ids.length > 0) {
+                    System.out.println(String.join(", ", ids));
+                }
+            } else if (command.startsWith("buy ") || command.startsWith("sell ")) {
+                String[] parts = command.split(" ");
+                if (parts.length != 3) {
+                    System.out.println("Error: Invalid command");
+                    continue;
+                }
+
+                String id = parts[1];
+                int quantity;
+                try {
+                    quantity = Integer.parseInt(parts[2]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Invalid command");
+                    continue;
+                }
+
+                try {
+                    if (parts[0].equals("buy")) {
+                        manager.buy(id, quantity);
+                    } else {
+                        manager.sell(id, quantity);
+                    }
+                } catch (CannotFulfillTransactionException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+            } else {
+                System.out.println("Error: Invalid command");
+            }
+        }
+
         try {
             manager.saveToFile(file);
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }

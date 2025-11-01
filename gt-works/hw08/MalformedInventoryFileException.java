@@ -1,16 +1,17 @@
+// Collaboration Statement: I worked on the homework assignment alone, using only course materials.
+
 /**
- * A checked exception describing a reason why the file containing the
- * information of the market is not valid or is formatted incorrectly.
+ * Exception thrown when an inventory file is malformed or invalid.
  *
- * @author Tayion Park
+ * @author Tai Park
  * @version 1.0
  */
 public class MalformedInventoryFileException extends Exception {
 
     /**
-     * Creates a new MalformedInventoryFileException with a specific message.
+     * Constructs a MalformedInventoryFileException with a message.
      *
-     * @param message A String describing the reason for the exception.
+     * @param message explanation of the invalid file
      */
     public MalformedInventoryFileException(String message) {
         super(message);

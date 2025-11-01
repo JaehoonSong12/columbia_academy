@@ -1,21 +1,19 @@
-/**
- * Collaboration Statement:
- * I worked on the homework assignment alone, using only course materials.
- */
+// Collaboration Statement: I worked on the homework assignment alone, using only course materials.
+
+// java -jar checkstyle-10.23.0-all.jar -c cs1331.xml hw08/*.java
 
 /**
- * A checked exception describing a reason why the market is unable to
- * fulfill a transaction (buy or sell).
+ * Exception thrown when a transaction cannot be fulfilled by the market.
  *
- * @author Tayion Park
+ * @author Tai Park
  * @version 1.0
  */
 public class CannotFulfillTransactionException extends Exception {
 
     /**
-     * Creates a new CannotFulfillTransactionException with a specific message.
+     * Constructs a CannotFulfillTransactionException with a message.
      *
-     * @param message A String describing the reason for the exception.
+     * @param message explanation of the failure
      */
     public CannotFulfillTransactionException(String message) {
         super(message);
