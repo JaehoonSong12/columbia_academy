@@ -7,14 +7,80 @@
  *   3. ./candy arg1 arg2 arg3
  *   4. rm -rf *.exe
  */
-#include <stdio.h> // "ST"an"D"erd "I"nput "O"utput's (.) "H"eader
+#include <stdio.h> // "ST"an"D"ard "I"nput "O"utput's (.) "H"eader
+#include <stdlib.h> // "ST"an"D"ard "LIB"rary Required for malloc and free
+
+// #include <cs50.h> // For get_string and get_int functions, CS50: Introduction to Computer Science, a popular introductory computer science course from Harvard University.
+#include "cs50.h"
+
+#include <ctype.h> // Required for toupper() and tolower() functions
 
 
-int main(int argc, char *argv[]) {
+int main(int argc, char** argv) {
 
     // Print the total number of arguments (program name + user args)
     // 'argc' stands for "argument count"
     printf("Total arguments passed: %d\n", argc);
+
+
+    char input = 'A';
+    switch (input) {
+        case 'A':
+        case 'a':
+            printf("Hello Agent A!\n");
+            break;
+        case 'B':
+        case 'b':
+            printf("Hello Agent B!\n");
+            break;
+        default:
+            printf("Hello Unknown Agent!\n");
+            break;
+    }
+
+
+    while(1) {
+        int x = get_int("Please enter the number of gummybear: ");
+        int y = get_int("Please enter the number of lollipop: ");
+        int z = get_int("Please enter the number of chocolate bar: ");
+        if (x + 2*y + 0.7*z > 20){
+            printf("Discount has been applied.\n");
+            printf("total cost:%.2f\n", (x + 2*y + 0.7*z) * 0.9);
+        } else {
+            printf("Discount has not been applied.");
+            printf("total cost:%.2f\n", (x + 2*y + 0.7*z));
+        }
+
+        char exit = toupper(get_char("Do you want to exit? (y/n): "));
+        if (exit == 'Y') break;
+    }
+
+
+
+    /*
+     우선 실행을 시키면, 저기 위에 코드대로 우선 사탕갯수를 입력하잖아요? 
+     그러면 가격이 각각 나올텐데, 우선 구매자가 이 코드를 종료하기 전까지는 쇼핑을 계속 반복할수 있게 
+     */ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Print the name of the program itself
     // This is always stored in argv[0]
