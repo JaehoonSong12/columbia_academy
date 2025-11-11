@@ -329,10 +329,25 @@ if !ERRORLEVEL! EQU 0 (
 )
 
 :end_install_app
+"!APP_CMD!" -version >nul 2>&1
+if !ERRORLEVEL! EQU 0 (
+  echo.!GREEN!Verifying !APP_NAME! installation...!RESET!
+  echo.!GREEN!!APP_NAME! with !RED!-version!RESET! flag:!RESET!
+  "!APP_CMD!" -version
+)
 "!APP_CMD!" --version >nul 2>&1
 if !ERRORLEVEL! EQU 0 (
+  echo.!GREEN!Verifying !APP_NAME! installation...!RESET!
+  echo.!GREEN!!APP_NAME! with !RED!--version!RESET! flag:!RESET!
   "!APP_CMD!" --version
 )
+"!APP_CMD!" -v >nul 2>&1
+if !ERRORLEVEL! EQU 0 (
+  echo.!GREEN!Verifying !APP_NAME! installation...!RESET!
+  echo.!GREEN!!APP_NAME! with !RED!-v!RESET! flag:!RESET!
+  "!APP_CMD!" -v
+)
+
 endlocal
 goto :EOF
 
@@ -343,10 +358,52 @@ goto :EOF
 
 
 
+@REM ---------------------------------------------------------------------------
+@REM Function: Duplicate-Make
+@REM Usage: 
+@REM   call :Duplicate-Make
+@REM
+@REM Parameters: 
+@REM   None
+@REM 
+@REM Purpose: 
+@REM   Check if there is 'cmake' already, if so, end the function.
+@REM   Detect 'gmake' or 'dmake' in the order.
+@REM   If found any, copy the detected (in order) program as 'make' for compatibility with Makefile.
+@REM   To find 'gmake.exe' or 'dmake' in the order, it uses 'where' command to locate it.
+@REM ---------------------------------------------------------------------------
 
-
-
-
+:Duplicate-Make
+setlocal EnableDelayedExpansion
+echo.
+@REM Check if 'make' command is already available
+make --version >nul 2>&1
+if !ERRORLEVEL! EQU 0 (
+  echo.%GREEN%'make' command is already available. No action needed.%RESET%
+  endlocal
+  goto :EOF
+)
+@REM Find the location of gmake.exe by cmd defualt PATH search command, 'where'.
+for /f "delims=" %%i in ('where dmake.exe 2^>nul') do (
+  set "MAKE_SRC_PATH=%%i"
+)
+for /f "delims=" %%i in ('where gmake.exe 2^>nul') do (
+  set "MAKE_SRC_PATH=%%i"
+)
+@REM If gmake.exe is found, show the path for debugging.
+if defined MAKE_SRC_PATH (
+  for %%d in ("!MAKE_SRC_PATH!") do set "MAKE_SRC_DIR=%%~dpd"
+  echo.%YELLOW%Found gmake.exe is located at: "!MAKE_SRC_DIR!"%RESET%
+  echo.%YELLOW%Found gmake.exe at: "!MAKE_SRC_PATH!"%RESET%
+  echo.%YELLOW%Copying gmake.exe to make.exe...%RESET%
+  @REM The copy must be located at the same directory as the found gmake.exe.
+  copy "!MAKE_SRC_PATH!" "!MAKE_SRC_DIR!make.exe" /Y >nul
+  echo.%GREEN%make.exe created successfully at "!MAKE_SRC_DIR!make.exe".%RESET%
+) else (
+  echo.%CYAN%gmake.exe not found in the system PATH. No renaming needed.%RESET%
+)
+endlocal
+goto :EOF
 
 
 
@@ -446,15 +503,33 @@ call :Install-App "GitHub.cli" "GitHub CLI" "gh" "GitHub CLI"
 
 
 
+
+@REM ---------------------------------------------------------------------------
+@REM Platform Dependents - C/C++ Development Tools with Perl
+@REM ---------------------------------------------------------------------------
 @REM install Strawberry Perl for Windows (including GCC, C/C++ compilers)
 call :Install-App "StrawberryPerl.StrawberryPerl" "Strawberry Perl" "perl" "Strawberry"
 
-@REM @REM Example: install MinGW (C/C++/Make)
-@REM call :Install-App "MinGW.MinGW" "MinGW (C/C++/Make)" "gcc" "MinGW"
+@REM Example: install MinGW (GCC compiler and Make utility)
+@REM MinGW provides the GCC compiler (C/C++) and the 'make' utility.
+call :Install-App "MinGW.MinGW" "C compiler (MinGW)" "gcc" "MinGW"
+call :Install-App "MinGW.MinGW" "C++ compiler (MinGW)" "g++" "MinGW"
+
+call :Duplicate-Make
+call :Install-App "MinGW.MinGW" "Make (MinGW)" "make" "MinGW"
 
 @REM Example: install CMake
 call :Install-App "Kitware.CMake" "CMake" "cmake" "CMake"
 
+
+@REM Example: install NSIS (Nullsoft Scriptable Install System)
+@REM Switched from Nullsoft.NSIS to NSIS.NSIS for better repository reliability
+call :Install-App "NSIS.NSIS" "NSIS (Installer Creator)" "makensis" "NSIS"
+
+
+@REM ---------------------------------------------------------------------------
+@REM Platform Dependents - LaTeX Distribution
+@REM ---------------------------------------------------------------------------
 
 @REM MiKTeX (short for Micro-Kid TeXLive) is well known for its 
 @REM `on-the-fly` package installation, where 
