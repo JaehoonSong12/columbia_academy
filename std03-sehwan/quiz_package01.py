@@ -443,7 +443,9 @@ def bunnyEars(bunnies: int) -> int:
         int: The total number of ears across all the bunnies.
     """
     ### [Your Implementation Here]
-
+    if (bunnies==0):
+        return 0
+    return bunnyEars(bunnies-1) + 2
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
     
@@ -477,7 +479,11 @@ def fibonacci(n: int) -> int:
         int: The nth fibonacci number.
     """
     ### [Your Implementation Here]
-
+    if (n==0): 
+        return 0
+    if (n==1): 
+        return 1
+    return fibonacci(n-1)+fibonacci(n-2)
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
     
