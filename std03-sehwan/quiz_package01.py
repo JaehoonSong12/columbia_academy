@@ -17,6 +17,10 @@ This is a list of quiz questions for practice, including:
 8.  hasOne: Checks if a number contains the digit '1'.
 9.  dividesSelf: Checks if a number divides itself.
 10. copyEvens: Returns the first 'count' even numbers from a list.
+11. factorial: Compute factorial recursively (n * (n-1) * ... * 1).
+12. bunnyEars: Count total ears for n bunnies (each has 2 ears), recursively.
+13. fibonacci: Compute nth Fibonacci number recursively (F(n) = F(n-1) + F(n-2)).
+14. bunnyEars2: Count ears where odd bunnies have 2 ears, even bunnies have 3 ears.
 """
 # Import the unittest module, needed for creating test cases.
 # We only need to import it once at the top of the file.
@@ -48,9 +52,9 @@ from typing import List
 def scores_increasing(scores: list[int]) -> bool:
     """
     Description:
-    Given a list of scores (integers), return True if the scores are 
-    in non-decreasing order — that is, each score is equal to or 
-    greater than the one before.
+        Given a list of scores (integers), return True if the scores are 
+        in non-decreasing order — that is, each score is equal to or 
+        greater than the one before.
 
     Examples:
         scores_increasing([1, 3, 4]) -> True
@@ -71,10 +75,7 @@ def scores_increasing(scores: list[int]) -> bool:
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-    for i in range(1, len(scores)):
-        if scores[i - 1] > scores[i]: #scores = array: [1,3,4]
-            return False
-    return True
+    return False
 
 
 
@@ -142,14 +143,14 @@ def scoresClump(scores: list[int]) -> bool:
               otherwise False.
     """
     ### [Your Implementation Here]
-    return False
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
+    return False
 
 
 
@@ -180,44 +181,14 @@ def scoresAverage(scores: list[int]) -> int:
         int: The higher integer average between the first and second half of the list.
     """
     ### [Your Implementation Here]
-    
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    pl = ParallelList(scores)
-    first_avg = pl.get_first_avg()
-    second_avg = pl.get_second_avg()
-    return (first_avg) if (first_avg > second_avg) else (second_avg)
-
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
-
-class ParallelList:
-    def __init__(self, original: list[int]): # constructor
-        self.first_half = []
-        self.second_half = []
-        for i in range(len(original)):
-            if i < len(original) // 2:
-                self.first_half.append(original[i])
-            else:
-                self.second_half.append(original[i])
-    
-    def __repr__(self): # string representation
-        return f"first_half={self.first_half}, second_half={self.second_half}"
-
-    def get_average(self, list_data: list[int]):
-        sum = 0
-        for i in range(len(list_data)):
-            sum += list_data[i]
-        average = sum / len(list_data)
-        return average if list_data else 0
-    
-    def get_first_avg(self):
-        return self.get_average(self.first_half)
-    
-    def get_second_avg(self):
-        return self.get_average(self.second_half)
+    return 0
 
 
 
@@ -243,22 +214,14 @@ def wordsCount(words: list[str], length: int) -> int:
         int: The number of strings that have the given length.
     """
     ### [Your Implementation Here]
-    count = 0
-    for word in words:
-        if len(word) == length: 
-            count = count + 1
-    return count
-
-    # https://www.w3schools.com/python/python_strings.asp
-
-
 
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return 0
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return 0
 
 
 
@@ -285,23 +248,15 @@ def wordsFront(words: List[str], n: int) -> List[str]:
     Returns:
         List[str]: A list containing the first N strings from the input array.
     """
-    
     ### [Your Implementation Here]
-    selectedlist=[]
-    count = 0
-    for word in words:
-        selectedlist.append(word)
-        count = count + 1
-        if(count == n): break
-    return selectedlist
 
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return None
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
+    return []
 
 # -----------------------------------------------------------------
 # Question 7: wordsWithoutList
@@ -325,14 +280,14 @@ def wordsWithoutList(words: List[str], length: int) -> List[str]:
         List[str]: A new list with all strings of the given length omitted.
     """
     ### [Your Implementation Here]
-    
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return None
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
+    return []
 
 
 
@@ -357,14 +312,14 @@ def hasOne(n: int) -> bool:
         bool: True if the number contains at least one digit '1', False otherwise.
     """
     ### [Your Implementation Here]
-    
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return False
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
+    return False
 
 
 # -----------------------------------------------------------------
@@ -392,15 +347,14 @@ def dividesSelf(n: int) -> bool:
         bool: True if the number divides itself, False otherwise.
     """
     ### [Your Implementation Here]
-    
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return False
-
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
-
+    return False
 
 # -----------------------------------------------------------------
 # Question 10: copyEvens
@@ -425,19 +379,145 @@ def copyEvens(nums: list[int], count: int) -> list[int]:
         list[int]: A list of the first `count` even integers from the original array.
     """
     ### [Your Implementation Here]
-    
+
     # Case-1. If the question can be solved with 'iteration (for/while)', 
     # design the most efficient algorithm.
-    return None
-
+    
     # Case-2. If the question can be solved with 'recursion', design a 
     # correct algorithm. Since the recursion can be inefficient, use 
     # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return []
 
 
+# -----------------------------------------------------------------
+# Question 11: factorial
+# -----------------------------------------------------------------
+def factorial(n: int) -> int:
+    """
+    Description:
+        Given n of 1 or more, return the factorial of n, which is 
+        n * (n-1) * (n-2) ... 1. Compute the result recursively 
+        (without loops).
+
+    Examples:
+        factorial(1) -> 1
+        factorial(2) -> 2
+        factorial(3) -> 6
+
+    Args:
+        n (int): A positive integer for which to compute the factorial.
+
+    Returns:
+        int: The factorial of n.
+    """
+    ### [Your Implementation Here]
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return 0
 
 
+# -----------------------------------------------------------------
+# Question 12: bunnyEars
+# -----------------------------------------------------------------
+def bunnyEars(bunnies: int) -> int:
+    """
+    Description:
+        We have a number of bunnies and each bunny has two big floppy ears. 
+        We want to compute the total number of ears across all the bunnies 
+        recursively (without loops or multiplication).
 
+    Examples:
+        bunnyEars(0) -> 0
+        bunnyEars(1) -> 2
+        bunnyEars(2) -> 4
+
+    Args:
+        bunnies (int): The number of bunnies.
+
+    Returns:
+        int: The total number of ears across all the bunnies.
+    """
+    ### [Your Implementation Here]
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return 0
+
+
+# -----------------------------------------------------------------
+# Question 13: fibonacci
+# -----------------------------------------------------------------
+def fibonacci(n: int) -> int:
+    """
+    Description:
+        The fibonacci sequence is a famous bit of mathematics, and it happens to have a recursive definition.
+        The first two values in the sequence are 0 and 1 (essentially 2 base cases). Each subsequent value is the sum
+        of the previous two values, so the whole sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21 and so on.
+        Define a recursive fibonacci(n) method that returns the nth fibonacci number, with n=0 representing the start
+        of the sequence.
+
+    Examples:
+        fibonacci(0) -> 0
+        fibonacci(1) -> 1
+        fibonacci(2) -> 1
+
+    Args:
+        n (int): The position in the fibonacci sequence, with fibonacci(0)=0.
+
+    Returns:
+        int: The nth fibonacci number.
+    """
+    ### [Your Implementation Here]
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return 0
+
+
+# -----------------------------------------------------------------
+# Question 14: bunnyEars2
+# -----------------------------------------------------------------
+def bunnyEars2(bunnies: int) -> int:
+    """
+    Description:
+        We have bunnies standing in a line, numbered 1, 2, ... 
+        The odd bunnies (1, 3, ...) have the normal 2 ears. 
+        The even bunnies (2, 4, ...) we'll say have 3 ears, because they each have a raised foot.
+        Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
+
+    Examples:
+        bunnyEars2(0) -> 0
+        bunnyEars2(1) -> 2
+        bunnyEars2(2) -> 5
+
+    Args:
+        bunnies (int): The number of bunnies.
+
+    Returns:
+        int: The total number of ears in the bunny line.
+    """
+    ### [Your Implementation Here]
+
+    # Case-1. If the question can be solved with 'iteration (for/while)', 
+    # design the most efficient algorithm.
+    
+    # Case-2. If the question can be solved with 'recursion', design a 
+    # correct algorithm. Since the recursion can be inefficient, use 
+    # either 'tabulation' or 'memorization' to break it down into 'iteration'.
+    return 0
 
 
 
@@ -584,6 +664,52 @@ class TestCopyEvens(unittest.TestCase):
         self.assertEqual(copyEvens([1, 8, 4], 2), [8, 4])
         self.assertEqual(copyEvens([2, 8, 4], 2), [2, 8])
 
+class TestFactorial(unittest.TestCase):
+    def test_factorial(self):
+        self.assertEqual(factorial(1), 1)
+        self.assertEqual(factorial(2), 2)
+        self.assertEqual(factorial(3), 6)
+        self.assertEqual(factorial(4), 24)
+        self.assertEqual(factorial(5), 120)
+        self.assertEqual(factorial(6), 720)
+        self.assertEqual(factorial(7), 5040)
+        self.assertEqual(factorial(8), 40320)
+        self.assertEqual(factorial(12), 479001600)
+
+class TestBunnyEars(unittest.TestCase):
+    def test_bunnyEars(self):
+        self.assertEqual(bunnyEars(0), 0)
+        self.assertEqual(bunnyEars(1), 2)
+        self.assertEqual(bunnyEars(2), 4)
+        self.assertEqual(bunnyEars(3), 6)
+        self.assertEqual(bunnyEars(4), 8)
+        self.assertEqual(bunnyEars(5), 10)
+        self.assertEqual(bunnyEars(12), 24)
+        self.assertEqual(bunnyEars(50), 100)
+        self.assertEqual(bunnyEars(234), 468)
+
+class TestFibonacci(unittest.TestCase):
+    def test_fibonacci(self):
+        self.assertEqual(fibonacci(0), 0)
+        self.assertEqual(fibonacci(1), 1)
+        self.assertEqual(fibonacci(2), 1)
+        self.assertEqual(fibonacci(3), 2)
+        self.assertEqual(fibonacci(4), 3)
+        self.assertEqual(fibonacci(5), 5)
+        self.assertEqual(fibonacci(6), 8)
+        self.assertEqual(fibonacci(7), 13)
+
+class TestBunnyEars2(unittest.TestCase):
+    def test_bunnyEars2(self):
+        self.assertEqual(bunnyEars2(0), 0)
+        self.assertEqual(bunnyEars2(1), 2)
+        self.assertEqual(bunnyEars2(2), 5)
+        self.assertEqual(bunnyEars2(3), 7)
+        self.assertEqual(bunnyEars2(4), 10)
+        self.assertEqual(bunnyEars2(5), 12)
+        self.assertEqual(bunnyEars2(6), 15)
+        self.assertEqual(bunnyEars2(10), 25)
+
 
 # -----------------------------------------------------------------
 # Main execution block
@@ -594,8 +720,11 @@ if __name__ == "__main__":
     This conditional block checks if the script is being run directly.
     If it is, it calls `unittest.main()`.
     
-    `unittest.main()` discovers all test cases (TestWordsFront
-    and TestWordsWithoutList) and runs them.
+    `unittest.main()` discovers all test cases (TestScoresIncreasing,
+    TestScores100, TestScoresClump, TestScoresAverage, TestWordsCount,
+    TestWordsFront, TestWordsWithoutList, TestHasOne, TestDividesSelf,
+    TestCopyEvens, TestFactorial, TestBunnyEars, TestFibonacci,
+    and TestBunnyEars2) and runs them.
     
     `verbosity=2` is added to provide a more detailed output,
     showing the result of each test method individually, which
