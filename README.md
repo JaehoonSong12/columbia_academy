@@ -116,7 +116,7 @@ We welcome contributions! If you would like to suggest improvements, please subm
 
 ---
 
-# Instructions`
+# Instructions
 To start, clone the repository using the following command:
 ```bash
 git clone https://github.com/JaehoonSong12/columbia_academy.git
