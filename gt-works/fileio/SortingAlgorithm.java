@@ -1,4 +1,4 @@
-/**
+/*
 INSTRUCTIONS: 
     The Algorithm class contains recursive methods for several algorithmic problems.
     
@@ -15,9 +15,6 @@ COMPILE & EXECUTE & CLEANUP (Java):
 
 DEPENDENCIES: 
  */
-
-
-
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;

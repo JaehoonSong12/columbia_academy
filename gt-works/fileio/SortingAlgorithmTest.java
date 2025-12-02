@@ -3,7 +3,8 @@ INSTRUCTIONS:
     The SortingAlgorithmTest class provides JUnit tests for the recursive methods 
     in the SortingAlgorithm class.
 
-
+COLLABORATION: 
+    I worked on the assignment alone, using only course-provided materials.
 
 COMPILE & EXECUTE & CLEANUP (Java):
 
@@ -18,12 +19,13 @@ COMPILE & EXECUTE & CLEANUP (Java x Kotlin):
      java -jar junit-1.9.3.jar --class-path "./out:$KOTLIN_HOME/lib/kotlin-stdlib.jar" --scan-classpath
      rm -rf out/
 
-
 TIP:
-     - On Windows, use ';' as the classpath separator
-     - On Mac/Linux, use ':' as the classpath separator
-     - java   `-cp` (Mac/Linux) flag must sepcify absolute paths.
-     - kotlin `-cp` (Windows) flag accepts relative paths.
+    - On Windows, use ';' as the classpath separator
+    - On Mac/Linux, use ':' as the classpath separator
+    - java   `-cp` (Mac/Linux) flag must sepcify absolute paths.
+    - kotlin `-cp` (Windows) flag accepts relative paths.
+    
+DEPENDENCIES: 
  */
 
 
