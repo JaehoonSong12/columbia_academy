@@ -46,14 +46,14 @@ public class SortingAlgorithm {
         int[] b1 = base.clone(), b2 = base.clone(), b3 = base.clone();
 
         // time O(n²) sorts
-        long tBubble = time(() -> AlgorithmAPSecond.bubbleSort(a1));
-        long tSelection = time(() -> AlgorithmAPSecond.selectionSort(a2));
-        long tInsertion = time(() -> AlgorithmAPSecond.insertionSort(a3));
+        long tBubble = time(() -> SortingAlgorithm.bubbleSort(a1));
+        long tSelection = time(() -> SortingAlgorithm.selectionSort(a2));
+        long tInsertion = time(() -> SortingAlgorithm.insertionSort(a3));
 
         // time O(n log n) sorts
-        long tMerge = time(() -> AlgorithmAPSecond.mergeSort(b1));
-        long tQuick = time(() -> AlgorithmAPSecond.quickSort(b2));
-        long tHeap = time(() -> AlgorithmAPSecond.heapSort(b3));
+        long tMerge = time(() -> SortingAlgorithm.mergeSort(b1));
+        long tQuick = time(() -> SortingAlgorithm.quickSort(b2));
+        long tHeap = time(() -> SortingAlgorithm.heapSort(b3));
 
         System.out.println(String.format("Bubble Sort: (%d ms)", tBubble));
         System.out.println(String.format("Selection Sort: (%d ms)", tSelection));
