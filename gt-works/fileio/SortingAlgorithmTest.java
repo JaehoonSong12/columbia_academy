@@ -1,3 +1,30 @@
+/*
+INSTRUCTIONS: 
+    The AlgorithmAPSecondTest class provides JUnit tests for the recursive methods 
+    in the AlgorithmAPSecond class.
+
+
+
+COMPILE & EXECUTE & CLEANUP (Java):
+
+     javac     -d out           -cp junit-1.9.3.jar     AlgorithmAPSecond*.java
+     java -jar junit-1.9.3.jar  --class-path "out"      --scan-classpath
+     rm -rf out/
+
+COMPILE & EXECUTE & CLEANUP (Java x Kotlin):
+
+     javac     -d out   -cp junit-1.9.3.jar             AlgorithmAPSecond*.java
+     kotlinc   -d out                                   AlgorithmAPSecond*.kt
+     java -jar junit-1.9.3.jar --class-path "./out:$KOTLIN_HOME/lib/kotlin-stdlib.jar" --scan-classpath
+     rm -rf out/
+
+
+TIP:
+     - On Windows, use ';' as the classpath separator
+     - On Mac/Linux, use ':' as the classpath separator
+     - java   `-cp` (Mac/Linux) flag must sepcify absolute paths.
+     - kotlin `-cp` (Windows) flag accepts relative paths.
+ */
 // File: AlgorithmAPSecondTest.java
 // JDK-17: https://developers.redhat.com/products/openjdk/download?sc_cid=701f2000000RWTnAAO
 // JUnit: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter/5.10.0
@@ -6,23 +33,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * The AlgorithmAPSecondTest class provides JUnit tests for the recursive methods 
- * in the AlgorithmAPSecond class.
- * 
- * How to compile and run the application:
- * 1. Open a terminal or command prompt.
- * 2. Compile (Current Test Only): 
- *      ```
- *      javac -cp junit-1.9.3.jar std02-arron-algo/AlgorithmAPSecond*.java
- *      ```
- * 3. Compile (All Tests): 
- *      `javac -cp junit-1.9.3.jar std02-arron-algo/*.java`
- * 4. Run & Clean: 
- *      ```
- *      java -jar junit-1.9.3.jar --class-path std02-arron-algo --scan-classpath; rm -rf std02-arron-algo/*.class
- *      ```
- */
 public class SortingAlgorithmTest {
     
 
