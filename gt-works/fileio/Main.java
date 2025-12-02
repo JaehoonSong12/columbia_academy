@@ -1,5 +1,3 @@
-import javax.management.RuntimeErrorException;
-
 /**
 INSTRUCTIONS: 
     Homework1 is going on...
@@ -17,6 +15,166 @@ COMPILE & EXECUTE & CLEANUP (Java):
 
 DEPENDENCIES: 
  */
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import javafx.application.Application;      // the Chrome Browser for example
+
+import javafx.stage.Stage;                  // the Chrome Browser Window (the top-level container)
+
+import javafx.scene.Scene;                  // the webpage in the browser window
+
+
+import javafx.scene.layout.*;           // UI components > Layouts (Containers)
+
+
+import javafx.scene.control.Label;          // UI components > Control
+import javafx.scene.control.TextField;      // UI components > Control
+import javafx.scene.control.Button;         // UI components > Control
+
+
+
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;            // abstraction is very high, so you don't need to know much details
+
+
+/*
+ * 1. Functional Interface: encapsulate a single abstract method (SAM) as a data.
+ * 2. Lambda Expression: provide the implementation of the abstract method of a functional interface.
+ * 
+ */
+
+// Taiyun ------->(verb? action verb? == method)->------ Computer (Button)
+
+
+
+public class Main extends Application {
+    public static void main(String[] args) {
+        launch(args); // JavaFX application launch
+    }
+
+    Label label;
+    private TextField textField;
+    Button button;
+
+    @Override public void start(Stage stage) {
+        // label, textfield, button, so everytime the button is clicked, the text in the label changes to what is in the textfield
+        label = new Label("Enter your name:");
+        textField = new TextField();
+        button = new Button("Submit");
+
+        button.setOnAction((event) -> { // 
+            String name = textField.getText();
+            label.setText("Hello, " + name + "!");
+        });
+        
+
+
+
+
+        // algorithm
+        double[] array = {5.0, 3.0, 8.0, 1.0, 4.0, 7.0, 2.0, 6.0, 0.0, 9.0, 12.0, 11.0, 10.0};
+        double[] outputArray = Algo.mergeSort(array);
+
+        List<Double> list = new ArrayList<>();
+        for (double num : outputArray) list.add(num);
+
+
+        Label cliOutput = new Label();
+        cliOutput.setText(list.toString());
+
+
+
+
+        HBox hbox = new HBox(10, textField, button); // spacing of 10 pixels
+        VBox vbox = new VBox(10, cliOutput, label, hbox); // spacing of
+        Scene scene = new Scene(vbox, 300, 100); // width: 300, height: 100
+        stage.setScene(scene);
+        stage.setTitle("Hello JavaFX");
+        stage.show();
+    }
+
+}
+
+
+
+
+class Algo {
+    /**
+     * Time Complexity: O(n log n)
+     */
+    public static double[] mergeSort(double[] array) {
+        // base case, O(1) constant time.
+        if (array.length <= 2) {
+            if (array.length == 2 && array[0] > array[1]) {
+                double temp = array[0];
+                array[0] = array[1];
+                array[1] = temp;
+            }
+            return array;
+        }
+        // reduction step, O(n) linear time.
+        int mid = array.length / 2;
+        double[] left = new double[mid];
+        double[] right = new double[array.length - mid];
+
+        int lIndex = 0;
+        int rIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (i < mid) left[lIndex++] = array[i];
+            else right[rIndex++] = array[i];
+        }
+        
+        // recursive call, O(log n) logarithmic time.
+        left = mergeSort(left);
+        right = mergeSort(right);
+
+        // merge, O(n) linear time.
+        int i = 0;
+        lIndex = 0;
+        rIndex = 0;
+        while(i < array.length) { // comparison
+            if (lIndex == left.length || rIndex == right.length)        break;
+            if      (left[lIndex] <= right[rIndex])                     array[i++] = left[lIndex++];
+            else if (left[lIndex] > right[rIndex])                      array[i++] = right[rIndex++];
+        }
+        if (lIndex == left.length)  while (rIndex < right.length)       array[i++] = right[rIndex++]; // drain the right side
+        if (rIndex == right.length) while (lIndex < left.length)        array[i++] = left[lIndex++];  // drain the left side
+        return array;
+    }
+}
+
+
+
+
+
+
+// L18: Recursion (or Repetition Part 2)
+
+//     Recursion: what it is, the three components (terminating condition / base case, reduction step, recursive call)
+//     Recursion: Writing recursive methods
+
+
+
+
+//     Recursion tracing with call stack
+//     StackOverflowError and when it could happen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 interface Visible { // Multiple inheritance
@@ -63,7 +221,7 @@ class Person extends Animal implements Visible, Speakable, Comparable<Person> {
     }
     @Override public boolean equals(Object obj) {
         if (obj == null) throw new NullPointerException("You are comparing it to null"); // null check
-        if (!(obj instanceof Person)) throw new RuntimeErrorException("Type mismatch"); // instanceof check
+        if (!(obj instanceof Person)) throw new RuntimeException("Type mismatch"); // instanceof check
         Person other = (Person) obj; // down casting
         return this.name.equals(other.name);
     }
@@ -86,8 +244,11 @@ class Person extends Animal implements Visible, Speakable, Comparable<Person> {
 //     General knowledge of big-O notation for runtime
 //     Growth rate for common big-O notation (the ones covered in the course)
 //     Big-O runtime (best case and worst case), growth rate, and searching/sorting behavior of the following:
+
+
 //     linear search
 //     binary search
+
 //     selection sort
 //     insertion sort
 //     merge sort
@@ -102,66 +263,27 @@ class Person extends Animal implements Visible, Speakable, Comparable<Person> {
 
 
 
-
-
-// server --(method: login?)-- cient 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-
-        // Animal a = new Animal(); // not possible, Animal itself is not an object
-        Animal animal = new Animal() { // anonymous class object is genuenly inheriting Animal (Child class of Animal)
-        };
-
-
-
-
-
-        BinaryOperation multiplication = new BinaryOperation() {
-            @Override public double operation(double a, double b) { // anonymous class ob
-                System.out.println("Multiplying " + a + " and " + b);
-                return a * b;
-            }
-        };
-
-        BinaryOperation addition;
-        addition = (a, b) -> { // lambda expression
-            System.out.println("Adding " + a + " and " + b);
-            return a + b;
-        };
-
-        BinaryOperation division = (a, b) -> a / b; // lambda expression (concise)
-
-
-
-
-
-        double x = 12.534;
-        double y = 3.2;
-
-        System.out.println("Result of multiplication: " + multiplication.operation(x, y));
-        System.out.println("Result of addition: " + addition.operation(x, y));
-        System.out.println("Result of division: " + division.operation(x, y));
-    }
-
-
-
-
-
-
-    private class Dog extends Animal {
-        @Override public String toString() {
-            return "I am a dog.";
-        }
-    }
+abstract class Dummy {
+    // just a dummy class to test multiple classes in one file
+    public abstract void sayHi1(int times);
+    public abstract void sayHi2(double suffix);
 }
 
-// functional programming (lambda expressions / Single Abstract Method)
-@FunctionalInterface
-interface BinaryOperation {
-    double operation(double a, double b);
-}
 
+
+
+
+// // functional programming (lambda expressions / Single Abstract Method)
+// @FunctionalInterface
+// interface BinaryOperation {
+//     double operate(double a, double b);
+// }
+
+// // 1. abstract class
+// // 2. interface
+// // 3. @FunctionalInterface
+
+// // All can be lambda expressions.
 
 
 
@@ -375,7 +497,29 @@ L16: File I/O
     Writing with PrintWriter
     Delimited files
     Tracing behavior of code that uses file I/O
-*/
+
+
+L17: Lists (and more Generics)
+
+    Lists and the List Interface
+    Generic Classes: everything in 'Basics of Writing Generic Classes'
+    Array List: what it is / how it behaves, creating (Java's), using (Java's)
+    Linked List: what it is / how it behaves, creating (Java's), using (Java's)
+    Linked List: Coding a Linked List using Generics
+    Coding of a Node as a private inner class
+    Coding of a LinkedList (HW9)
+    We may also ask you to code methods that weren't present in HW9 to test your understanding of reading and manipulating the node structure
+    Linked Lists vs. Array Lists
+    (Private) Inner Classes
+
+
+
+
+---
+ */
+
+
+
 
 
 
