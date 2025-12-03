@@ -101,6 +101,22 @@ public class Main extends Application {
 
 
 class Algo {
+
+
+
+
+
+
+    
+    public static <T> void mergeSort(T[] array) {
+        // wrapper method
+    }
+    public static <T> void mergeSort(List<T>[] array) {
+        // wrapper method
+    }
+
+
+
     /**
      * Time Complexity: O(n log n)
      */
