@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -std=c11
 TARGET = main
 
 # Source files
-SRCS = main.c cs50.c gb.c
+SRCS = hello.c cs50.c gb.c
 
 # Build rule
 $(TARGET): $(SRCS)
