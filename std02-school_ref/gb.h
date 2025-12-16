@@ -4,16 +4,20 @@
 
 #include "cs50.h" // Required so 'string' is recognized inside the struct
 
-struct Gb {
+
+
+typedef char* string;
+typedef struct gb {
     int x;
     int y;
     string positionPrompt;
     string secondaryPrompt;
-    int isWall;
-};
+    bool isWall;
+} gb;
 
 // Prototype only (no code body)
-struct Gb createGb(int x, int y, string positionPrompt, string secondaryPrompt);
-struct Gb createGbWall(int x, int y, string positionPrompt, string secondaryPrompt);
+struct gb createGb(int x, int y, string positionPrompt, string secondaryPrompt);
+struct gb createGbWall(int x, int y, string positionPrompt, string secondaryPrompt);
+
 
 #endif
