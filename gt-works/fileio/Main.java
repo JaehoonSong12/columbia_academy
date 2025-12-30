@@ -1,4 +1,4 @@
-/**
+/*
 INSTRUCTIONS: 
     Homework1 is going on...
     
@@ -18,6 +18,7 @@ DEPENDENCIES:
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javafx.application.Application;      // the Chrome Browser for example
 
@@ -100,19 +101,20 @@ public class Main extends Application {
 
 
 
-class Algo {
-
-
-
-
-
-
-    
-    public static <T> void mergeSort(T[] array) {
+class Algorithms {
+    public static <T> void mergeSort(T[] array, Comparator<T> comparator) {
         // wrapper method
     }
-    public static <T> void mergeSort(List<T>[] array) {
+    public static <T> void mergeSort(List<T> array, Comparator<T> comparator) {
         // wrapper method
+    }
+    
+    public static <T> void mergeSort(T[] array, Comparator<T> comparator, int lIndex, int rIndex) {
+        // merge method for generic types
+    }
+
+    public static <T> void mergeSort(List<T> array, Comparator<T> comparator, int lIndex, int rIndex) {
+        // merge method for generic types
     }
 
 
