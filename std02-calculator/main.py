@@ -38,14 +38,60 @@ def load_c_library(lib_name):
 
 
 
+
+# 포수, 공 받는 사람 (main -> )
+def my_function(number): # param, (accepting variable from the caller)
+    print("This is my function.")
+    value = 20
+    # return value
+    number = 11
+    print(f"The number is: {number}")
+    return
+
+
+
+# 5-24 ..... 연습
+
+# 5-4
+def get_name():
+    name = input("Enter your name: ")
+    return name
+
 def main():
+    name = get_name()
+    print(f'Hello {name}.')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    c_lib = load_c_library("libmain.so")
+    # c_lib = load_c_library("libmain.so")
+    # c_lib.quiz_time()
 
 
 
-    c_lib.quiz_time()
     
+
+
+
+
+
+
+
+
+
     
     # c_function_name = "quiz_time"
     # if hasattr(c_lib, c_function_name): c_lib.quiz_time()
