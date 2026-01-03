@@ -693,20 +693,20 @@ pause
 @REM ---------------------------------------------------------------------------
 call :Install-App "Mozilla.Firefox" "Firefox" "firefox" "Mozilla Firefox"
 call :Install-App "Google.Chrome" "Google Chrome" "chrome" "Google\Chrome"
-call :Install-App "Google.GoogleDrive" "Google Drive for Desktop" "GoogleDriveFS" "Google\Drive File Stream"
+@REM call :Install-App "Google.GoogleDrive" "Google Drive for Desktop" "GoogleDriveFS" "Google\Drive File Stream"
 @REM Here, 1. look up Google\Drive File Stream directory, if there is found, start (open) the directory. If not found, just skip.
 @REM 2. Also check if G drive exists. Only open the directory if folder is found AND G drive does not exist.
-call :Find-Directory "Google\Drive File Stream"
-if %FOUND_DIR% EQU 1 (
-  if not exist "G:\" (
-    echo.%CYAN%Opening Google Drive File Stream directory...%RESET%
-    echo.Found at: "%FOUND_DIR_PATH%"
-    echo.%GREEN%Google Drive File Stream directory opened successfully.%RESET%
-    start "" "%FOUND_DIR_PATH%"
-  ) else (
-    echo.%YELLOW%G drive already exists. Skipping directory open.%RESET%
-  )
-)
+@REM call :Find-Directory "Google\Drive File Stream"
+@REM if %FOUND_DIR% EQU 1 (
+@REM   if not exist "G:\" (
+@REM     echo.%CYAN%Opening Google Drive File Stream directory...%RESET%
+@REM     echo.Found at: "%FOUND_DIR_PATH%"
+@REM     echo.%GREEN%Google Drive File Stream directory opened successfully.%RESET%
+@REM     start "" "%FOUND_DIR_PATH%"
+@REM   ) else (
+@REM     echo.%YELLOW%G drive already exists. Skipping directory open.%RESET%
+@REM   )
+@REM )
 call :Install-App "Microsoft.VisualStudioCode" "Visual Studio Code" "code" "Microsoft VS Code"
 call :Install-App "Adobe.Acrobat.Reader.64-bit" "Adobe Acrobat Reader DC" "acrordc.exe" "Adobe"
 
@@ -757,13 +757,13 @@ call :Install-App "MiKTeX.MiKTeX" "MiKTeX" "pdflatex" "MiKTeX"
 echo.
 echo.%GREEN%All specified applications have been processed.%RESET%
 
-@REM recommend to reboot the system
-echo.%YELLOW%It is recommended to %RED%reboot%RESET% the system to apply the changes.%RESET%
-echo.%YELLOW%Do you want to %RED%reboot%RESET% the system now? (y/n)%RESET%
-set /p REBOOT=
-if "%REBOOT%"=="y" (
-  shutdown /r /t 0
-)
+@REM @REM recommend to reboot the system
+@REM echo.%YELLOW%It is recommended to %RED%reboot%RESET% the system to apply the changes.%RESET%
+@REM echo.%YELLOW%Do you want to %RED%reboot%RESET% the system now? (y/n)%RESET%
+@REM set /p REBOOT=
+@REM if "%REBOOT%"=="y" (
+@REM   shutdown /r /t 0
+@REM )
 
 pause
 exit /b 0
