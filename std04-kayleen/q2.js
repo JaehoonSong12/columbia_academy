@@ -9,9 +9,13 @@ var usaPositions = getColumn("Top 50 USA", "Position");
 randomSong("Worldwide", worldwideTracks, worldwideArtists, worldwidePositions);
 randomSong("USA", usaTracks, usaArtists, usaPositions);
 
+
 //Returns a random index for a given list
 //list {list} - a list of items
 //return (number) - a randomly chosen index from the list
+
+// hi Kayleen!
+//hi
 
 function randomIndex(list){
   //TO DO #1: Write the code for this function so that it returns a random index 
