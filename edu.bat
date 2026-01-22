@@ -757,13 +757,13 @@ call :Install-App "MiKTeX.MiKTeX" "MiKTeX" "pdflatex" "MiKTeX"
 echo.
 echo.%GREEN%All specified applications have been processed.%RESET%
 
-@REM @REM recommend to reboot the system
-@REM echo.%YELLOW%It is recommended to %RED%reboot%RESET% the system to apply the changes.%RESET%
-@REM echo.%YELLOW%Do you want to %RED%reboot%RESET% the system now? (y/n)%RESET%
-@REM set /p REBOOT=
-@REM if "%REBOOT%"=="y" (
-@REM   shutdown /r /t 0
-@REM )
+@REM recommend to reboot the system
+echo.%YELLOW%It is recommended to %RED%reboot%RESET% the system to apply the changes.%RESET%
+echo.%YELLOW%Do you want to %RED%reboot%RESET% the system now? (y/n)%RESET%
+set /p REBOOT=
+if "%REBOOT%"=="y" (
+  shutdown /r /t 0
+)
 
 pause
 exit /b 0
