@@ -5,15 +5,27 @@
  * 1. Open a terminal or command prompt.
  * 2. Compile (.java to .class): 
  *      ```
- *      javac Main.java
+     javac Main.java
  *      ```
  * 3. Java Archieve & Run & Clean (.class files are interpreted by JVM (java ~~~)): 
  *      ```
- *      jar cfe Main.jar Main Main.class
- *      java -jar Main.jar
- *      rm -rf *.class *.jar
- *      ```
+     jar cfe Main.jar Main Main*.class
+     java -jar Main.jar
+     rm -rf *.class *.jar
+        ```
  */
+
+
+/*
+
+     javac Main.java
+     jar cfe Main.jar Main Main.class
+     java -jar Main.jar
+     rm -rf *.class *.jar
+
+ */
+
+
 
 import java.util.Scanner;
 
@@ -26,20 +38,54 @@ import java.util.TimeZone;
 
 public class Main {
     public static void main(String[] args) {
+
+        
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter the radius of the circle in meters: ");
-        double radius = input.nextDouble();
+        // System.out.print("Enter the radius of the circle in meters: ");
+        // double radius = input.nextDouble();
 
 
-        final double PI = 3.14159;
-        double area = PI * radius * radius;
-        // f"The area of a circle with radius {radius} is {area}"
+        // final double PI = 3.14159;
+        // double area = PI * radius * radius;
+        // // f"The area of a circle with radius {radius} is {area}"
+        // System.out.println(String.format(
+        //     "The area of a circle with radius %.2f m is %.2f m^2",
+        //     radius,
+        //     area
+        // ));
+
+
+        // 
+        System.out.println("This is a Temperature Converter Program....");
+        System.out.println("Choose Fahrenheit or Celsius. Enter F or C");
+        char choice = input.next().toUpperCase().charAt(0);
+        double degreeInFahrenheit = -1;
+        double degreeInCelsius = -1;
+        System.out.println("You have chosen " + choice);
+        
+        if (choice == 'F') {
+            System.out.println("Enter the degrees rounded to the nearest integer.");
+            degreeInFahrenheit = input.nextDouble();
+            degreeInCelsius = (degreeInFahrenheit - 32) * 5 / 9;
+        } else if (choice == 'C') {
+            System.out.println("Enter the degrees rounded to the nearest integer.");
+            degreeInCelsius = input.nextDouble();
+            degreeInFahrenheit = (degreeInCelsius * 9 / 5) + 32; 
+        } else {
+            System.out.println("Invalid choice. Please enter F or C.");
+        }
+
+        
         System.out.println(String.format(
-            "The area of a circle with radius %.2f m is %.2f m^2",
-            radius,
-            area
+            "That's %.2f degrees in Fahrenheit and %.2f degrees in Celsius!",
+            degreeInFahrenheit,
+            degreeInCelsius
         ));
+        System.out.println("Thank you for using the Temperature Converter Program!");
+        
+        
+
 
 
 
@@ -98,7 +144,13 @@ public class Main {
 
 
         // *3.33
+
+
+
+
+        // activity
         
+
 
     }
 }
