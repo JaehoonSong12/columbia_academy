@@ -52,20 +52,17 @@ def my_function(number): # param, (accepting variable from the caller)
 
 # 5-24 ..... 연습
 
-# 5-4
-def get_name():
-    name = input("Enter your name: ")
-    return name
+
+
 
 def main():
-    name = get_name()
-    print(f'Hello {name}.')
+    print('The sum of 12 and 45 is')
+    show_sum(12, 45)
+def show_sum(num1, num2):
+    result = num1 + num2
+    print(result)
 
-
-
-
-
-
+main()
 
 
 
@@ -116,5 +113,5 @@ def main():
     #     result = c_lib.add(10, 20)
     #     print(f"Result from C 'add(10, 20)': {result}")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
