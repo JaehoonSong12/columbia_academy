@@ -1,11 +1,10 @@
-# --- Generated from ./.gitignores on Sun Feb  8 16:45:57 2026 ---
+# --- Generated from ./.gitignores on Sat Feb 14 12:04:39 2026 ---
 
 #############################################
 # A.gitignore
 #############################################
 #################### ALL PURPOSE GITIGNORE ####################
 project2305*
-_*
 _*/
 tmp*/
 remote*/
@@ -13,6 +12,8 @@ VSLive*/
 vscode*/
 pyright*/
 cursor*/
+*.key
+*.key.pub
 
 ################################################################
 # General Ignores (Large Media Files & Common File Types)
