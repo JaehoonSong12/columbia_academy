@@ -1,0 +1,102 @@
+body {
+  background-color: #272c34;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+#phone-frame {
+  width: 370px;
+  height: 640px;
+  background-color: #5d676e;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.app-container {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#background {
+  width: 320px;
+  height: 450px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#clickBallText {
+  width: 240px;
+  margin-top: 45px;
+  color: rgb(77, 87, 95);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 21px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+#magicEightBall {
+  width: 170px;
+  height: 170px;
+  margin-top: 25px;
+  background-image: url('../images/eight_ball.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+#magicEightBall:active {
+  transform: scale(0.95);
+}
+
+#eightBallSaysText {
+  margin-top: 30px;
+  color: rgb(77, 87, 95);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+#resultText {
+  width: 220px;
+  height: 75px;
+  margin-top: 20px;
+  background-color: rgb(242, 242, 242);
+  color: rgb(77, 87, 95);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#footer {
+  width: 320px;
+  height: 28px;
+  background-color: #555e65;
+  color: #bac1c6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
