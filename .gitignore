@@ -25,7 +25,7 @@ cursor*/
 *.mkv
 
 # Audios (large media files)
-*.mp3
+# *.mp3
 # *.wav
 # *.flac
 
@@ -630,8 +630,8 @@ files/tmp/*
 # ignore updates folder
 /updates/*
 
-# ignore sitemap.xml
-/sitemap.xml
+# # ignore sitemap.xml
+# /sitemap.xml
 
 #############################################
 # Coq.gitignore
@@ -1156,9 +1156,9 @@ resources/.arch-internal-preview.css
 *.ps
 *.mid
 *.midi
-*.mp3
+# *.mp3
 *.aif
-*.wav
+# *.wav
 # Some versions of Finale have a bug and randomly save extra copies of
 # the music source as "<Filename> copy.mus"
 *copy.mus
@@ -2703,9 +2703,9 @@ fp-info-cache
 *.dsn
 *.ses
 
-# Exported BOM files
-*.xml
-*.csv
+# # Exported BOM files
+# *.xml
+# *.csv
 
 # Archived Backups (KiCad 6.0)
 **/*-backups/*.zip
@@ -3767,7 +3767,7 @@ themes/default-bootstrap/modules/*/mails/*
 
 # MISC
 
-*sitemap.xml
+# *sitemap.xml
 /robots.txt
 
 # Symfony
