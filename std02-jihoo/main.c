@@ -91,6 +91,7 @@ int main(int argc, char** argv) {
     printf("index 1: %s\n", argv[1]);
     // printf("index 2: %s\n", argv[2]);
     // printf("index 3: %s\n", argv[3]);
+    printf("Program name: %s\n", argv[0]);
     printf("------------------------------\n");
     for (int i = 1; i < argc; i++) {
         printf("Argument %d: %s\n", i, argv[i]);

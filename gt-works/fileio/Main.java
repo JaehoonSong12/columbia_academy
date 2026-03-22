@@ -1,4 +1,4 @@
-/**
+/*
 INSTRUCTIONS: 
     Homework1 is going on...
     
@@ -201,9 +201,30 @@ public class Main extends Application {
 
 
 
+<<<<<<< HEAD
 
 
 class Algo {
+=======
+class Algorithms {
+    public static <T> void mergeSort(T[] array, Comparator<T> comparator) {
+        // wrapper method
+    }
+    public static <T> void mergeSort(List<T> array, Comparator<T> comparator) {
+        // wrapper method
+    }
+    
+    public static <T> void mergeSort(T[] array, Comparator<T> comparator, int lIndex, int rIndex) {
+        // merge method for generic types
+    }
+
+    public static <T> void mergeSort(List<T> array, Comparator<T> comparator, int lIndex, int rIndex) {
+        // merge method for generic types
+    }
+
+
+
+>>>>>>> 293e8d5a56db9f9095e4c6a6a0988bc41189133c
     /**
      * Time Complexity: O(n log n)
      */

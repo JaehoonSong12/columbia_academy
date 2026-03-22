@@ -20,4 +20,6 @@ JSvanilla-jihoo_cv
   |-src             (All source code for website functions.)
     |-style.css
     |-main.js
-```
+```console.log(2);
+console.log(4 / 0);
+console.log('9' * 3);
