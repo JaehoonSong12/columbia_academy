@@ -18,6 +18,7 @@ DEPENDENCIES:
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javafx.application.Application;      // the Chrome Browser for example
 
@@ -49,6 +50,8 @@ import javafx.event.ActionEvent;            // abstraction is very high, so you 
 
 
 
+
+
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args); // JavaFX application launch
@@ -57,6 +60,21 @@ public class Main extends Application {
     Label label;
     private TextField textField;
     Button button;
+
+
+    
+    public static List<List<Double>> convertDoubleArrayToListOfLists(double[][] doubleArray) {
+        List<List<Double>> listOfLists = new ArrayList<>();
+
+        for (double[] innerArray : doubleArray) {
+            List<Double> innerList = new ArrayList<>();
+            for (double value : innerArray) {
+                innerList.add(value); // Autoboxing converts double to Double
+            }
+            listOfLists.add(innerList);
+        }
+        return listOfLists;
+    }
 
     @Override public void start(Stage stage) {
         // label, textfield, button, so everytime the button is clicked, the text in the label changes to what is in the textfield
@@ -73,12 +91,95 @@ public class Main extends Application {
 
 
 
-        // algorithm
-        double[] array = {5.0, 3.0, 8.0, 1.0, 4.0, 7.0, 2.0, 6.0, 0.0, 9.0, 12.0, 11.0, 10.0};
-        double[] outputArray = Algo.mergeSort(array);
 
+        int[] arr = {
+            5, 3, 8, 1, 4, 7, 2, 6, 0, 9, 12, 11, 
+            10, 7, 8, 8, 7, 5, 3, 8, 1, 4, 7, 2, 
+            6, 0, 9, 12, 11, 10
+        };
+        Arrays.sort(arr);
+        // print the result
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+
+
+        // binary search
+        int target = 7;
+        int frst = 0;
+        int last = arr.length - 1;
+        while (frst <= last) {
+            int midIndex = (frst + last) / 2;
+            if (arr[midIndex] < target) {
+                // move right
+                frst = midIndex + 1;
+            }
+            else if (target < arr[midIndex]) {
+                // move left
+                last = midIndex - 1;
+            }
+            else {
+                System.out.println("The target has been found at index " + midIndex);
+                break;
+            }
+        }
+        // if not found
+        if (frst > last) {
+            System.out.println("The target is not found.");
+        } 
+
+
+
+// L17: Lists (and more Generics)
+
+//     Lists and the List Interface
+//     Generic Classes: everything in 'Basics of Writing Generic Classes'
+//     Array List: what it is / how it behaves, creating (Java's), using (Java's)
+//     Linked List: what it is / how it behaves, creating (Java's), using (Java's)
+//     Linked List: Coding a Linked List using Generics
+//     Coding of a Node as a private inner class
+//     Coding of a LinkedList (HW9)
+//     We may also ask you to code methods that weren't present in HW9 to test your understanding of reading and manipulating the node structure
+//     Linked Lists vs. Array Lists
+//     (Private) Inner Classes
+
+
+
+
+
+        // algorithm
+        Double[] array = {5.0, 3.0, 8.0, 1.0, 4.0, 7.0, 2.0, 6.0, 0.0, 9.0, 12.0, 11.0, 10.0};
+        Comparator<Double> comparatorDouble = (a, b) -> a.compareTo(b);
+        Double[] outputArray = Algo.mergeSort(array, comparatorDouble);
         List<Double> list = new ArrayList<>();
         for (double num : outputArray) list.add(num);
+
+
+        // double[][] coordinatesInR2Raw = {
+        //     {5.0, 3.0}, 
+        //     {8.0, 1.0}, 
+        //     {4.0, 7.0}, 
+        //     {2.0, 6.0}, 
+        //     {0.0, 9.0}, 
+        //     {12.0, 11.0}, 
+        //     {10.0, 4.0}
+        // };
+        // List<Double>[] coordinatesInR2 = convertDoubleArrayToListOfLists(coordinatesInR2Raw);
+        // Comparator<List<Double>> comparatorCoordinates = (a, b) -> {
+        //     Double aX = a.get(0);
+        //     Double aY = a.get(1);
+        //     Double bX = b.get(0);
+        //     Double bY = b.get(1);
+        //     Double aSum = aX + aY;
+        //     Double bSum = bX + bY;
+        //     return aSum.compareTo(bSum);
+        // };
+        // List<Double>[] outputArray = Algo.mergeSort(coordinatesInR2, comparatorCoordinates);
+        // List<Double>[] list = new ArrayList<>();
+        // for (List<Double> xyCoordinate : outputArray) {
+        //     list.add(xyCoordinate);
+        // }
 
 
         Label cliOutput = new Label();
@@ -100,15 +201,18 @@ public class Main extends Application {
 
 
 
+
+
 class Algo {
     /**
      * Time Complexity: O(n log n)
      */
-    public static double[] mergeSort(double[] array) {
+    // generics must be applied
+    public static <T> T[] mergeSort(T[] array, Comparator<T> comparator) {
         // base case, O(1) constant time.
         if (array.length <= 2) {
-            if (array.length == 2 && array[0] > array[1]) {
-                double temp = array[0];
+            if (array.length == 2 && comparator.compare(array[0], array[1]) > 0) {
+                T temp = array[0];
                 array[0] = array[1];
                 array[1] = temp;
             }
@@ -116,8 +220,9 @@ class Algo {
         }
         // reduction step, O(n) linear time.
         int mid = array.length / 2;
-        double[] left = new double[mid];
-        double[] right = new double[array.length - mid];
+        T[] left = Arrays.copyOfRange(array, 0, mid);
+        T[] right = Arrays.copyOfRange(array, mid, array.length);
+
 
         int lIndex = 0;
         int rIndex = 0;
@@ -127,8 +232,8 @@ class Algo {
         }
         
         // recursive call, O(log n) logarithmic time.
-        left = mergeSort(left);
-        right = mergeSort(right);
+        left = mergeSort(left, comparator);
+        right = mergeSort(right, comparator);
 
         // merge, O(n) linear time.
         int i = 0;
@@ -136,8 +241,8 @@ class Algo {
         rIndex = 0;
         while(i < array.length) { // comparison
             if (lIndex == left.length || rIndex == right.length)        break;
-            if      (left[lIndex] <= right[rIndex])                     array[i++] = left[lIndex++];
-            else if (left[lIndex] > right[rIndex])                      array[i++] = right[rIndex++];
+            if      (comparator.compare(left[lIndex],right[rIndex]) <= 0)        array[i++] = left[lIndex++];
+            else if (comparator.compare(left[lIndex],right[rIndex]) > 0)         array[i++] = right[rIndex++];
         }
         if (lIndex == left.length)  while (rIndex < right.length)       array[i++] = right[rIndex++]; // drain the right side
         if (rIndex == right.length) while (lIndex < left.length)        array[i++] = left[lIndex++];  // drain the left side
@@ -145,21 +250,6 @@ class Algo {
     }
 }
 
-
-
-
-
-
-// L18: Recursion (or Repetition Part 2)
-
-//     Recursion: what it is, the three components (terminating condition / base case, reduction step, recursive call)
-//     Recursion: Writing recursive methods
-
-
-
-
-//     Recursion tracing with call stack
-//     StackOverflowError and when it could happen
 
 
 
@@ -236,30 +326,6 @@ class Person extends Animal implements Visible, Speakable, Comparable<Person> {
 
 
 
-
-//     Generics and parameterized types
-//     Arrays.sort
-//     L13: Algorithms
-
-//     General knowledge of big-O notation for runtime
-//     Growth rate for common big-O notation (the ones covered in the course)
-//     Big-O runtime (best case and worst case), growth rate, and searching/sorting behavior of the following:
-
-
-//     linear search
-//     binary search
-
-//     selection sort
-//     insertion sort
-//     merge sort
-//     Completing code (through fill-in-the-blank or multiple choice) for:
-//     linear/binary search
-//     selection/insertion sort
-//     Writing code
-//     linear search
-//     You will NOT be required to code for binary search or any sorting algorithm completely from scratch
-//     Notable advantages and/or inefficiencies of each algorithm
-//     Identifying big-O runtime and growth rate of example scenarios/code
 
 
 
@@ -497,20 +563,6 @@ L16: File I/O
     Writing with PrintWriter
     Delimited files
     Tracing behavior of code that uses file I/O
-
-
-L17: Lists (and more Generics)
-
-    Lists and the List Interface
-    Generic Classes: everything in 'Basics of Writing Generic Classes'
-    Array List: what it is / how it behaves, creating (Java's), using (Java's)
-    Linked List: what it is / how it behaves, creating (Java's), using (Java's)
-    Linked List: Coding a Linked List using Generics
-    Coding of a Node as a private inner class
-    Coding of a LinkedList (HW9)
-    We may also ask you to code methods that weren't present in HW9 to test your understanding of reading and manipulating the node structure
-    Linked Lists vs. Array Lists
-    (Private) Inner Classes
 
 
 
